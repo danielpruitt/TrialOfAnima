@@ -33,12 +33,9 @@ class Nav extends Component {
           <li className="nav-item active">
             <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/books">Books</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/users">Users</a>
-          </li>
+          {/* <li className="nav-item">
+            <a className="nav-link" href="/users">Game</a>
+          </li> */}
         </ul>
         <span className="navbar-text">
           <a className="nav-link" href="/logout">Logout</a>
