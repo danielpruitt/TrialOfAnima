@@ -57,27 +57,27 @@ class Login extends Component {
   render() {
     return (
       <Container fluid>
-        <form className="form-signin">
-          <h1 className="h4 mb-3 font-weight-normal">Please login</h1>
-          <label htmlFor="username" className="sr-only">email</label>
+        <form className="form-signin uk-fieldset">
+          <h1 className="">Please login</h1>
+          <label htmlFor="username" className="">Email</label>
           <Input
             value={this.state.email}
             onChange={this.handleInputChange}
             onFocus={this.handleFocus}
             name="email"
             placeholder="Email (required)"
-            className="form-control"
+            className="uk-input"
             required=""
             autoFocus={true}
           />
-          <label htmlFor="password" className="sr-only">Password</label>
+          <label htmlFor="password" className="">Password</label>
           <Input
             value={this.state.password}
             onChange={this.handleInputChange}
             name="password"
             type="password"
             placeholder="Password (required)"
-            className="form-control"
+            className="uk-input"
             required=""
           />
           <div className="checkbox mb-3">
@@ -92,7 +92,7 @@ class Login extends Component {
             <button
               disabled={!(this.state.email && this.state.password && this.state.password.length >= 6)}
               onClick={this.handleLogin}
-              className="btn btn-lg btn-primary btn-block"
+              className="uk-button uk-button-default"
             >
               Login
             </button>
