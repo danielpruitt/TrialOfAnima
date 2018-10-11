@@ -2,13 +2,15 @@
     {
         "id": 1,
         "name": "Goblin",
-        "hp": 10,
-        "att": 2
+        "hp": 150,
+        "att": 30,
+        "criticalAtt": 40
     },
     {
         "id": 2,
         "name": "Orc",
-        "hp": 15,
-        "att": 4
+        "hp": 150,
+        "att": 30,
+        "criticalAtt": 40
     }
 ]
