@@ -77,8 +77,9 @@ class SignUp extends Component {
   render() {
     return (
       <Container fluid>
-        <form className="form-signin">
-          <h1 className="h4 mb-3 font-weight-normal">Please sign up</h1>
+      <br />
+        <form className="form-signin bg-dark rounded">
+          <h1 className="h4 mb-3 font-weight-normal text-light">Please sign up</h1>
           <label htmlFor="username" className="sr-only">Name</label>
           <Input
             value={this.state.name}
@@ -107,7 +108,7 @@ class SignUp extends Component {
             onChange={this.handleInputChange}
             name="password"
             type="password"
-            placeholder="Password (required)"
+            placeholder="Password (at least 8 characters)"
             className="form-control"
             required=""
           />
@@ -122,7 +123,7 @@ class SignUp extends Component {
           >
             <option value="" disabled>Select role</option>
             <option value="instructor">Instructor</option>
-            <option value="student">Student</option>
+            <option value="player">Player</option>
           </select>
           <div className="checkbox mb-3 text-danger">
             {this.state.errorMessage}

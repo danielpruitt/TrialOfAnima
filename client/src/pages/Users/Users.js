@@ -34,7 +34,7 @@ class Users extends Component {
       enemyName: Enemies[0].name,
       enemyAtt: Enemies[0].att
     });
-  }
+  } 
 
   handleArrow = event => {
     event.preventDefault();
