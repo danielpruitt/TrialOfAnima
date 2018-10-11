@@ -1,40 +1,43 @@
 import React, { Component } from "react";
-import DeleteBtn from "../../components/DeleteBtn";
-import Jumbotron from "../../components/Jumbotron";
-import API from "../../utils/API";
-import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
-import { Input, FormBtn } from "../../components/Form";
 import "./Users.css";
 import Player from "../../components/Player/Player";
 import Enemy from "../../components/Enemy/Enemy";
 import Enemies from "./enemies.json";
 import Arrow from "../../components/Arrow/Arrow";
+import Locations from "./locations.json";
 
 class Users extends Component {
   state = {
-    playerHp: 20,
-    playerAtt: 5,
+    playerHp: 100,
+    playerAtt: 40,
+    playerSuperAtt: 60,
+    playerDef: 25,
     enemyHp: 0,
     enemyName: "",
     enemyAtt: 0,
+    enemyCriticalAtt: 0,
     message: "",
     arrow: "hide",
-    enemyHide: ""
+    enemyHide: "",
+    location_id: 0,
+    next_location: ""
   };
 
   roll = (min, max) => {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
-  componentDidMount(){
+  componentDidMount() {
+    let usedEnemiesArr = [];
+    let randEnemy = Math.floor(Math.random() * Enemies.length); 
+    usedEnemiesArr.push(randEnemy);
     this.setState({
-      enemyHp: Enemies[0].hp,
-      enemyName: Enemies[0].name,
-      enemyAtt: Enemies[0].att
+      enemyHp: Enemies[randEnemy].hp,
+      enemyName: Enemies[randEnemy].name,
+      enemyAtt: Enemies[randEnemy].att,
+      enemyCriticalAtt: Enemies[randEnemy].criticalAtt
     });
-  } 
+  }
 
   handleArrow = event => {
     event.preventDefault();
@@ -48,41 +51,160 @@ class Users extends Component {
     });
   }
 
-  handleBattle = event => {
+  // BEGIN REACT ATTACK FUNCTIONS =======================================================================================
+  handleAttack = event => {
     event.preventDefault();
 
-    let newHp = this.state.playerHp - this.state.enemyAtt;
-    let newEnemyHp = this.state.enemyHp - Math.round(this.roll(this.state.playerAtt/2, this.state.playerAtt));
+      // PLAYER ATTACKS ENEMY FUNCTION
+      let playerAttackFunction = () => {
 
-    if(newEnemyHp <= 0){
+        let attackChoice = Math.random();
+        console.log(attackChoice);
 
-      this.setState({
-        message: "You win!",
-        arrow: "",
-        enemyHide: "hide"
-      });
-      console.log(this.state.enemyHp);
+          if (attackChoice <= .66) {
+
+        // STANDARD ATTACK
+        let playerStandardAttackDmgDealt = Math.round(this.roll(this.state.playerAtt/2, this.state.playerAtt));
+        console.log("You Dealt " + playerStandardAttackDmgDealt + " points of damage to the enemy!")
+        adjustEnemyHp(playerStandardAttackDmgDealt);
+        
+          } else {
+
+        // CRITICAL ATTACK
+        let playerCriticalAttackDmgDealt = Math.round(this.roll(this.state.playerSuperAtt/2, this.state.playerSuperAtt));
+        console.log("You Dealt a CRITICAL HIT with " + playerCriticalAttackDmgDealt + " points of damage to the enemy!")
+        adjustEnemyHp(playerCriticalAttackDmgDealt);
+          }
+      }
+
+      // ADJUST THE ENEMY HP AFTER THEY ARE ATTACKED FUNCTION
+      let adjustEnemyHp = (playerAttackDmgDealt) => {
+        let newEnemyHp = this.state.enemyHp - playerAttackDmgDealt;
+        console.log("Enemy HP after attack " + newEnemyHp);
+        this.setState({
+          enemyHp: newEnemyHp
+        }, () => updateGameStateOnVictory(newEnemyHp));
+
+      }
+        
+        console.log("BEFORE IF STATEMENT EXECUTING " + this.state.enemyHp);
+
+        let updateGameStateOnVictory = (newEnemyHp) => {
+        if (newEnemyHp <= 0) {
+          console.log("IF STATEMENT EXECUTING");
+
+          //PREPARE FOR WINNING UPDATE AND LOCATION CHANGE
+          let newLocation = this.state.location_id + 1;
+          let location_name = Locations[newLocation].name;
+          console.log(location_name);
+          this.setState({
+            message: "You win!",
+            arrow: "",
+            enemyHide: "hide",
+            location: newLocation,
+            next_location: location_name
+          }, () => console.log("NEXT ROUND FIGHT!"));
+        }
+      }
+      
+    
+      // ENEMY ATTACKS PLAYER FUNCTION
+      let enemyDamagesPlayer = () => {
+
+        let attackChoice = Math.random();
+        console.log(attackChoice);
+
+          if (attackChoice <= .66) {
+        
+        //STANDARD ATTACK
+        let enemyStandardAttackedFor = Math.round(this.roll(this.state.enemyAtt/2, this.state.enemyAtt));
+        adjustPlayerHp(enemyStandardAttackedFor);
+          
+
+      } else {
+
+        //SUPER ATTACK
+        let enemySuperAttackedFor = Math.round(this.roll(this.state.enemyCriticalAtt/2, this.state.enemyCriticalAtt));
+        console.log("Enemy hit you with a SUPER!");
+        adjustPlayerHp(enemySuperAttackedFor);
+      }
+      };
+    
+  
+      // ADJUST PLAYER HP AFTER BEING ATTACKED FUNCTION
+      let adjustPlayerHp = (incomingDamage) => {
+        console.log("The enemy damaged you " + incomingDamage + " points!");
+        console.log("=================================================");
+        let newHp = this.state.playerHp - incomingDamage;
+        console.log("Players HP after attack " + newHp);
+        this.setState({
+          playerHp: newHp
+        }, () => updateGameStateOnDefeat(newHp));
+      }
+
+        console.log("The playerHP STATE is set to " + this.state.playerHp);
+      
+      let updateGameStateOnDefeat = (newHp) => {
+        if (newHp <= 0) {
+        this.setState({
+          message: "You LOSE GAME OVER!",
+          arrow: "",
+          enemyHide: "hide"
+        });
+      }
+    }   
+
+
+    playerAttackFunction();
+    setTimeout(enemyDamagesPlayer, 1000);
+    
+}    
+    
+  // BEGIN DEFENSE REACT FUNCTIONS =========================================================================================
+  handleDefense = event => {
+    event.preventDefault();
+
+    // PLAYER CHOOSES TO DEFEND -- ENEMY TAKES NO DAMAGE
+    let playerDefenseFunction = () => {
+    let damageDeflected = this.state.enemyAtt - Math.round(this.roll(this.state.playerDef/2, this.state.playerDef));
+    console.log("Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!");
+    adjustPlayerHp(damageDeflected);
     }
-    else{
-      this.setState({
-        message: "",
-        playerHp: newHp,
-        enemyHp: newEnemyHp
-      })
-    }
+
+    // ADJUST PLAYER HP AFTER DEFENDING FUNCTION
+    let adjustPlayerHp = (damageDeflected) => {
+    let newHp = this.state.playerHp - damageDeflected;
+    this.setState({
+      playerHp: newHp
+    })
+
+      if(this.state.playerHp <= 0) {
+        this.setState({
+          message: "You LOSE GAME OVER!",
+          arrow: "",
+          enemyHide: "hide"
+        }, () => console.log("GAME OVER LOG"));
+      }   
   }
+
+playerDefenseFunction();
+
+}
+
+
 
   render() {
     return (
       <div className="App">
-        <Player onClick={this.handleBattle}>This is a button. Click it to attack</Player>
+        <Player onClick={this.handleAttack}>Click to attack</Player>
+        <Player onClick={this.handleDefense}>Click to defend</Player>
         <Enemy>Enemy</Enemy>
 
         <div>You have HP: {this.state.playerHp}</div>
         <div className={this.state.enemyHide}>{this.state.enemyName} has HP: {this.state.enemyHp}</div>
         <div>{this.state.message}</div>
 
-        <Arrow className={this.state.arrow} onClick={this.handleArrow}>To forest</Arrow>
+        <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
       </div>
     );
   }
