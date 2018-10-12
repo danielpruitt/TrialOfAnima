@@ -5,6 +5,8 @@ import Enemy from "../../components/Enemy/Enemy";
 import Enemies from "./enemies.json";
 import Arrow from "../../components/Arrow/Arrow";
 import Locations from "./locations.json";
+import Characters from "./characters.json";
+import CharacterSelect from "../../components/CharacterSelect/CharacterSelect";
 
 class Users extends Component {
   state = {
@@ -18,7 +20,9 @@ class Users extends Component {
     enemyCriticalAtt: 0,
     message: "",
     arrow: "hide",
+    charHide: "",
     enemyHide: "",
+    combatHide: "hide",
     location_id: 0,
     next_location: ""
   };
@@ -199,19 +203,52 @@ class Users extends Component {
   }
 
 
+  ///CHARACTER SELECT FUNCTION to add to state
+  handleCharacterState = event => {
+
+    this.setState({
+      playerHp: event.target.getAttribute("hp"),
+      playerAtt: event.target.getAttribute("att"),
+      playerDef: event.target.getAttribute("def"),
+      playerSuperAtt: event.target.getAttribute("superatt")
+    });
+
+  }
+
+  ///CHARACTER SELECT FUNCTION to start combat
+  startCombat = () => {
+    this.setState({
+      charHide: "hide",
+      combatHide: ""
+    });
+  }
+
 
   render() {
     return (
       <div className="App">
-        <Player onClick={this.handleAttack}>Click to attack</Player>
-        <Player onClick={this.handleDefense}>Click to defend</Player>
-        <Enemy>Enemy</Enemy>
 
-        <div>You have HP: {this.state.playerHp}</div>
-        <div className={this.state.enemyHide}>{this.state.enemyName} has HP: {this.state.enemyHp}</div>
-        <div>{this.state.message}</div>
+        <div className={this.state.charHide}>
+          {Characters.map(characters => {
+            return (<CharacterSelect onClick={this.handleCharacterState} key={characters.id} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt}>{characters.name}</CharacterSelect>)
+          })}
 
-        <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
+          <button onClick={this.startCombat}>Embark!</button>
+        </div>
+
+
+        <div className={this.state.combatHide}>
+          <Player onClick={this.handleAttack}>Click to attack</Player>
+          <Player onClick={this.handleDefense}>Click to defend</Player>
+          <Enemy>Enemy</Enemy>
+
+          <div>You have HP: {this.state.playerHp}</div>
+          <div className={this.state.enemyHide}>{this.state.enemyName} has HP: {this.state.enemyHp}</div>
+          <div>{this.state.message}</div>
+
+          <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
+        </div>
+
       </div>
     );
   }
