@@ -25,6 +25,9 @@ class Users extends Component {
     enemyHide: "",
     combatHide: "hide",
     cardHide: "hide",
+    startBtnHide: "hide",
+    startCombat: "hide",
+    cardBtnHide: "hide",
     location_id: 0,
     next_location: ""
   };
@@ -212,7 +215,8 @@ class Users extends Component {
       playerHp: event.target.getAttribute("hp"),
       playerAtt: event.target.getAttribute("att"),
       playerDef: event.target.getAttribute("def"),
-      playerSuperAtt: event.target.getAttribute("superatt")
+      playerSuperAtt: event.target.getAttribute("superatt"),
+      startBtnHide: ""
     });
 
   }
@@ -221,7 +225,16 @@ class Users extends Component {
   startAdventure = () => {
     this.setState({
       charHide: "hide",
-      cardHide: ""
+      cardHide: "",
+      cardBtnHide: ""
+    });
+  }
+
+  ///START COMBAT FUNCTION 
+  startCombat = () => {
+    this.setState({
+      cardHide: "hide",
+      combatHide: ""
     });
   }
 
@@ -235,7 +248,7 @@ class Users extends Component {
             return (<CharacterSelect onClick={this.handleCharacterState} key={characters.id} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt}>{characters.name}</CharacterSelect>)
           })}
 
-          <button onClick={this.startAdventure}>Embark!</button>
+          <button className={this.state.startBtnHide} onClick={this.startAdventure}>Embark!</button>
         </div>
 
 
@@ -254,6 +267,8 @@ class Users extends Component {
         <div className={this.state.card}>
         
         <Card className={this.state.cardHide}>TEXT GOES HERE</Card>
+
+        <button className={this.state.cardBtnHide} onClick={this.startCombat}>Start combat</button>
         
         </div>
 
