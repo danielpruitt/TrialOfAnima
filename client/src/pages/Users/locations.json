@@ -1,26 +1,43 @@
 [
     {
         "id": 1,
-        "name": "Lost Forest"
+        "name": "Lost Forest",
+        "story": "The shrouds of fog were heavy in the deep dark wood"
     
     },
     {
         "id": 2,
-        "name": "Valley of Despair"
+        "name": "Valley of Despair",
+        "story": "The light grew dim as the mountains eclipsed the sun"
+
 
     },
     {
         "id": 3,
-        "name": "Mount Doom"
+        "name": "Mount Doom",
+        "story": "Damnit Frodo, don't lose the ring"
 
     }, {
         "id": 4,
-        "name": "Canyon of Pain"
+        "name": "Canyon of Screams",
+        "story": "The sounds of a large enemy nearby"
 
     }
     , {
         "id": 5,
-        "name": "The Abyss"
+        "name": "The Abyss",
+        "story": "You face the ultimate enemy"
 
+    },
+    {
+        "id": 6,
+        "name": "CONGRATULATIONS YOU WIN!"
+        
+    },
+    {
+        "id": 7,
+        "name": "GAME OVER SCREEN",
+        "story": "YOU WERE DEFEATED. TRY AGAIN"
+        
     }
 ]
