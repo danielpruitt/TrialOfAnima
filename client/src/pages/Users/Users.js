@@ -7,6 +7,7 @@ import Arrow from "../../components/Arrow/Arrow";
 import Locations from "./locations.json";
 import Characters from "./characters.json";
 import CharacterSelect from "../../components/CharacterSelect/CharacterSelect";
+import Card from "../../components/Card/Card";
 
 class Users extends Component {
   state = {
@@ -23,6 +24,7 @@ class Users extends Component {
     charHide: "",
     enemyHide: "",
     combatHide: "hide",
+    cardHide: "hide",
     location_id: 0,
     next_location: ""
   };
@@ -216,10 +218,10 @@ class Users extends Component {
   }
 
   ///CHARACTER SELECT FUNCTION to start combat
-  startCombat = () => {
+  startAdventure = () => {
     this.setState({
       charHide: "hide",
-      combatHide: ""
+      cardHide: ""
     });
   }
 
@@ -233,7 +235,7 @@ class Users extends Component {
             return (<CharacterSelect onClick={this.handleCharacterState} key={characters.id} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt}>{characters.name}</CharacterSelect>)
           })}
 
-          <button onClick={this.startCombat}>Embark!</button>
+          <button onClick={this.startAdventure}>Embark!</button>
         </div>
 
 
@@ -247,6 +249,12 @@ class Users extends Component {
           <div>{this.state.message}</div>
 
           <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
+        </div>
+
+        <div className={this.state.card}>
+        
+        <Card className={this.state.cardHide}>TEXT GOES HERE</Card>
+        
         </div>
 
       </div>
