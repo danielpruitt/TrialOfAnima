@@ -1,7 +1,10 @@
 #card{
     background-color:white;
     margin: 50px;
-    height: 600px;
-    width: 800px;
+    /* height: 600px;
+    width: 800px; */
     color: black;
+    /* display: flex; */
+    justify-content: center;
+    text-align: center;
 }

@@ -68,6 +68,8 @@ const styles = theme => ({
     imageTitle: {
         position: 'relative',
         padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 4}px ${theme.spacing.unit + 6}px`,
+        fontFamily: "'Almendra SC', serif",
+        fontSize: "48px"
     },
     imageMarked: {
         height: 3,

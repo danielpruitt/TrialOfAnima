@@ -8,6 +8,9 @@ import Locations from "./locations.json";
 import Characters from "./characters.json";
 import CharacterSelect from "../../components/CharacterSelect/CharacterSelect";
 import Card from "../../components/Card/Card";
+import UICard from "../../components/UICard";
+import { Col, Row, Container } from "../../components/Grid";
+
 
 class Users extends Component {
   state = {
@@ -17,10 +20,13 @@ class Users extends Component {
     playerAtt: 40,
     playerSuperAtt: 60,
     playerDef: 25,
+    playerName: "",
+    playerImage: "",
     enemyHp: 0,
     enemyName: "",
     enemyAtt: 0,
     enemyCriticalAtt: 0,
+    enemyImage: "",
     message: "",
     arrow: "hide",
     enemySelector: 0,
@@ -51,6 +57,7 @@ class Users extends Component {
       enemyName: Enemies[this.state.enemySelector].name,
       enemyAtt: Enemies[this.state.enemySelector].att,
       enemyCriticalAtt: Enemies[this.state.enemySelector].criticalAtt,
+      enemyImage: Enemies[this.state.enemySelector].image,
       current_location: currentLocationName
     });
   }
@@ -107,6 +114,7 @@ class Users extends Component {
             cardBtnHide: "hide",
             storyHide: "hide",
             message: "CONGRATULATIONS ON YOUR VICTORY"
+            
           }, () => console.log("THANKS FOR PLAYING"));
 
         } else if (this.state.location_id === 3) {
@@ -235,6 +243,8 @@ class Users extends Component {
       playerAtt: event.target.getAttribute("att"),
       playerDef: event.target.getAttribute("def"),
       playerSuperAtt: event.target.getAttribute("superatt"),
+      playerImage: event.target.getAttribute("image"),
+      playerName: event.target.getAttribute("name"),
       playerClass: event.target.getAttribute("name"),
       startBtnHide: ""
     }, () => localStorage.setItem("PlayerClass", this.state.playerClass));
@@ -264,6 +274,7 @@ class Users extends Component {
       enemyName: Enemies[this.state.enemySelector].name,
       enemyAtt: Enemies[this.state.enemySelector].att,
       enemyCriticalAtt: Enemies[this.state.enemySelector].criticalAtt,
+      enemyImage: Enemies[this.state.enemySelector].image,
       current_location: location_name
     }, () => console.log("START COMBAT"));
   }
@@ -271,20 +282,82 @@ class Users extends Component {
 
   render() {
     return (
+
       <div className="App">
 
         <div className={this.state.charHide}>
           {Characters.map(characters => {
-            return (<CharacterSelect onClick={this.handleCharacterState} key={characters.id} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} name={characters.name}>{characters.name}</CharacterSelect>)
+            return (<CharacterSelect onClick={this.handleCharacterState} key={characters.id} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}>{characters.name}</CharacterSelect>)
           })}
 
           <button className={this.state.startBtnHide} onClick={this.startAdventure}>Embark!</button>
         </div>
 
+        <Container>
 
-        <div className={this.state.combatHide}>
-          <Player onClick={this.handleAttack}>Click to attack</Player>
-          <Player onClick={this.handleDefense}>Click to defend</Player>
+        <div className={this.state.card}>
+        
+          <Card className={this.state.cardHide}>
+
+            <h3 className="locationTitle">{this.state.current_location}</h3>
+
+            <div className={`${this.state.storyHide} typewriter`}>
+              
+              {Locations[this.state.location_id].story}
+
+              {/* <h3 className={this.state.currentLocalHide}>{this.state.current_location}</h3><br></br> */}
+              {/* <div className={this.state.storyHide}>{Locations[this.state.location_id].story}</div> */}
+
+            </div>
+            
+            {/* <div className={`${this.state.currentLocalHide} typewriter`}>{this.state.current_location}</div><br></br>
+            <div className={`${this.state.storyHide} typewriter`}>{Locations[this.state.location_id].story}</div> */}
+
+          </Card>
+
+        <button className={this.state.cardBtnHide} onClick={this.startCombat}>Start combat</button>
+        
+        </div>
+          
+
+            <div className={`${this.state.combatHide} row`}>
+            
+            <Col size="4" className={this.state.combatHide}>
+              <UICard
+                name = {this.state.playerName}
+                image = {this.state.playerImage}
+                hp = {this.state.playerHp}
+                styleClass= "player"
+              />
+            </Col>
+
+            <Col size="4" className={this.state.combatHide}>
+              <div className="textCard">
+                <Player onClick={this.handleAttack} action="ATTACK!">Click to attack</Player>
+                <Player onClick={this.handleDefense} action="DEFEND!">Click to defend</Player>
+                <div>{this.state.playerName} has HP: {this.state.playerHp}</div>
+                <div className={this.state.enemyHide}>{this.state.enemyName} has HP: {this.state.enemyHp}</div>
+                <div>{this.state.message}</div>
+                <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
+              </div>
+            </Col>
+
+            <Col size="4" className={this.state.combatHide}>
+              <UICard
+                name = {this.state.enemyName}
+                image = {this.state.enemyImage}
+                hp = {this.state.enemyHp}
+                styleClass = "enemy"
+              />
+            </Col>
+            
+          </div>
+
+        </Container>
+
+        {/* <div className={this.state.combatHide}>
+          <Player onClick={this.handleAttack} action="ATTACK!">Click to attack</Player>
+          <Player onClick={this.handleDefense} action="DEFEND!">Click to defend</Player>
           <Enemy>Enemy</Enemy>
 
           <div>You have HP: {this.state.playerHp}</div>
@@ -304,7 +377,7 @@ class Users extends Component {
 
         <button className={this.state.cardBtnHide} onClick={this.startCombat}>Start combat</button>
         
-        </div>
+        </div> */}
 
       </div>
     );
@@ -312,5 +385,3 @@ class Users extends Component {
 }
 
 export default Users;
-
-
