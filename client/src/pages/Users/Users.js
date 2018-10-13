@@ -12,6 +12,7 @@ import Card from "../../components/Card/Card";
 class Users extends Component {
   state = {
     //COMBAT STATE COMPONENTS
+    playerClass: "",
     playerHp: 140,
     playerAtt: 40,
     playerSuperAtt: 60,
@@ -107,6 +108,20 @@ class Users extends Component {
             storyHide: "hide",
             message: "CONGRATULATIONS ON YOUR VICTORY"
           }, () => console.log("THANKS FOR PLAYING"));
+
+        } else if (this.state.location_id === 3) {
+
+            console.log(localStorage.getItem("PlayerClass"));
+              
+            this.setState({
+              combatHide: "hide",
+              cardHide: "",
+              cardBtnHide: "",
+              location_id: newLocation,
+              current_location: location_name,
+              enemySelector: newEnemySelected
+            }, () => console.log("Traveling to next location!"));
+
         } else {
         this.setState({
           combatHide: "hide",
@@ -220,8 +235,9 @@ class Users extends Component {
       playerAtt: event.target.getAttribute("att"),
       playerDef: event.target.getAttribute("def"),
       playerSuperAtt: event.target.getAttribute("superatt"),
+      playerClass: event.target.getAttribute("name"),
       startBtnHide: ""
-    });
+    }, () => localStorage.setItem("PlayerClass", this.state.playerClass));
 
   }
 
@@ -231,7 +247,7 @@ class Users extends Component {
       charHide: "hide",
       cardHide: "",
       cardBtnHide: ""
-    }, () => console.log("START ADVENTURE"));
+    }, () => console.log("START ADVENTURE" + this.state.playerClass));
   }
 
   ///START COMBAT FUNCTION 
@@ -259,7 +275,7 @@ class Users extends Component {
 
         <div className={this.state.charHide}>
           {Characters.map(characters => {
-            return (<CharacterSelect onClick={this.handleCharacterState} key={characters.id} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt}>{characters.name}</CharacterSelect>)
+            return (<CharacterSelect onClick={this.handleCharacterState} key={characters.id} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} name={characters.name}>{characters.name}</CharacterSelect>)
           })}
 
           <button className={this.state.startBtnHide} onClick={this.startAdventure}>Embark!</button>
