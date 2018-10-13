@@ -8,6 +8,8 @@ import Locations from "./locations.json";
 import Characters from "./characters.json";
 import CharacterSelect from "../../components/CharacterSelect/CharacterSelect";
 import Card from "../../components/Card/Card";
+import Button from '@material-ui/core/Button';
+
 
 class Users extends Component {
   state = {
@@ -93,7 +95,7 @@ class Users extends Component {
     // PREPARE FOR WINNING UPDATE AND LOCATION CHANGE
     let updateGameStateOnVictory = (newEnemyHp) => {
       if (newEnemyHp <= 0) {
-        
+
         let newLocation = this.state.location_id + 1;
         let location_name = Locations[newLocation].name;
         let newEnemySelected = this.state.enemySelector + 1
@@ -108,17 +110,17 @@ class Users extends Component {
             message: "CONGRATULATIONS ON YOUR VICTORY"
           }, () => console.log("THANKS FOR PLAYING"));
         } else {
-        this.setState({
-          combatHide: "hide",
-          cardHide: "",
-          cardBtnHide: "",
-          location_id: newLocation,
-          current_location: location_name,
-          enemySelector: newEnemySelected
-        }, () => console.log("Traveling to next location!"));
+          this.setState({
+            combatHide: "hide",
+            cardHide: "",
+            cardBtnHide: "",
+            location_id: newLocation,
+            current_location: location_name,
+            enemySelector: newEnemySelected
+          }, () => console.log("Traveling to next location!"));
+        }
       }
     }
-  }
 
     // ENEMY ATTACKS PLAYER FUNCTION
     let enemyDamagesPlayer = () => {
@@ -236,14 +238,14 @@ class Users extends Component {
 
   ///START COMBAT FUNCTION 
   startCombat = () => {
-        let newLocation = this.state.location_id + 1;
-        let location_name = Locations[newLocation].name;
-        
+    let newLocation = this.state.location_id + 1;
+    let location_name = Locations[newLocation].name;
+
     this.setState({
       cardHide: "hide",
       combatHide: "",
       cardBtnHide: "hide",
-      playerHp: 100, 
+      playerHp: 100,
       enemyHp: Enemies[this.state.enemySelector].hp,
       enemyName: Enemies[this.state.enemySelector].name,
       enemyAtt: Enemies[this.state.enemySelector].att,
@@ -262,7 +264,8 @@ class Users extends Component {
             return (<CharacterSelect onClick={this.handleCharacterState} key={characters.id} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt}>{characters.name}</CharacterSelect>)
           })}
 
-          <button className={this.state.startBtnHide} onClick={this.startAdventure}>Embark!</button>
+          <Button className={this.state.startBtnHide} variant="contained" size="large" color="primary" onClick={this.startAdventure}>Embark! </Button>
+          {/* <button className={this.state.startBtnHide + "btn"} onClick={this.startAdventure}>Embark!</button> */}
         </div>
 
 
@@ -279,22 +282,21 @@ class Users extends Component {
         </div>
 
         <div className={this.state.card}>
-        
-        <Card className={this.state.cardHide}>
-          <div className={this.state.currentLocalHide}>{this.state.current_location}</div><br></br>
-          <div className={this.state.storyHide}>{Locations[this.state.location_id].story}</div>
 
-        </Card>
+          <Card className={this.state.cardHide}>
+            <div className={this.state.currentLocalHide}>{this.state.current_location}</div><br></br>
+            <div className={this.state.storyHide + 'typewriter'} >{Locations[this.state.location_id].story}</div>
 
-        <button className={this.state.cardBtnHide} onClick={this.startCombat}>Start combat</button>
-        
+          </Card>
+          {/* <button className={this.state.cardBtnHide + "btn "} onClick={this.startCombat}>Start combat</button> */}
+          <Button className={this.state.cardBtnHide} variant="contained" size="large" color="primary" onClick={this.startCombat}>Start combat</Button>
         </div>
-
+  
       </div>
-    );
-  }
-}
-
-export default Users;
-
-
+        );
+      }
+    }
+    
+    export default Users;
+    
+    
