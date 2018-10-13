@@ -26,12 +26,16 @@
     , {
         "id": 5,
         "name": "The Abyss",
-        "story": "You face the ultimate enemy"
+        "story": "You face the ultimate enemy",
+        "dark_mage_image": "mage image here",
+        "dark_warrior_image": "warrior image here",
+        "dark_rogue_image": "rouge image here"
 
     },
     {
         "id": 6,
-        "name": "CONGRATULATIONS YOU WIN!"
+        "name": "CONGRATULATIONS YOU WIN!",
+        "story": ""
         
     },
     {

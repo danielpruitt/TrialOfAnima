@@ -1,31 +1,10 @@
 #card{
     background-color:#7d9f55;
     margin: 50px;
-    text-align: center;
+    /* height: 600px;
+    width: 800px; */
+    color: black;
+    /* display: flex; */
     justify-content: center;
-    color: rgb(32, 32, 32);
-}
-
-/* typewriter effect */
-.typewriter  {
-    overflow: hidden; /* Ensures the content is not revealed until the animation */
-    border-right: .15em solid orange; /* The typwriter cursor */
-    white-space: pre; /* Keeps the content on a single line */
-    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-    letter-spacing: .15em; /* Adjust as needed */
-    animation: 
-    typing 6.5s steps(40, end),
-    blink-caret .75s step-end infinite;
-}
-
-  /* The typing effect */
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-}
-
-  /* The typewriter cursor effect */
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: orange; }
+    text-align: center;
 }

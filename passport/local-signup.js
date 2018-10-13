@@ -13,7 +13,8 @@ module.exports = new PassportLocalStrategy({
   const userData = {
     email: email.trim(),
     password: password.trim(),
-    name: req.body.name.trim()
+    name: req.body.name.trim(),
+    numberOfClears: 0
   };
 
   // db.User
@@ -28,3 +29,5 @@ module.exports = new PassportLocalStrategy({
     return done(null);
   });
 });
+
+
