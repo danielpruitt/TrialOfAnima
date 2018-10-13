@@ -15,6 +15,7 @@ import { Col, Row, Container } from "../../components/Grid";
 class Users extends Component {
   state = {
     //COMBAT STATE COMPONENTS
+    playerClass: "",
     playerHp: 140,
     playerAtt: 40,
     playerSuperAtt: 60,
@@ -115,6 +116,20 @@ class Users extends Component {
             message: "CONGRATULATIONS ON YOUR VICTORY"
             
           }, () => console.log("THANKS FOR PLAYING"));
+
+        } else if (this.state.location_id === 3) {
+
+            console.log(localStorage.getItem("PlayerClass"));
+              
+            this.setState({
+              combatHide: "hide",
+              cardHide: "",
+              cardBtnHide: "",
+              location_id: newLocation,
+              current_location: location_name,
+              enemySelector: newEnemySelected
+            }, () => console.log("Traveling to next location!"));
+
         } else {
         this.setState({
           combatHide: "hide",
@@ -230,8 +245,9 @@ class Users extends Component {
       playerSuperAtt: event.target.getAttribute("superatt"),
       playerImage: event.target.getAttribute("image"),
       playerName: event.target.getAttribute("name"),
+      playerClass: event.target.getAttribute("name"),
       startBtnHide: ""
-    });
+    }, () => localStorage.setItem("PlayerClass", this.state.playerClass));
 
   }
 
@@ -241,7 +257,7 @@ class Users extends Component {
       charHide: "hide",
       cardHide: "",
       cardBtnHide: ""
-    }, () => console.log("START ADVENTURE"));
+    }, () => console.log("START ADVENTURE" + this.state.playerClass));
   }
 
   ///START COMBAT FUNCTION 
