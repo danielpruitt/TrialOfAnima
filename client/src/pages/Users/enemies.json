@@ -5,7 +5,7 @@
         "hp": 150,
         "att": 30,
         "criticalAtt": 40,
-        "img": "/Images/Skeleton_Enemy_transp.png"
+        "image": "./Images/Skeleton_Enemy_transp.png"
     },
     {
         "id": 2,
@@ -13,7 +13,7 @@
         "hp": 150,
         "att": 30,
         "criticalAtt": 40,
-        "img": "/Images/sample_enemy.png"
+        "image": "./Images/sample_enemy.png"
     },
     {
         "id": 3,
@@ -21,7 +21,7 @@
         "hp": 150,
         "att": 30,
         "criticalAtt": 40,
-        "img": "/Images/Skeleton_Enemy_transp.png"
+        "image": "./Images/Skeleton_Enemy_transp.png"
     },
     {
         "id": 4,
@@ -29,7 +29,7 @@
         "hp": 150,
         "att": 30,
         "criticalAtt": 40,
-        "img": "/Images/sample_enemy.png"
+        "image": "./Images/sample_enemy.png"
     },
     {
         "id": 5,
@@ -37,7 +37,7 @@
         "hp": 150,
         "att": 30,
         "criticalAtt": 40,
-        "img": "/Images/Rogue.jpg"
+        "image": "./Images/Rogue.jpg"
 
     }
     
