@@ -19,7 +19,7 @@ class Login extends Component {
   authenticate = () => {
     const userData = {
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
     };
 
     API.authenticateUser(userData)
@@ -49,6 +49,7 @@ class Login extends Component {
     event.preventDefault();
     if (this.state.email && this.state.password && this.state.password.length >= 6) {
       this.authenticate();
+      localStorage.setItem("Player", this.state.email);
     } else {
       this.setState({ errorMessage: "Please enter valid username and password to sign in." })
     }
