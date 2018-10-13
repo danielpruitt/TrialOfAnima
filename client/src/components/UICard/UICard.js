@@ -12,12 +12,12 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = {
   card: {
-    height: 500,
-    width: 345
+    height: "500px",
+    width: "345px"
   },
   cardImg: {
-    height: 450,
-    width: 300
+    height: "450px",
+    width: "300px"
   }
 };
 
@@ -41,7 +41,7 @@ function MediaCard(props) {
     // </Card>
     <div className={props.styleClass}>
       <header className="card-header"><h1>{props.name}</h1></header>
-      <img src={props.img} alt={props.name} className="cardImg"></img>
+      <img src={props.img} alt={props.name} style={styles} className="cardImg"></img>
       <footer className="card-footer"> <h3>{props.name} has {props.hp}</h3></footer>
     </div>
   );

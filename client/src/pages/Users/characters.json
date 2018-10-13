@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Mage",
+        "image": "/Images/Mage_Class_resize.png",
+        "selected": false,
+        "hp": 80,
+        "att": 70,
+        "superAtt": 80,
+        "def": 20
+    },
+    {
+        "id": 2,
+        "name": "Rogue",
+        "image": "/Images/Rogue_Class_resize.png",
+        "selected": false,
+        "hp": 100,
+        "att": 60,
+        "superAtt": 80,
+        "def": 25
+    },
+    {
+        "id": 3,
+        "name": "Warrior",
+        "image": "/Images/Warrior_Class_resize.png",
+        "selected": false,
+        "hp": 100,
+        "att": 40,
+        "superAtt": 60,
+        "def": 25
+    }
+]

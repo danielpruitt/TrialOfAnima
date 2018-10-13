@@ -2,16 +2,43 @@
     {
         "id": 1,
         "name": "Goblin",
-        "hp": 10,
-        "att": 2,
+        "hp": 150,
+        "att": 30,
+        "criticalAtt": 40,
         "img": "/Images/Skeleton_Enemy_transp.png"
     },
     {
         "id": 2,
         "name": "Orc",
-        "hp": 15,
-        "att": 4,
+        "hp": 150,
+        "att": 30,
+        "criticalAtt": 40,
         "img": "/Images/sample_enemy.png"
+    },
+    {
+        "id": 3,
+        "name": "Wizard",
+        "hp": 150,
+        "att": 30,
+        "criticalAtt": 40,
+        "img": "/Images/Skeleton_Enemy_transp.png"
+    },
+    {
+        "id": 4,
+        "name": "Ogre",
+        "hp": 150,
+        "att": 30,
+        "criticalAtt": 40,
+        "img": "/Images/sample_enemy.png"
+    },
+    {
+        "id": 5,
+        "name": "FINAL BOSS ShadowSelf",
+        "hp": 150,
+        "att": 30,
+        "criticalAtt": 40,
+        "img": "/Images/Rogue.jpg"
 
     }
+    
 ]

@@ -3,8 +3,6 @@ import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
-import { Input, FormBtn } from "../../components/Form";
 import "./Users.css";
 import Player from "../../components/Player/Player";
 import Enemy from "../../components/Enemy/Enemy";
@@ -28,7 +26,7 @@ class Users extends Component {
     enemyHide: "",
     enemyImg: "",
     charName: "Rogue",
-    charImg: "./Images/Rogue.jpg"
+    charImg: "./Images/Rogue_Class_resize.png"
   };
 
   roll = (min, max) => {
