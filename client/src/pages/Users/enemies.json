@@ -3,12 +3,15 @@
         "id": 1,
         "name": "Goblin",
         "hp": 10,
-        "att": 2
+        "att": 2,
+        "img": "/Images/Skeleton_Enemy_transp.png"
     },
     {
         "id": 2,
         "name": "Orc",
         "hp": 15,
-        "att": 4
+        "att": 4,
+        "img": "/Images/sample_enemy.png"
+
     }
 ]

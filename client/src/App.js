@@ -9,6 +9,7 @@ import Nav from "./components/Nav";
 import Login from "./pages/Login";
 import Logout from "./components/Logout";
 import SignUp from "./pages/SignUp";
+// import Images from "./Images"
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
