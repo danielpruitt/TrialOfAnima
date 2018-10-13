@@ -1,110 +1,300 @@
 import React, { Component } from "react";
-import DeleteBtn from "../../components/DeleteBtn";
-import Jumbotron from "../../components/Jumbotron";
-import API from "../../utils/API";
-import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
-import { Input, FormBtn } from "../../components/Form";
+import "./Users.css";
+import Player from "../../components/Player/Player";
+import Enemy from "../../components/Enemy/Enemy";
+import Enemies from "./enemies.json";
+import Arrow from "../../components/Arrow/Arrow";
+import Locations from "./locations.json";
+import Characters from "./characters.json";
+import CharacterSelect from "../../components/CharacterSelect/CharacterSelect";
+import Card from "../../components/Card/Card";
 
 class Users extends Component {
   state = {
-    users: [],
-    firstName: "",
-    lastName: ""
+    //COMBAT STATE COMPONENTS
+    playerHp: 140,
+    playerAtt: 40,
+    playerSuperAtt: 60,
+    playerDef: 25,
+    enemyHp: 0,
+    enemyName: "",
+    enemyAtt: 0,
+    enemyCriticalAtt: 0,
+    message: "",
+    arrow: "hide",
+    enemySelector: 0,
+    //DISPLAY STATE COMPONENTS
+    charHide: "",
+    enemyHide: "",
+    combatHide: "hide",
+    cardHide: "hide",
+    startBtnHide: "hide",
+    startCombat: "hide",
+    cardBtnHide: "hide",
+    storyHide: "",
+    gameOverId: 6,
+    location_id: 0,
+    current_location: "",
+    next_location: ""
   };
 
-  componentDidMount() {
-    // this.loadUsers();
+  roll = (min, max) => {
+    return Math.floor(Math.random() * (max - min)) + min;
   }
 
-  loadUsers = () => {
-    API.getUsers()
-      .then(res =>
-        this.setState({ users: res.data, firstName: "", lastName: ""})
-      )
-      .catch(err => console.log(err));
-  };
-
-  deleteUser = id => {
-    API.deleteUser(id)
-      .then(res => this.loadUsers())
-      .catch(err => console.log(err));
-  };
-
-  handleInputChange = event => {
-    const { name, value } = event.target;
+  componentDidMount() {
+    let currentLocationId = this.state.location_id;
+    let currentLocationName = Locations[currentLocationId].name;
     this.setState({
-      [name]: value
+      enemyHp: Enemies[this.state.enemySelector].hp,
+      enemyName: Enemies[this.state.enemySelector].name,
+      enemyAtt: Enemies[this.state.enemySelector].att,
+      enemyCriticalAtt: Enemies[this.state.enemySelector].criticalAtt,
+      current_location: currentLocationName
     });
-  };
+  }
 
-  handleFormSubmit = event => {
+
+  // BEGIN REACT ATTACK FUNCTIONS =======================================================================================
+  handleAttack = event => {
     event.preventDefault();
-    if (this.state.firstName && this.state.lastName) {
-      API.saveUser({
-        firstName: this.state.firstName,
-        lastName: this.state.lastName
-      })
-        .then(res => this.loadUsers())
-        .catch(err => console.log(err));
+
+    // PLAYER ATTACKS ENEMY FUNCTION
+    let playerAttackFunction = () => {
+
+      let attackChoice = Math.random();
+      console.log("% guiding Critical chances " + attackChoice);
+
+      if (attackChoice <= .66) {
+
+        // STANDARD ATTACK
+        let playerStandardAttackDmgDealt = Math.round(this.roll(this.state.playerAtt / 2, this.state.playerAtt));
+        console.log("You Dealt " + playerStandardAttackDmgDealt + " points of damage to the enemy!")
+        adjustEnemyHp(playerStandardAttackDmgDealt);
+
+      } else {
+
+        // CRITICAL ATTACK
+        let playerCriticalAttackDmgDealt = Math.round(this.roll(this.state.playerSuperAtt / 2, this.state.playerSuperAtt));
+        console.log("You Dealt a CRITICAL HIT with " + playerCriticalAttackDmgDealt + " points of damage to the enemy!")
+        adjustEnemyHp(playerCriticalAttackDmgDealt);
+      }
     }
-  };
+
+    // ADJUST THE ENEMY HP AFTER THEY ARE ATTACKED FUNCTION
+    let adjustEnemyHp = (playerAttackDmgDealt) => {
+      let newEnemyHp = this.state.enemyHp - playerAttackDmgDealt;
+      console.log("Enemy HP after attack " + newEnemyHp);
+      this.setState({
+        enemyHp: newEnemyHp
+      }, () => updateGameStateOnVictory(newEnemyHp));
+    }
+
+    // PREPARE FOR WINNING UPDATE AND LOCATION CHANGE
+    let updateGameStateOnVictory = (newEnemyHp) => {
+      if (newEnemyHp <= 0) {
+        
+        let newLocation = this.state.location_id + 1;
+        let location_name = Locations[newLocation].name;
+        let newEnemySelected = this.state.enemySelector + 1
+        console.log("Location coming up next... " + location_name);
+        // console.log(this.state.location_id);
+        if (this.state.location_id === 4) {
+          this.setState({
+            combatHide: "hide",
+            cardHide: "",
+            cardBtnHide: "hide",
+            storyHide: "hide",
+            message: "CONGRATULATIONS ON YOUR VICTORY"
+          }, () => console.log("THANKS FOR PLAYING"));
+        } else {
+        this.setState({
+          combatHide: "hide",
+          cardHide: "",
+          cardBtnHide: "",
+          location_id: newLocation,
+          current_location: location_name,
+          enemySelector: newEnemySelected
+        }, () => console.log("Traveling to next location!"));
+      }
+    }
+  }
+
+    // ENEMY ATTACKS PLAYER FUNCTION
+    let enemyDamagesPlayer = () => {
+      if (this.state.enemyHp <= 0) {
+
+      }
+      else {
+        let attackChoice = Math.random();
+        console.log("% guiding Critical chances " + attackChoice);
+
+        if (attackChoice <= .66) {
+
+          //STANDARD ATTACK
+          let enemyStandardAttackedFor = Math.round(this.roll(this.state.enemyAtt / 2, this.state.enemyAtt));
+          adjustPlayerHp(enemyStandardAttackedFor);
+
+
+        } else {
+
+          //SUPER ATTACK
+          let enemyCriticalAttackedFor = Math.round(this.roll(this.state.enemyCriticalAtt / 2, this.state.enemyCriticalAtt));
+          console.log("Enemy hit you with a Critical Attack!");
+          adjustPlayerHp(enemyCriticalAttackedFor);
+        }
+      }
+    };
+
+    // ADJUST PLAYER HP AFTER BEING ATTACKED FUNCTION
+    let adjustPlayerHp = (incomingDamage) => {
+      console.log("The enemy damaged you " + incomingDamage + " points!");
+      console.log("=================================================");
+      let newHp = this.state.playerHp - incomingDamage;
+      console.log("Your HP after attack " + newHp);
+      this.setState({
+        playerHp: newHp
+      }, () => updateGameStateOnDefeat(newHp));
+    }
+
+    console.log("The playerHP STATE is set to " + this.state.playerHp);
+
+    let updateGameStateOnDefeat = (newHp) => {
+      if (newHp <= 0) {
+
+        let gameOver = this.state.gameOverId;
+        this.setState({
+          combatHide: "hide",
+          cardHide: "",
+          location_id: gameOver
+        });
+      }
+    }
+
+    playerAttackFunction();
+    setTimeout(enemyDamagesPlayer, 1000);
+
+  }
+
+  // BEGIN DEFENSE REACT FUNCTIONS =========================================================================================
+  handleDefense = event => {
+    event.preventDefault();
+
+    // PLAYER CHOOSES TO DEFEND -- ENEMY TAKES NO DAMAGE
+    let playerDefenseFunction = () => {
+      let damageDeflected = this.state.enemyAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
+      console.log("Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!");
+      adjustPlayerHp(damageDeflected);
+    }
+
+    // ADJUST PLAYER HP AFTER DEFENDING FUNCTION
+    let adjustPlayerHp = (damageDeflected) => {
+      let newHp = this.state.playerHp - damageDeflected;
+      this.setState({
+        playerHp: newHp
+      }, () => updateGameOnDefenseFailure(newHp))
+    }
+
+    let updateGameOnDefenseFailure = (newHp) => {
+      if (newHp <= 0) {
+        let gameOver = this.state.gameOverId;
+        console.log(gameOver);
+        this.setState({
+          combatHide: "hide",
+          cardHide: "",
+          location_id: gameOver
+        }, () => console.log("GAME OVER"));
+      }
+    }
+
+    playerDefenseFunction();
+
+  }
+
+
+  ///CHARACTER SELECT FUNCTION to add to state
+  handleCharacterState = event => {
+
+    this.setState({
+      playerHp: event.target.getAttribute("hp"),
+      playerAtt: event.target.getAttribute("att"),
+      playerDef: event.target.getAttribute("def"),
+      playerSuperAtt: event.target.getAttribute("superatt"),
+      startBtnHide: ""
+    });
+
+  }
+
+  ///CHARACTER SELECT FUNCTION to start combat
+  startAdventure = () => {
+    this.setState({
+      charHide: "hide",
+      cardHide: "",
+      cardBtnHide: ""
+    }, () => console.log("START ADVENTURE"));
+  }
+
+  ///START COMBAT FUNCTION 
+  startCombat = () => {
+        let newLocation = this.state.location_id + 1;
+        let location_name = Locations[newLocation].name;
+        
+    this.setState({
+      cardHide: "hide",
+      combatHide: "",
+      cardBtnHide: "hide",
+      playerHp: 100, 
+      enemyHp: Enemies[this.state.enemySelector].hp,
+      enemyName: Enemies[this.state.enemySelector].name,
+      enemyAtt: Enemies[this.state.enemySelector].att,
+      enemyCriticalAtt: Enemies[this.state.enemySelector].criticalAtt,
+      current_location: location_name
+    }, () => console.log("START COMBAT"));
+  }
+
 
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-6">
-            <Jumbotron>
-              <h1>What Users Should I Read?</h1>
-            </Jumbotron>
-            <form>
-              <Input
-                value={this.state.firstName}
-                onChange={this.handleInputChange}
-                name="firstName"
-                placeholder="First Name (required)"
-              />
-              <Input
-                value={this.state.lastName}
-                onChange={this.handleInputChange}
-                name="lastName"
-                placeholder="Last Name (required)"
-              />
-              <FormBtn
-                disabled={!(this.state.firstName && this.state.lastName)}
-                onClick={this.handleFormSubmit}
-              >
-                Submit User
-              </FormBtn>
-            </form>
-          </Col>
-          <Col size="md-6 sm-12">
-            <Jumbotron>
-              <h1>Users On My List</h1>
-            </Jumbotron>
-            {this.state.users.length ? (
-              <List>
-                {this.state.users.map(user => (
-                  <ListItem key={user._id}>
-                    <Link to={"/users/" + user._id}>
-                      <strong>
-                        {user.firstName} by {user.lastName}
-                      </strong>
-                    </Link>
-                    <DeleteBtn onClick={() => this.deleteUser(user._id)} />
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col>
-        </Row>
-      </Container>
+      <div className="App">
+
+        <div className={this.state.charHide}>
+          {Characters.map(characters => {
+            return (<CharacterSelect onClick={this.handleCharacterState} key={characters.id} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt}>{characters.name}</CharacterSelect>)
+          })}
+
+          <button className={this.state.startBtnHide} onClick={this.startAdventure}>Embark!</button>
+        </div>
+
+
+        <div className={this.state.combatHide}>
+          <Player onClick={this.handleAttack}>Click to attack</Player>
+          <Player onClick={this.handleDefense}>Click to defend</Player>
+          <Enemy>Enemy</Enemy>
+
+          <div>You have HP: {this.state.playerHp}</div>
+          <div className={this.state.enemyHide}>{this.state.enemyName} has HP: {this.state.enemyHp}</div>
+          <div>{this.state.message}</div>
+
+          <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
+        </div>
+
+        <div className={this.state.card}>
+        
+        <Card className={this.state.cardHide}>
+          <div className={this.state.currentLocalHide}>{this.state.current_location}</div><br></br>
+          <div className={this.state.storyHide}>{Locations[this.state.location_id].story}</div>
+
+        </Card>
+
+        <button className={this.state.cardBtnHide} onClick={this.startCombat}>Start combat</button>
+        
+        </div>
+
+      </div>
     );
   }
 }
 
 export default Users;
+
+

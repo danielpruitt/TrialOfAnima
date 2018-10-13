@@ -22,9 +22,9 @@ class Nav extends Component {
 
   render() {
     return (
-      <nav className="uk-navbar-container">
-      <a className="uk-navbar-item uk-logo" href="/">LMS</a>
-      <button className="uk-navbar-toggle" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a className="navbar-brand" href="/">MindRPG</a>
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
       {this.state.authenticated ? (
@@ -33,12 +33,9 @@ class Nav extends Component {
           <li className="nav-item active">
             <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
           </li>
-          <li className="uk-navbar-item">
-            <a className="nav-link" href="/books">Books</a>
-          </li>
-          <li className="uk-navbar-item">
-            <a className="nav-link" href="/users">Users</a>
-          </li>
+          {/* <li className="nav-item">
+            <a className="nav-link" href="/users">Game</a>
+          </li> */}
         </ul>
         <span className="uk-navbar-item">
           <a className="nav-link" href="/logout">Logout</a>

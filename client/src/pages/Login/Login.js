@@ -50,59 +50,63 @@ class Login extends Component {
     if (this.state.email && this.state.password && this.state.password.length >= 6) {
       this.authenticate();
     } else {
-      this.setState({ errorMessage: "Please enter valid username and password to sign in."})
+      this.setState({ errorMessage: "Please enter valid username and password to sign in." })
     }
   };
 
   render() {
     return (
-      <Container fluid>
-        <form className="form-signin uk-fieldset">
-          <h1 className="">Please login</h1>
-          <label htmlFor="username" className="">Email</label>
-          <Input
-            value={this.state.email}
-            onChange={this.handleInputChange}
-            onFocus={this.handleFocus}
-            name="email"
-            placeholder="Email (required)"
-            className="uk-input"
-            required=""
-            autoFocus={true}
-          />
-          <label htmlFor="password" className="">Password</label>
-          <Input
-            value={this.state.password}
-            onChange={this.handleInputChange}
-            name="password"
-            type="password"
-            placeholder="Password (required)"
-            className="uk-input"
-            required=""
-          />
-          <div className="checkbox mb-3">
-            <label>
-              <input type="checkbox" value="remember-me"/> Remember me
+
+        <Container fluid>
+        <br />
+          <form className="form-signin bg-dark rounded" >
+            <h1 className="h4 mb-3 font-weight-normal text-light">Please login</h1>
+            <label htmlFor="username" className="sr-only">email</label>
+            <Input
+              value={this.state.email}
+              onChange={this.handleInputChange}
+              onFocus={this.handleFocus}
+              name="email"
+              placeholder="Email (required)"
+              className="form-control"
+              required=""
+              autoFocus={true}
+            />
+            <label htmlFor="password" className="sr-only">Password</label>
+            <Input
+              value={this.state.password}
+              onChange={this.handleInputChange}
+              name="password"
+              type="password"
+              placeholder="Password (required)"
+              className="form-control"
+              required=""
+            />
+            <div className="checkbox mb-3 text-light">
+              <label>
+                <input type="checkbox" value="remember-me" /> Remember me
             </label>
-          </div>
-          <div className="checkbox mb-3 text-danger">
-            {this.state.errorMessage}
-          </div>
-          <div className="mb-3">
-            <button
-              disabled={!(this.state.email && this.state.password && this.state.password.length >= 6)}
-              onClick={this.handleLogin}
-              className="uk-button uk-button-default"
-            >
-              Login
+            </div>
+            <div className="checkbox mb-3 text-danger">
+              {this.state.errorMessage}
+            </div>
+            <div className="mb-3">
+              <button
+                disabled={!(this.state.email && this.state.password && this.state.password.length >= 6)}
+                onClick={this.handleLogin}
+                className="btn btn-lg btn-primary btn-block"
+              >
+                Login
             </button>
-          </div>
-          <p className="mt-5 mb-3">
-            Don't have an account?&nbsp;&nbsp;
+            </div>
+            <p className="mt-5 mb-3 text-light">
+              Don't have an account?&nbsp;&nbsp;
             <Link to={"/signup"}>Sign Up</Link>
-          </p>
-        </form>
-      </Container>
+            </p>
+          </form>
+        </Container>
+
+
     );
   }
 }

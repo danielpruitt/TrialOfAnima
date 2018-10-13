@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Goblin",
+        "hp": 150,
+        "att": 30,
+        "criticalAtt": 40
+    },
+    {
+        "id": 2,
+        "name": "Orc",
+        "hp": 150,
+        "att": 30,
+        "criticalAtt": 40
+    },
+    {
+        "id": 3,
+        "name": "Wizard",
+        "hp": 150,
+        "att": 30,
+        "criticalAtt": 40
+    },
+    {
+        "id": 4,
+        "name": "Ogre",
+        "hp": 150,
+        "att": 30,
+        "criticalAtt": 40
+    },
+    {
+        "id": 5,
+        "name": "FINAL BOSS ShadowSelf",
+        "hp": 150,
+        "att": 30,
+        "criticalAtt": 40
+    }
+    
+]
