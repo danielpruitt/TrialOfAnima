@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Mage",
-        "image": "Mage",
+        "image": "./Images/Mage_Class_resize.png",
         "selected": false,
         "hp": 80,
         "att": 70,
@@ -12,7 +12,7 @@
     {
         "id": 2,
         "name": "Rogue",
-        "image": "Rogue",
+        "image": "./Images/Rogue_Class_resize.png",
         "selected": false,
         "hp": 100,
         "att": 60,
@@ -22,7 +22,7 @@
     {
         "id": 3,
         "name": "Warrior",
-        "image": "Warrior",
+        "image": "./Images/Warrior_Class_resize.png",
         "selected": false,
         "hp": 100,
         "att": 40,

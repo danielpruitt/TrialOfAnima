@@ -1,0 +1,17 @@
+.cardImg {
+    width: 300px;
+    max-height: 500px;
+}
+
+.player {
+    background: red;
+}
+
+.enemy {
+    background: blue;
+}
+
+.card {
+    height: 500px;
+    width: 345px;
+}

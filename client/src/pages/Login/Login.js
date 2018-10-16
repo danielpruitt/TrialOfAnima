@@ -8,7 +8,7 @@ import "./Login.css";
 
 class Login extends Component {
   state = {
-    email: "",
+    name: "",
     password: "",
     errorMessage: null
   };
@@ -18,8 +18,8 @@ class Login extends Component {
 
   authenticate = () => {
     const userData = {
-      email: this.state.email,
-      password: this.state.password
+      name: this.state.name,
+      password: this.state.password,
     };
 
     API.authenticateUser(userData)
@@ -47,8 +47,9 @@ class Login extends Component {
 
   handleLogin = event => {
     event.preventDefault();
-    if (this.state.email && this.state.password && this.state.password.length >= 6) {
+    if (this.state.name && this.state.password && this.state.password.length >= 6) {
       this.authenticate();
+      localStorage.setItem("Player", this.state.name);
     } else {
       this.setState({ errorMessage: "Please enter valid username and password to sign in." })
     }
@@ -61,13 +62,13 @@ class Login extends Component {
         <br />
           <form className="form-signin bg-dark rounded" >
             <h1 className="h4 mb-3 font-weight-normal text-light">Please login</h1>
-            <label htmlFor="username" className="sr-only">email</label>
+            <label htmlFor="username" className="sr-only">UserName</label>
             <Input
-              value={this.state.email}
+              value={this.state.name}
               onChange={this.handleInputChange}
               onFocus={this.handleFocus}
-              name="email"
-              placeholder="Email (required)"
+              name="name"
+              placeholder="UserName (required)"
               className="form-control"
               required=""
               autoFocus={true}
@@ -92,7 +93,7 @@ class Login extends Component {
             </div>
             <div className="mb-3">
               <button
-                disabled={!(this.state.email && this.state.password && this.state.password.length >= 6)}
+                disabled={!(this.state.name && this.state.password && this.state.password.length >= 6)}
                 onClick={this.handleLogin}
                 className="btn btn-lg btn-primary btn-block"
               >
