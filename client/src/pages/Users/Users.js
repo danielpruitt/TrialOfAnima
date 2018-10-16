@@ -9,6 +9,7 @@ import Characters from "./characters.json";
 import CharacterSelect from "../../components/CharacterSelect/CharacterSelect";
 import Card from "../../components/Card/Card";
 import UICard from "../../components/UICard";
+import UICardEnemy from "../../components/UICardEnemy";
 import { Col, Row, Container } from "../../components/Grid";
 
 
@@ -285,13 +286,13 @@ class Users extends Component {
 
       <div className="App">
 
-        <div className={this.state.charHide}>
+        <div className={`${this.state.charHide}`}>
           {Characters.map(characters => {
             return (<CharacterSelect onClick={this.handleCharacterState} key={characters.id} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}>{characters.name}</CharacterSelect>)
           })}
 
-          <Button className={this.state.startBtnHide} variant="contained" size="large" color="primary" onClick={this.startAdventure}>Embark! </Button>
-          {/* <button className={this.state.startBtnHide + "btn"} onClick={this.startAdventure}>Embark!</button> */}
+          {/* <Button className={this.state.startBtnHide} variant="contained" size="large" color="primary" onClick={this.startAdventure}>Embark! </Button> */}
+          <button className={this.state.startBtnHide + "btn"} onClick={this.startAdventure}>Embark!</button>
         </div>
 
         <Container>
@@ -343,13 +344,17 @@ class Users extends Component {
               </div>
             </Col>
 
-            <Col size="4" className={this.state.combatHide}>
-              <UICard
+            <Col size="4" className={`${this.state.combatHide} `}>
+              <div className="">
+              <UICardEnemy
                 name = {this.state.enemyName}
-                image = {this.state.enemyImage}
+                image = {this.state.enemyImage} 
                 hp = {this.state.enemyHp}
                 styleClass = "enemy"
+                className="flicker-3"
+                
               />
+              </div>
             </Col>
             
           </div>

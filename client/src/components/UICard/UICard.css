@@ -9,6 +9,7 @@
 
 .enemy {
     background: blue;
+    opacity: .5;
 }
 
 .card {
