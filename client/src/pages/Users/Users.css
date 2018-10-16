@@ -12,28 +12,31 @@
     font-family: 'VT323', monospace;
 }
 
-.typewriter{
-    position: relative;
-    top: 50%;
-    margin: 0 auto;
-    border-right: 2px solid rgba(255,255,255,.75);
-    font-size: 180%;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    transform: translateY(-50%);   
-    animation: typewriter 4s steps(44) 1s 1 normal both,
-               blinkTextCursor 500ms steps(44) infinite normal;
+.typewriter  {
+    overflow: hidden; /* Ensures the content is not revealed until the animation*/
+    font-family: 'VT323', monospace;
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /*Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    display: flex;
+    animation:
+    typing 6.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+    font-size: 24px;
  }
-
-  @keyframes typewriter{
-    from{width: 0;}
-    to{width: 100%;}
-  }
-  @keyframes blinkTextCursor{
-    from{border-right-color: rgba(206, 219, 21, 0.75);}
-    to{border-right-color: transparent;}
-  }
+ 
+  /* The typing effect */
+ @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+ }
+ 
+  /* The typewriter cursor effect */
+ @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+ }
 
  .locationTitle{
     font-size: 48px;
