@@ -1,27 +1,27 @@
 [
     {
         "id": 1,
-        "name": "Goblin",
+        "name": "Goblin Scout",
         "hp": 150,
         "att": 30,
         "criticalAtt": 40,
-        "image": "./Images/Skeleton_Enemy_transp.png"
+        "image": "./Images/Enemies/Goblin_Enemy.png"
     },
     {
         "id": 2,
-        "name": "Orc",
+        "name": "Living Bones",
         "hp": 150,
         "att": 30,
         "criticalAtt": 40,
-        "image": "./Images/sample_enemy.png"
+        "image": "./Images/Enemies/Skeleton_Enemy.png"
     },
     {
         "id": 3,
-        "name": "Wizard",
+        "name": "Spectral Haunt",
         "hp": 150,
         "att": 30,
         "criticalAtt": 40,
-        "image": "./Images/Skeleton_Enemy_transp.png"
+        "image": "./Images/Enemies/Spectre_Enemy.png"
     },
     {
         "id": 4,
@@ -29,7 +29,7 @@
         "hp": 150,
         "att": 30,
         "criticalAtt": 40,
-        "image": "./Images/sample_enemy.png"
+        "image": "./Images/Enemies/Ogre_Enemy.png"
     },
     {
         "id": 5,
@@ -37,7 +37,7 @@
         "hp": 150,
         "att": 30,
         "criticalAtt": 40,
-        "image": "./Images/Rogue.jpg"
+        "image": "./Images/Shadows/Shadow_Rogue.png"
 
     }
     
