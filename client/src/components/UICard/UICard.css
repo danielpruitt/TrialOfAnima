@@ -4,12 +4,13 @@
 }
 
 .player {
-    background: red;
+    /* background: red; */
+    color:white
 }
 
 .enemy {
     color:white;
-    opacity: .5;
+    /* opacity: .5; */
 }
 
 .card {
