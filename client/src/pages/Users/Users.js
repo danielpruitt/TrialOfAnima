@@ -113,7 +113,7 @@ class Users extends Component {
             combatHide: "hide",
             cardHide: "",
             cardBtnHide: "hide",
-            storyHide: "hide",
+            storyHide: "The End",
             message: "CONGRATULATIONS ON YOUR VICTORY"
             
           }, () => console.log("THANKS FOR PLAYING"));
@@ -126,6 +126,7 @@ class Users extends Component {
               combatHide: "hide",
               cardHide: "",
               cardBtnHide: "",
+              storyHide: "hide",
               location_id: newLocation,
               current_location: location_name,
               enemySelector: newEnemySelected
@@ -303,7 +304,7 @@ class Users extends Component {
 
             <h3 className="locationTitle">{this.state.current_location}</h3>
 
-            <div className={`${this.state.storyHide} typewriter`}>
+            <div className={`${this.state.storyHide} `}>
               
               {Locations[this.state.location_id].story}
 
@@ -335,8 +336,8 @@ class Users extends Component {
 
             <Col size="4" className={this.state.combatHide}>
               <div className="textCard">
-                <Player onClick={this.handleAttack} action="ATTACK!">Click to attack</Player>
-                <Player onClick={this.handleDefense} action="DEFEND!">Click to defend</Player>
+                <Player onClick={this.handleAttack} action="ATTACK!"></Player>
+                <Player onClick={this.handleDefense} action="DEFEND!"></Player>
                 <div>{this.state.playerName} has HP: {this.state.playerHp}</div>
                 <div className={this.state.enemyHide}>{this.state.enemyName} has HP: {this.state.enemyHp}</div>
                 <div>{this.state.message}</div>
@@ -351,7 +352,6 @@ class Users extends Component {
                 image = {this.state.enemyImage} 
                 hp = {this.state.enemyHp}
                 styleClass = "enemy"
-                className="flicker-3"
                 
               />
               </div>

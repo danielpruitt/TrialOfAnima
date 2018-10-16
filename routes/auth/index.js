@@ -54,9 +54,9 @@ function validateLoginForm(payload) {
   let isFormValid = true;
   let message = '';
 
-  if (!payload || typeof payload.email !== 'string' || payload.email.trim().length === 0) {
+  if (!payload || typeof payload.name !== 'string' || payload.name.trim().length === 0) {
     isFormValid = false;
-    errors.email = 'Please provide your email address.';
+    errors.name = 'Please provide your userName.';
   }
 
   if (!payload || typeof payload.password !== 'string' || payload.password.trim().length === 0) {

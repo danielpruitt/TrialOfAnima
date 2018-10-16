@@ -5,8 +5,10 @@ class Nav extends Component {
   
   constructor(props) {
     super(props);
+    let userName = localStorage.getItem("Player");
     this.state = {
-      authenticated: false
+      authenticated: false,
+      userName: userName
     }
   }
 
@@ -29,15 +31,15 @@ class Nav extends Component {
       </button>
       {this.state.authenticated ? (
       <div className="collapse navbar-collapse" id="navbarText">
-        <ul className="uk-navbar-item">
+        {/* <ul className="navbar-text">
           <li className="nav-item active">
             <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
           </li>
-          {/* <li className="nav-item">
-            <a className="nav-link" href="/users">Game</a>
-          </li> */}
-        </ul>
-        <span className="uk-navbar-item">
+        </ul> */}
+        <span className="navbar-text">
+          <center>Greetings {this.state.userName}</center>
+          </span>
+        <span className="navbar-text">
           <a className="nav-link" href="/logout">Logout</a>
         </span>
       </div>
