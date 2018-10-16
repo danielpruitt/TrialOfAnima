@@ -112,7 +112,7 @@ class Users extends Component {
             combatHide: "hide",
             cardHide: "",
             cardBtnHide: "hide",
-            storyHide: "hide",
+            storyHide: "The End",
             message: "CONGRATULATIONS ON YOUR VICTORY"
             
           }, () => console.log("THANKS FOR PLAYING"));
@@ -125,6 +125,7 @@ class Users extends Component {
               combatHide: "hide",
               cardHide: "",
               cardBtnHide: "",
+              storyHide: "hide",
               location_id: newLocation,
               current_location: location_name,
               enemySelector: newEnemySelected
