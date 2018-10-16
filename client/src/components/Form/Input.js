@@ -1,6 +1,6 @@
 import React from "react";
 
 export const Input = props =>
-  <div className="form-group">
-    <input className="form-control" {...props} />
+  <div className="uk-fieldset">
+    <input className="uk-input" {...props} />
   </div>;

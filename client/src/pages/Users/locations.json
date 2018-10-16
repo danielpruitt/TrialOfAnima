@@ -2,25 +2,25 @@
     {
         "id": 1,
         "name": "Lost Forest",
-        "story": "The shrouds of fog were heavy in the deep dark wood"
+        "story": "The shrouds of fog were heavy in the deep dark wood.You hear a faint sound, it’s coming from the woods. You catch a glimpse of a figure lurking being the veil of mist coming from the forest. As you approach, the figure lures you in with a finger.  You go, you don’t know why but it seems that it’s the only thing you can do."
     
     },
     {
         "id": 2,
         "name": "Valley of Despair",
-        "story": "The light grew dim as the mountains eclipsed the sun"
+        "story": " A creaking sound grows louder, you don’t know where it’s coming from. The valley surrounding you seems endless and unknowing. The stench of death is all around, nothing seems to be living here, which makes the grim sound more ghastly. As you try to make you way back out you encounter the Living Bones."
 
 
     },
     {
         "id": 3,
         "name": "Mount Doom",
-        "story": "Damnit Frodo, don't lose the ring"
+        "story": "Your body enters a new place, a bad place. The Canyon of Screams. An apparition appears and shimmers into view. As you approach, you start to realize it’s more than an apparition it’s the new name for the spectral demon. It seems that this being is being tortured, hearing the screams of eternal damnation. It wants to torment you and bring you into its suffering."
 
     }, {
         "id": 4,
         "name": "Canyon of Screams",
-        "story": "The sounds of a large enemy nearby"
+        "story": "Your mind shivers as you feel something dark coming for you. You try to resist but the pull is strong…familiar. You feel yourself fading. The struggles you’ve overcome are coming back. It one final fight you feel that you can overcome. "
 
     }
     , {
