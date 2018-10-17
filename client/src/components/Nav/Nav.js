@@ -30,14 +30,14 @@ class Nav extends Component {
         <span className="navbar-toggler-icon"></span>
       </button>
       {this.state.authenticated ? (
-      <div className="collapse navbar-collapse" id="navbarText">
-        <ul className="uk-navbar-item">
+      <div className="collapse navbar-collapse justify-content-end"  id="navbarText">
+        {/* <ul className="navbar-text">
           <li className="nav-item active">
             <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
           </li>
-        </ul>
+        </ul> */}
         <span className="navbar-text">
-          <center>Hi! Welcome {this.state.userName}</center>
+          <center>Greetings {this.state.userName}</center>
           </span>
         <span className="navbar-text">
           <a className="nav-link" href="/logout">Logout</a>
