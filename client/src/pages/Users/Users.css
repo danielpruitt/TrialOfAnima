@@ -4,12 +4,37 @@
 
 .textCard {
     background: white;
-    height: 500px;
     width: 345px;
 }
 .app {
     color: white;
     font-family: 'VT323', monospace;
+}
+
+.attack{
+  background-image: url("../../Images/Buttons/sword.png");
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center; 
+}
+
+.defend{
+  background-image: url("../../Images/Buttons/shield.png");
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+}
+
+.centered{
+  /* background:red; */
+  border: black 2 px solid;
+  align-content: center;
+  justify-content: center;
+}
+
+.altCentered{
+  background:white;
+  border: black 2 px solid;
 }
 
 /* .selectRow{

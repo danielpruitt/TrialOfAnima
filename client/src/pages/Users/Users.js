@@ -11,6 +11,7 @@ import SelectorCard from "../../components/SelectorCard";import Card from "../..
 import UICard from "../../components/UICard";
 import UICardEnemy from "../../components/UICardEnemy";
 import { Col, Row, Container } from "../../components/Grid";
+import CombatBtn from "../../components/CombatBtn"
 import { Animated } from "react-animated-css";
 import SoundEffects from "../../components/SoundEffects";
 import Music from "../../components/Music";
@@ -414,9 +415,10 @@ class Users extends Component {
 
             <h3 className="locationTitle">{this.state.current_location}</h3>
 
-            <div className={`${this.state.storyHide} typewriter`}>
+            {/* <div className={`${this.state.storyHide} typewriter`}> */}
+            <div className={this.state.storyHide}>
 
-              <h3 className="">{Locations[this.state.location_id].story}</h3>
+              <h3 className="typewriter">{Locations[this.state.location_id].story}</h3>
 
             </div>
 
@@ -430,7 +432,7 @@ class Users extends Component {
 
           <div className={`${this.state.combatHide} row`}>
 
-            <Col size="4" className={this.state.combatHide}>
+            <Col size="4" className={this.state.combatHide} styleClass="centered">
               {/* adds animation to the player */}
               <Animated animationIn="bounceInLeft" animationOut="flash" isVisible={true}>
                 <UICard
@@ -443,10 +445,10 @@ class Users extends Component {
             </Col>
 
 
-            <Col size="4" className={this.state.combatHide}>
+            <Col size="4" className={this.state.combatHide} styleClass="altCentered">
               <div className="textCard">
-                <Player onClick={this.handleAttack} action="ATTACK!"></Player>
-                <Player onClick={this.handleDefense} action="DEFEND!"></Player>
+                {/* <Player onClick={this.handleAttack} action="ATTACK!"></Player>
+                <Player onClick={this.handleDefense} action="DEFEND!"></Player> */}
                 <div>{this.state.playerName} has HP: {this.state.playerHp}</div>
                 <div className={this.state.enemyHide}>{this.state.enemyName} has HP: {this.state.enemyHp}</div>
                 <div>{this.state.message}</div>
@@ -455,7 +457,7 @@ class Users extends Component {
               </div>
             </Col>
 
-            <Col size="4" className={`${this.state.combatHide} `}>
+            <Col size="4" className={`${this.state.combatHide}`} styleClass="centered">
               <div className="">
                 {/* adds animation to the enemy, the flashing is from css, the entrance is a node package*/}
                 <Animated animationIn="flash" animationOut="flash" isVisible={true}>
@@ -471,7 +473,29 @@ class Users extends Component {
 
             </Col>
 
+
+
+
           </div>
+
+            <div className={`${this.state.combatHide} row`}>
+                
+                <Col size="4" styleClass="centered attack">
+                    <CombatBtn onClick={this.handleAttack} action="ATTACK!"></CombatBtn>                
+                </Col>
+
+                <Col size="4">
+                </Col>
+                
+                <Col size="4" styleClass="centered attack">
+                    <CombatBtn onClick={this.handleDefense} action="DEFEND!"></CombatBtn>                
+                </Col>                
+                {/* <Col size="3">
+                    <CombatBtn onClick={this.handleDefense} action="DEFEND!" styleClass="defend"></CombatBtn>
+                </Col>                 */}
+
+            
+            </div>
 
         </Container>
 
