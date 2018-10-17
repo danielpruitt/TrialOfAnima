@@ -131,11 +131,18 @@ class Users extends Component {
         
           // console.log(this.state.location_id);
           if (this.state.location_id === 4) {
+
+            let endStory = Locations[5].story;
+            console.log(endStory + this.state.location_id);
+            this.setState({
+              storyHide: "hide"
+            }, () => console.log("Hiding story"));
             this.setState({
               combatHide: "hide",
               cardHide: "",
               cardBtnHide: "hide",
-              storyHide: "The End",
+              storyHide: "hide",
+              location_id: newLocation,
               message: "CONGRATULATIONS ON YOUR VICTORY"
             }, () => console.log("THANKS FOR PLAYING"));
 
@@ -276,7 +283,7 @@ class Users extends Component {
 
           this.setState({
             current_location: ""
-          }, () => console.log("Mr Hyena"));
+          }, () => console.log("DEFENSE FAILURE: GAME OVER"));
 
         let gameOveronDefenseFailure = () => {
           let gameOver = this.state.gameOverId;
@@ -285,7 +292,7 @@ class Users extends Component {
             combatHide: "hide",
             cardHide: "",
             location_id: gameOver
-            }, () => console.log("GAME OVER"));
+            }, () => console.log("DEFENSE FAILURE GAME OVER"));
           }
         setTimeout(gameOveronDefenseFailure, 1000);
       }
