@@ -10,7 +10,6 @@ class SignUp extends Component {
     name: "",
     email: "",
     password: "",
-    userType: "",
     errorMessage: null
   };
 
@@ -19,7 +18,7 @@ class SignUp extends Component {
 
   authenticate = () => {
     const userData = {
-      email: this.state.email,
+      name: this.state.name,
       password: this.state.password
     };
 
@@ -39,8 +38,7 @@ class SignUp extends Component {
     const userData = {
       name: this.state.name,
       email: this.state.email,
-      password: this.state.password,
-      userType: this.state.userType
+      password: this.state.password
     };
 
     API.signUp(userData)
@@ -67,9 +65,9 @@ class SignUp extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.name && this.state.email && this.state.password && this.state.userType) {
+    if (this.state.name && this.state.email && this.state.password) {
       this.signUp();
-      localStorage.setItem("Player", this.state.email);
+      localStorage.setItem("Player", this.state.name);
     } else {
       this.setState({ errorMessage: "Please enter all required fields to sign up."})
     }
@@ -87,7 +85,7 @@ class SignUp extends Component {
             onChange={this.handleInputChange}
             onFocus={this.handleFocus}
             name="name"
-            placeholder="Name (required)"
+            placeholder="UserName (required)"
             className="form-control"
             required=""
             autoFocus={true}
@@ -114,7 +112,7 @@ class SignUp extends Component {
             required=""
           />
           <label htmlFor="password" className="sr-only">Password</label>
-          <select
+          {/* <select
             value={this.state.userType}
             onChange={this.handleInputChange}
             name="userType"
@@ -125,7 +123,7 @@ class SignUp extends Component {
             <option value="" disabled>Select role</option>
             <option value="instructor">Instructor</option>
             <option value="player">Player</option>
-          </select>
+          </select> */}
           <div className="checkbox mb-3 text-danger">
             {this.state.errorMessage}
           </div>

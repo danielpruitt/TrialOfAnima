@@ -5,13 +5,13 @@ const PassportLocalStrategy = require('passport-local').Strategy;
  * Return the Passport Local Strategy object.
  */
 module.exports = new PassportLocalStrategy({
-  usernameField: 'email',
+  usernameField: 'name',
   passwordField: 'password',
   session: false,
   passReqToCallback: true
-}, (req, email, password, done) => {
+}, (req, name, password, done) => {
   const userData = {
-    email: email.trim(),
+    email: req.body.email.trim(),
     password: password.trim(),
     name: req.body.name.trim(),
     numberOfClears: 0
