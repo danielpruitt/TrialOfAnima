@@ -418,7 +418,9 @@ class Users extends Component {
             {/* <div className={`${this.state.storyHide} typewriter`}> */}
             <div className={this.state.storyHide}>
 
-              <h3 className="typewriter">{Locations[this.state.location_id].story}</h3>
+              {/* <h3 className="typewriter">{Locations[this.state.location_id].story}</h3> */}
+
+              <h3 className="">{Locations[this.state.location_id].story}</h3>
 
             </div>
 
