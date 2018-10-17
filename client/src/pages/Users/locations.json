@@ -27,9 +27,9 @@
         "id": 5,
         "name": "The Abyss",
         "story": "You face the ultimate enemy",
-        "dark_mage_image": "mage image here",
-        "dark_warrior_image": "warrior image here",
-        "dark_rogue_image": "rouge image here"
+        "dark_mage_image": "Shadow_Mage_Squared",
+        "dark_warrior_image": "Shadow_Warrior_Squared",
+        "dark_rogue_image": "Shadow_Rogue_Squared"
 
     },
     {
