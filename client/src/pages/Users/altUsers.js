@@ -7,7 +7,8 @@ import Arrow from "../../components/Arrow/Arrow";
 import Locations from "./locations.json";
 import Characters from "./characters.json";
 // import CharacterSelect from "../../components/CharacterSelect/CharacterSelect";
-import SelectorCard from "../../components/SelectorCard";import Card from "../../components/Card/Card";
+import SelectorCard from "../../components/SelectorCard";
+import Card from "../../components/Card/Card";
 import UICard from "../../components/UICard";
 import UICardEnemy from "../../components/UICardEnemy";
 import { Col, Row, Container } from "../../components/Grid";
@@ -318,6 +319,8 @@ class Users extends Component {
   ///CHARACTER SELECT FUNCTION to add to state
   handleCharacterState = event => {
 
+    console.log(event.target);
+
     this.setState({
       playerHp: event.target.getAttribute("hp"),
       playerAtt: event.target.getAttribute("att"),
@@ -369,89 +372,90 @@ class Users extends Component {
           {/* {Characters.map(characters => {
             return (<CharacterSelect onClick={this.handleCharacterState} key={characters.id} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}>{characters.name}</CharacterSelect>)
           })} */}
+          <Row className="selectRow">
 
-            <Row className="selectRow">
+            {Characters.map(characters => {
+              return (
+              
+                <Col size="4" className="selectCol">
+                  <SelectorCard>
+                    <header><h1>{characters.name}</h1></header>
+                    <img src={characters.image} alt={characters.name} className="selectImg" onClick={this.handleCharacterState} key={characters.id} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
+                    <footer> <h3>This can be a class description or something or also nothing.</h3></footer>
+                  </SelectorCard>
+                </Col>)
+            })}
 
-                {Characters.map(characters => {
-                return (
-                
-                    <Col size="4" className="selectCol">
-                        <SelectorCard>
-                            <header><h1>{characters.name}</h1></header>
-                            <img src={characters.image} alt={characters.name} className="selectImg" onClick={this.handleCharacterState} key={characters.id} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
-                            <footer> <h3>This can be a class description or something or also nothing.</h3></footer>
-                        </SelectorCard>
-                    </Col>)
-                })}
-
-            </Row>
+          </Row>
 
           {/* <Button className={this.state.startBtnHide} variant="contained" size="large" color="primary" onClick={this.startAdventure}>Embark! </Button> */}
-          <button className={`${this.state.startBtnHide}`} onClick={this.startAdventure}>Embark!</button>
+          <button className={this.state.startBtnHide} onClick={this.startAdventure}>Embark!</button>
         </div>
 
         <Container>
 
-          <Card className={this.state.cardHide}>
+          <div className={this.state.card}>
 
-            <h3 className="locationTitle">{this.state.current_location}</h3>
+            <Card className={this.state.cardHide}>
 
-            <div className={`${this.state.storyHide} typewriter`}>
+              <div className={`${this.state.storyHide} typewriter`}>
 
-              <h3 className="">{Locations[this.state.location_id].story}</h3>
+                <h3 className="">{Locations[this.state.location_id].story}</h3>
 
-            </div>
-
-            {/* <div className={`${this.state.currentLocalHide} typewriter`}>{this.state.current_location}</div><br></br>
-            <div className={`${this.state.storyHide} typewriter`}>{Locations[this.state.location_id].story}</div> */}
-
-          </Card>
-
-          <button className={this.state.cardBtnHide} onClick={this.startCombat}>Start combat</button>
-
-
-          <div className={`${this.state.combatHide} row`}>
-
-            <Col size="4" className={this.state.combatHide}>
-              {/* adds animation to the player */}
-              <Animated animationIn="bounceInLeft" animationOut="flash" isVisible={true}>
-                <UICard
-                  name={this.state.playerName}
-                  image={this.state.playerImage}
-                  hp={this.state.playerHp}
-                  styleClass="player"
-                />
-              </Animated>
-            </Col>
-
-
-            <Col size="4" className={this.state.combatHide}>
-              <div className="textCard">
-                <Player onClick={this.handleAttack} action="ATTACK!"></Player>
-                <Player onClick={this.handleDefense} action="DEFEND!"></Player>
-                <div>{this.state.playerName} has HP: {this.state.playerHp}</div>
-                <div className={this.state.enemyHide}>{this.state.enemyName} has HP: {this.state.enemyHp}</div>
-                <div>{this.state.message}</div>
-                <div>{this.state.message2}</div>
-                <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
               </div>
-            </Col>
 
-            <Col size="4" className={`${this.state.combatHide} `}>
-              <div className="">
-                {/* adds animation to the enemy, the flashing is from css, the entrance is a node package*/}
-                <Animated animationIn="flash" animationOut="flash" isVisible={true}>
-                  <UICardEnemy
-                    name={this.state.enemyName}
-                    image={this.state.enemyImage}
-                    hp={this.state.enemyHp}
-                    styleClass="enemy"
+              {/* <div className={`${this.state.currentLocalHide} typewriter`}>{this.state.current_location}</div><br></br>
+              <div className={`${this.state.storyHide} typewriter`}>{Locations[this.state.location_id].story}</div> */}
 
+            </Card>
+
+            <button className={this.state.cardBtnHide} onClick={this.startCombat}>Start combat</button>
+
+
+            <div className={`${this.state.combatHide} row`}>
+
+              <Col size="4" className={this.state.combatHide}>
+                {/* adds animation to the player */}
+                <Animated animationIn="bounceInLeft" animationOut="flash" isVisible={true}>
+                  <UICard
+                    name={this.state.playerName}
+                    image={this.state.playerImage}
+                    hp={this.state.playerHp}
+                    styleClass="player"
                   />
                 </Animated>
-              </div>
+              </Col>
+            
 
-            </Col>
+
+              <Col size="4" className={this.state.combatHide}>
+                <div className="textCard">
+                  <Player onClick={this.handleAttack} action="ATTACK!"></Player>
+                  <Player onClick={this.handleDefense} action="DEFEND!"></Player>
+                  <div>{this.state.playerName} has HP: {this.state.playerHp}</div>
+                  <div className={this.state.enemyHide}>{this.state.enemyName} has HP: {this.state.enemyHp}</div>
+                  <div>{this.state.message}</div>
+                  <div>{this.state.message2}</div>
+                  <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
+                </div>
+              </Col>
+
+              <Col size="4" className={`${this.state.combatHide} `}>
+                <div className="">
+                  {/* adds animation to the enemy, the flashing is from css, the entrance is a node package*/}
+                  <Animated animationIn="flash" animationOut="flash" isVisible={true}>
+                    <UICardEnemy
+                      name={this.state.enemyName}
+                      image={this.state.enemyImage}
+                      hp={this.state.enemyHp}
+                      styleClass="enemy"
+
+                    />
+                  </Animated>
+                </div>
+              </Col>
+
+            </div>
 
           </div>
 
