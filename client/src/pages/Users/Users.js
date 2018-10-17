@@ -18,6 +18,7 @@ class Users extends Component {
   state = {
     //COMBAT STATE COMPONENTS
     playerClass: "",
+    playerTurn: true,
     playerHp: 140,
     playerAtt: 40,
     playerSuperAtt: 60,
@@ -69,7 +70,7 @@ class Users extends Component {
   // BEGIN REACT ATTACK FUNCTIONS =======================================================================================
   handleAttack = event => {
     event.preventDefault();
-    
+
     // DISABLE THE ATTACK BUTTON
 
     // DISABLE THE DEFEND BUTTON
@@ -77,28 +78,37 @@ class Users extends Component {
     // PLAYER ATTACKS ENEMY FUNCTION
     let playerAttackFunction = () => {
 
-      let attackChoice = Math.random();
-      console.log("% guiding Critical chances " + attackChoice);
+      if (this.state.playerTurn === true) {
 
-      if (attackChoice <= .66) {
-
-        // STANDARD ATTACK
-        let playerStandardAttackDmgDealt = Math.round(this.roll(this.state.playerAtt / 2, this.state.playerAtt));
         this.setState({
-          message: "You Dealt " + playerStandardAttackDmgDealt + " points of damage to the enemy!"
-        }, () => console.log("You Dealt " + playerStandardAttackDmgDealt + " points of damage to the enemy!"));
-        adjustEnemyHp(playerStandardAttackDmgDealt);
+          playerTurn: false
+        });
 
-      } else {
+        let attackChoice = Math.random();
+        console.log("% guiding Critical chances " + attackChoice);
 
-        // CRITICAL ATTACK
-        let playerCriticalAttackDmgDealt = Math.round(this.roll(this.state.playerSuperAtt / 2, this.state.playerSuperAtt));
-        this.setState({
-          message: "You Dealt a CRITICAL HIT with " + playerCriticalAttackDmgDealt + " points of damage to the enemy!"
-        }, () => console.log("You Dealt a CRITICAL HIT with " + playerCriticalAttackDmgDealt + " points of damage to the enemy!"));
-        
-        adjustEnemyHp(playerCriticalAttackDmgDealt);
+        if (attackChoice <= .66) {
+
+          // STANDARD ATTACK
+          let playerStandardAttackDmgDealt = Math.round(this.roll(this.state.playerAtt / 2, this.state.playerAtt));
+          this.setState({
+            message: "You Dealt " + playerStandardAttackDmgDealt + " points of damage to the enemy!"
+          }, () => console.log("You Dealt " + playerStandardAttackDmgDealt + " points of damage to the enemy!"));
+          adjustEnemyHp(playerStandardAttackDmgDealt);
+
+        } else {
+
+          // CRITICAL ATTACK
+          let playerCriticalAttackDmgDealt = Math.round(this.roll(this.state.playerSuperAtt / 2, this.state.playerSuperAtt));
+          this.setState({
+            message: "You Dealt a CRITICAL HIT with " + playerCriticalAttackDmgDealt + " points of damage to the enemy!"
+          }, () => console.log("You Dealt a CRITICAL HIT with " + playerCriticalAttackDmgDealt + " points of damage to the enemy!"));
+
+          adjustEnemyHp(playerCriticalAttackDmgDealt);
+        }
       }
+
+
     }
 
 
@@ -118,7 +128,7 @@ class Users extends Component {
           this.setState({
             message: "Location coming up next... " + location_name
           }, () => console.log("Location coming up next... " + location_name));
-        
+
           // console.log(this.state.location_id);
           if (this.state.location_id === 4) {
 
@@ -164,8 +174,8 @@ class Users extends Component {
               enemySelector: newEnemySelected
             }, () => console.log("Traveling to next location!"));
           }
-      }
-      setTimeout(goToNewLocation, 2500);
+        }
+        setTimeout(goToNewLocation, 2500);
       }
     }
 
@@ -182,7 +192,16 @@ class Users extends Component {
     let enemyDamagesPlayer = () => {
       if (this.state.enemyHp <= 0) {
 
+        this.setState({
+          playerTurn: true
+        });
+
       } else {
+
+        this.setState({
+          playerTurn: true
+        });
+
         let attackChoice = Math.random();
         console.log("% guiding Critical chances " + attackChoice);
 
@@ -205,7 +224,7 @@ class Users extends Component {
           this.setState({
             message: "Enemy hit you with a Critical Attack for " + enemyCriticalAttackedFor + " points!"
           }, () => console.log("Enemy hit you with a Critical Attack!"));
-          
+
           adjustPlayerHp(enemyCriticalAttackedFor);
         }
       }
@@ -223,7 +242,7 @@ class Users extends Component {
     }
 
     console.log("The playerHP STATE is set to " + this.state.playerHp);
-    
+
     let updateGameStateOnDefeat = (newHp) => {
       if (newHp <= 0) {
 
@@ -252,20 +271,23 @@ class Users extends Component {
 
     // PLAYER CHOOSES TO DEFEND -- ENEMY TAKES NO DAMAGE
     let playerDefenseFunction = () => {
-      let damageDeflected = this.state.enemyAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
-      this.setState({
-        message: "Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"
-      }, () => console.log("Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"));
-      adjustPlayerHp(damageDeflected);
+
+      if (this.state.playerTurn === true) {
+        let damageDeflected = this.state.enemyAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
+        this.setState({
+          message: "Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"
+        }, () => console.log("Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"));
+        adjustPlayerHp(damageDeflected);
+      }
     }
 
 
     let updateGameOnDefenseFailure = (newHp) => {
       if (newHp <= 0) {
 
-          this.setState({
-            current_location: ""
-          }, () => console.log("DEFENSE FAILURE: GAME OVER"));
+        this.setState({
+          current_location: ""
+        }, () => console.log("DEFENSE FAILURE: GAME OVER"));
 
         let gameOveronDefenseFailure = () => {
           let gameOver = this.state.gameOverId;
@@ -274,8 +296,8 @@ class Users extends Component {
             combatHide: "hide",
             cardHide: "",
             location_id: gameOver
-            }, () => console.log("DEFENSE FAILURE GAME OVER"));
-          }
+          }, () => console.log("DEFENSE FAILURE GAME OVER"));
+        }
         setTimeout(gameOveronDefenseFailure, 1000);
       }
     }
@@ -349,40 +371,33 @@ class Users extends Component {
           })}
 
           {/* <Button className={this.state.startBtnHide} variant="contained" size="large" color="primary" onClick={this.startAdventure}>Embark! </Button> */}
-          <button className={this.state.startBtnHide + "btn"} onClick={this.startAdventure}>Embark!</button>
+          <button className={`${this.state.startBtnHide}`} onClick={this.startAdventure}>Embark!</button>
         </div>
 
         <Container>
 
-          <div className={this.state.card}>
+          <Card className={this.state.cardHide}>
 
-            <Card className={this.state.cardHide}>
+            <h3 className="locationTitle">{this.state.current_location}</h3>
 
-              <h3 className="locationTitle">{this.state.current_location}</h3>
+            <div className={`${this.state.storyHide} typewriter`}>
 
-              <div className={`${this.state.storyHide} typewriter`}>
+              <h3 className="">{Locations[this.state.location_id].story}</h3>
 
-                {Locations[this.state.location_id].story}
+            </div>
 
-                {/* <h3 className={this.state.currentLocalHide}>{this.state.current_location}</h3><br></br> */}
-                {/* <div className={this.state.storyHide}>{Locations[this.state.location_id].story}</div> */}
-
-              </div>
-
-              {/* <div className={`${this.state.currentLocalHide} typewriter`}>{this.state.current_location}</div><br></br>
+            {/* <div className={`${this.state.currentLocalHide} typewriter`}>{this.state.current_location}</div><br></br>
             <div className={`${this.state.storyHide} typewriter`}>{Locations[this.state.location_id].story}</div> */}
 
-            </Card>
+          </Card>
 
-            <button className={this.state.cardBtnHide} onClick={this.startCombat}>Start combat</button>
-
-          </div>
+          <button className={this.state.cardBtnHide} onClick={this.startCombat}>Start combat</button>
 
 
           <div className={`${this.state.combatHide} row`}>
 
             <Col size="4" className={this.state.combatHide}>
-            {/* adds animation to the player */}
+              {/* adds animation to the player */}
               <Animated animationIn="bounceInLeft" animationOut="flash" isVisible={true}>
                 <UICard
                   name={this.state.playerName}
@@ -392,7 +407,7 @@ class Users extends Component {
                 />
               </Animated>
             </Col>
-            
+
 
             <Col size="4" className={this.state.combatHide}>
               <div className="textCard">
@@ -408,7 +423,7 @@ class Users extends Component {
 
             <Col size="4" className={`${this.state.combatHide} `}>
               <div className="">
-              {/* adds animation to the enemy, the flashing is from css, the entrance is a node package*/}
+                {/* adds animation to the enemy, the flashing is from css, the entrance is a node package*/}
                 <Animated animationIn="flash" animationOut="flash" isVisible={true}>
                   <UICardEnemy
                     name={this.state.enemyName}
@@ -419,7 +434,7 @@ class Users extends Component {
                   />
                 </Animated>
               </div>
-              
+
             </Col>
 
           </div>
@@ -442,8 +457,6 @@ class Users extends Component {
         <button className={this.state.cardBtnHide} onClick={this.startCombat}>Start combat</button>
         
         </div> */}
-       
-
       </div>
     );
   }
