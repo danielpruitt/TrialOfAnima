@@ -18,6 +18,7 @@ class Users extends Component {
   state = {
     //COMBAT STATE COMPONENTS
     playerClass: "",
+    playerTurn: true,
     playerHp: 140,
     playerAtt: 40,
     playerSuperAtt: 60,
@@ -69,7 +70,7 @@ class Users extends Component {
   // BEGIN REACT ATTACK FUNCTIONS =======================================================================================
   handleAttack = event => {
     event.preventDefault();
-    
+
     // DISABLE THE ATTACK BUTTON
 
     // DISABLE THE DEFEND BUTTON
@@ -77,28 +78,37 @@ class Users extends Component {
     // PLAYER ATTACKS ENEMY FUNCTION
     let playerAttackFunction = () => {
 
-      let attackChoice = Math.random();
-      console.log("% guiding Critical chances " + attackChoice);
+      if(this.state.playerTurn === true){
 
-      if (attackChoice <= .66) {
-
-        // STANDARD ATTACK
-        let playerStandardAttackDmgDealt = Math.round(this.roll(this.state.playerAtt / 2, this.state.playerAtt));
         this.setState({
-          message: "You Dealt " + playerStandardAttackDmgDealt + " points of damage to the enemy!"
-        }, () => console.log("You Dealt " + playerStandardAttackDmgDealt + " points of damage to the enemy!"));
-        adjustEnemyHp(playerStandardAttackDmgDealt);
+          playerTurn: false
+        });
 
-      } else {
-
-        // CRITICAL ATTACK
-        let playerCriticalAttackDmgDealt = Math.round(this.roll(this.state.playerSuperAtt / 2, this.state.playerSuperAtt));
-        this.setState({
-          message: "You Dealt a CRITICAL HIT with " + playerCriticalAttackDmgDealt + " points of damage to the enemy!"
-        }, () => console.log("You Dealt a CRITICAL HIT with " + playerCriticalAttackDmgDealt + " points of damage to the enemy!"));
-        
-        adjustEnemyHp(playerCriticalAttackDmgDealt);
+        let attackChoice = Math.random();
+        console.log("% guiding Critical chances " + attackChoice);
+  
+        if (attackChoice <= .66) {
+  
+          // STANDARD ATTACK
+          let playerStandardAttackDmgDealt = Math.round(this.roll(this.state.playerAtt / 2, this.state.playerAtt));
+          this.setState({
+            message: "You Dealt " + playerStandardAttackDmgDealt + " points of damage to the enemy!"
+          }, () => console.log("You Dealt " + playerStandardAttackDmgDealt + " points of damage to the enemy!"));
+          adjustEnemyHp(playerStandardAttackDmgDealt);
+  
+        } else {
+  
+          // CRITICAL ATTACK
+          let playerCriticalAttackDmgDealt = Math.round(this.roll(this.state.playerSuperAtt / 2, this.state.playerSuperAtt));
+          this.setState({
+            message: "You Dealt a CRITICAL HIT with " + playerCriticalAttackDmgDealt + " points of damage to the enemy!"
+          }, () => console.log("You Dealt a CRITICAL HIT with " + playerCriticalAttackDmgDealt + " points of damage to the enemy!"));
+          
+          adjustEnemyHp(playerCriticalAttackDmgDealt);
+        }
       }
+
+      
     }
 
 
@@ -176,6 +186,11 @@ class Users extends Component {
       if (this.state.enemyHp <= 0) {
 
       } else {
+
+        this.setState({
+          playerTurn: true
+        });
+
         let attackChoice = Math.random();
         console.log("% guiding Critical chances " + attackChoice);
 
@@ -245,11 +260,14 @@ class Users extends Component {
 
     // PLAYER CHOOSES TO DEFEND -- ENEMY TAKES NO DAMAGE
     let playerDefenseFunction = () => {
-      let damageDeflected = this.state.enemyAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
-      this.setState({
-        message: "Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"
-      }, () => console.log("Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"));
-      adjustPlayerHp(damageDeflected);
+
+      if(this.state.playerTurn === true){
+        let damageDeflected = this.state.enemyAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
+        this.setState({
+          message: "Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"
+        }, () => console.log("Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"));
+        adjustPlayerHp(damageDeflected);
+      }
     }
 
 
