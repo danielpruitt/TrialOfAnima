@@ -12,21 +12,17 @@
     font-family: 'VT323', monospace;
 }
 
-/* .selectRow{
-  justify-content: center;
-  margin: auto;
-  align-content: center;
-}
-
-.selectCol{
-  justify-content: center;
-  margin: auto;
-  align-content: center;
-} */
 
 .selectImg{
   width: 450px;
   height: 450px;
+}
+
+.selectImg:hover{
+  background-color: #343a40 ;
+  border-radius: 20px;
+  
+
 }
 
 .typewriter  {

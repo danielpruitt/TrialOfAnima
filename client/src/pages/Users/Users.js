@@ -380,11 +380,8 @@ class Users extends Component {
 
       <div className="App">
 
-      {/* character cards being called in  */}
+        {/* character cards being called in  */}
         <div className={`${this.state.charHide}`}>
-          {/* {Characters.map(characters => {
-            return (<CharacterSelect onClick={this.handleCharacterState} key={characters.id} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}>{characters.name}</CharacterSelect>)
-          })} */}
 
           <Row className="selectRow">
 
@@ -402,33 +399,35 @@ class Users extends Component {
 
           </Row>
 
-        {/* Embark button to start story and attacking */}
+          {/* Embark button to start story and attacking */}
           <button className={`${this.state.startBtnHide}`} onClick={this.startAdventure}>Embark!</button>
         </div>
 
         {/* container that switches the stories and attacking  */}
         <Container>
-          {/* holds the storyline */}
+
+          {/* holds the storyline and allows it to be in the hidden or shown */}
           <Card className={this.state.cardHide}>
 
-            <h3 className="locationTitle">{this.state.current_location}</h3>
+            <Animated animationIn="flipInX" animationOut="flipOutX" isVisible={true}>
+              <h3 className="locationTitle">{this.state.current_location}</h3>
 
-            <div className={`${this.state.storyHide}`}>
+              <div className={`${this.state.storyHide}`}>
 
-            {/* typewriter */}
-            
                 <h3 className="">{Locations[this.state.location_id].story}</h3>
-              
-            </div>
 
-            
+              </div>
+
+            </Animated>
 
           </Card>
-
+          {/* start button to move on to the next battle scene */}
           <button className={this.state.cardBtnHide} onClick={this.startCombat}>Start combat</button>
 
-          <div className={`${this.state.combatHide} row`}>
+          {/* combat mode  */}
 
+          <div className={`${this.state.combatHide} row`}>
+            {/* this is the player container the class, image, and health is shown */}
             <Col size="4" className={this.state.combatHide}>
               {/* adds animation to the player */}
               <Animated animationIn="bounceInLeft" animationOut="flash" isVisible={true}>
@@ -441,7 +440,7 @@ class Users extends Component {
               </Animated>
             </Col>
 
-
+            {/* this is the center column with the attack and defend buttons as well as the log of what is happening with player and enemy health */}
             <Col size="4" className={this.state.combatHide}>
               <div className="textCard">
                 {/* <Player onClick={this.handleAttack} action="ATTACK!"></Player> */}
@@ -456,6 +455,7 @@ class Users extends Component {
               </div>
             </Col>
 
+            {/* this is the column for the enemy. The enemy name, image, and hp is listed */}
             <Col size="4" className={`${this.state.combatHide} `}>
               <div className="">
                 {/* adds animation to the enemy, the flashing is from css, the entrance is a node package*/}
@@ -476,22 +476,7 @@ class Users extends Component {
 
         </Container>
 
-        {/* <div className={this.state.combatHide}>
-          <Player onClick={this.handleAttack} action="ATTACK!">Click to attack</Player>
-          <Player onClick={this.handleDefense} action="DEFEND!">Click to defend</Player>
-          <Enemy>Enemy</Enemy>
-          <div>You have HP: {this.state.playerHp}</div>
-          <div className={this.state.enemyHide}>{this.state.enemyName} has HP: {this.state.enemyHp}</div>
-          <div>{this.state.message}</div>
-          <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
-        </div>
-        <div className={this.state.card}>
-          <Card className={this.state.cardHide}>
-            <div className={this.state.currentLocalHide}>{this.state.current_location}</div><br></br>
-            <div className={this.state.storyHide + 'typewriter'} >{Locations[this.state.location_id].story}</div>
-        <button className={this.state.cardBtnHide} onClick={this.startCombat}>Start combat</button>
-        
-        </div> */}
+        {/* sound effects and music */}
         <SoundEffects>
           <audio ref="audio_tag" src={this.state.soundEffects} autoPlay />
         </SoundEffects>
