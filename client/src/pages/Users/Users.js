@@ -489,7 +489,7 @@ class Users extends Component {
                 <Col size="4">
                 </Col>
                 
-                <Col size="4" styleClass="centered attack">
+                <Col size="4" styleClass="centered defend">
                     <CombatBtn onClick={this.handleDefense} action="DEFEND!"></CombatBtn>                
                 </Col>                
                 {/* <Col size="3">
