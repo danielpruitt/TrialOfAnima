@@ -11,7 +11,7 @@ const Player = props => (
 
 
     <div className="playerDiv" {...props}>{props.children}
-        <Button variant="extendedFab" aria-label={props.action} className="playerDiv">
+        <Button disabled={props.isDisabled} variant="extendedFab" aria-label={props.action} className="playerDiv">
             <NavigationIcon className="actionBtn" />
             <span className="actionBtn" style={{fontFamily: "'VT323', monospace", fontSize: '18px'}}>{props.action}</span>
         </Button>

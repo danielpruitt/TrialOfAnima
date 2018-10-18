@@ -7,11 +7,12 @@ import Arrow from "../../components/Arrow/Arrow";
 import Locations from "./locations.json";
 import Characters from "./characters.json";
 // import CharacterSelect from "../../components/CharacterSelect/CharacterSelect";
-import SelectorCard from "../../components/SelectorCard";import Card from "../../components/Card/Card";
+import SelectorCard from "../../components/SelectorCard"; import Card from "../../components/Card/Card";
 import UICard from "../../components/UICard";
 import UICardEnemy from "../../components/UICardEnemy";
 import { Col, Row, Container } from "../../components/Grid";
 import { Animated } from "react-animated-css";
+import Button from '@material-ui/core/Button';
 import SoundEffects from "../../components/SoundEffects";
 import Music from "../../components/Music";
 
@@ -20,7 +21,7 @@ class Users extends Component {
   state = {
     //COMBAT STATE COMPONENTS
     playerClass: "",
-    playerTurn: true,
+    isBtnDisabled: false,
     playerHp: 140,
     playerAtt: 40,
     playerSuperAtt: 60,
@@ -58,7 +59,7 @@ class Users extends Component {
   }
 
   componentDidMount() {
-  
+
     let currentLocationId = this.state.location_id;
     let currentLocationName = Locations[currentLocationId].name;
     this.setState({
@@ -78,8 +79,10 @@ class Users extends Component {
     event.preventDefault();
 
     // DISABLE THE ATTACK BUTTON
-
     // DISABLE THE DEFEND BUTTON
+    this.setState({
+      isBtnDisabled: true
+    });
 
     // PLAYER ATTACKS ENEMY FUNCTION
     let playerAttackFunction = () => {
@@ -89,10 +92,9 @@ class Users extends Component {
         soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Sword4.wav",
       }, () => console.log("Initializing sword sound " + this.state.soundEffect));
 
-      if (this.state.playerTurn === true) {
+      if (this.state.isBtnDisabled === false) {
 
         this.setState({
-          playerTurn: false,
           soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Sword4.wav"
         });
 
@@ -120,8 +122,8 @@ class Users extends Component {
 
           adjustEnemyHp(playerCriticalAttackDmgDealt);
         }
-      }
 
+      }
 
     }
 
@@ -208,15 +210,7 @@ class Users extends Component {
     let enemyDamagesPlayer = () => {
       if (this.state.enemyHp <= 0) {
 
-        this.setState({
-          playerTurn: true
-        });
-
       } else {
-
-        this.setState({
-          playerTurn: true
-        });
 
         let attackChoice = Math.random();
         console.log("% guiding Critical chances " + attackChoice);
@@ -228,6 +222,7 @@ class Users extends Component {
           //STANDARD ATTACK
           let enemyStandardAttackedFor = Math.round(this.roll(this.state.enemyAtt / 2, this.state.enemyAtt));
           this.setState({
+            isBtnDisabled: false,
             message: "Enemy attacks for " + enemyStandardAttackedFor + " points!",
             soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Sword_Spin.wav"
           }, () => console.log("Enemy attacks for " + enemyStandardAttackedFor + " points!"));
@@ -239,6 +234,7 @@ class Users extends Component {
           //SUPER ATTACK
           let enemyCriticalAttackedFor = Math.round(this.roll(this.state.enemyCriticalAtt / 2, this.state.enemyCriticalAtt));
           this.setState({
+            isBtnDisabled: false,
             message: "Enemy hit you with a Critical Attack for " + enemyCriticalAttackedFor + " points!",
             soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Shovel.wav"
           }, () => console.log("Enemy hit you with a Critical Attack!"));
@@ -290,14 +286,13 @@ class Users extends Component {
     // PLAYER CHOOSES TO DEFEND -- ENEMY TAKES NO DAMAGE
     let playerDefenseFunction = () => {
 
-      if (this.state.playerTurn === true) {
-        let damageDeflected = this.state.enemyAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
-        this.setState({
-          message: "Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!",
-          soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/WW_New/WW_Sword_Spin.wav"
-        }, () => console.log("Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"));
-        adjustPlayerHp(damageDeflected);
-      }
+      let damageDeflected = this.state.enemyAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
+      this.setState({
+        message: "Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!",
+        soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/WW_New/WW_Sword_Spin.wav"
+      }, () => console.log("Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"));
+      adjustPlayerHp(damageDeflected);
+
     }
 
 
@@ -369,6 +364,7 @@ class Users extends Component {
       combatHide: "",
       cardBtnHide: "hide",
       playerHp: 100,
+      isBtnDisabled: false,
       enemyHp: Enemies[this.state.enemySelector].hp,
       enemyName: Enemies[this.state.enemySelector].name,
       enemyAtt: Enemies[this.state.enemySelector].att,
@@ -377,6 +373,7 @@ class Users extends Component {
       current_location: location_name
     }, () => console.log("START COMBAT"));
   }
+
 
   render() {
     return (
@@ -388,21 +385,21 @@ class Users extends Component {
             return (<CharacterSelect onClick={this.handleCharacterState} key={characters.id} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}>{characters.name}</CharacterSelect>)
           })} */}
 
-            <Row className="selectRow">
+          <Row className="selectRow">
 
-                {Characters.map(characters => {
-                return (
-                
-                    <Col size="4" className="selectCol">
-                        <SelectorCard>
-                            <header><h1>{characters.name}</h1></header>
-                            <img src={characters.image} alt={characters.name} className="selectImg" onClick={this.handleCharacterState} key={characters.id} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
-                            <footer> <h3>This can be a class description or something or also nothing.</h3></footer>
-                        </SelectorCard>
-                    </Col>)
-                })}
+            {Characters.map(characters => {
+              return (
 
-            </Row>
+                <Col size="4" className="selectCol">
+                  <SelectorCard>
+                    <header><h1>{characters.name}</h1></header>
+                    <img src={characters.image} alt={characters.name} className="selectImg" onClick={this.handleCharacterState} key={characters.id} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
+                    <footer> <h3>This can be a class description or something or also nothing.</h3></footer>
+                  </SelectorCard>
+                </Col>)
+            })}
+
+          </Row>
 
           {/* <Button className={this.state.startBtnHide} variant="contained" size="large" color="primary" onClick={this.startAdventure}>Embark! </Button> */}
           <button className={`${this.state.startBtnHide}`} onClick={this.startAdventure}>Embark!</button>
@@ -445,8 +442,10 @@ class Users extends Component {
 
             <Col size="4" className={this.state.combatHide}>
               <div className="textCard">
-                <Player onClick={this.handleAttack} action="ATTACK!"></Player>
-                <Player onClick={this.handleDefense} action="DEFEND!"></Player>
+                {/* <Player onClick={this.handleAttack} action="ATTACK!"></Player> */}
+                <Button disabled={this.state.isBtnDisabled} onClick={this.handleAttack}>ATTACK</Button>
+                {/* <Player onClick={this.handleDefense} action="DEFEND!"></Player> */}
+                <Button disabled={this.state.isBtnDisabled} onClick={this.handleDefense}>DEFEND</Button>
                 <div>{this.state.playerName} has HP: {this.state.playerHp}</div>
                 <div className={this.state.enemyHide}>{this.state.enemyName} has HP: {this.state.enemyHp}</div>
                 <div>{this.state.message}</div>
@@ -492,11 +491,11 @@ class Users extends Component {
         
         </div> */}
         <SoundEffects>
-        <audio ref="audio_tag" src={this.state.soundEffects} autoPlay/>
+          <audio ref="audio_tag" src={this.state.soundEffects} autoPlay />
         </SoundEffects>
-        
+
         <Music>
-        <audio ref="audio_tag" src={this.state.music} autoPlay/>
+          <audio ref="audio_tag" src={this.state.music} autoPlay />
         </Music>
       </div>
     );
