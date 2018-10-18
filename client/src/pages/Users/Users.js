@@ -358,8 +358,7 @@ class Users extends Component {
       enemyImage: Enemies[this.state.enemySelector].image,
       current_location: location_name
     }, () => console.log("START COMBAT"));
-  }
-
+  };
 
   render() {
     return (
