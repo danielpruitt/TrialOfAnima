@@ -12,7 +12,8 @@ import UICard from "../../components/UICard";
 import UICardEnemy from "../../components/UICardEnemy";
 import { Col, Row, Container } from "../../components/Grid";
 import { Animated } from "react-animated-css";
-import TypeWriter from 'react-typewriter';
+import SoundEffects from "../../components/SoundEffects";
+import Music from "../../components/Music";
 
 
 class Users extends Component {
@@ -47,7 +48,9 @@ class Users extends Component {
     gameOverId: 6,
     location_id: 0,
     current_location: "",
-    next_location: ""
+    next_location: "",
+    music: "",
+    soundEffects: ""
   };
 
   roll = (min, max) => {
@@ -55,6 +58,7 @@ class Users extends Component {
   }
 
   componentDidMount() {
+  
     let currentLocationId = this.state.location_id;
     let currentLocationName = Locations[currentLocationId].name;
     this.setState({
@@ -63,7 +67,8 @@ class Users extends Component {
       enemyAtt: Enemies[this.state.enemySelector].att,
       enemyCriticalAtt: Enemies[this.state.enemySelector].criticalAtt,
       enemyImage: Enemies[this.state.enemySelector].image,
-      current_location: currentLocationName
+      current_location: currentLocationName,
+      music: "http://66.90.93.122/ost/the-legend-of-zelda-nes/zsywrgsx/04%20Labyrinth.mp3"
     });
   }
 
@@ -79,10 +84,16 @@ class Users extends Component {
     // PLAYER ATTACKS ENEMY FUNCTION
     let playerAttackFunction = () => {
 
+      //SET THE SOUND FOR ATTACKING
+      this.setState({
+        soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Sword4.wav",
+      }, () => console.log("Initializing sword sound " + this.state.soundEffect));
+
       if (this.state.playerTurn === true) {
 
         this.setState({
-          playerTurn: false
+          playerTurn: false,
+          soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Sword4.wav"
         });
 
         let attackChoice = Math.random();
@@ -93,7 +104,8 @@ class Users extends Component {
           // STANDARD ATTACK
           let playerStandardAttackDmgDealt = Math.round(this.roll(this.state.playerAtt / 2, this.state.playerAtt));
           this.setState({
-            message: "You Dealt " + playerStandardAttackDmgDealt + " points of damage to the enemy!"
+            message: "You Dealt " + playerStandardAttackDmgDealt + " points of damage to the enemy!",
+            soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Sword4.wav"
           }, () => console.log("You Dealt " + playerStandardAttackDmgDealt + " points of damage to the enemy!"));
           adjustEnemyHp(playerStandardAttackDmgDealt);
 
@@ -102,7 +114,8 @@ class Users extends Component {
           // CRITICAL ATTACK
           let playerCriticalAttackDmgDealt = Math.round(this.roll(this.state.playerSuperAtt / 2, this.state.playerSuperAtt));
           this.setState({
-            message: "You Dealt a CRITICAL HIT with " + playerCriticalAttackDmgDealt + " points of damage to the enemy!"
+            message: "You Dealt a CRITICAL HIT with " + playerCriticalAttackDmgDealt + " points of damage to the enemy!",
+            soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Link_Shock.wav"
           }, () => console.log("You Dealt a CRITICAL HIT with " + playerCriticalAttackDmgDealt + " points of damage to the enemy!"));
 
           adjustEnemyHp(playerCriticalAttackDmgDealt);
@@ -118,7 +131,9 @@ class Users extends Component {
       if (newEnemyHp <= 0) {
 
         this.setState({
-          message2: "VICTORIUS!"
+          message2: "VICTORIUS!",
+          music: "",
+          soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/WW_New/WW_Fanfare_Pearl.wav"
         }, () => console.log("VICTORIUS"));
 
         let goToNewLocation = () => {
@@ -213,7 +228,8 @@ class Users extends Component {
           //STANDARD ATTACK
           let enemyStandardAttackedFor = Math.round(this.roll(this.state.enemyAtt / 2, this.state.enemyAtt));
           this.setState({
-            message: "Enemy attacks for " + enemyStandardAttackedFor + " points!"
+            message: "Enemy attacks for " + enemyStandardAttackedFor + " points!",
+            soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Sword_Spin.wav"
           }, () => console.log("Enemy attacks for " + enemyStandardAttackedFor + " points!"));
           adjustPlayerHp(enemyStandardAttackedFor);
 
@@ -223,7 +239,8 @@ class Users extends Component {
           //SUPER ATTACK
           let enemyCriticalAttackedFor = Math.round(this.roll(this.state.enemyCriticalAtt / 2, this.state.enemyCriticalAtt));
           this.setState({
-            message: "Enemy hit you with a Critical Attack for " + enemyCriticalAttackedFor + " points!"
+            message: "Enemy hit you with a Critical Attack for " + enemyCriticalAttackedFor + " points!",
+            soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Shovel.wav"
           }, () => console.log("Enemy hit you with a Critical Attack!"));
 
           adjustPlayerHp(enemyCriticalAttackedFor);
@@ -276,7 +293,8 @@ class Users extends Component {
       if (this.state.playerTurn === true) {
         let damageDeflected = this.state.enemyAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
         this.setState({
-          message: "Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"
+          message: "Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!",
+          soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/WW_New/WW_Sword_Spin.wav"
         }, () => console.log("Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"));
         adjustPlayerHp(damageDeflected);
       }
@@ -358,7 +376,7 @@ class Users extends Component {
       enemyImage: Enemies[this.state.enemySelector].image,
       current_location: location_name
     }, () => console.log("START COMBAT"));
-  };
+  }
 
   render() {
     return (
@@ -401,9 +419,9 @@ class Users extends Component {
             <div className={`${this.state.storyHide}`}>
 
             {/* typewriter */}
-              <TypeWriter typing={1}>
+            
                 <h3 className="">{Locations[this.state.location_id].story}</h3>
-              </TypeWriter>
+              
             </div>
 
             
@@ -475,9 +493,17 @@ class Users extends Component {
         <button className={this.state.cardBtnHide} onClick={this.startCombat}>Start combat</button>
         
         </div> */}
+        <SoundEffects>
+        <audio ref="audio_tag" src={this.state.soundEffects} autoPlay/>
+        </SoundEffects>
+        
+        <Music>
+        <audio ref="audio_tag" src={this.state.music} autoPlay/>
+        </Music>
       </div>
     );
   }
 }
+
 
 export default Users;
