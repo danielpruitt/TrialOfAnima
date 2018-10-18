@@ -364,8 +364,10 @@ class Users extends Component {
       combatHide: "",
       cardBtnHide: "hide",
       playerHp: 100,
+      playerMaxHp: 100,
       isBtnDisabled: false,
       enemyHp: Enemies[this.state.enemySelector].hp,
+      enemyMaxHp: Enemies[this.state.enemySelector].hp,
       enemyName: Enemies[this.state.enemySelector].name,
       enemyAtt: Enemies[this.state.enemySelector].att,
       enemyCriticalAtt: Enemies[this.state.enemySelector].criticalAtt,
@@ -434,6 +436,7 @@ class Users extends Component {
                   name={this.state.playerName}
                   image={this.state.playerImage}
                   hp={this.state.playerHp}
+                  maxHp={this.state.playerMaxHp}
                   styleClass="player"
                 />
               </Animated>
@@ -462,6 +465,7 @@ class Users extends Component {
                     name={this.state.enemyName}
                     image={this.state.enemyImage}
                     hp={this.state.enemyHp}
+                    maxHp={this.state.enemyMaxHp}
                     styleClass="enemy"
 
                   />
