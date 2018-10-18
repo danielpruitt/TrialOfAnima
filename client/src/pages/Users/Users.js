@@ -12,13 +12,14 @@ import UICard from "../../components/UICard";
 import UICardEnemy from "../../components/UICardEnemy";
 import { Col, Row, Container } from "../../components/Grid";
 import { Animated } from "react-animated-css";
+import Button from '@material-ui/core/Button';
 
 
 class Users extends Component {
   state = {
     //COMBAT STATE COMPONENTS
     playerClass: "",
-    playerTurn: true,
+    isBtnDisabled: false,
     playerHp: 140,
     playerAtt: 40,
     playerSuperAtt: 60,
@@ -72,17 +73,13 @@ class Users extends Component {
     event.preventDefault();
 
     // DISABLE THE ATTACK BUTTON
-
     // DISABLE THE DEFEND BUTTON
+    this.setState({
+      isBtnDisabled: true
+    });
 
     // PLAYER ATTACKS ENEMY FUNCTION
     let playerAttackFunction = () => {
-
-      if (this.state.playerTurn === true) {
-
-        this.setState({
-          playerTurn: false
-        });
 
         let attackChoice = Math.random();
         console.log("% guiding Critical chances " + attackChoice);
@@ -106,7 +103,7 @@ class Users extends Component {
 
           adjustEnemyHp(playerCriticalAttackDmgDealt);
         }
-      }
+      
 
 
     }
@@ -192,15 +189,7 @@ class Users extends Component {
     let enemyDamagesPlayer = () => {
       if (this.state.enemyHp <= 0) {
 
-        this.setState({
-          playerTurn: true
-        });
-
       } else {
-
-        this.setState({
-          playerTurn: true
-        });
 
         let attackChoice = Math.random();
         console.log("% guiding Critical chances " + attackChoice);
@@ -212,6 +201,7 @@ class Users extends Component {
           //STANDARD ATTACK
           let enemyStandardAttackedFor = Math.round(this.roll(this.state.enemyAtt / 2, this.state.enemyAtt));
           this.setState({
+            isBtnDisabled: false,
             message: "Enemy attacks for " + enemyStandardAttackedFor + " points!"
           }, () => console.log("Enemy attacks for " + enemyStandardAttackedFor + " points!"));
           adjustPlayerHp(enemyStandardAttackedFor);
@@ -222,6 +212,7 @@ class Users extends Component {
           //SUPER ATTACK
           let enemyCriticalAttackedFor = Math.round(this.roll(this.state.enemyCriticalAtt / 2, this.state.enemyCriticalAtt));
           this.setState({
+            isBtnDisabled: false,
             message: "Enemy hit you with a Critical Attack for " + enemyCriticalAttackedFor + " points!"
           }, () => console.log("Enemy hit you with a Critical Attack!"));
 
@@ -272,13 +263,12 @@ class Users extends Component {
     // PLAYER CHOOSES TO DEFEND -- ENEMY TAKES NO DAMAGE
     let playerDefenseFunction = () => {
 
-      if (this.state.playerTurn === true) {
         let damageDeflected = this.state.enemyAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
         this.setState({
           message: "Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"
         }, () => console.log("Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"));
         adjustPlayerHp(damageDeflected);
-      }
+      
     }
 
 
@@ -350,6 +340,7 @@ class Users extends Component {
       combatHide: "",
       cardBtnHide: "hide",
       playerHp: 100,
+      isBtnDisabled: false,
       enemyHp: Enemies[this.state.enemySelector].hp,
       enemyName: Enemies[this.state.enemySelector].name,
       enemyAtt: Enemies[this.state.enemySelector].att,
@@ -411,8 +402,10 @@ class Users extends Component {
 
             <Col size="4" className={this.state.combatHide}>
               <div className="textCard">
-                <Player onClick={this.handleAttack} action="ATTACK!"></Player>
-                <Player onClick={this.handleDefense} action="DEFEND!"></Player>
+                {/* <Player onClick={this.handleAttack} action="ATTACK!"></Player> */}
+                <Button disabled={this.state.isBtnDisabled} onClick={this.handleAttack}>ATTACK</Button>
+                {/* <Player onClick={this.handleDefense} action="DEFEND!"></Player> */}
+                <Button disabled={this.state.isBtnDisabled} onClick={this.handleDefense}>DEFEND</Button>
                 <div>{this.state.playerName} has HP: {this.state.playerHp}</div>
                 <div className={this.state.enemyHide}>{this.state.enemyName} has HP: {this.state.enemyHp}</div>
                 <div>{this.state.message}</div>
