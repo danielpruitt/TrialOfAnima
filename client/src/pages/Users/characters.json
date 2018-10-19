@@ -9,7 +9,8 @@
         "hp": 80,
         "att": 70,
         "superAtt": 80,
-        "def": 20
+        "def": 20,
+        "story": "Discovering truth has always driven you into the unknown, mainly the truth that you came from the moon."
     },
     {
         "id": 2,
@@ -19,9 +20,10 @@
         "shadow_image": "./Images/Shadows/Shadow_Rogue_Squared.png",
         "selected": false,
         "hp": 100,
-        "att": 60,
+        "att": 70,
         "superAtt": 80,
-        "def": 25
+        "def": 25,
+        "story": "You're no outlaw—at least, not anymore—but making your own luck has always meant bending the rules."
     },
     {
         "id": 3,
@@ -31,8 +33,9 @@
         "shadow_image": "./Images/Shadows/Shadow_Warrior_Squared.png",
         "selected": false,
         "hp": 100,
-        "att": 40,
+        "att": 70,
         "superAtt": 60,
-        "def": 25
+        "def": 25,
+        "story":"You hail from a long line of heroes, forged from strength and sacrifice. Our enemies may be deadly and merciless, but so are you."
     }
 ]
