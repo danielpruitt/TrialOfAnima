@@ -9,6 +9,7 @@ import SelectorCard from "../../components/SelectorCard"; import Card from "../.
 import UICard from "../../components/UICard";
 import UICardEnemy from "../../components/UICardEnemy";
 import { Col, Row, Container } from "../../components/Grid";
+// import CombatBtn from "../../components/CombatBtn"
 import { Animated } from "react-animated-css";
 import Button from '@material-ui/core/Button';
 import SoundEffects from "../../components/SoundEffects";
@@ -414,7 +415,9 @@ class Users extends Component {
                 <Col key={characters.id} size="4" className="selectCol">
                   <SelectorCard>
                     <header><h1>{characters.name}</h1></header>
-                    <img src={characters.image} alt={characters.name} className="selectImg" onClick={this.handleCharacterState} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
+
+                    <img src={characters.image} onMouseOver={e => (e.currentTarget.src = `${characters.hover}`)} onMouseOut={e => (e.currentTarget.src = `${characters.image}`)}alt={characters.name} className="selectImg" onClick={this.handleCharacterState} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
+
                     <footer> <h3>This can be a class description or something or also nothing.</h3></footer>
                   </SelectorCard>
                 </Col>)
@@ -450,8 +453,8 @@ class Users extends Component {
           {/* combat mode  */}
 
           <div className={`${this.state.combatHide} row`}>
-            {/* this is the player container the class, image, and health is shown */}
-            <Col size="4" className={this.state.combatHide}>
+
+            <Col size="4" className={this.state.combatHide} styleClass="centered">
               {/* adds animation to the player */}
               <Animated animationIn="bounceInLeft" animationOut="flash" isVisible={true}>
                 <UICard
@@ -464,12 +467,10 @@ class Users extends Component {
               </Animated>
             </Col>
 
-            {/* this is the center column with the attack and defend buttons as well as the log of what is happening with player and enemy health */}
-            <Col size="4" className={this.state.combatHide}>
+
+            {/* <Col size="4" className={this.state.combatHide} styleClass="altCentered">
               <div className="textCard">
-                {/* <Player onClick={this.handleAttack} action="ATTACK!"></Player> */}
                 <Button disabled={this.state.isBtnDisabled} onClick={this.handleAttack}>ATTACK</Button>
-                {/* <Player onClick={this.handleDefense} action="DEFEND!"></Player> */}
                 <Button disabled={this.state.isBtnDisabled} onClick={this.handleDefense}>DEFEND</Button>
                 <div>{this.state.playerName} has HP: {this.state.playerHp}</div>
                 <div className={this.state.enemyHide}>{this.state.enemyName} has HP: {this.state.enemyHp}</div>
@@ -477,10 +478,17 @@ class Users extends Component {
                 <div>{this.state.message2}</div>
                 <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
               </div>
+            </Col> */}
+
+            <Col size="4" className={`${this.state.combatHide} textCard`} styleClass="altCentered">
+              <div className="textCard">
+                <div>{this.state.message}</div>
+                <div><h1 className="victory">{this.state.message2}</h1></div>
+                <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
+              </div>
             </Col>
 
-            {/* this is the column for the enemy. The enemy name, image, and hp is listed */}
-            <Col size="4" className={`${this.state.combatHide} `}>
+            <Col size="4" className={`${this.state.combatHide}`} styleClass="centered">
               <div className="">
                 {/* adds animation to the enemy, the flashing is from css, the entrance is a node package*/}
                 <Animated animationIn="flash" animationOut="flash" isVisible={true}>
@@ -497,11 +505,74 @@ class Users extends Component {
 
             </Col>
 
+
+
+
           </div>
+
+            {/* <div className={`${this.state.combatHide} row`}>
+                
+                <Col size="4" styleClass="centered attack">
+                    <CombatBtn onClick={this.handleAttack} action="ATTACK!" disabled={this.state.isBtnDisabled}></CombatBtn>                
+                </Col>
+
+                <Col size="4">
+                </Col>
+                
+                <Col size="4" styleClass="centered defend">
+                    <CombatBtn onClick={this.handleDefense} action="DEFEND!" disabled={this.state.isBtnDisabled}></CombatBtn>                
+                </Col>                
+
+
+            
+            </div> */}
 
         </Container>
 
-        {/* sound effects and music */}
+            <div className={`${this.state.combatHide} row`}>
+                
+                {/* <Col size="3" styleClass="centered attack">
+                    <CombatBtn onClick={this.handleAttack} action="ATTACK!" disabled={this.state.isBtnDisabled}></CombatBtn>                
+                </Col>
+
+                <Col size="6">
+                </Col>
+                
+                <Col size="3" styleClass="centered defend">
+                    <CombatBtn onClick={this.handleDefense} action="DEFEND!" disabled={this.state.isBtnDisabled}></CombatBtn>                
+                </Col>                 */}
+
+                <Col size="3">
+                    <Button onClick={this.handleAttack} disabled={this.state.isBtnDisabled} className="combatBtn attack"><h1 className="command">ATTACK!</h1></Button>                
+                </Col>
+
+                <Col size="6">
+                </Col>
+                
+                <Col size="3">
+                    <Button onClick={this.handleDefense} disabled={this.state.isBtnDisabled} className="combatBtn defend"><h1 className="command">DEFEND!</h1></Button>                
+                </Col>                 
+
+
+            
+            </div>
+
+        {/* <div className={this.state.combatHide}>
+          <Player onClick={this.handleAttack} action="ATTACK!">Click to attack</Player>
+          <Player onClick={this.handleDefense} action="DEFEND!">Click to defend</Player>
+          <Enemy>Enemy</Enemy>
+          <div>You have HP: {this.state.playerHp}</div>
+          <div className={this.state.enemyHide}>{this.state.enemyName} has HP: {this.state.enemyHp}</div>
+          <div>{this.state.message}</div>
+          <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
+        </div>
+        <div className={this.state.card}>
+          <Card className={this.state.cardHide}>
+            <div className={this.state.currentLocalHide}>{this.state.current_location}</div><br></br>
+            <div className={this.state.storyHide + 'typewriter'} >{Locations[this.state.location_id].story}</div>
+        <button className={this.state.cardBtnHide} onClick={this.startCombat}>Start combat</button>
+        
+        </div> */}
         <SoundEffects>
           <audio ref="audio_tag" src={this.state.soundEffects} autoPlay />
         </SoundEffects>
