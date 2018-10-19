@@ -800,7 +800,7 @@ percentChanceofCriticalAttack = () => {
         </SoundEffects>
 
         <Music>
-          <audio ref="audio_tag" src={this.state.music} autoPlay />
+          <audio ref="audio_tag" src={this.state.music} autoPlay loop />
         </Music>
       </div>
     );
