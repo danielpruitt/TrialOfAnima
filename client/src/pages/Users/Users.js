@@ -32,6 +32,7 @@ class Users extends Component {
     enemyName: "",
     enemyAtt: 0,
     enemyCriticalAtt: 0,
+    percentChance: 0,
     enemyImage: "",
     message: "",
     message2: "",
@@ -58,12 +59,190 @@ class Users extends Component {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
+
+  // PERCENT CHANCE CRITICAL HITS
+percentChanceofCriticalAttack = () => {
+  let percentChance = Math.floor(Math.random() * 10) + 1;
+  console.log(percentChance);
+  switch (percentChance) {
+      case 1:
+      this.setState({
+        message2: "10% Danger Enemy Critical Attack"
+      }, () => console.log("10% Danger of Enemy Critical Attack"));
+      let ranNumCase1 = Math.random();
+      console.log(ranNumCase1 + " is the subset random number");
+      if (ranNumCase1 < .10) {
+          this.setState({
+          percentChance: "criticalAttack"
+          }, () => console.log("CRITICAL ATTACK"))
+      } else {
+          this.setState({
+          percentChance: "standardAttack"
+          }, () => console.log("STANDARD ATTACK"))
+      }
+      break;
+
+      case 2: 
+      this.setState({
+        message2: "20% Danger Enemy Critical Attack"
+      }, () => console.log("20% Danger of Enemy Critical Attack"));
+      let ranNumCase2 = Math.random();
+      console.log(ranNumCase2 + " is the subset random number");
+      if (ranNumCase2 < .20) {
+      this.setState({
+          percentChance: "criticalAttack"
+      }, () => console.log("CRITICAL ATTACK"))
+      } else {
+      this.setState({
+          percentChance: "standardAttack"
+      }, () => console.log("STANDARD ATTACK"))
+      }
+      break;
+
+      case 3: 
+      this.setState({
+        message2: "30% Danger Enemy Critical Attack"
+      }, () => console.log("30% Danger of Enemy Critical Attack"));
+      let ranNumCase3 = Math.random();
+      console.log(ranNumCase3 + " is the subset random number");
+      if (ranNumCase3 < .30) {
+      this.setState({
+          percentChance: "criticalAttack"
+      }, () => console.log("CRITICAL ATTACK"))
+      } else {
+      this.setState({
+          percentChance: "standardAttack"
+      }, () => console.log("STANDARD ATTACK"))
+      }
+      break;
+
+    case 4:
+    this.setState({
+      message2: "40% Danger Enemy Critical Attack"
+    }, () => console.log("40% Danger of Enemy Critical Attack"));
+    let ranNumCase4 = Math.random();
+    console.log(ranNumCase4 + " is the subset random number");
+    if (ranNumCase4 < .40) {
+      this.setState({
+        percentChance: "criticalAttack"
+      }, () => console.log("CRITICAL ATTACK"))
+    } else {
+      this.setState({
+        percentChance: "standardAttack"
+      }, () => console.log("STANDARD ATTACK"))
+    }
+    break;
+
+    case 5:
+    this.setState({
+      message2: "50% Danger Enemy Critical Attack"
+    }, () => console.log("50% Danger of Enemy Critical Attack"));
+    let ranNumCase5 = Math.random();
+    console.log(ranNumCase5 + " is the subset random number");
+    if (ranNumCase5 < .50) {
+      this.setState({
+        percentChance: "criticalAttack"
+      }, () => console.log("CRITICAL ATTACK"))
+    } else {
+      this.setState({
+        percentChance: "standardAttack"
+      }, () => console.log("STANDARD ATTACK"))
+    }
+    break;
+
+    case 6: 
+    this.setState({
+      message2: "60% Danger Enemy Critical Attack"
+    }, () => console.log("60% Danger of Enemy Critical Attack"));
+    let ranNumCase6 = Math.random();
+    console.log(ranNumCase6 + " is the subset random number");
+    if (ranNumCase6 < .60) {
+      this.setState({
+        percentChance: "criticalAttack"
+      }, () => console.log("CRITICAL ATTACK"))
+    } else {
+      this.setState({
+        percentChance: "standardAttack"
+      }, () => console.log("STANDARD ATTACK"))
+    }
+    break;
+
+    case 7: 
+    this.setState({
+      message2: "70% Danger Enemy Critical Attack"
+    }, () => console.log("70% Danger of Enemy Critical Attack"));
+    let ranNumCase7 = Math.random();
+    console.log(ranNumCase7 + " is the subset random number");
+    if (ranNumCase7 < .70) {
+      this.setState({
+        percentChance: "criticalAttack"
+      }, () => console.log("CRITICAL ATTACK"))
+    } else {
+      this.setState({
+        percentChance: "standardAttack"
+      }, () => console.log("STANDARD ATTACK"))
+    }
+    break;
+
+    case 8:
+    this.setState({
+      message2: "80% Danger Enemy Critical Attack"
+    }, () => console.log("80% Danger of Enemy Critical Attack"));
+    let ranNumCase8 = Math.random();
+    console.log(ranNumCase8 + " is the subset random number");
+    if (ranNumCase8 < .80) {
+      this.setState({
+        percentChance: "criticalAttack"
+      }, () => console.log("CRITICAL ATTACK"))
+    } else {
+      this.setState({
+        percentChance: "standardAttack"
+      }, () => console.log("STANDARD ATTACK"))
+    }
+    break;
+
+    case 9: 
+    this.setState({
+      message2: "90% Danger Enemy Critical Attack"
+    }, () => console.log("90% Danger of Enemy Critical Attack"));
+    let ranNumCase9 = Math.random();
+    console.log(ranNumCase9 + " is the subset random number");
+    if (ranNumCase9 < .90) {
+      this.setState({
+        percentChance: "criticalAttack"
+      }, () => console.log("CRITICAL ATTACK"))
+    } else {
+      this.setState({
+        percentChance: "standardAttack"
+      }, () => console.log("STANDARD ATTACK"))
+    }
+    break;
+
+    case 10: 
+    this.setState({
+      message2: "99% Danger Enemy Critical Attack"
+    }, () => console.log("99% Danger of Enemy Critical Attack"));
+    let ranNumCase10 = Math.random();
+    console.log(ranNumCase10 + " is the subset random number");
+    if (ranNumCase10 < 1) {
+      this.setState({
+        percentChance: "criticalAttack"
+      }, () => console.log("CRITICAL ATTACK"))
+    } else {
+      this.setState({
+        percentChance: "standardAttack"
+      }, () => console.log("STANDARD ATTACK"))
+    }
+    break;
+  }
+  console.log(this.state.percentChance);
+}
+    
+
   componentDidMount() {
 
     let currentLocationId = this.state.location_id;
     let currentLocationName = Locations[currentLocationId].name;
-
-
     this.setState({
       enemyHp: Enemies[this.state.enemySelector].hp,
       enemyName: Enemies[this.state.enemySelector].name,
@@ -71,10 +250,11 @@ class Users extends Component {
       enemyCriticalAtt: Enemies[this.state.enemySelector].criticalAtt,
       enemyImage: Enemies[this.state.enemySelector].image,
       current_location: currentLocationName,
-      music: "http://66.90.93.122/ost/the-legend-of-zelda-nes/zsywrgsx/04%20Labyrinth.mp3"
+      music: "http://www.music-note.jp/bgm/mp3/0723/townofdeath.wav"
     });
   }
 
+  
 
   // BEGIN REACT ATTACK FUNCTIONS =======================================================================================
   handleAttack = event => {
@@ -135,10 +315,10 @@ class Users extends Component {
       if (newEnemyHp <= 0) {
 
         this.setState({
-          message2: "VICTORIUS!",
+          message2: "VICTORIOUS!",
           music: "",
           soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/WW_New/WW_Fanfare_Pearl.wav"
-        }, () => console.log("VICTORIUS"));
+        }, () => console.log("VICTORIOUS"));
 
           // GOING TO NEW LOCATION
           let goToNewLocation = () => {
@@ -164,7 +344,8 @@ class Users extends Component {
                 cardBtnHide: "hide",
                 storyHide: "hide",
                 location_id: newLocation,
-                message: "CONGRATULATIONS ON YOUR VICTORY"
+                message: "CONGRATULATIONS ON YOUR VICTORY",
+                music: "http://www.music-note.jp/bgm/mp3/2014/0316/adventurers.WAV"
               }, () => console.log("THANKS FOR PLAYING"));
 
             // FINAL BOSS BATTLE CARD
@@ -196,7 +377,8 @@ class Users extends Component {
                 message: "",
                 message2: "",
                 location_id: newLocation,
-                current_location: location_name
+                current_location: location_name,
+                music: "http://www.music-note.jp/bgm/mp3/battle1.mp3"
               }, () => console.log("Traveling to FINAL LOCATION " + this.state.enemySelector));
             
             // TRAVEL TO THE NEXT REGULAR STORY CARD
@@ -209,35 +391,40 @@ class Users extends Component {
                 message2: "",
                 location_id: newLocation,
                 current_location: location_name,
-                enemySelector: newEnemySelected
+                enemySelector: newEnemySelected,
+                music: "http://www.music-note.jp/bgm/mp3/0513/devil.WAV"
               }, () => console.log("Traveling to the next location.."));
             }
           }
-          setTimeout(goToNewLocation, 2500);
+          setTimeout(goToNewLocation, 4000);
         }
       }
 
     // ADJUST THE ENEMY HP AFTER THEY ARE ATTACKED FUNCTION
     let adjustEnemyHp = (playerAttackDmgDealt) => {
       let newEnemyHp = this.state.enemyHp - playerAttackDmgDealt;
+      if (newEnemyHp <=0) {
+        newEnemyHp = 0;
+      }
       console.log("Enemy HP after attack " + newEnemyHp);
       this.setState({
         enemyHp: newEnemyHp
-      }, () => setTimeout(updateGameStateOnVictory(newEnemyHp), 1000));
+      }, () => setTimeout(updateGameStateOnVictory(newEnemyHp), 2000));
     }
 
-    // ENEMY ATTACKS PLAYER FUNCTION
+    // ENEMY ATTACKS PLAYER FUNCTION =====================================================================================================
+
     let enemyDamagesPlayer = () => {
       if (this.state.enemyHp <= 0) {
 
       } else {
-
-        let attackChoice = Math.random();
-        console.log("% guiding Critical chances " + attackChoice);
+          
+        let attackChoice = this.state.percentChance
+        console.log("AttackChoice is " + this.state.percentChance);
 
         // RE-ENABLE THE ATTACK AND DEFEND BUTTONS
 
-        if (attackChoice <= .66) {
+        if (attackChoice === "standardAttack") {
 
           //STANDARD ATTACK
           let enemyStandardAttackedFor = Math.round(this.roll(this.state.enemyAtt / 2, this.state.enemyAtt));
@@ -269,6 +456,9 @@ class Users extends Component {
       console.log("The enemy damaged you " + incomingDamage + " points!");
       console.log("=================================================");
       let newHp = this.state.playerHp - incomingDamage;
+      if (newHp <=0) {
+        newHp = 0;
+      }
       console.log("Your HP after attack " + newHp);
       this.setState({
         playerHp: newHp
@@ -279,23 +469,28 @@ class Users extends Component {
 
     let updateGameStateOnDefeat = (newHp) => {
       if (newHp <= 0) {
-
         this.setState({
-          current_location: ""
-        }, () => console.log("game over jeeves"));
+          current_location: "",
+          playerHp: newHp
+        }, () => console.log("GAME OVER"));
 
+        let gameOverState = () => {
         let gameOver = this.state.gameOverId;
         this.setState({
           combatHide: "hide",
           cardHide: "",
           location_id: gameOver,
-          current_location: ""
+          current_location: "",
+          music: "http://www.music-note.jp/bgm/mp3/cube.mp3"
         });
+      }
+      setTimeout(gameOverState, 2500);
       }
     }
 
     playerAttackFunction();
     setTimeout(enemyDamagesPlayer, 1500);
+    setTimeout(this.percentChanceofCriticalAttack, 2000);
 
   }
 
@@ -306,19 +501,29 @@ class Users extends Component {
     // PLAYER CHOOSES TO DEFEND -- ENEMY TAKES NO DAMAGE
     let playerDefenseFunction = () => {
 
+      if (this.state.percentChance === "standardAttack") {
+
       let damageDeflected = this.state.enemyAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
       this.setState({
         message: "Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!",
         soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/WW_New/WW_Sword_Spin.wav"
       }, () => console.log("Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"));
       adjustPlayerHp(damageDeflected);
+    } else {
+
+      let damageDeflected = this.state.enemyCriticalAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
+      this.setState({
+        message: "Enemy critical attacks for " + this.state.enemyCriticalAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!",
+        soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/OOT/OOT_Sword_Overhead.wav"
+      }, () => console.log("Enemy attacks for " + this.state.enemyCriticalAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"));
+      adjustPlayerHp(damageDeflected);
+    }
 
     }
 
 
     let updateGameOnDefenseFailure = (newHp) => {
       if (newHp <= 0) {
-
         this.setState({
           current_location: ""
         }, () => console.log("DEFENSE FAILURE: GAME OVER"));
@@ -329,7 +534,8 @@ class Users extends Component {
           this.setState({
             combatHide: "hide",
             cardHide: "",
-            location_id: gameOver
+            location_id: gameOver,
+            music: "http://www.music-note.jp/bgm/mp3/cube.mp3"
           }, () => console.log("DEFENSE FAILURE GAME OVER"));
         }
         setTimeout(gameOveronDefenseFailure, 1000);
@@ -339,12 +545,16 @@ class Users extends Component {
     // ADJUST PLAYER HP AFTER DEFENDING FUNCTION
     let adjustPlayerHp = (damageDeflected) => {
       let newHp = this.state.playerHp - damageDeflected;
+      if (newHp <=0) {
+        newHp = 0;
+      }
       this.setState({
         playerHp: newHp
-      }, () => updateGameOnDefenseFailure(newHp))
+      }, () => updateGameOnDefenseFailure(newHp));
     }
 
     playerDefenseFunction();
+    setTimeout(this.percentChanceofCriticalAttack, 2000);
 
   }
 
@@ -378,6 +588,7 @@ class Users extends Component {
   startCombat = () => {
     let newLocation = this.state.location_id + 1;
     let location_name = Locations[newLocation].name;
+    this.percentChanceofCriticalAttack();
 
     this.setState({
       cardHide: "hide",
@@ -393,7 +604,8 @@ class Users extends Component {
       enemyAtt: Enemies[this.state.enemySelector].att,
       enemyCriticalAtt: Enemies[this.state.enemySelector].criticalAtt,
       enemyImage: Enemies[this.state.enemySelector].image,
-      current_location: location_name
+      current_location: location_name,
+      music: "http://www.music-note.jp/bgm/mp3/battle1.mp3"
     }, () => console.log("START COMBAT"));
     console.log("start HP: " + Enemies[this.state.enemySelector].hp)
   }
