@@ -1,30 +1,10 @@
 const db = require("../models");
 
-// Defining methods for the booksController
+// Defining methods for the gameController
 module.exports = {
   findAll: function(req, res) {
     db.User
       .find(req.query)
-      .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  countsByPlayer: function(req, res) {
-    db.User
-      .aggregate([
-        {
-          $group: {
-            _id: "$author",
-            count: { $sum: 1 }
-          }
-        },
-        {
-          $addFields: {
-            key: "$_id",
-            value: "$count"
-          }
-        }
-      ])
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import "./Users.css";
-import Player from "../../components/Player/Player";
-import Enemy from "../../components/Enemy/Enemy";
 import Enemies from "./enemies.json";
 import Arrow from "../../components/Arrow/Arrow";
 import Locations from "./locations.json";
@@ -11,11 +9,12 @@ import SelectorCard from "../../components/SelectorCard"; import Card from "../.
 import UICard from "../../components/UICard";
 import UICardEnemy from "../../components/UICardEnemy";
 import { Col, Row, Container } from "../../components/Grid";
-import CombatBtn from "../../components/CombatBtn"
+// import CombatBtn from "../../components/CombatBtn"
 import { Animated } from "react-animated-css";
 import Button from '@material-ui/core/Button';
 import SoundEffects from "../../components/SoundEffects";
 import Music from "../../components/Music";
+import API from "../../utils/API";
 
 
 class Users extends Component {
@@ -413,11 +412,11 @@ class Users extends Component {
             {Characters.map(characters => {
               return (
 
-                <Col size="4" className="selectCol">
+                <Col key={characters.id} size="4" className="selectCol">
                   <SelectorCard>
                     <header><h1>{characters.name}</h1></header>
-                    <img  src={characters.image} alt={characters.name} className="selectImg" onClick={this.handleCharacterState} key={characters.id} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
-                    <footer> <h4>{characters.story}</h4></footer>
+                    <img src={characters.image} onMouseOver={e => (e.currentTarget.src = `${characters.hover}`)} onMouseOut={e => (e.currentTarget.src = `${characters.image}`)}alt={characters.name} className="selectImg" onClick={this.handleCharacterState} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
+                    <footer> <h3>This can be a class description or something or also nothing.</h3></footer>
                   </SelectorCard>
                 </Col>)
             })}
@@ -530,7 +529,7 @@ class Users extends Component {
 
             <div className={`${this.state.combatHide} row`}>
                 
-                <Col size="3" styleClass="centered attack">
+                {/* <Col size="3" styleClass="centered attack">
                     <CombatBtn onClick={this.handleAttack} action="ATTACK!" disabled={this.state.isBtnDisabled}></CombatBtn>                
                 </Col>
 
@@ -539,7 +538,18 @@ class Users extends Component {
                 
                 <Col size="3" styleClass="centered defend">
                     <CombatBtn onClick={this.handleDefense} action="DEFEND!" disabled={this.state.isBtnDisabled}></CombatBtn>                
-                </Col>                
+                </Col>                 */}
+
+                <Col size="3">
+                    <Button onClick={this.handleAttack} disabled={this.state.isBtnDisabled} className="combatBtn attack"><h1 className="command">ATTACK!</h1></Button>                
+                </Col>
+
+                <Col size="6">
+                </Col>
+                
+                <Col size="3">
+                    <Button onClick={this.handleDefense} disabled={this.state.isBtnDisabled} className="combatBtn defend"><h1 className="command">DEFEND!</h1></Button>                
+                </Col>                 
 
 
             

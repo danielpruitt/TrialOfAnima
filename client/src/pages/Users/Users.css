@@ -11,21 +11,6 @@
     font-family: 'VT323', monospace;
 }
 
-.attack{
-  background-image: url("../../Images/Buttons/sword.png");
-  background-repeat: no-repeat;
-  /* background-attachment: fixed; */
-  background-position: center;
-  outline: 0;
-}
-
-.defend{
-  background-image: url("../../Images/Buttons/shield.png");
-  background-repeat: no-repeat;
-  /* background-attachment: fixed; */
-  background-position: center;
-}
-
 .victory{
   font-size: 56px;
   text-shadow: 2px 7px darkslategray;
@@ -42,6 +27,49 @@
   align-content: center;
   justify-content: center;
   color: white;
+}
+.combatBtn{
+  height: 250px;
+  width: 250px;
+  background: none;
+  border: none;
+  outline: 0
+}
+
+.combatBtn:active {
+  outline: none;
+  border: none;
+  }
+  
+.combatBtn:focus {outline:0;}
+
+.attack{
+  background-image: url("../../Images/Buttons/sword.png");
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  outline: 0;
+}
+
+.defend{
+  background-image: url("../../Images/Buttons/shield.png");
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+}
+
+.command{
+  vertical-align: middle;
+  margin: 0;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: white;
+  text-shadow: 1px 5px darkslategray;
+  color: white;
+  font-family: 'VT323', monospace;
 }
 
 /* .selectRow{
