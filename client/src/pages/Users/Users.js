@@ -62,6 +62,8 @@ class Users extends Component {
 
     let currentLocationId = this.state.location_id;
     let currentLocationName = Locations[currentLocationId].name;
+
+
     this.setState({
       enemyHp: Enemies[this.state.enemySelector].hp,
       enemyName: Enemies[this.state.enemySelector].name,
@@ -128,7 +130,7 @@ class Users extends Component {
     }
 
 
-    // PREPARE FOR WINNING UPDATE AND LOCATION CHANGE
+    // PREPARE FOR WINNING UPDATE AND LOCATION CHANGE============================================================================================
     let updateGameStateOnVictory = (newEnemyHp) => {
       if (newEnemyHp <= 0) {
 
@@ -138,64 +140,82 @@ class Users extends Component {
           soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/WW_New/WW_Fanfare_Pearl.wav"
         }, () => console.log("VICTORIUS"));
 
-        let goToNewLocation = () => {
+          // GOING TO NEW LOCATION
+          let goToNewLocation = () => {
 
-          let newLocation = this.state.location_id + 1;
-          let location_name = Locations[newLocation].name;
-          let newEnemySelected = this.state.enemySelector + 1
-          this.setState({
-            message: "Location coming up next... " + location_name
-          }, () => console.log("Location coming up next... " + location_name));
-
-          // console.log(this.state.location_id);
-          if (this.state.location_id === 4) {
-
-            let endStory = Locations[5].story;
-            console.log(endStory + this.state.location_id);
+            let newLocation = this.state.location_id + 1;
+            let location_name = Locations[newLocation].name;
+            let newEnemySelected = this.state.enemySelector + 1
             this.setState({
-              storyHide: "hide"
-            }, () => console.log("Hiding story"));
-            this.setState({
-              combatHide: "hide",
-              cardHide: "",
-              cardBtnHide: "hide",
-              storyHide: "hide",
-              location_id: newLocation,
-              message: "CONGRATULATIONS ON YOUR VICTORY"
-            }, () => console.log("THANKS FOR PLAYING"));
+              message: "Location coming up next... " + location_name
+            }, () => console.log("Location coming up next... " + location_name));
 
-          } else if (this.state.location_id === 3) {
+            // ENDING CARD
+            if (this.state.location_id === 4) {
 
-            console.log(localStorage.getItem("PlayerClass"));
+              let endStory = Locations[5].story;
+              console.log(endStory + this.state.location_id);
+              this.setState({
+                storyHide: "hide"
+              }, () => console.log("Hiding story"));
+              this.setState({
+                combatHide: "hide",
+                cardHide: "",
+                cardBtnHide: "hide",
+                storyHide: "hide",
+                location_id: newLocation,
+                message: "CONGRATULATIONS ON YOUR VICTORY"
+              }, () => console.log("THANKS FOR PLAYING"));
 
-            this.setState({
-              combatHide: "hide",
-              cardHide: "",
-              cardBtnHide: "",
-              storyHide: "hide",
-              message: "",
-              message2: "",
-              location_id: newLocation,
-              current_location: location_name,
-              enemySelector: newEnemySelected
-            }, () => console.log("Traveling to next location!"));
+            // FINAL BOSS BATTLE CARD
+            } else if (this.state.location_id === 3) {
+          
+              var bossChoice = localStorage.getItem("PlayerClass");
+              
+                if (bossChoice === "Warrior") {
+                this.setState({
+                  enemySelector: newEnemySelected 
+                }, () => console.log(this.state.enemySelector));
+                
 
-          } else {
-            this.setState({
-              combatHide: "hide",
-              cardHide: "",
-              cardBtnHide: "",
-              message: "",
-              message2: "",
-              location_id: newLocation,
-              current_location: location_name,
-              enemySelector: newEnemySelected
-            }, () => console.log("Traveling to next location!"));
+              } else if (bossChoice === "Mage") {
+                this.setState({
+                  enemySelector: newEnemySelected + 1
+                }, () => console.log(this.state.enemySelector));
+
+              } else {
+              this.setState({
+                enemySelector: newEnemySelected + 2
+              }, () => console.log(this.state.enemySelector));
+            }
+              this.setState({
+                combatHide: "hide",
+                cardHide: "",
+                cardBtnHide: "",
+                storyHide: "hide",
+                message: "",
+                message2: "",
+                location_id: newLocation,
+                current_location: location_name
+              }, () => console.log("Traveling to FINAL LOCATION " + this.state.enemySelector));
+            
+            // TRAVEL TO THE NEXT REGULAR STORY CARD
+            } else {
+              this.setState({
+                combatHide: "hide",
+                cardHide: "",
+                cardBtnHide: "",
+                message: "",
+                message2: "",
+                location_id: newLocation,
+                current_location: location_name,
+                enemySelector: newEnemySelected
+              }, () => console.log("Traveling to the next location.."));
+            }
           }
+          setTimeout(goToNewLocation, 2500);
         }
-        setTimeout(goToNewLocation, 2500);
       }
-    }
 
     // ADJUST THE ENEMY HP AFTER THEY ARE ATTACKED FUNCTION
     let adjustEnemyHp = (playerAttackDmgDealt) => {
@@ -279,7 +299,7 @@ class Users extends Component {
 
   }
 
-  // BEGIN DEFENSE REACT FUNCTIONS =========================================================================================
+  // BEGIN DEFENSE REACT FUNCTIONS =====================================================================================================
   handleDefense = event => {
     event.preventDefault();
 
@@ -329,7 +349,7 @@ class Users extends Component {
   }
 
 
-  ///CHARACTER SELECT FUNCTION to add to state
+  ///CHARACTER SELECT FUNCTION to add to state=====================================================================================
   handleCharacterState = event => {
 
     this.setState({
@@ -374,7 +394,7 @@ class Users extends Component {
     }, () => console.log("START COMBAT"));
   }
 
-
+ // BEGIN RENDERING =============================================================================================================================
   render() {
     return (
 
