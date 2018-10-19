@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
+import { Animated } from "react-animated-css";
 
 
 //styles from Material UI we'll have to manipulate it to what we want, right now it's a stock url found online. we easily change this.
@@ -117,16 +118,18 @@ function StartGame(props) {
                     />
                     <span className={classes.imageBackdrop} />
                     <span className={classes.imageButton}>
-                        <Typography
-                            component="span"
-                            variant="subtitle1"
-                            color="inherit"
-                            className={classes.imageTitle}
-                            a="/users"
-                        >
-                            {image.title}
-                            <span className={classes.imageMarked} />
-                        </Typography>
+                    <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
+                            <Typography
+                                component="span"
+                                variant="subtitle1"
+                                color="inherit"
+                                className={classes.imageTitle}
+                                a="/users"
+                            >
+                                {image.title}
+                                <span className={classes.imageMarked} />
+                            </Typography>
+                        </Animated>
                     </span>
                 </ButtonBase>
             ))}
