@@ -415,7 +415,9 @@ class Users extends Component {
                 <Col key={characters.id} size="4" className="selectCol">
                   <SelectorCard>
                     <header><h1>{characters.name}</h1></header>
+
                     <img src={characters.image} onMouseOver={e => (e.currentTarget.src = `${characters.hover}`)} onMouseOut={e => (e.currentTarget.src = `${characters.image}`)}alt={characters.name} className="selectImg" onClick={this.handleCharacterState} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
+
                     <footer> <h3>This can be a class description or something or also nothing.</h3></footer>
                   </SelectorCard>
                 </Col>)
