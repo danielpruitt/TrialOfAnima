@@ -61,6 +61,8 @@ class Users extends Component {
 
     let currentLocationId = this.state.location_id;
     let currentLocationName = Locations[currentLocationId].name;
+
+
     this.setState({
       enemyHp: Enemies[this.state.enemySelector].hp,
       enemyName: Enemies[this.state.enemySelector].name,
@@ -127,7 +129,7 @@ class Users extends Component {
     }
 
 
-    // PREPARE FOR WINNING UPDATE AND LOCATION CHANGE
+    // PREPARE FOR WINNING UPDATE AND LOCATION CHANGE============================================================================================
     let updateGameStateOnVictory = (newEnemyHp) => {
       if (newEnemyHp <= 0) {
 
@@ -137,64 +139,82 @@ class Users extends Component {
           soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/WW_New/WW_Fanfare_Pearl.wav"
         }, () => console.log("VICTORIUS"));
 
-        let goToNewLocation = () => {
+          // GOING TO NEW LOCATION
+          let goToNewLocation = () => {
 
-          let newLocation = this.state.location_id + 1;
-          let location_name = Locations[newLocation].name;
-          let newEnemySelected = this.state.enemySelector + 1
-          this.setState({
-            message: "Location coming up next... " + location_name
-          }, () => console.log("Location coming up next... " + location_name));
-
-          // console.log(this.state.location_id);
-          if (this.state.location_id === 4) {
-
-            let endStory = Locations[5].story;
-            console.log(endStory + this.state.location_id);
+            let newLocation = this.state.location_id + 1;
+            let location_name = Locations[newLocation].name;
+            let newEnemySelected = this.state.enemySelector + 1
             this.setState({
-              storyHide: "hide"
-            }, () => console.log("Hiding story"));
-            this.setState({
-              combatHide: "hide",
-              cardHide: "",
-              cardBtnHide: "hide",
-              storyHide: "hide",
-              location_id: newLocation,
-              message: "CONGRATULATIONS ON YOUR VICTORY"
-            }, () => console.log("THANKS FOR PLAYING"));
+              message: "Location coming up next... " + location_name
+            }, () => console.log("Location coming up next... " + location_name));
 
-          } else if (this.state.location_id === 3) {
+            // ENDING CARD
+            if (this.state.location_id === 4) {
 
-            console.log(localStorage.getItem("PlayerClass"));
+              let endStory = Locations[5].story;
+              console.log(endStory + this.state.location_id);
+              this.setState({
+                storyHide: "hide"
+              }, () => console.log("Hiding story"));
+              this.setState({
+                combatHide: "hide",
+                cardHide: "",
+                cardBtnHide: "hide",
+                storyHide: "hide",
+                location_id: newLocation,
+                message: "CONGRATULATIONS ON YOUR VICTORY"
+              }, () => console.log("THANKS FOR PLAYING"));
 
-            this.setState({
-              combatHide: "hide",
-              cardHide: "",
-              cardBtnHide: "",
-              storyHide: "hide",
-              message: "",
-              message2: "",
-              location_id: newLocation,
-              current_location: location_name,
-              enemySelector: newEnemySelected
-            }, () => console.log("Traveling to next location!"));
+            // FINAL BOSS BATTLE CARD
+            } else if (this.state.location_id === 3) {
+          
+              var bossChoice = localStorage.getItem("PlayerClass");
+              
+                if (bossChoice === "Warrior") {
+                this.setState({
+                  enemySelector: newEnemySelected 
+                }, () => console.log(this.state.enemySelector));
+                
 
-          } else {
-            this.setState({
-              combatHide: "hide",
-              cardHide: "",
-              cardBtnHide: "",
-              message: "",
-              message2: "",
-              location_id: newLocation,
-              current_location: location_name,
-              enemySelector: newEnemySelected
-            }, () => console.log("Traveling to next location!"));
+              } else if (bossChoice === "Mage") {
+                this.setState({
+                  enemySelector: newEnemySelected + 1
+                }, () => console.log(this.state.enemySelector));
+
+              } else {
+              this.setState({
+                enemySelector: newEnemySelected + 2
+              }, () => console.log(this.state.enemySelector));
+            }
+              this.setState({
+                combatHide: "hide",
+                cardHide: "",
+                cardBtnHide: "",
+                storyHide: "hide",
+                message: "",
+                message2: "",
+                location_id: newLocation,
+                current_location: location_name
+              }, () => console.log("Traveling to FINAL LOCATION " + this.state.enemySelector));
+            
+            // TRAVEL TO THE NEXT REGULAR STORY CARD
+            } else {
+              this.setState({
+                combatHide: "hide",
+                cardHide: "",
+                cardBtnHide: "",
+                message: "",
+                message2: "",
+                location_id: newLocation,
+                current_location: location_name,
+                enemySelector: newEnemySelected
+              }, () => console.log("Traveling to the next location.."));
+            }
           }
+          setTimeout(goToNewLocation, 2500);
         }
-        setTimeout(goToNewLocation, 2500);
       }
-    }
 
     // ADJUST THE ENEMY HP AFTER THEY ARE ATTACKED FUNCTION
     let adjustEnemyHp = (playerAttackDmgDealt) => {
@@ -278,7 +298,7 @@ class Users extends Component {
 
   }
 
-  // BEGIN DEFENSE REACT FUNCTIONS =========================================================================================
+  // BEGIN DEFENSE REACT FUNCTIONS =====================================================================================================
   handleDefense = event => {
     event.preventDefault();
 
@@ -328,7 +348,7 @@ class Users extends Component {
   }
 
 
-  ///CHARACTER SELECT FUNCTION to add to state
+  ///CHARACTER SELECT FUNCTION to add to state=====================================================================================
   handleCharacterState = event => {
 
     this.setState({
@@ -362,27 +382,29 @@ class Users extends Component {
       cardHide: "hide",
       combatHide: "",
       cardBtnHide: "hide",
+      // reset the player hp back to the character
       playerHp: 100,
+      playerMaxHp: 100,
       isBtnDisabled: false,
       enemyHp: Enemies[this.state.enemySelector].hp,
+      enemyMaxHp: Enemies[this.state.enemySelector].hp,
       enemyName: Enemies[this.state.enemySelector].name,
       enemyAtt: Enemies[this.state.enemySelector].att,
       enemyCriticalAtt: Enemies[this.state.enemySelector].criticalAtt,
       enemyImage: Enemies[this.state.enemySelector].image,
       current_location: location_name
     }, () => console.log("START COMBAT"));
+    console.log("start HP: " + Enemies[this.state.enemySelector].hp)
   }
 
-
+ // BEGIN RENDERING =============================================================================================================================
   render() {
     return (
 
       <div className="App">
 
+        {/* character cards being called in  */}
         <div className={`${this.state.charHide}`}>
-          {/* {Characters.map(characters => {
-            return (<CharacterSelect onClick={this.handleCharacterState} key={characters.id} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}>{characters.name}</CharacterSelect>)
-          })} */}
 
           <Row className="selectRow">
 
@@ -400,32 +422,35 @@ class Users extends Component {
 
           </Row>
 
-          {/* <Button className={this.state.startBtnHide} variant="contained" size="large" color="primary" onClick={this.startAdventure}>Embark! </Button> */}
+          {/* Embark button to start story and attacking */}
           <button className={`${this.state.startBtnHide}`} onClick={this.startAdventure}>Embark!</button>
         </div>
 
+        {/* container that switches the stories and attacking  */}
         <Container>
 
+          {/* holds the storyline and allows it to be in the hidden or shown */}
           <Card className={this.state.cardHide}>
 
-            <h3 className="locationTitle">{this.state.current_location}</h3>
+            <Animated animationIn="flipInX" animationOut="flipOutX" isVisible={true}>
+              <h3 className="locationTitle">{this.state.current_location}</h3>
 
-            <div className={`${this.state.storyHide} typewriter`}>
+              <div className={`${this.state.storyHide}`}>
 
-              <h3 className="">{Locations[this.state.location_id].story}</h3>
+                <h3 className="">{Locations[this.state.location_id].story}</h3>
 
-            </div>
+              </div>
 
-            {/* <div className={`${this.state.currentLocalHide} typewriter`}>{this.state.current_location}</div><br></br>
-            <div className={`${this.state.storyHide} typewriter`}>{Locations[this.state.location_id].story}</div> */}
+            </Animated>
 
           </Card>
+          {/* start button to move on to the next battle scene */}
+          <button className={this.state.cardBtnHide} onClick={this.startCombat}>Start Combat</button>
 
-          <button className={this.state.cardBtnHide} onClick={this.startCombat}>Start combat</button>
-
+          {/* combat mode  */}
 
           <div className={`${this.state.combatHide} row`}>
-
+            {/* this is the player container the class, image, and health is shown */}
             <Col size="4" className={this.state.combatHide}>
               {/* adds animation to the player */}
               <Animated animationIn="bounceInLeft" animationOut="flash" isVisible={true}>
@@ -433,12 +458,13 @@ class Users extends Component {
                   name={this.state.playerName}
                   image={this.state.playerImage}
                   hp={this.state.playerHp}
+                  maxHp={this.state.playerMaxHp}
                   styleClass="player"
                 />
               </Animated>
             </Col>
 
-
+            {/* this is the center column with the attack and defend buttons as well as the log of what is happening with player and enemy health */}
             <Col size="4" className={this.state.combatHide}>
               <div className="textCard">
                 {/* <Player onClick={this.handleAttack} action="ATTACK!"></Player> */}
@@ -453,6 +479,7 @@ class Users extends Component {
               </div>
             </Col>
 
+            {/* this is the column for the enemy. The enemy name, image, and hp is listed */}
             <Col size="4" className={`${this.state.combatHide} `}>
               <div className="">
                 {/* adds animation to the enemy, the flashing is from css, the entrance is a node package*/}
@@ -461,6 +488,7 @@ class Users extends Component {
                     name={this.state.enemyName}
                     image={this.state.enemyImage}
                     hp={this.state.enemyHp}
+                    maxHp={this.state.enemyMaxHp}
                     styleClass="enemy"
 
                   />
@@ -473,22 +501,7 @@ class Users extends Component {
 
         </Container>
 
-        {/* <div className={this.state.combatHide}>
-          <Player onClick={this.handleAttack} action="ATTACK!">Click to attack</Player>
-          <Player onClick={this.handleDefense} action="DEFEND!">Click to defend</Player>
-          <Enemy>Enemy</Enemy>
-          <div>You have HP: {this.state.playerHp}</div>
-          <div className={this.state.enemyHide}>{this.state.enemyName} has HP: {this.state.enemyHp}</div>
-          <div>{this.state.message}</div>
-          <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
-        </div>
-        <div className={this.state.card}>
-          <Card className={this.state.cardHide}>
-            <div className={this.state.currentLocalHide}>{this.state.current_location}</div><br></br>
-            <div className={this.state.storyHide + 'typewriter'} >{Locations[this.state.location_id].story}</div>
-        <button className={this.state.cardBtnHide} onClick={this.startCombat}>Start combat</button>
-        
-        </div> */}
+        {/* sound effects and music */}
         <SoundEffects>
           <audio ref="audio_tag" src={this.state.soundEffects} autoPlay />
         </SoundEffects>

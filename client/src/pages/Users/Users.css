@@ -12,22 +12,13 @@
     font-family: 'VT323', monospace;
 }
 
-/* .selectRow{
-  justify-content: center;
-  margin: auto;
-  align-content: center;
-}
-
-.selectCol{
-  justify-content: center;
-  margin: auto;
-  align-content: center;
-} */
 
 .selectImg{
   width: 450px;
   height: 450px;
 }
+
+
 
 .typewriter  {
     overflow: hidden; /* Ensures the content is not revealed until the animation*/
