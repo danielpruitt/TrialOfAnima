@@ -55,12 +55,13 @@ class Users extends Component {
     soundEffects: ""
   };
 
+  // ROLL FUNCTION FOR BATTLES
   roll = (min, max) => {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
 
-  // PERCENT CHANCE CRITICAL HITS
+  // PERCENT CHANCE CRITICAL HITS FUNCTION
 percentChanceofCriticalAttack = () => {
   let percentChance = Math.floor(Math.random() * 10) + 1;
   console.log(percentChance);
@@ -238,9 +239,8 @@ percentChanceofCriticalAttack = () => {
   console.log(this.state.percentChance);
 }
     
-
+  // PERFORM INITIAL MOUNTS TO STATE
   componentDidMount() {
-
     let currentLocationId = this.state.location_id;
     let currentLocationName = Locations[currentLocationId].name;
     this.setState({
@@ -320,7 +320,7 @@ percentChanceofCriticalAttack = () => {
           soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/WW_New/WW_Fanfare_Pearl.wav"
         }, () => console.log("VICTORIOUS"));
 
-          // GOING TO NEW LOCATION
+          // GOING TO NEW LOCATION CARD
           let goToNewLocation = () => {
 
             let newLocation = this.state.location_id + 1;
@@ -438,7 +438,7 @@ percentChanceofCriticalAttack = () => {
 
         } else {
 
-          //SUPER ATTACK
+          //CRITICAL ATTACK
           let enemyCriticalAttackedFor = Math.round(this.roll(this.state.enemyCriticalAtt / 2, this.state.enemyCriticalAtt));
           this.setState({
             isBtnDisabled: false,
@@ -467,6 +467,7 @@ percentChanceofCriticalAttack = () => {
 
     console.log("The playerHP STATE is set to " + this.state.playerHp);
 
+    // UPDATING THE GAME TO GAME OVER STATUS IF YOU LOSE A BATTLE
     let updateGameStateOnDefeat = (newHp) => {
       if (newHp <= 0) {
         this.setState({
@@ -521,7 +522,7 @@ percentChanceofCriticalAttack = () => {
 
     }
 
-
+    // UPDATE THE GAME ON A DEFENSE FAILURE RESULTING IN A LOSS
     let updateGameOnDefenseFailure = (newHp) => {
       if (newHp <= 0) {
         this.setState({
@@ -585,16 +586,16 @@ percentChanceofCriticalAttack = () => {
 
   ///START COMBAT FUNCTION 
   startCombat = () => {
+    // setting initial location
     let newLocation = this.state.location_id + 1;
     let location_name = Locations[newLocation].name;
+    // determining the initial percent chance of the enemy critically attacking the player
     this.percentChanceofCriticalAttack();
 
-    let battleTheme = "";
-
+      // setting the final boss battle music to match location
       if (this.state.location_id === 4) {
           this.state.music = "http://www.music-note.jp/bgm/mp3/0417/duel.wav";
 
-        
       } else {
 
           this.state.music =  "http://www.music-note.jp/bgm/mp3/battle1.mp3";
