@@ -363,6 +363,7 @@ class Users extends Component {
       cardHide: "hide",
       combatHide: "",
       cardBtnHide: "hide",
+      // reset the player hp back to the character
       playerHp: 100,
       isBtnDisabled: false,
       enemyHp: Enemies[this.state.enemySelector].hp,
@@ -372,7 +373,10 @@ class Users extends Component {
       enemyImage: Enemies[this.state.enemySelector].image,
       current_location: location_name
     }, () => console.log("START COMBAT"));
+    console.log("start HP: " + Enemies[this.state.enemySelector].hp)
   }
+
+
 
 
   render() {
@@ -391,8 +395,8 @@ class Users extends Component {
                 <Col size="4" className="selectCol">
                   <SelectorCard>
                     <header><h1>{characters.name}</h1></header>
-                    <img src={characters.image} alt={characters.name} className="selectImg" onClick={this.handleCharacterState} key={characters.id} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
-                    <footer> <h3>This can be a class description or something or also nothing.</h3></footer>
+                    <img  src={characters.image} alt={characters.name} className="selectImg" onClick={this.handleCharacterState} key={characters.id} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
+                    <footer> <h4>{characters.story}</h4></footer>
                   </SelectorCard>
                 </Col>)
             })}
@@ -422,7 +426,7 @@ class Users extends Component {
 
           </Card>
           {/* start button to move on to the next battle scene */}
-          <button className={this.state.cardBtnHide} onClick={this.startCombat}>Start combat</button>
+          <button className={this.state.cardBtnHide} onClick={this.startCombat}>Start Combat</button>
 
           {/* combat mode  */}
 

@@ -18,12 +18,7 @@
   height: 450px;
 }
 
-.selectImg:hover{
-  background-color: #343a40 ;
-  border-radius: 20px;
-  
 
-}
 
 .typewriter  {
     overflow: hidden; /* Ensures the content is not revealed until the animation*/
