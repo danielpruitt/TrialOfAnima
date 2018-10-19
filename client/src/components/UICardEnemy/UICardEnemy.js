@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-
 import "./UICard.css";
 
 const styles = {
@@ -18,7 +17,6 @@ const styles = {
 function MediaCard(props) {
 
   return (
-
     <div className={props.styleClass}>
       <header className="card-header"><h1>{props.name}</h1></header>
       <img src={props.image} alt={props.name} style={styles} className="cardImg flicker-3"></img>
