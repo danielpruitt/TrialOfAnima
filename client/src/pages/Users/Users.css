@@ -3,7 +3,7 @@
 }
 
 .textCard {
-    background: white;
+    background: none;
     width: 345px;
 }
 .app {
@@ -15,7 +15,8 @@
   background-image: url("../../Images/Buttons/sword.png");
   background-repeat: no-repeat;
   /* background-attachment: fixed; */
-  background-position: center; 
+  background-position: center;
+  outline: 0;
 }
 
 .defend{
@@ -23,6 +24,11 @@
   background-repeat: no-repeat;
   /* background-attachment: fixed; */
   background-position: center;
+}
+
+.victory{
+  font-size: 56px;
+  text-shadow: 2px 7px darkslategray;
 }
 
 .centered{
@@ -33,8 +39,9 @@
 }
 
 .altCentered{
-  background:white;
-  border: black 2 px solid;
+  align-content: center;
+  justify-content: center;
+  color: white;
 }
 
 /* .selectRow{

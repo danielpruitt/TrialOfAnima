@@ -1,7 +1,17 @@
 .combatBtn{
-    width: 250px;
     height: 250px;
+    width: 250px;
+    background: none;
+    border: none;
+    outline: 0
 }
+
+.combatBtn:active {
+    outline: none;
+    border: none;
+    }
+    
+.combatBtn:focus {outline:0;}
 
 .command{
     /* vertical-align: middle; */
@@ -10,4 +20,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-size: 48px;
+    color: white;
+    text-shadow: 1px 5px darkslategray;
 }

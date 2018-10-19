@@ -4,7 +4,9 @@ import "./CombatBtn.css"
 function CombatBtn(props) {
   return (
     <div className={`${props.styleClass} combatBtn`}>
-        <button onClick={props.onClick} className="command"><h3>{props.action}</h3></button>
+      <button className="combatBtn" onClick={props.onClick}>
+        <h1 className="command">{props.action}</h1>
+      </button>
     </div>
   );
 }
