@@ -580,7 +580,8 @@ percentChanceofCriticalAttack = () => {
     this.setState({
       charHide: "hide",
       cardHide: "",
-      cardBtnHide: ""
+      cardBtnHide: "",
+      soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/ZSS/ZSS_Rupee_Blue.wav"
     }, () => console.log("START ADVENTURE" + this.state.playerClass));
   }
 
@@ -615,7 +616,8 @@ percentChanceofCriticalAttack = () => {
       enemyAtt: Enemies[this.state.enemySelector].att,
       enemyCriticalAtt: Enemies[this.state.enemySelector].criticalAtt,
       enemyImage: Enemies[this.state.enemySelector].image,
-      current_location: location_name
+      current_location: location_name,
+      soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/ZSS/ZSS_Guardian_Awaken.wav"
     }, () => console.log("START COMBAT"));
     console.log("start HP: " + Enemies[this.state.enemySelector].hp)
   }
