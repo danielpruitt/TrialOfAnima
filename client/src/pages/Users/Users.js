@@ -378,7 +378,7 @@ percentChanceofCriticalAttack = () => {
                 message2: "",
                 location_id: newLocation,
                 current_location: location_name,
-                music: "http://www.music-note.jp/bgm/mp3/battle1.mp3"
+                music: "http://www.music-note.jp/bgm/mp3/0417/duel.wav"
               }, () => console.log("Traveling to FINAL LOCATION " + this.state.enemySelector));
             
             // TRAVEL TO THE NEXT REGULAR STORY CARD
@@ -558,7 +558,6 @@ percentChanceofCriticalAttack = () => {
 
   }
 
-
   ///CHARACTER SELECT FUNCTION to add to state=====================================================================================
   handleCharacterState = event => {
 
@@ -590,6 +589,17 @@ percentChanceofCriticalAttack = () => {
     let location_name = Locations[newLocation].name;
     this.percentChanceofCriticalAttack();
 
+    let battleTheme = "";
+
+      if (this.state.location_id === 4) {
+          this.state.music = "http://www.music-note.jp/bgm/mp3/0417/duel.wav";
+
+        
+      } else {
+
+          this.state.music =  "http://www.music-note.jp/bgm/mp3/battle1.mp3";
+      }
+
     this.setState({
       cardHide: "hide",
       combatHide: "",
@@ -604,8 +614,7 @@ percentChanceofCriticalAttack = () => {
       enemyAtt: Enemies[this.state.enemySelector].att,
       enemyCriticalAtt: Enemies[this.state.enemySelector].criticalAtt,
       enemyImage: Enemies[this.state.enemySelector].image,
-      current_location: location_name,
-      music: "http://www.music-note.jp/bgm/mp3/battle1.mp3"
+      current_location: location_name
     }, () => console.log("START COMBAT"));
     console.log("start HP: " + Enemies[this.state.enemySelector].hp)
   }
