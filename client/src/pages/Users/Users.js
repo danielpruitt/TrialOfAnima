@@ -642,6 +642,8 @@ percentChanceofCriticalAttack = () => {
 
                     <img src={characters.image} onMouseOver={e => (e.currentTarget.src = `${characters.hover}`)} onMouseOut={e => (e.currentTarget.src = `${characters.image}`)}alt={characters.name} className="selectImg" onClick={this.handleCharacterState} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
 
+{/* onClick={ (event) => {{this.handleCharacterState}; {e => (e.currentTarget.src = `${characters.hover}`)}}} */}
+
                     <footer> <h3>This can be a class description or something or also nothing.</h3></footer>
                   </SelectorCard>
                 </Col>)
@@ -659,7 +661,9 @@ percentChanceofCriticalAttack = () => {
           {/* holds the storyline and allows it to be in the hidden or shown */}
           <Card className={this.state.cardHide}>
 
-            <Animated animationIn="flipInX" animationOut="flipOutX" isVisible={true}>
+            {/* <Animated animationIn="flipInX" animationOut="flipOutX" isVisible={true}> */}
+            <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
+
               <h3 className="locationTitle">{this.state.current_location}</h3>
 
               <div className={`${this.state.storyHide}`}>
@@ -672,7 +676,7 @@ percentChanceofCriticalAttack = () => {
 
           </Card>
           {/* start button to move on to the next battle scene */}
-          <button className={this.state.cardBtnHide} onClick={this.startCombat}>Start Combat</button>
+          <button className={this.state.cardBtnHide} onClick={this.startCombat} >Start Combat</button>
 
           {/* combat mode  */}
 
@@ -767,14 +771,14 @@ percentChanceofCriticalAttack = () => {
                 </Col>                 */}
 
                 <Col size="3">
-                    <Button onClick={this.handleAttack} disabled={this.state.isBtnDisabled} className="combatBtn attack"><h1 className="command">ATTACK!</h1></Button>                
+                    <Button onClick={this.handleAttack} disabled={this.state.isBtnDisabled} className="combatBtn attack"><h1 className="command">ATTACK</h1></Button>                
                 </Col>
 
                 <Col size="6">
                 </Col>
                 
                 <Col size="3">
-                    <Button onClick={this.handleDefense} disabled={this.state.isBtnDisabled} className="combatBtn defend"><h1 className="command">DEFEND!</h1></Button>                
+                    <Button onClick={this.handleDefense} disabled={this.state.isBtnDisabled} className="combatBtn defend"><h1 className="command">DEFEND</h1></Button>                
                 </Col>                 
 
 

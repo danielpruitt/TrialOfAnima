@@ -33,7 +33,7 @@
     },
     {
         "id": 5,
-        "name": "FINAL BOSS ShadowSelf -- WARRIOR",
+        "name": "ShadowSelf",
         "hp": 150,
         "att": 30,
         "criticalAtt": 40,
@@ -42,7 +42,7 @@
     },
     {
         "id": 6,
-        "name": "FINAL BOSS ShadowSelf -- MAGE",
+        "name": "ShadowSelf",
         "hp": 150,
         "att": 30,
         "criticalAtt": 40,
@@ -51,7 +51,7 @@
     },
     {
         "id": 7,
-        "name": "FINAL BOSS ShadowSelf -- ROGUE",
+        "name": "ShadowSelf",
         "hp": 150,
         "att": 30,
         "criticalAtt": 40,

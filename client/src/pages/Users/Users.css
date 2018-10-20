@@ -60,13 +60,12 @@
 
 .command{
   vertical-align: middle;
-  margin: 0;
-  position: relative;
+  /* margin: 0; */
+  /* position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   font-size: 48px;
-  color: white;
   text-shadow: 1px 5px darkslategray;
   color: white;
   font-family: 'VT323', monospace;
