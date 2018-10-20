@@ -506,15 +506,8 @@ percentChanceofCriticalAttack = () => {
 
     playerAttackFunction();
     setTimeout(enemyDamagesPlayer, 1500);
-
-    if (this.state.enemyHP === 0) {
-      console.log(this.state.enemyHP + " is ENEMY HP");
-      this.setState({
-        message2: "Traveling to next location"
-      }, () => console.log("Traveling to next location"));
-    } else {
     setTimeout(this.percentChanceofCriticalAttack, 2000);
-    }
+    
 
   }
 
