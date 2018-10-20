@@ -63,6 +63,20 @@ class Users extends Component {
 
   // PERCENT CHANCE CRITICAL HITS FUNCTION
 percentChanceofCriticalAttack = () => {
+
+  if (this.state.message2 === "VICTORIOUS!" && this.state.location_id === 4) {
+    
+      this.setState({
+        message2: "Reached Journey's End"
+      }, () => console.log("Reached Journey's End"));
+
+  } else if (this.state.message2 === "VICTORIOUS!") {
+    this.setState({
+      message2: "The Journey Continues"
+    }, () => console.log("The Journey Continues"));
+
+  } else {
+
   let percentChance = Math.floor(Math.random() * 10) + 1;
   console.log(percentChance);
   switch (percentChance) {
@@ -238,6 +252,7 @@ percentChanceofCriticalAttack = () => {
   }
   console.log(this.state.percentChance);
 }
+}
     
   // PERFORM INITIAL MOUNTS TO STATE
   componentDidMount() {
@@ -313,7 +328,7 @@ percentChanceofCriticalAttack = () => {
     // PREPARE FOR WINNING UPDATE AND LOCATION CHANGE============================================================================================
     let updateGameStateOnVictory = (newEnemyHp) => {
       if (newEnemyHp <= 0) {
-
+        
         this.setState({
           message2: "VICTORIOUS!",
           music: "",
@@ -375,7 +390,7 @@ percentChanceofCriticalAttack = () => {
                 cardBtnHide: "",
                 storyHide: "hide",
                 message: "",
-                message2: "",
+                message2: "Traveling to Next Location",
                 location_id: newLocation,
                 current_location: location_name,
                 music: "http://www.music-note.jp/bgm/mp3/0417/duel.wav"
@@ -388,7 +403,7 @@ percentChanceofCriticalAttack = () => {
                 cardHide: "",
                 cardBtnHide: "",
                 message: "",
-                message2: "",
+                message2: "hide",
                 location_id: newLocation,
                 current_location: location_name,
                 enemySelector: newEnemySelected,
@@ -492,6 +507,7 @@ percentChanceofCriticalAttack = () => {
     playerAttackFunction();
     setTimeout(enemyDamagesPlayer, 1500);
     setTimeout(this.percentChanceofCriticalAttack, 2000);
+    
 
   }
 
@@ -806,7 +822,7 @@ percentChanceofCriticalAttack = () => {
         </SoundEffects>
 
         <Music>
-          <audio ref="audio_tag" src={this.state.music} autoPlay loop />
+          <audio ref="audio_tag" src={this.state.music} autoPlay />
         </Music>
       </div>
     );
