@@ -6,9 +6,9 @@
         "hover": "./Images/Classes/Mage_Squared_Hover.png",
         "shadow_image": "./Images/Shadows/Shadow_Mage_Squared.png",
         "selected": false,
-        "hp": 80,
-        "att": 70,
-        "superAtt": 80,
+        "hp": 100,
+        "att": 500,
+        "superAtt": 60,
         "def": 20,
         "story": "Discovering truth has always driven you into the unknown, mainly the truth that you came from the moon."
     },
@@ -20,9 +20,9 @@
         "shadow_image": "./Images/Shadows/Shadow_Rogue_Squared.png",
         "selected": false,
         "hp": 100,
-        "att": 70,
-        "superAtt": 80,
-        "def": 25,
+        "att": 40,
+        "superAtt": 60,
+        "def": 30,
         "story": "You're no outlaw—at least, not anymore—but making your own luck has always meant bending the rules."
     },
     {
@@ -33,9 +33,9 @@
         "shadow_image": "./Images/Shadows/Shadow_Warrior_Squared.png",
         "selected": false,
         "hp": 100,
-        "att": 70,
+        "att": 30,
         "superAtt": 60,
-        "def": 25,
+        "def": 40,
         "story":"You hail from a long line of heroes, forged from strength and sacrifice. Our enemies may be deadly and merciless, but so are you."
     }
 ]

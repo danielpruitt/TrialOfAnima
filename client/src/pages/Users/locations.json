@@ -35,7 +35,7 @@
     {
         "id": 6,
         "name": "CONGRATULATIONS YOU WIN!",
-        "story": "The End"
+        "story": "A Game BY (INSERT STUDIO NAME HERE)  ||May Burgos||  ||Kendall Bruce||  ||Daniel Pruitt||  ||Andrew Park|| ||Cody Covington|| -- Thanks for playing! "
         
     },
     {
@@ -43,5 +43,12 @@
         "name": "GAME OVER SCREEN",
         "story": "YOU WERE DEFEATED. TRY AGAIN"
         
+    },
+    {
+        "id": 8,
+        "name": "CREDITS",
+        "story": "credits rolling"
+        
     }
+
 ]
