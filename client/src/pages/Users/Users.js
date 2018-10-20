@@ -51,6 +51,7 @@ class Users extends Component {
     location_id: 0,
     current_location: "",
     next_location: "",
+    creditsRoll: "hide",
     music: "",
     soundEffects: ""
   };
@@ -348,7 +349,7 @@ percentChanceofCriticalAttack = () => {
             // ENDING CARD
             if (this.state.location_id === 4) {
 
-              let endStory = Locations[5].story;
+              let endStory = Locations[7].story;
               console.log(endStory + this.state.location_id);
               this.setState({
                 storyHide: "hide"
@@ -360,8 +361,25 @@ percentChanceofCriticalAttack = () => {
                 storyHide: "hide",
                 location_id: newLocation,
                 message: "CONGRATULATIONS ON YOUR VICTORY",
+                credits: Locations[7].story,
                 music: "http://www.music-note.jp/bgm/mp3/2014/0316/adventurers.WAV"
               }, () => console.log("THANKS FOR PLAYING"));
+
+              let creditsRoll = () => {
+                this.setState({
+                  current_location: Locations[7].name,
+                  combatHide: "hide",
+                  cardHide: "hide",
+                  cardBtnHide: "hide",
+                  storyHide: "hide",
+                  message: "hide",
+                  message2: "hide",
+                  creditsRoll: "",
+                  music: "http://www.music-note.jp/bgm/mp3/2014/0316/adventurers.WAV"
+                }, () => console.log("CREDITS ROLLING!!"));
+              }
+
+              setTimeout(creditsRoll, 3000);                
 
             // FINAL BOSS BATTLE CARD
             } else if (this.state.location_id === 3) {
@@ -388,7 +406,7 @@ percentChanceofCriticalAttack = () => {
                 combatHide: "hide",
                 cardHide: "",
                 cardBtnHide: "",
-                storyHide: "hide",
+                storyHide: "",
                 message: "",
                 message2: "Traveling to Next Location",
                 location_id: newLocation,
