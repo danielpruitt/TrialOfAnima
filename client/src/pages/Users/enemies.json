@@ -34,27 +34,27 @@
     {
         "id": 5,
         "name": "FINAL BOSS ShadowSelf -- WARRIOR",
-        "hp": 150,
-        "att": 30,
-        "criticalAtt": 40,
+        "hp": 200,
+        "att": 40,
+        "criticalAtt": 50,
         "image": "./Images/Shadows/Shadow_Warrior_Squared.png"
 
     },
     {
         "id": 6,
         "name": "FINAL BOSS ShadowSelf -- MAGE",
-        "hp": 150,
-        "att": 30,
-        "criticalAtt": 40,
+        "hp": 100,
+        "att": 40,
+        "criticalAtt": 50,
         "image": "./Images/Shadows/Shadow_Mage_Squared.png"
 
     },
     {
         "id": 7,
         "name": "FINAL BOSS ShadowSelf -- ROGUE",
-        "hp": 150,
-        "att": 30,
-        "criticalAtt": 40,
+        "hp": 200,
+        "att": 40,
+        "criticalAtt": 50,
         "image": "./Images/Shadows/Shadow_Rogue_Squared.png"
 
     }
