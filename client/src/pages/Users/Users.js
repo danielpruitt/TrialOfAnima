@@ -611,11 +611,15 @@ percentChanceofCriticalAttack = () => {
 
       // setting the final boss battle music to match location
       if (this.state.location_id === 4) {
-          this.state.music = "http://www.music-note.jp/bgm/mp3/0417/duel.wav";
+        this.setState({
+          music :"http://www.music-note.jp/bgm/mp3/0417/duel.wav"
+        })
 
       } else {
 
-          this.state.music =  "http://www.music-note.jp/bgm/mp3/battle1.mp3";
+        this.setState({
+          music : "http://www.music-note.jp/bgm/mp3/battle1.mp3"
+        })
       }
 
     this.setState({
