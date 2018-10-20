@@ -799,7 +799,7 @@ percentChanceofCriticalAttack = () => {
                     <div className='credit'>Daniel Pruitt</div>
                 </div>
 
-                <Button className={`restartBtn`}>Restart</Button>
+                {/* <Button className={`restartBtn`}>Restart</Button> */}
 
             </div>
 
