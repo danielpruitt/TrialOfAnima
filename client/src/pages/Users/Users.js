@@ -647,25 +647,23 @@ percentChanceofCriticalAttack = () => {
         {/* character cards being called in  */}
         <div className={`${this.state.charHide}`}>
 
-          <Row className="selectRow">
+            <Row className="selectRow">
 
-            {Characters.map(characters => {
-              return (
+                {Characters.map(characters => {
+                return (
 
-                <Col key={characters.id} size="4" className="selectCol">
-                  <SelectorCard>
-                    <header><h1>{characters.name}</h1></header>
+                    <Col key={characters.id} size="4" className="selectCol">
+                        <SelectorCard>
+                            <header><h1>{characters.name}</h1></header>
 
-                    <img src={characters.image} onMouseOver={e => (e.currentTarget.src = `${characters.hover}`)} onMouseOut={e => (e.currentTarget.src = `${characters.image}`)}alt={characters.name} className="selectImg" onClick={this.handleCharacterState} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
+                            <img src={characters.image} onMouseOver={e => (e.currentTarget.src = `${characters.hover}`)} onMouseOut={e => (e.currentTarget.src = `${characters.image}`)}alt={characters.name} className="selectImg" onClick={this.handleCharacterState} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
 
-{/* onClick={ (event) => {{this.handleCharacterState}; {e => (e.currentTarget.src = `${characters.hover}`)}}} */}
+                            <footer> <h3>This can be a class description or something or also nothing.</h3></footer>
+                        </SelectorCard>
+                    </Col>)
+                })}
 
-                    <footer> <h3>This can be a class description or something or also nothing.</h3></footer>
-                  </SelectorCard>
-                </Col>)
-            })}
-
-          </Row>
+            </Row>
 
           {/* Embark button to start story and attacking */}
           <button className={`${this.state.startBtnHide}`} onClick={this.startAdventure}>Embark!</button>
@@ -696,63 +694,63 @@ percentChanceofCriticalAttack = () => {
 
           {/* combat mode  */}
 
-          <div className={`${this.state.combatHide} row`}>
+            <div className={`${this.state.combatHide} row`}>
 
-            <Col size="4" className={this.state.combatHide} styleClass="centered">
-              {/* adds animation to the player */}
-              <Animated animationIn="bounceInLeft" animationOut="flash" isVisible={true}>
-                <UICard
-                  name={this.state.playerName}
-                  image={this.state.playerImage}
-                  hp={this.state.playerHp}
-                  maxHp={this.state.playerMaxHp}
-                  styleClass="player"
-                />
-              </Animated>
-            </Col>
-
-
-            {/* <Col size="4" className={this.state.combatHide} styleClass="altCentered">
-              <div className="textCard">
-                <Button disabled={this.state.isBtnDisabled} onClick={this.handleAttack}>ATTACK</Button>
-                <Button disabled={this.state.isBtnDisabled} onClick={this.handleDefense}>DEFEND</Button>
-                <div>{this.state.playerName} has HP: {this.state.playerHp}</div>
-                <div className={this.state.enemyHide}>{this.state.enemyName} has HP: {this.state.enemyHp}</div>
-                <div>{this.state.message}</div>
-                <div>{this.state.message2}</div>
-                <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
-              </div>
-            </Col> */}
-
-            <Col size="4" className={`${this.state.combatHide} textCard`} styleClass="altCentered">
-              <div className="textCard">
-                <div>{this.state.message}</div>
-                <div><h1 className="victory">{this.state.message2}</h1></div>
-                <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
-              </div>
-            </Col>
-
-            <Col size="4" className={`${this.state.combatHide}`} styleClass="centered">
-              <div className="">
-                {/* adds animation to the enemy, the flashing is from css, the entrance is a node package*/}
-                <Animated animationIn="flash" animationOut="flash" isVisible={true}>
-                  <UICardEnemy
-                    name={this.state.enemyName}
-                    image={this.state.enemyImage}
-                    hp={this.state.enemyHp}
-                    maxHp={this.state.enemyMaxHp}
-                    styleClass="enemy"
-
-                  />
-                </Animated>
-              </div>
-
-            </Col>
+                <Col size="4" className={this.state.combatHide} styleClass="centered">
+                {/* adds animation to the player */}
+                    <Animated animationIn="bounceInLeft" animationOut="flash" isVisible={true}>
+                        <UICard
+                        name={this.state.playerName}
+                        image={this.state.playerImage}
+                        hp={this.state.playerHp}
+                        maxHp={this.state.playerMaxHp}
+                        styleClass="player"
+                        />
+                    </Animated>
+                </Col>
 
 
+                {/* <Col size="4" className={this.state.combatHide} styleClass="altCentered">
+                <div className="textCard">
+                    <Button disabled={this.state.isBtnDisabled} onClick={this.handleAttack}>ATTACK</Button>
+                    <Button disabled={this.state.isBtnDisabled} onClick={this.handleDefense}>DEFEND</Button>
+                    <div>{this.state.playerName} has HP: {this.state.playerHp}</div>
+                    <div className={this.state.enemyHide}>{this.state.enemyName} has HP: {this.state.enemyHp}</div>
+                    <div>{this.state.message}</div>
+                    <div>{this.state.message2}</div>
+                    <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
+                </div>
+                </Col> */}
+
+                <Col size="4" className={`${this.state.combatHide} textCard`} styleClass="altCentered">
+                    <div className="textCard">
+                        <div>{this.state.message}</div>
+                        <div><h1 className="victory">{this.state.message2}</h1></div>
+                        <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
+                    </div>
+                </Col>
+
+                <Col size="4" className={`${this.state.combatHide}`} styleClass="centered">
+                <div className="">
+                    {/* adds animation to the enemy, the flashing is from css, the entrance is a node package*/}
+                    <Animated animationIn="flash" animationOut="flash" isVisible={true}>
+                        <UICardEnemy
+                            name={this.state.enemyName}
+                            image={this.state.enemyImage}
+                            hp={this.state.enemyHp}
+                            maxHp={this.state.enemyMaxHp}
+                            styleClass="enemy"
+
+                        />
+                    </Animated>
+                </div>
+
+                </Col>
 
 
-          </div>
+
+
+            </div>
 
             {/* <div className={`${this.state.combatHide} row`}>
                 
@@ -770,6 +768,23 @@ percentChanceofCriticalAttack = () => {
 
             
             </div> */}
+
+            <div className={`${this.state.creditsRoll} credits`}>
+
+                <div className='wrapper'>
+                    <div className='gameTitle'>life of john doe</div>
+                    <div className='credit dev'>A Game by <br></br> [dev studio here]</div>
+                    <div className='credit'>James Kendall Bruce</div>
+                    <div className='credit'>Maybellin Burgos</div>
+                    <div className='credit'>Cody Covington</div>
+                    <div className='credit'>Andrew Park</div>
+                    <div className='credit'>Daniel Pruitt</div>
+                </div>
+
+                <Button className={`restartBtn`}>Restart</Button>
+
+            </div>
+
 
         </Container>
 

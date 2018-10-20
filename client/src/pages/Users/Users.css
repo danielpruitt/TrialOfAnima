@@ -186,4 +186,56 @@
     }
   }
 
+ /* Adding some credits animation */
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.credits{
+  overflow: hidden;
+  height: 50vh;
+  background: none;
+}
+
+ .wrapper {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 500px;
+  margin-left: -250px;
+  font: 300 30px/1;
+  font-family: 'VT323', monospace;;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  animation: 60s credits linear infinite;
+  text-shadow: 1px 8px darkslategray;
+
+}
+
+.gameTitle {
+  margin-bottom: 75px;
+  font-size: 65px;
+}
+
+
+.credit{
+  margin-bottom: 50px;
+  font-size: 48px;
+}
+
+.dev{
+    margin-bottom: 65px;
+}
+
+
+@keyframes credits {
+    0% { top:  100%; }
+  100% { top: -500%; }
+}
+
+.restartBtn{
+  color: white;
+}
 
