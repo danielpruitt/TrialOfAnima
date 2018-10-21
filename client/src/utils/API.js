@@ -3,7 +3,7 @@ import axios from "axios";
 const token = localStorage.getItem("token");
 
 export default {
-  // Gets all users
+  // Gets user id
   getUserId: function () {
     if(token) {
       const tokenParts = token.split('.');
@@ -13,12 +13,16 @@ export default {
       return user.sub;
     }
   },
+  //Gets all users
   getUsers: function () {
     return axios.get("/api/users", { headers: { "Authorization": `Bearer ${token}` } });
   },
   // Gets the user with the given username(unique)
   getUser: function (id) {
     return axios.get("/api/users/?_id=" + id, { headers: { "Authorization": `Bearer ${token}` } });
+  },
+  addClear: function(id, clear) {
+    return axios.put("/api/users/" + id, {numberOfClears: clear++}, { headers: { "Authorization": `Bearer ${token}` } });
   },
   // Deletes the user with the given id
   deleteUser: function (id) {

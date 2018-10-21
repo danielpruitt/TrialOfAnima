@@ -8,7 +8,7 @@
         "selected": false,
         "hp": 100,
         "att": 500,
-        "superAtt": 60,
+        "superAtt": 500,
         "def": 20,
         "story": "Discovering truth has always driven you into the unknown, mainly the truth that you came from the moon."
     },
@@ -33,7 +33,7 @@
         "shadow_image": "./Images/Shadows/Shadow_Warrior_Squared.png",
         "selected": false,
         "hp": 100,
-        "att": 30,
+        "att": 500,
         "superAtt": 60,
         "def": 40,
         "story":"You hail from a long line of heroes, forged from strength and sacrifice. Our enemies may be deadly and merciless, but so are you."

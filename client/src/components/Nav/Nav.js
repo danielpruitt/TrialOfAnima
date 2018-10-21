@@ -40,7 +40,7 @@ class Nav extends Component {
           <center>Greetings {this.state.userName}</center>
           </span>
           <span>
-            <center>Clears: {this.state.clears}</center>
+            <center>, Clears: {this.state.clears}</center>
           </span>
         <span className="navbar-text">
           <a className="nav-link" href="/logout">Logout</a>
