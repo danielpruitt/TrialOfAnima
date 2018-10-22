@@ -16,6 +16,24 @@
   text-shadow: 2px 7px darkslategray;
 }
 
+.critical{
+  background-image: url("../../Images/Icons/crit_icon_transp_small.png");
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  outline: 0;
+  height: 250px;
+  width: 250px;
+  padding-top: 60px;
+  /* vertical-align: middle;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  /* text-align: center; */
+}
+
 .centered{
   /* background:red; */
   border: black 2 px solid;
@@ -44,7 +62,7 @@
 .combatBtn:focus {outline:0;}
 
 .attack{
-  background-image: url("../../Images/Buttons/sword.png");
+  background-image: url("../../Images/Buttons/sword_custom.png");
   background-repeat: no-repeat;
   /* background-attachment: fixed; */
   background-position: center;
@@ -52,7 +70,7 @@
 }
 
 .defend{
-  background-image: url("../../Images/Buttons/shield.png");
+  background-image: url("../../Images/Buttons/shield_custom.png");
   background-repeat: no-repeat;
   /* background-attachment: fixed; */
   background-position: center;
@@ -60,6 +78,7 @@
 
 .command{
   vertical-align: middle;
+  margin-bottom: 65px;
   /* margin: 0; */
   /* position: relative;
   top: 50%;

@@ -83,8 +83,9 @@ percentChanceofCriticalAttack = () => {
   switch (percentChance) {
       case 1:
       this.setState({
-        message2: "10% Danger Enemy Critical Attack"
-      }, () => console.log("10% Danger of Enemy Critical Attack"));
+        // message2: "10% Danger Enemy Critical Attack"
+        message2: "10%"
+    }, () => console.log("10% Danger of Enemy Critical Attack"));
       let ranNumCase1 = Math.random();
       console.log(ranNumCase1 + " is the subset random number");
       if (ranNumCase1 < .10) {
@@ -100,7 +101,8 @@ percentChanceofCriticalAttack = () => {
 
       case 2: 
       this.setState({
-        message2: "20% Danger Enemy Critical Attack"
+        // message2: "20% Danger Enemy Critical Attack"
+        message2: "20%"
       }, () => console.log("20% Danger of Enemy Critical Attack"));
       let ranNumCase2 = Math.random();
       console.log(ranNumCase2 + " is the subset random number");
@@ -117,8 +119,9 @@ percentChanceofCriticalAttack = () => {
 
       case 3: 
       this.setState({
-        message2: "30% Danger Enemy Critical Attack"
-      }, () => console.log("30% Danger of Enemy Critical Attack"));
+        // message2: "30% Danger Enemy Critical Attack"
+        message2: "30%"
+    }, () => console.log("30% Danger of Enemy Critical Attack"));
       let ranNumCase3 = Math.random();
       console.log(ranNumCase3 + " is the subset random number");
       if (ranNumCase3 < .30) {
@@ -134,8 +137,9 @@ percentChanceofCriticalAttack = () => {
 
     case 4:
     this.setState({
-      message2: "40% Danger Enemy Critical Attack"
-    }, () => console.log("40% Danger of Enemy Critical Attack"));
+    //   message2: "40% Danger Enemy Critical Attack"
+    message2: "40%"
+}, () => console.log("40% Danger of Enemy Critical Attack"));
     let ranNumCase4 = Math.random();
     console.log(ranNumCase4 + " is the subset random number");
     if (ranNumCase4 < .40) {
@@ -151,7 +155,8 @@ percentChanceofCriticalAttack = () => {
 
     case 5:
     this.setState({
-      message2: "50% Danger Enemy Critical Attack"
+    //   message2: "50% Danger Enemy Critical Attack"
+      message2: "50%"
     }, () => console.log("50% Danger of Enemy Critical Attack"));
     let ranNumCase5 = Math.random();
     console.log(ranNumCase5 + " is the subset random number");
@@ -168,8 +173,9 @@ percentChanceofCriticalAttack = () => {
 
     case 6: 
     this.setState({
-      message2: "60% Danger Enemy Critical Attack"
-    }, () => console.log("60% Danger of Enemy Critical Attack"));
+    //   message2: "60% Danger Enemy Critical Attack"
+    message2: "60%"
+}, () => console.log("60% Danger of Enemy Critical Attack"));
     let ranNumCase6 = Math.random();
     console.log(ranNumCase6 + " is the subset random number");
     if (ranNumCase6 < .60) {
@@ -185,8 +191,9 @@ percentChanceofCriticalAttack = () => {
 
     case 7: 
     this.setState({
-      message2: "70% Danger Enemy Critical Attack"
-    }, () => console.log("70% Danger of Enemy Critical Attack"));
+    //   message2: "70% Danger Enemy Critical Attack"
+    message2: "70%"
+}, () => console.log("70% Danger of Enemy Critical Attack"));
     let ranNumCase7 = Math.random();
     console.log(ranNumCase7 + " is the subset random number");
     if (ranNumCase7 < .70) {
@@ -202,8 +209,9 @@ percentChanceofCriticalAttack = () => {
 
     case 8:
     this.setState({
-      message2: "80% Danger Enemy Critical Attack"
-    }, () => console.log("80% Danger of Enemy Critical Attack"));
+    //   message2: "80% Danger Enemy Critical Attack"
+    message2: "80%"
+}, () => console.log("80% Danger of Enemy Critical Attack"));
     let ranNumCase8 = Math.random();
     console.log(ranNumCase8 + " is the subset random number");
     if (ranNumCase8 < .80) {
@@ -219,8 +227,9 @@ percentChanceofCriticalAttack = () => {
 
     case 9: 
     this.setState({
-      message2: "90% Danger Enemy Critical Attack"
-    }, () => console.log("90% Danger of Enemy Critical Attack"));
+    //   message2: "90% Danger Enemy Critical Attack"
+    message2: "90%"
+}, () => console.log("90% Danger of Enemy Critical Attack"));
     let ranNumCase9 = Math.random();
     console.log(ranNumCase9 + " is the subset random number");
     if (ranNumCase9 < .90) {
@@ -236,8 +245,9 @@ percentChanceofCriticalAttack = () => {
 
     case 10: 
     this.setState({
-      message2: "99% Danger Enemy Critical Attack"
-    }, () => console.log("99% Danger of Enemy Critical Attack"));
+    //   message2: "99% Danger Enemy Critical Attack"
+    message2: "99%"
+}, () => console.log("99% Danger of Enemy Critical Attack"));
     let ranNumCase10 = Math.random();
     console.log(ranNumCase10 + " is the subset random number");
     if (ranNumCase10 < 1) {
@@ -743,7 +753,7 @@ percentChanceofCriticalAttack = () => {
                 <Col size="4" className={`${this.state.combatHide} textCard`} styleClass="altCentered">
                     <div className="textCard">
                         <div>{this.state.message}</div>
-                        <div><h1 className="victory">{this.state.message2}</h1></div>
+                        <div><h1 className="victory critical">{this.state.message2}</h1></div>
                         <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
                     </div>
                 </Col>
