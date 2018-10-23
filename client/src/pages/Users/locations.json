@@ -2,25 +2,27 @@
     {
         "id": 1,
         "name": "Lost Forest",
-        "story": "The shrouds of fog were heavy in the deep dark wood.You hear a faint sound, it’s coming from the woods. You catch a glimpse of a figure lurking beyond the veil of mist coming from the forest. As you approach, the figure lures you in with a finger.  You go, you don’t know why but it seems that it’s the only thing you can do."
+        "story": "The shrouds of fog were heavy in the deep dark wood.You hear a faint sound, it’s coming from the woods. You catch a glimpse of a figure lurking beyond the veil of mist coming from the forest. As you approach, the figure lures you in with a finger.  You go, you don’t know why but it seems that it’s the only thing you can do.",
+        "backgroundImage": "https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Black-and-White-Forest-Desktop-Background-PIC-WPB0014783.jpg"
     
     },
     {
         "id": 2,
         "name": "Valley of Despair",
-        "story": " A creaking sound grows louder, you don’t know where it’s coming from. The valley surrounding you seems endless and unknowing. The stench of death is all around, nothing seems to be living here, which makes the grim sound more ghastly. As you try to make your way back out you encounter the Living Bones."
-
-
+        "story": " A creaking sound grows louder, you don’t know where it’s coming from. The valley surrounding you seems endless and unknowing. The stench of death is all around, nothing seems to be living here, which makes the grim sound more ghastly. As you try to make your way back out you encounter the Living Bones.",
+        "backgroundImage": "https://bobandsuewilliams.com/images/dark-souls-art-landscape-19.jpg"
     },
     {
         "id": 3,
         "name": "Canyon of Screams",
-        "story": "Your body enters a new place, a bad place. The Canyon of Screams. An apparition appears and shimmers into view. As you approach, you start to realize it’s more than an apparition it’s a Phantom Wraith. It seems that this being is being tortured, hearing the screams of eternal damnation. It wants to torment you and bring you into its suffering."
+        "story": "Your body enters a new place, a bad place. The Canyon of Screams. An apparition appears and shimmers into view. As you approach, you start to realize it’s more than an apparition it’s a Phantom Wraith. It seems that this being is being tortured, hearing the screams of eternal damnation. It wants to torment you and bring you into its suffering.",
+        "backgroundImage": "https://img00.deviantart.net/aa58/i/2014/044/e/c/scary_canyon_2_by_aeflus-d76ch8e.png"
 
     }, {
         "id": 4,
         "name": "Mount Doom",
-        "story": "Your mind shivers as you feel something dark coming for you. You try to resist but the pull is strong…familiar. You feel yourself fading. The struggles you’ve overcome are coming back. It's one final fight you feel that you can overcome. "
+        "story": "Your mind shivers as you feel something dark coming for you. You try to resist but the pull is strong…familiar. You feel yourself fading. The struggles you’ve overcome are coming back. It's one final fight you feel that you can overcome. ",
+        "backgroundImage": "https://img00.deviantart.net/4278/i/2014/218/8/d/mount_doom___speed_paint3_by_myworld1-d7tyfki.jpg"
 
     }
     , {
@@ -29,7 +31,8 @@
         "story": "You face the ultimate enemy",
         "dark_mage_image": "Shadow_Mage_Squared",
         "dark_warrior_image": "Shadow_Warrior_Squared",
-        "dark_rogue_image": "Shadow_Rogue_Squared"
+        "dark_rogue_image": "Shadow_Rogue_Squared",
+        "backgroundImage": "https://pastorkarldotnet.files.wordpress.com/2013/12/the-dark-knight-rises-pit.jpg"
 
     },
     {

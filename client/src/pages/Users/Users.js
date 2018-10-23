@@ -51,6 +51,7 @@ class Users extends Component {
     location_id: 0,
     current_location: "",
     next_location: "",
+    cardBackground: "",
     creditsRoll: "hide",
     music: "",
     soundEffects: "",
@@ -271,8 +272,10 @@ class Users extends Component {
       enemyCriticalAtt: Enemies[this.state.enemySelector].criticalAtt,
       enemyImage: Enemies[this.state.enemySelector].image,
       current_location: currentLocationName,
+      cardBackground: Locations[currentLocationId].backgroundImage,
       music: "http://www.music-note.jp/bgm/mp3/0723/townofdeath.wav"
-    });
+    }, () => console.log(this.state.cardBackground + " callback"));
+
   }
 
 
@@ -420,6 +423,7 @@ class Users extends Component {
               message2: "Traveling to Next Location",
               location_id: newLocation,
               current_location: location_name,
+              cardBackground: Locations[newLocation].backgroundImage,
               music: "http://www.music-note.jp/bgm/mp3/0417/duel.wav"
             }, () => console.log("Traveling to FINAL LOCATION " + this.state.enemySelector));
 
@@ -434,6 +438,7 @@ class Users extends Component {
               location_id: newLocation,
               current_location: location_name,
               enemySelector: newEnemySelected,
+              cardBackground: Locations[newLocation].backgroundImage,
               music: "http://www.music-note.jp/bgm/mp3/0513/devil.WAV"
             }, () => console.log("Traveling to the next location.."));
           }
@@ -710,9 +715,9 @@ class Users extends Component {
             {/* <Animated animationIn="flipInX" animationOut="flipOutX" isVisible={true}> */}
             <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
 
-              <h3 className="locationTitle">{this.state.current_location}</h3>
+              <div className={`${this.state.storyHide}`} style={ { backgroundImage: `url(${this.state.cardBackground})`, backgroundRepeat: `no-repeat`, backgroundSize: `cover` } }>
 
-              <div className={`${this.state.storyHide}`}>
+              <h3 className="locationTitle">{this.state.current_location}</h3>
 
                 <h3 className="">{Locations[this.state.location_id].story}</h3>
 
