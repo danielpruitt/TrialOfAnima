@@ -15,7 +15,6 @@ const styles = {
 };
 
 function MediaCard(props) {
-  const { classes } = props;
   return (
     <div className={props.styleClass}>
       <header className="card-header"><h1>{props.name}</h1></header>

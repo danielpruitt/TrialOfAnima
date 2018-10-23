@@ -4,12 +4,10 @@ import Enemies from "./enemies.json";
 import Arrow from "../../components/Arrow/Arrow";
 import Locations from "./locations.json";
 import Characters from "./characters.json";
-// import CharacterSelect from "../../components/CharacterSelect/CharacterSelect";
 import SelectorCard from "../../components/SelectorCard"; import Card from "../../components/Card/Card";
 import UICard from "../../components/UICard";
 import UICardEnemy from "../../components/UICardEnemy";
 import { Col, Row, Container } from "../../components/Grid";
-// import CombatBtn from "../../components/CombatBtn"
 import { Animated } from "react-animated-css";
 import Button from '@material-ui/core/Button';
 import SoundEffects from "../../components/SoundEffects";
@@ -17,7 +15,7 @@ import Music from "../../components/Music";
 import API from "../../utils/API";
 
 
-class Users extends Component {
+class Game extends Component {
   state = {
     //COMBAT STATE COMPONENTS
     playerClass: "",
@@ -38,6 +36,7 @@ class Users extends Component {
     message2: "",
     arrow: "hide",
     enemySelector: 0,
+
     //DISPLAY STATE COMPONENTS
     charHide: "",
     enemyHide: "",
@@ -255,6 +254,9 @@ class Users extends Component {
             }, () => console.log("STANDARD ATTACK"))
           }
           break;
+
+        default:
+          break;
       }
       console.log(this.state.percentChance);
     }
@@ -264,7 +266,10 @@ class Users extends Component {
   componentDidMount() {
     let currentLocationId = this.state.location_id;
     let currentLocationName = Locations[currentLocationId].name;
+
+    //API call to get current users info and set clear state equal to number of user's clears
     API.getUser(this.state.userID).then(res => this.setState({ clears: res.data[0].numberOfClears }));
+
     this.setState({
       enemyHp: Enemies[this.state.enemySelector].hp,
       enemyName: Enemies[this.state.enemySelector].name,
@@ -284,8 +289,7 @@ class Users extends Component {
   handleAttack = event => {
     event.preventDefault();
 
-    // DISABLE THE ATTACK BUTTON
-    // DISABLE THE DEFEND BUTTON
+    // DISABLE THE ATTACK BUTTON WHEN CLICKED
     this.setState({
       isBtnDisabled: true
     });
@@ -359,9 +363,7 @@ class Users extends Component {
 
             let endStory = Locations[7].story;
             console.log(endStory + this.state.location_id);
-            this.setState({
-              storyHide: "hide"
-            }, () => console.log("Hiding story"));
+
             this.setState({
               combatHide: "hide",
               cardHide: "",
@@ -371,10 +373,12 @@ class Users extends Component {
               message: "CONGRATULATIONS ON YOUR VICTORY",
               credits: Locations[7].story,
               music: "http://www.music-note.jp/bgm/mp3/2014/0316/adventurers.WAV"
-            });
+            }, () => console.log("Hiding story"));
 
             //increment clear by 1
             let newClear = this.state.clears + 1;
+
+            //API PUT call to update user clear
             API.addClear(this.state.userID, newClear);
 
             let creditsRoll = () => {
@@ -450,6 +454,8 @@ class Users extends Component {
     // ADJUST THE ENEMY HP AFTER THEY ARE ATTACKED FUNCTION
     let adjustEnemyHp = (playerAttackDmgDealt) => {
       let newEnemyHp = this.state.enemyHp - playerAttackDmgDealt;
+
+      //PREVENT HP GOING TO NEGATIVE
       if (newEnemyHp <= 0) {
         newEnemyHp = 0;
       }
@@ -462,9 +468,8 @@ class Users extends Component {
     // ENEMY ATTACKS PLAYER FUNCTION =====================================================================================================
 
     let enemyDamagesPlayer = () => {
-      if (this.state.enemyHp <= 0) {
-
-      } else {
+      
+      if(this.state.enemyHp > 0) {
 
         let attackChoice = this.state.percentChance
         console.log("AttackChoice is " + this.state.percentChance);
@@ -746,19 +751,6 @@ class Users extends Component {
               </Animated>
             </Col>
 
-
-            {/* <Col size="4" className={this.state.combatHide} styleClass="altCentered">
-                <div className="textCard">
-                    <Button disabled={this.state.isBtnDisabled} onClick={this.handleAttack}>ATTACK</Button>
-                    <Button disabled={this.state.isBtnDisabled} onClick={this.handleDefense}>DEFEND</Button>
-                    <div>{this.state.playerName} has HP: {this.state.playerHp}</div>
-                    <div className={this.state.enemyHide}>{this.state.enemyName} has HP: {this.state.enemyHp}</div>
-                    <div>{this.state.message}</div>
-                    <div>{this.state.message2}</div>
-                    <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
-                </div>
-                </Col> */}
-
             <Col size="4" className={`${this.state.combatHide} textCard`} styleClass="altCentered">
               <div className="textCard">
                 <div>{this.state.message}</div>
@@ -785,26 +777,7 @@ class Users extends Component {
             </Col>
 
 
-
-
           </div>
-
-          {/* <div className={`${this.state.combatHide} row`}>
-                
-                <Col size="4" styleClass="centered attack">
-                    <CombatBtn onClick={this.handleAttack} action="ATTACK!" disabled={this.state.isBtnDisabled}></CombatBtn>                
-                </Col>
-
-                <Col size="4">
-                </Col>
-                
-                <Col size="4" styleClass="centered defend">
-                    <CombatBtn onClick={this.handleDefense} action="DEFEND!" disabled={this.state.isBtnDisabled}></CombatBtn>                
-                </Col>                
-
-
-            
-            </div> */}
 
           <div className={`${this.state.creditsRoll} credits`}>
 
@@ -818,25 +791,12 @@ class Users extends Component {
               <div className='credit'>Daniel Pruitt</div>
             </div>
 
-            {/* <Button className={`restartBtn`}>Restart</Button> */}
-
           </div>
 
 
         </Container>
 
         <div className={`${this.state.combatHide} row`}>
-
-          {/* <Col size="3" styleClass="centered attack">
-                    <CombatBtn onClick={this.handleAttack} action="ATTACK!" disabled={this.state.isBtnDisabled}></CombatBtn>                
-                </Col>
-
-                <Col size="6">
-                </Col>
-                
-                <Col size="3" styleClass="centered defend">
-                    <CombatBtn onClick={this.handleDefense} action="DEFEND!" disabled={this.state.isBtnDisabled}></CombatBtn>                
-                </Col>                 */}
 
           <Col size="3">
             <Button onClick={this.handleAttack} disabled={this.state.isBtnDisabled} className="combatBtn attack"><h1 className="command">ATTACK</h1></Button>
@@ -849,26 +809,8 @@ class Users extends Component {
             <Button onClick={this.handleDefense} disabled={this.state.isBtnDisabled} className="combatBtn defend"><h1 className="command">DEFEND</h1></Button>
           </Col>
 
-
-
         </div>
 
-        {/* <div className={this.state.combatHide}>
-          <Player onClick={this.handleAttack} action="ATTACK!">Click to attack</Player>
-          <Player onClick={this.handleDefense} action="DEFEND!">Click to defend</Player>
-          <Enemy>Enemy</Enemy>
-          <div>You have HP: {this.state.playerHp}</div>
-          <div className={this.state.enemyHide}>{this.state.enemyName} has HP: {this.state.enemyHp}</div>
-          <div>{this.state.message}</div>
-          <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
-        </div>
-        <div className={this.state.card}>
-          <Card className={this.state.cardHide}>
-            <div className={this.state.currentLocalHide}>{this.state.current_location}</div><br></br>
-            <div className={this.state.storyHide + 'typewriter'} >{Locations[this.state.location_id].story}</div>
-        <button className={this.state.cardBtnHide} onClick={this.startCombat}>Start combat</button>
-        
-        </div> */}
         <SoundEffects>
           <audio ref="audio_tag" src={this.state.soundEffects} autoPlay />
         </SoundEffects>
@@ -882,4 +824,4 @@ class Users extends Component {
 }
 
 
-export default Users;
+export default Game;
