@@ -1,14 +1,13 @@
 import React from "react";
 import Auth from './utils/Auth';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import Books from "./pages/Books";
-import Users from "./pages/Users";
+import Main from "./pages/Main";
+import Game from "./pages/Game";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
 import Login from "./pages/Login";
 import Logout from "./components/Logout";
 import SignUp from "./pages/SignUp";
-// import Images from "./Images"
 import "./App.css"
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -34,9 +33,9 @@ const App = () =>
     <div>
       <Nav />
       <Switch>
-        <PrivateRoute exact path="/" component={Books} />
-        <PrivateRoute exact path="/home" component={Books} />
-        <PrivateRoute exact path="/users" component={Users} />
+        <PrivateRoute exact path="/" component={Main} />
+        <PrivateRoute exact path="/home" component={Main} />
+        <PrivateRoute exact path="/users" component={Game} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/logout" component={Logout} />
