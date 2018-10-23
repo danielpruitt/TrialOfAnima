@@ -11,6 +11,39 @@
     font-family: 'VT323', monospace;
 }
 
+.start{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  background: none;
+  color: #2E2E2E;
+  border: none;
+  /* text-shadow: 1px 5px darkslategray; */
+  /* text-shadow:
+  -1px -1px 0 darkslategray,
+  1px -1px 0 darkslategray,
+  -1px 1px 0 darkslategray,
+  1px 1px 0 darkslategray;  */
+  text-shadow:
+  -1px -1px 0 white,
+  1px -1px 0 white,
+  -1px 1px 0 white,
+  1px 1px 0 white; 
+  font-size: 48px;
+}
+
+.startName{
+  font-size: 54px;
+  font-family: 'Almendra SC', serif;
+}
+
+.embark{
+  border: white solid 5px;
+  padding: 3px;
+}
+
 .victory{
   font-size: 56px;
   text-shadow: 2px 7px darkslategray;
@@ -21,6 +54,7 @@
   background-repeat: no-repeat;
   /* background-attachment: fixed; */
   background-position: center;
+  margin: auto;
   outline: 0;
   height: 250px;
   width: 250px;
@@ -246,6 +280,11 @@
 
 .dev{
     margin-bottom: 65px;
+}
+
+.thanks{
+  font-size: 48px;
+  margin-top: 200px;
 }
 
 

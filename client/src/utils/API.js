@@ -1,30 +1,43 @@
 import axios from "axios";
 
-var token = localStorage.getItem("token");
+const token = localStorage.getItem("token");
 
 export default {
-  // Gets all users
-  getUsers: function() {
-    return axios.get("/api/users", { headers: {"Authorization" : `Bearer ${token}`} });
+  // Gets user id
+  getUserId: function () {
+    if(token) {
+      const tokenParts = token.split('.');
+      const encodedPayload = tokenParts[1];
+      const rawPayload = atob(encodedPayload);
+      const user = JSON.parse(rawPayload);
+      return user.sub;
+    }
   },
-  // Gets the user with the given id
-  getUser: function(id) {
-    return axios.get("/api/users/" + id);
+  //Gets all users
+  getUsers: function () {
+    return axios.get("/api/users", { headers: { "Authorization": `Bearer ${token}` } });
+  },
+  // Gets the user with the given username(unique)
+  getUser: function (id) {
+    return axios.get("/api/users/?_id=" + id, { headers: { "Authorization": `Bearer ${token}` } });
+  },
+  addClear: function(id, clear) {
+    return axios.put("/api/users/" + id, {numberOfClears: clear++}, { headers: { "Authorization": `Bearer ${token}` } });
   },
   // Deletes the user with the given id
-  deleteUser: function(id) {
+  deleteUser: function (id) {
     return axios.delete("/api/users/" + id);
   },
   // Saves a user to the database
-  saveUser: function(userData) {
+  saveUser: function (userData) {
     return axios.post("/api/users", userData);
   },
   // Authenticates a user
-  authenticateUser: function(userData) {
+  authenticateUser: function (userData) {
     return axios.post("/auth/login", userData);
   },
   // Sign up a user
-  signUp: function(userData) {
+  signUp: function (userData) {
     return axios.post("/auth/signup", userData);
   }
 };

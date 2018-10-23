@@ -6,7 +6,7 @@ import StartGame from "../../components/StartGame"
 class Books extends Component {
 
   componentDidMount() {
-    API.getUsers().then(res => console.log(res));
+    API.getUser(API.getUserId()).then(res => console.log(res));
   };
 
   render() {

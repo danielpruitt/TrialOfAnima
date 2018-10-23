@@ -82,7 +82,7 @@ percentChanceofCriticalAttack = () => {
   console.log(percentChance);
   switch (percentChance) {
       case 1:
-      this.setState({
+           this.setState({
         // message2: "10% Danger Enemy Critical Attack"
         message2: "10%"
     }, () => console.log("10% Danger of Enemy Critical Attack"));
@@ -246,8 +246,7 @@ percentChanceofCriticalAttack = () => {
     case 10: 
     this.setState({
     //   message2: "99% Danger Enemy Critical Attack"
-    message2: "99%"
-}, () => console.log("99% Danger of Enemy Critical Attack"));
+    }, () => console.log("99% Danger of Enemy Critical Attack"));
     let ranNumCase10 = Math.random();
     console.log(ranNumCase10 + " is the subset random number");
     if (ranNumCase10 < 1) {
@@ -687,6 +686,7 @@ percentChanceofCriticalAttack = () => {
                             <img src={characters.image} onMouseOver={e => (e.currentTarget.src = `${characters.hover}`)} onMouseOut={e => (e.currentTarget.src = `${characters.image}`)}alt={characters.name} className="selectImg" onClick={this.handleCharacterState} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
 
                             <footer> <h3>This can be a class description or something or also nothing.</h3></footer>
+
                         </SelectorCard>
                     </Col>)
                 })}
@@ -694,7 +694,7 @@ percentChanceofCriticalAttack = () => {
             </Row>
 
           {/* Embark button to start story and attacking */}
-          <button className={`${this.state.startBtnHide}`} onClick={this.startAdventure}>Embark!</button>
+          <button className={`${this.state.startBtnHide} start`} onClick={this.startAdventure}><h1 className="startName">{this.state.playerName}</h1><span className="embark">Embark!</span></button>
         </div>
 
         {/* container that switches the stories and attacking  */}
@@ -753,7 +753,7 @@ percentChanceofCriticalAttack = () => {
                 <Col size="4" className={`${this.state.combatHide} textCard`} styleClass="altCentered">
                     <div className="textCard">
                         <div>{this.state.message}</div>
-                        <div><h1 className="victory critical">{this.state.message2}</h1></div>
+                        <div><h1 className="victory">{this.state.message2}</h1></div>
                         <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
                     </div>
                 </Col>
@@ -800,13 +800,14 @@ percentChanceofCriticalAttack = () => {
             <div className={`${this.state.creditsRoll} credits`}>
 
                 <div className='wrapper'>
-                    <div className='gameTitle'>life of john doe</div>
+                    <div className='gameTitle'>[GAME TITLE]</div>
                     <div className='credit dev'>A Game by <br></br> [dev studio here]</div>
                     <div className='credit'>James Kendall Bruce</div>
                     <div className='credit'>Maybellin Burgos</div>
                     <div className='credit'>Cody Covington</div>
                     <div className='credit'>Andrew Park</div>
                     <div className='credit'>Daniel Pruitt</div>
+                    <div className='thanks'>Thanks for playing!</div>
                 </div>
 
                 {/* <Button className={`restartBtn`}>Restart</Button> */}

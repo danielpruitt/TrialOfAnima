@@ -67,7 +67,6 @@ class SignUp extends Component {
     event.preventDefault();
     if (this.state.name && this.state.email && this.state.password) {
       this.signUp();
-      localStorage.setItem("Player", this.state.name);
     } else {
       this.setState({ errorMessage: "Please enter all required fields to sign up."})
     }
