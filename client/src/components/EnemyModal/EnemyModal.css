@@ -1,0 +1,9 @@
+.statName{
+    font-size: 24px;
+}
+
+.percent{
+    font-size: 80px;
+    position: relative;
+    /* top: px; */
+}

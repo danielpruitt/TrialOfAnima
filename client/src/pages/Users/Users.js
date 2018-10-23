@@ -12,6 +12,7 @@ import { Col, Row, Container } from "../../components/Grid";
 // import CombatBtn from "../../components/CombatBtn"
 import { Animated } from "react-animated-css";
 import Button from '@material-ui/core/Button';
+import EnemyModal from "../../components/EnemyModal"
 import SoundEffects from "../../components/SoundEffects";
 import Music from "../../components/Music";
 import API from "../../utils/API";
@@ -53,7 +54,11 @@ class Users extends Component {
     next_location: "",
     creditsRoll: "hide",
     music: "",
-    soundEffects: ""
+    soundEffects: "",
+
+    //UserID
+    userID: API.getUserId(),
+    clears: 0
   };
 
   // ROLL FUNCTION FOR BATTLES
@@ -268,6 +273,7 @@ percentChanceofCriticalAttack = () => {
   componentDidMount() {
     let currentLocationId = this.state.location_id;
     let currentLocationName = Locations[currentLocationId].name;
+    API.getUser(this.state.userID).then(res => this.setState({ clears: res.data[0].numberOfClears }));
     this.setState({
       enemyHp: Enemies[this.state.enemySelector].hp,
       enemyName: Enemies[this.state.enemySelector].name,
@@ -372,7 +378,11 @@ percentChanceofCriticalAttack = () => {
                 message: "CONGRATULATIONS ON YOUR VICTORY",
                 credits: Locations[7].story,
                 music: "http://www.music-note.jp/bgm/mp3/2014/0316/adventurers.WAV"
-              }, () => console.log("THANKS FOR PLAYING"));
+              });
+
+            //increment clear by 1
+            let newClear = this.state.clears + 1;
+            API.addClear(this.state.userID, newClear);
 
               let creditsRoll = () => {
                 this.setState({
@@ -768,8 +778,11 @@ percentChanceofCriticalAttack = () => {
                             hp={this.state.enemyHp}
                             maxHp={this.state.enemyMaxHp}
                             styleClass="enemy"
-
                         />
+                        <EnemyModal
+                          enemyName ={this.state.enemyName}
+                          attack={this.state.enemyAtt}
+                          crit={this.state.message2}/>
                     </Animated>
                 </div>
 

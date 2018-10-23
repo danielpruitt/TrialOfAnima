@@ -49,7 +49,7 @@
   text-shadow: 2px 7px darkslategray;
 }
 
-.critical{
+.crit-stats{
   background-image: url("../../Images/Icons/crit_icon_transp_small.png");
   background-repeat: no-repeat;
   /* background-attachment: fixed; */
@@ -57,7 +57,27 @@
   margin: auto;
   outline: 0;
   height: 250px;
-  width: 250px;
+  width: 200px;
+  padding-top: 60px;
+  /* vertical-align: middle;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  /* text-align: center; */
+}
+
+.attack-stats{
+  background-image: url("../../Images/Icons/sword_icon_transp_small.png");
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  margin-left: none;
+  margin: auto;
+  outline: 0;
+  height: 250px;
+  width: 200px;
   padding-top: 60px;
   /* vertical-align: middle;
   margin: 0;
