@@ -1,12 +1,12 @@
 #card{
-    background-color:#7d9f55;
+    background-color:black;
     margin: 50px;
-    /* text-overflow: initial; */
-    /* overflow-wrap: normal; */
-    /* height: 600px; */
-    /* width: 800px; */
-    color: black;
-    /* display: flex; */
+    color: #2E2E2E;
+    text-shadow:
+    -1px -1px 0 white,
+    1px -1px 0 white,
+    -1px 1px 0 white,
+    1px 1px 0 white; 
     justify-content: center;
     text-align: center;
 }
