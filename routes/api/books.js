@@ -4,7 +4,8 @@ const gameController = require("../../controllers/gameController");
 // Matches with "/api/users"
 router.route("/")
   .get(gameController.findAll)
-  .post(gameController.create);
+  .post(gameController.create)
+  .put(gameController.update);
 
 // Matches with "/api/users/:id"
 router

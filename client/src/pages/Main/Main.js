@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-// import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
 import StartGame from "../../components/StartGame"
 
-class Books extends Component {
+class Main extends Component {
 
   componentDidMount() {
-    API.getUsers().then(res => console.log(res));
+    API.getUser(API.getUserId());
   };
 
   render() {
@@ -20,4 +19,4 @@ class Books extends Component {
   }
 }
 
-export default Books;
+export default Main;

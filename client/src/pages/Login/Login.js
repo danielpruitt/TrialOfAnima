@@ -49,7 +49,7 @@ class Login extends Component {
     event.preventDefault();
     if (this.state.name && this.state.password && this.state.password.length >= 6) {
       this.authenticate();
-      localStorage.setItem("Player", this.state.name);
+
     } else {
       this.setState({ errorMessage: "Please enter valid username and password to sign in." })
     }
