@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Auth from '../../utils/Auth';
+import "./Nav.css";
 
 class Nav extends Component {
   
@@ -26,18 +27,20 @@ class Nav extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <a className="navbar-brand" href="/">MindRPG</a>
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="true" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
       {this.state.authenticated ? (
-      <div className="collapse navbar-collapse justify-content-end"  id="navbarText">
-        
+      <div className="collapse navbar-collapse" id="navbarText">
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item active">
+            <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+          </li>
+        </ul>
         <span className="navbar-text">
-          <center>Greetings {this.state.userName}</center>
+          <center>Hi! Welcome {this.state.userName}</center>
           </span>
-        <span className="navbar-text">
           <a className="nav-link" href="/logout">Logout</a>
-        </span>
       </div>
       ) : (
       <div className="collapse navbar-collapse" id="navbarText">
