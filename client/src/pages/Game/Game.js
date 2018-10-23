@@ -533,6 +533,11 @@ class Game extends Component {
           playerHp: newHp
         }, () => console.log("GAME OVER"));
 
+        //SEND TO INDEX AFTER DEFEAT AND GAME OVER
+        let sendToIndexAfterDefeat = () => {
+          window.location.href = '/';
+        }
+
         let gameOverState = () => {
           let gameOver = this.state.gameOverId;
           this.setState({
@@ -541,7 +546,7 @@ class Game extends Component {
             location_id: gameOver,
             current_location: "",
             music: "http://www.music-note.jp/bgm/mp3/cube.mp3"
-          });
+          }, () => setTimeout(sendToIndexAfterDefeat, 5000));
         }
         setTimeout(gameOverState, 2500);
       }
@@ -588,6 +593,11 @@ class Game extends Component {
           current_location: ""
         }, () => console.log("DEFENSE FAILURE: GAME OVER"));
 
+        // SEND TO INDEX AFTER DEFENSE FAILURE AND GAME OVER
+        let sendToIndexAfterDefenseFailure = () => {
+          window.location.href = '/';
+        }
+
         let gameOveronDefenseFailure = () => {
           let gameOver = this.state.gameOverId;
           console.log(gameOver);
@@ -596,7 +606,7 @@ class Game extends Component {
             cardHide: "",
             location_id: gameOver,
             music: "http://www.music-note.jp/bgm/mp3/cube.mp3"
-          }, () => console.log("DEFENSE FAILURE GAME OVER"));
+          }, () => setTimeout(sendToIndexAfterDefenseFailure, 5000));
         }
         setTimeout(gameOveronDefenseFailure, 1000);
       }
