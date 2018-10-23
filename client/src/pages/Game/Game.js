@@ -732,7 +732,7 @@ class Game extends Component {
 
           </Card>
           {/* start button to move on to the next battle scene */}
-          <button className={this.state.cardBtnHide} onClick={this.startCombat} >Start Combat</button>
+          <button className={this.state.cardBtnHide} onClick={this.startCombat} >Continue your journey</button>
 
           {/* combat mode  */}
 
