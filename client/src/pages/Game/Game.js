@@ -371,7 +371,7 @@ class Game extends Component {
               storyHide: "hide",
               location_id: newLocation,
               message: "CONGRATULATIONS ON YOUR VICTORY",
-              credits: Locations[7].story,
+              cardBackground: Locations[newLocation].backgroundImage,
               music: "http://www.music-note.jp/bgm/mp3/2014/0316/adventurers.WAV"
             }, () => console.log("Hiding story"));
 
@@ -381,6 +381,12 @@ class Game extends Component {
             //API PUT call to update user clear
             API.addClear(this.state.userID, newClear);
 
+            // RETURN PLAYER TO INDEX FUNCTION AFTER GAME END
+            let sendToIndex = () => {
+              window.location.href = '/';
+            }
+
+            // CREDITS ROLL FUNCTION
             let creditsRoll = () => {
               this.setState({
                 current_location: Locations[7].name,
@@ -392,7 +398,7 @@ class Game extends Component {
                 message2: "hide",
                 creditsRoll: "",
                 music: "http://www.music-note.jp/bgm/mp3/2014/0316/adventurers.WAV"
-              }, () => console.log("CREDITS ROLLING!!"));
+              }, () => setTimeout(sendToIndex, 20000));
             }
 
             setTimeout(creditsRoll, 3000);
@@ -527,6 +533,11 @@ class Game extends Component {
           playerHp: newHp
         }, () => console.log("GAME OVER"));
 
+        //SEND TO INDEX AFTER DEFEAT AND GAME OVER
+        let sendToIndexAfterDefeat = () => {
+          window.location.href = '/';
+        }
+
         let gameOverState = () => {
           let gameOver = this.state.gameOverId;
           this.setState({
@@ -535,7 +546,7 @@ class Game extends Component {
             location_id: gameOver,
             current_location: "",
             music: "http://www.music-note.jp/bgm/mp3/cube.mp3"
-          });
+          }, () => setTimeout(sendToIndexAfterDefeat, 5000));
         }
         setTimeout(gameOverState, 2500);
       }
@@ -582,6 +593,11 @@ class Game extends Component {
           current_location: ""
         }, () => console.log("DEFENSE FAILURE: GAME OVER"));
 
+        // SEND TO INDEX AFTER DEFENSE FAILURE AND GAME OVER
+        let sendToIndexAfterDefenseFailure = () => {
+          window.location.href = '/';
+        }
+
         let gameOveronDefenseFailure = () => {
           let gameOver = this.state.gameOverId;
           console.log(gameOver);
@@ -590,7 +606,7 @@ class Game extends Component {
             cardHide: "",
             location_id: gameOver,
             music: "http://www.music-note.jp/bgm/mp3/cube.mp3"
-          }, () => console.log("DEFENSE FAILURE GAME OVER"));
+          }, () => setTimeout(sendToIndexAfterDefenseFailure, 5000));
         }
         setTimeout(gameOveronDefenseFailure, 1000);
       }

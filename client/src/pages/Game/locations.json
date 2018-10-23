@@ -38,7 +38,8 @@
     {
         "id": 6,
         "name": "CONGRATULATIONS YOU WIN!",
-        "story": "A Game BY (INSERT STUDIO NAME HERE)  ||May Burgos||  ||Kendall Bruce||  ||Daniel Pruitt||  ||Andrew Park|| ||Cody Covington|| -- Thanks for playing! "
+        "story": "A Game BY (INSERT STUDIO NAME HERE)  ||May Burgos||  ||Kendall Bruce||  ||Daniel Pruitt||  ||Andrew Park|| ||Cody Covington|| -- Thanks for playing! ",
+        "backgroundImage": "https://i.pinimg.com/originals/09/be/0e/09be0e3b4a8be14eaf70dc79b714bd40.jpg"
         
     },
     {
