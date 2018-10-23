@@ -371,7 +371,7 @@ class Game extends Component {
               storyHide: "hide",
               location_id: newLocation,
               message: "CONGRATULATIONS ON YOUR VICTORY",
-              credits: Locations[7].story,
+              cardBackground: Locations[newLocation].backgroundImage,
               music: "http://www.music-note.jp/bgm/mp3/2014/0316/adventurers.WAV"
             }, () => console.log("Hiding story"));
 
@@ -381,6 +381,12 @@ class Game extends Component {
             //API PUT call to update user clear
             API.addClear(this.state.userID, newClear);
 
+            // RETURN PLAYER TO INDEX FUNCTION AFTER GAME END
+            let sendToIndex = () => {
+              window.location.href = '/';
+            }
+
+            // CREDITS ROLL FUNCTION
             let creditsRoll = () => {
               this.setState({
                 current_location: Locations[7].name,
@@ -392,7 +398,7 @@ class Game extends Component {
                 message2: "hide",
                 creditsRoll: "",
                 music: "http://www.music-note.jp/bgm/mp3/2014/0316/adventurers.WAV"
-              }, () => console.log("CREDITS ROLLING!!"));
+              }, () => setTimeout(sendToIndex, 20000));
             }
 
             setTimeout(creditsRoll, 3000);
