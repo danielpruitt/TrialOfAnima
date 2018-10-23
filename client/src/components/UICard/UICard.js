@@ -20,10 +20,10 @@ function MediaCard(props) {
       <header className="card-header"><h1>{props.name}</h1></header>
       <img src={props.image} alt={props.name} style={styles} className="cardImg "></img>
       <footer className="card-footer"> <h3>{props.name} has {props.hp}</h3></footer>
-      <div className="healthBar" style={{width: '100%'}}>
-        <div className="currentHealthBar" style={{width: ((props.hp/props.maxHp) * 100) + '%'}}>
-          {props.hp}
-        </div>
+      <div className="healthBarBox">
+      <div className="redHealthBar" style={{width: ((props.hp/props.maxHp) * 100) + '%'}}></div>
+        <div className="greenHealthBar" style={{width: ((props.hp/props.maxHp) * 100) + '%'}}></div>
+        <div className="healthText">{props.hp}</div>
       </div>
     </div>
   );

@@ -1,8 +1,10 @@
 .form-signin {
+    background: #1C1C1C !important;
     width: 100%;
     max-width: 330px;
     padding: 15px;
-    margin: 0 auto;
+    margin: 15vh auto !important;
+    box-shadow: 10px 10px 60px #656565;
 }
 .form-signin .checkbox {
     font-weight: 400;
@@ -28,8 +30,59 @@
     border-top-right-radius: 0;
 }
 
+.btn{
+    background: #328786 !important;
+    border: #225C5B !important;
+}
+
+.btn:hover{
+    background: #225C5B !important;
+    border: 1px solid #FFFFFF !important;
+}
+
+.btn.disabled, .btn:disabled, .btn.disabled:hover, .btn:disabled:hover{
+    background: #656565 !important;
+    border: #173F3F !important;
+}
+
+/* links */
+a {
+    color: #23B5D3;
+}
+
+a:hover{
+    color: #156C7E;
+    text-decoration: underline;
+
+}
+
+
 body {
     
     background-image: url("https://wallpapertag.com/wallpaper/full/4/0/4/148428-most-popular-dungeon-background-1920x1080-for-desktop.jpg");
     background-position: top
+}
+
+@media only screen and (max-width: 1024px) {
+    /* for tablets */
+    .form-signin {
+        background: #1C1C1C !important;
+        width: 100%;
+        max-width: 330px;
+        padding: 15px;
+        margin: 15vh auto !important;
+        box-shadow: 10px 10px 60px #656565;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    /* for mobile */
+    .form-signin {
+        background: #1C1C1C !important;
+        width: 100%;
+        max-width: 330px;
+        padding: 15px;
+        margin: 10vh auto !important;
+        box-shadow: 10px 10px 60px #656565;
+    }
 }
