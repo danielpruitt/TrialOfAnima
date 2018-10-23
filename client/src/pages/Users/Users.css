@@ -116,12 +116,19 @@
     50% { border-color: orange; }
  }
 
+
+.localCard {
+  height:500%;
+
+}
+
  .locationTitle{
     font-size: 48px;
     font-family: 'Almendra SC', serif;
     justify-content: center;
     align-content: center;
  }
+
 
 
  /* testing animations */

@@ -2,31 +2,31 @@
     {
         "id": 1,
         "name": "Lost Forest",
-        "story": "The shrouds of fog were heavy in the deep dark wood.You hear a faint sound, it’s coming from the woods. You catch a glimpse of a figure lurking beyond the veil of mist coming from the forest. As you approach, the figure lures you in with a finger.  You go, you don’t know why but it seems that it’s the only thing you can do."
+        "story": "You’re alone, it hasn’t always been this way. You can’t explain the way you feel but you know it’s off. People can tell and they try to help but everything they say passes in a fog. It’s like you’re lost in your own reality and don’t know where to go, what to do, or how to get out. As the sinking in your chest feels worse The Goblin comes from behind the trees."
     
     },
     {
         "id": 2,
         "name": "Valley of Despair",
-        "story": " A creaking sound grows louder, you don’t know where it’s coming from. The valley surrounding you seems endless and unknowing. The stench of death is all around, nothing seems to be living here, which makes the grim sound more ghastly. As you try to make your way back out you encounter the Living Bones."
+        "story": "You can’t breathe, you can’t control your emotions, you can’t control anything. Everything is out of order, chaos rules in the moment. Cold sweat, the fear is paralyzing. Your heart pounds and you can feel escalating. You dig down trying to gain control. Inhale. Exhale. Your calm yourself, and it’s then that you hear the Living Bones behind you."
 
 
     },
     {
         "id": 3,
         "name": "Canyon of Screams",
-        "story": "Your body enters a new place, a bad place. The Canyon of Screams. An apparition appears and shimmers into view. As you approach, you start to realize it’s more than an apparition it’s a Phantom Wraith. It seems that this being is being tortured, hearing the screams of eternal damnation. It wants to torment you and bring you into its suffering."
+        "story": "Everyone is out to get you, they’ve never met you. They’re in your head, everywhere with no escape. Paranoia, the voices, the never ending dread. It’s there, always there haunting you from all around. The screams grow louder, the noise is deafening when the Spectral Demon surges toward you. "
 
     }, {
         "id": 4,
-        "name": "Mount Doom",
-        "story": "Your mind shivers as you feel something dark coming for you. You try to resist but the pull is strong…familiar. You feel yourself fading. The struggles you’ve overcome are coming back. It's one final fight you feel that you can overcome. "
+        "name": "Protected Caverns",
+        "story": "You’re calm, and then you’re not. All the anger and frustration inside of you seems to have just surfaced. Or was it always there? You can’t tell anymore, this rage comes and goes, followed by the emptiness. At this point, you don’t care what happens, there’s nothing you can do except slaughter Ogre."
 
     }
     , {
         "id": 5,
         "name": "The Abyss",
-        "story": "You face the ultimate enemy",
+        "story": "You face the ultimate enemy. Your mind shivers as you feel something dark coming for you. Everything from your past journey seems to be coming in all at once. You get lost in yourself, lost in the overwhelming whirlpool of your own emotions. Nothing seems to make sense but you've made it this far and victory is the only road you will take.",
         "dark_mage_image": "Shadow_Mage_Squared",
         "dark_warrior_image": "Shadow_Warrior_Squared",
         "dark_rogue_image": "Shadow_Rogue_Squared"

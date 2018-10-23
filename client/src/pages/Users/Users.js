@@ -705,7 +705,7 @@ class Users extends Component {
         <Container>
 
           {/* holds the storyline and allows it to be in the hidden or shown */}
-          <Card className={this.state.cardHide}>
+          <Card className={`${this.state.cardHide} localCard`}>
 
             {/* <Animated animationIn="flipInX" animationOut="flipOutX" isVisible={true}> */}
             <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
