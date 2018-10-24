@@ -36,6 +36,7 @@ class Game extends Component {
     enemyImage: "",
     message: "",
     message2: "",
+    message3: "",
     arrow: "hide",
     enemySelector: 0,
 
@@ -71,15 +72,15 @@ class Game extends Component {
   // PERCENT CHANCE CRITICAL HITS FUNCTION
 percentChanceofCriticalAttack = () => {
 
-  if (this.state.message2 === "VICTORIOUS!" && this.state.location_id === 4) {
+  if (this.state.message3 === "VICTORIOUS!" && this.state.location_id === 4) {
     
       this.setState({
-        message2: "Reached Journey's End"
+        message3: "Reached Journey's End"
       }, () => console.log("Reached Journey's End"));
 
-  } else if (this.state.message2 === "VICTORIOUS!") {
+  } else if (this.state.message3 === "VICTORIOUS!") {
     this.setState({
-      message2: "The Journey Continues"
+      message3: "The Journey Continues"
     }, () => console.log("The Journey Continues"));
 
   } else {
@@ -351,7 +352,7 @@ percentChanceofCriticalAttack = () => {
       if (newEnemyHp <= 0) {
         
         this.setState({
-          message2: "VICTORIOUS!",
+          message3: "VICTORIOUS!",
           music: "",
           soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/WW_New/WW_Fanfare_Pearl.wav"
         }, () => console.log("VICTORIOUS"));
@@ -404,6 +405,7 @@ percentChanceofCriticalAttack = () => {
                 storyHide: "hide",
                 message: "hide",
                 message2: "hide",
+                message3: "",
                 creditsRoll: "",
                 music: "http://www.music-note.jp/bgm/mp3/2014/0316/adventurers.WAV"
               }, () => setTimeout(sendToIndex, 20000));
@@ -439,6 +441,7 @@ percentChanceofCriticalAttack = () => {
                 storyHide: "",
                 message: "",
                 message2: "Traveling to Next Location",
+                message3: "",
                 location_id: newLocation,
                 current_location: location_name,
                 music: "http://www.music-note.jp/bgm/mp3/0417/duel.wav"
@@ -451,7 +454,8 @@ percentChanceofCriticalAttack = () => {
               cardHide: "",
               cardBtnHide: "",
               message: "",
-              message2: "hide",
+              message2: "",
+              message3: "",
               location_id: newLocation,
               current_location: location_name,
               enemySelector: newEnemySelected,
@@ -779,7 +783,8 @@ percentChanceofCriticalAttack = () => {
             <Col size="4" className={`${this.state.combatHide} textCard`} styleClass="altCentered">
               <div className="textCard">
                 <div>{this.state.message}</div>
-                <div><h1 className="victory">{this.state.message2}</h1></div>
+                <div><h1>{this.state.message2}</h1></div>
+                <div><h1 className="victory">{this.state.message3}</h1></div>
                 <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
               </div>
             </Col>
