@@ -11,9 +11,74 @@
     font-family: 'VT323', monospace;
 }
 
+.start{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  background: none;
+  color: #2E2E2E;
+  border: none;
+  text-shadow:
+  -1px -1px 0 white,
+  1px -1px 0 white,
+  -1px 1px 0 white,
+  1px 1px 0 white; 
+  font-size: 48px;
+}
+
+.startName{
+  font-size: 54px;
+  font-family: 'Almendra SC', serif;
+}
+
+.embark{
+  border: white solid 5px;
+  padding: 3px;
+}
+
 .victory{
   font-size: 56px;
   text-shadow: 2px 7px darkslategray;
+}
+
+.crit-stats{
+  background-image: url("../../Images/Icons/crit_icon_transp_small.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: auto;
+  outline: 0;
+  height: 250px;
+  width: 200px;
+  padding-top: 60px;
+
+}
+
+.att-stats{
+  background-image: url("../../Images/Icons/sword_icon_transp_small.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: none;
+  margin: auto;
+  outline: 0;
+  height: 250px;
+  width: 200px;
+  padding-top: 60px;
+
+}
+
+.def-stats{
+  background-image: url("../../Images/Icons/shield_icon_transp_small.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: none;
+  margin: auto;
+  outline: 0;
+  height: 250px;
+  width: 200px;
+  padding-top: 60px;
+
 }
 
 .centered{
@@ -44,7 +109,7 @@
 .combatBtn:focus {outline:0;}
 
 .attack{
-  background-image: url("../../Images/Buttons/sword.png");
+  background-image: url("../../Images/Buttons/sword_custom.png");
   background-repeat: no-repeat;
   /* background-attachment: fixed; */
   background-position: center;
@@ -52,7 +117,7 @@
 }
 
 .defend{
-  background-image: url("../../Images/Buttons/shield.png");
+  background-image: url("../../Images/Buttons/shield_custom.png");
   background-repeat: no-repeat;
   /* background-attachment: fixed; */
   background-position: center;
@@ -60,6 +125,7 @@
 
 .command{
   vertical-align: middle;
+  margin-bottom: 65px;
   /* margin: 0; */
   /* position: relative;
   top: 50%;
@@ -119,6 +185,11 @@
 
 .localCard {
   height:500%;
+
+}
+
+.localBox {
+  height:500px;
 
 }
 
@@ -234,6 +305,11 @@
 
 .dev{
     margin-bottom: 65px;
+}
+
+.thanks{
+  font-size: 48px;
+  margin-top: 200px;
 }
 
 
