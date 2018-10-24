@@ -3,6 +3,9 @@ import Auth from '../../utils/Auth';
 import API from "../../utils/API";
 import "./Nav.css";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+
 class Nav extends Component {
   
   constructor(props) {
@@ -27,6 +30,8 @@ class Nav extends Component {
     this.setState({ authenticated: Auth.isUserAuthenticated() });
   }
 
+
+
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -42,11 +47,14 @@ class Nav extends Component {
           </li>
         </ul>
         <span className="navbar-text">
-          <center>Hi! Welcome {this.state.userName}</center>
+          <center>Hi! Welcome {this.state.userName} </center>       
           </span>
-          <span>
-            <center>, Clears: {this.state.clears}</center>
+      
+            <span className="navbar-text">
+            <center>Clears: {this.state.clears}</center>
           </span>
+        
+          
           <a className="nav-link" href="/logout">Logout</a>
       </div>
       ) : (
@@ -57,10 +65,16 @@ class Nav extends Component {
           </li>
         </ul>
         <span>
-          <a className="nav-link" href="/login">Login</a>
+          <li className="nav-item">
+            <a className="nav-link" href="/login">Login</a>
+          </li>
+          
         </span>
         <span>
-          <a className="nav-link" href="/signup">Sign up</a>
+          <li className="nav-item">
+            <a className="nav-link" href="/signup">Sign up</a>
+          </li>
+          
         </span>
       </div>
       )}
