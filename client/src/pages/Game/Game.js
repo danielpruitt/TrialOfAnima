@@ -444,6 +444,7 @@ percentChanceofCriticalAttack = () => {
                 message3: "",
                 location_id: newLocation,
                 current_location: location_name,
+                cardBackground: Locations[newLocation].backgroundImage,
                 music: "http://www.music-note.jp/bgm/mp3/0417/duel.wav"
               }, () => console.log("Traveling to FINAL LOCATION " + this.state.enemySelector));
             
