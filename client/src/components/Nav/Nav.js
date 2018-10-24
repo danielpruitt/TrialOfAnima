@@ -33,56 +33,6 @@ class Nav extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-<<<<<<< HEAD
-      <a className="navbar-brand" href="/">MindRPG</a>
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="true" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      {this.state.authenticated ? (
-      <div className="collapse navbar-collapse" id="navbarText">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
-          </li>
-        </ul>
-        {/* <span className="navbar-text">
-          <center>Hi! Welcome {this.state.userName}</center>
-          </span>
-          <span>
-            <center>, Clears: {this.state.clears}</center>
-          </span>
-          <a className="nav-link" href="/logout">Logout</a> */}
-          <div class="navbar-text">
-             <div className="row">
-               <div class="col-4">
-                 <h2>Greetings  {this.state.userName}! </h2>
-               </div>
-               <div class="col-4">
-                 <h2>Total Clears {this.state.clears} </h2>
-               </div>
-               <div class="col-4">
-                 <h2><a className="nav-link" href="/logout">Logout</a></h2>
-               </div>
-             </div>
-           </div>
-      </div>
-      ) : (
-      <div className="collapse navbar-collapse" id="navbarText">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
-          </li>
-        </ul>
-        <span>
-          <a className="nav-link" href="/login">Login</a>
-        </span>
-        <span>
-          <a className="nav-link" href="/signup">Sign up</a>
-        </span>
-      </div>
-      )}
-    </nav>
-=======
         <a className="navbar-brand" href="/">MindRPG</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="true" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -141,7 +91,6 @@ class Nav extends Component {
             </div>
           )}
       </nav>
->>>>>>> ea7a352db26554fa1aeeca119d9f2997d5eb4c85
     );
   }
 }
