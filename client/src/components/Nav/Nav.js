@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Auth from '../../utils/Auth';
 import API from "../../utils/API";
 import "./Nav.css";
-
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 class Nav extends Component {
