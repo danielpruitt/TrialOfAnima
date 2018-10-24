@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Auth from '../../utils/Auth';
 import API from "../../utils/API";
 import "./Nav.css";
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 class Nav extends Component {
   
@@ -41,13 +42,26 @@ class Nav extends Component {
             <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
           </li>
         </ul>
-        <span className="navbar-text">
+        {/* <span className="navbar-text">
           <center>Hi! Welcome {this.state.userName}</center>
           </span>
           <span>
             <center>, Clears: {this.state.clears}</center>
           </span>
-          <a className="nav-link" href="/logout">Logout</a>
+          <a className="nav-link" href="/logout">Logout</a> */}
+          <div class="navbar-text">
+             <div className="row">
+               <div class="col-4">
+                 <h2>Greetings  {this.state.userName}! </h2>
+               </div>
+               <div class="col-4">
+                 <h2>Total Clears {this.state.clears} </h2>
+               </div>
+               <div class="col-4">
+                 <h2><a className="nav-link" href="/logout">Logout</a></h2>
+               </div>
+             </div>
+           </div>
       </div>
       ) : (
       <div className="collapse navbar-collapse" id="navbarText">

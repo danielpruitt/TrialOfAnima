@@ -779,7 +779,7 @@ percentChanceofCriticalAttack = () => {
             <Col size="4" className={`${this.state.combatHide} textCard`} styleClass="altCentered">
               <div className="textCard">
                 <div>{this.state.message}</div>
-                <div><h1 className="victory">{this.state.message2}</h1></div>
+                <div className="critical"><h1 className="danger">{this.state.message2}</h1></div>
                 <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
               </div>
             </Col>
