@@ -740,14 +740,14 @@ percentChanceofCriticalAttack = () => {
         <Container>
 
           {/* holds the storyline and allows it to be in the hidden or shown */}
-          <Card className={this.state.cardHide}>
+          <Card className={`${this.state.cardHide} localCard`}>
 
             {/* <Animated animationIn="flipInX" animationOut="flipOutX" isVisible={true}> */}
             <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
 
-              <div className={`${this.state.storyHide}`} style={ { backgroundImage: `url(${this.state.cardBackground})`, backgroundRepeat: `no-repeat`, backgroundSize: `cover` } }>
+              <div className={`${this.state.storyHide} localBox rounded`} style={ { backgroundImage: `url(${this.state.cardBackground})`, backgroundRepeat: `no-repeat`, backgroundSize: `cover` } }>
 
-              <h3 className="locationTitle">{this.state.current_location}</h3>
+                <h3 className="locationTitle">{this.state.current_location}</h3>
 
                 <h3 className="">{Locations[this.state.location_id].story}</h3>
 
@@ -757,7 +757,7 @@ percentChanceofCriticalAttack = () => {
 
           </Card>
           {/* start button to move on to the next battle scene */}
-          <button className={this.state.cardBtnHide} onClick={this.startCombat} >Start Combat</button>
+          <button className={this.state.cardBtnHide} onClick={this.startCombat} >Continue your journey</button>
 
           {/* combat mode  */}
 
