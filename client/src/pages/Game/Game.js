@@ -11,6 +11,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import { Animated } from "react-animated-css";
 import Button from '@material-ui/core/Button';
 import EnemyModal from "../../components/EnemyModal"
+import ClassModal from "../../components/ClassModal"
 import SoundEffects from "../../components/SoundEffects";
 import Music from "../../components/Music";
 import API from "../../utils/API";
@@ -378,7 +379,7 @@ percentChanceofCriticalAttack = () => {
               storyHide: "hide",
               location_id: newLocation,
               message: "CONGRATULATIONS ON YOUR VICTORY",
-              credits: Locations[7].story,
+              cardBackground: Locations[newLocation].backgroundImage,
               music: "http://www.music-note.jp/bgm/mp3/2014/0316/adventurers.WAV"
             }, () => console.log("Hiding story"));
 
@@ -388,6 +389,12 @@ percentChanceofCriticalAttack = () => {
             //API PUT call to update user clear
             API.addClear(this.state.userID, newClear);
 
+            // RETURN PLAYER TO INDEX FUNCTION AFTER GAME END
+            let sendToIndex = () => {
+              window.location.href = '/';
+            }
+
+            // CREDITS ROLL FUNCTION
             let creditsRoll = () => {
               this.setState({
                 current_location: Locations[7].name,
@@ -399,7 +406,7 @@ percentChanceofCriticalAttack = () => {
                 message2: "hide",
                 creditsRoll: "",
                 music: "http://www.music-note.jp/bgm/mp3/2014/0316/adventurers.WAV"
-              }, () => console.log("CREDITS ROLLING!!"));
+              }, () => setTimeout(sendToIndex, 20000));
             }
 
               setTimeout(creditsRoll, 3000);                
@@ -533,17 +540,22 @@ percentChanceofCriticalAttack = () => {
           playerHp: newHp
         }, () => console.log("GAME OVER"));
 
+        //SEND TO INDEX AFTER DEFEAT AND GAME OVER
+        let sendToIndexAfterDefeat = () => {
+          window.location.href = '/';
+        }
+
         let gameOverState = () => {
-        let gameOver = this.state.gameOverId;
-        this.setState({
-          combatHide: "hide",
-          cardHide: "",
-          location_id: gameOver,
-          current_location: "",
-          music: "http://www.music-note.jp/bgm/mp3/cube.mp3"
-        });
-      }
-      setTimeout(gameOverState, 2500);
+          let gameOver = this.state.gameOverId;
+          this.setState({
+            combatHide: "hide",
+            cardHide: "",
+            location_id: gameOver,
+            current_location: "",
+            music: "http://www.music-note.jp/bgm/mp3/cube.mp3"
+          }, () => setTimeout(sendToIndexAfterDefeat, 5000));
+        }
+        setTimeout(gameOverState, 2500);
       }
     }
 
@@ -588,6 +600,11 @@ percentChanceofCriticalAttack = () => {
           current_location: ""
         }, () => console.log("DEFENSE FAILURE: GAME OVER"));
 
+        // SEND TO INDEX AFTER DEFENSE FAILURE AND GAME OVER
+        let sendToIndexAfterDefenseFailure = () => {
+          window.location.href = '/';
+        }
+
         let gameOveronDefenseFailure = () => {
           let gameOver = this.state.gameOverId;
           console.log(gameOver);
@@ -596,7 +613,7 @@ percentChanceofCriticalAttack = () => {
             cardHide: "",
             location_id: gameOver,
             music: "http://www.music-note.jp/bgm/mp3/cube.mp3"
-          }, () => console.log("DEFENSE FAILURE GAME OVER"));
+          }, () => setTimeout(sendToIndexAfterDefenseFailure, 5000));
         }
         setTimeout(gameOveronDefenseFailure, 1000);
       }
@@ -703,6 +720,12 @@ percentChanceofCriticalAttack = () => {
 
                   <footer> <h3>This can be a class description or something or also nothing.</h3></footer>
 
+                  <ClassModal
+                    name={characters.name}
+                    attack={characters.att}
+                    defense={characters.def}
+                    crit={characters.superAtt}/>
+
                 </SelectorCard>
               </Col>)
             })}
@@ -773,7 +796,7 @@ percentChanceofCriticalAttack = () => {
                     styleClass="enemy"
                   />
                   <EnemyModal
-                    enemyName ={this.state.enemyName}
+                    name ={this.state.enemyName}
                     attack={this.state.enemyAtt}
                     crit={this.state.message2}/>
                 </Animated>

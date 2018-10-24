@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 
 import { Col, Row, Container } from "../Grid";
-import "./EnemyModal.css";
+import "./ClassModal.css";
 
 import { createMuiTheme } from '@material-ui/core/styles';
 
@@ -84,16 +84,23 @@ class SimpleModal extends React.Component {
               </Row>
               <Row>
                 
-                <Col size="6">
+                <Col size="4">
                   <div className="att-stats stats">
                     <h3 className="statName">Attack Damage</h3>
                     <h3 className="percent">{this.props.attack}</h3> 
                   </div>
                 </Col>
 
-                <Col size="6">
+                <Col size="4">
+                  <div className="def-stats stats">
+                    <h3 className="statName">Defense</h3>
+                    <h3 className="percent">{this.props.defense}</h3> 
+                  </div>
+                </Col>
+
+                <Col size="4">
                   <div className="crit-stats stats">
-                    <span className="statName">Danger of Critical</span><br></br>
+                    <span className="statName">Critical Damage</span><br></br>
                     <span className="percent">{this.props.crit}</span> 
                   </div>
                 </Col>

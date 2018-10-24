@@ -18,18 +18,33 @@
     width: 345px;
 }
 
-.healthBar {
+.healthBarBox {
     height: 50px;
-    width: 100%;
-    background-color:#800000;
+    background-color:#656565;
     color:#000000;
     box-shadow: inset 0 0 15px #000000;
+    text-align: center;
 }
 
-.currentHealthBar {
+.greenHealthBar {
     height: 50px;
-    width: 100%;
-    background-color:#228B22;
+    width: inherit;
+    position: relative;
+    bottom: 50px;
+    background-color:#225C5B;
     color:#000000;
     box-shadow: 3px 0px 5px 0px #000;
+}
+.redHealthBar {
+    height: 100%;
+    background-color:#8D2F2E;
+    position: relative;
+    transition: width 2s;
+}
+
+.healthText{
+    position: relative;
+    bottom: 96px;
+    color: #F6F7EB;
+    text-shadow: -1px 0 #1C1C1C, 0 1px #1C1C1C, 1px 0 #1C1C1C, 0 -1px #1C1C1C !important;
 }
