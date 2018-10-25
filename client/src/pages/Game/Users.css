@@ -1,324 +1,247 @@
 .hide {
-    display: none;
+	display: none;
 }
-
 .textCard {
-    background: none;
-    width: 345px;
+	background: none;
+	width: 345px;
 }
 .app {
-    color: white;
-    font-family: 'VT323', monospace;
+	color: white;
+	font-family: 'VT323', monospace;
 }
-
-.start{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: auto;
-  background: none;
-  color: #2E2E2E;
-  border: none;
-  text-shadow:
-  -1px -1px 0 white,
-  1px -1px 0 white,
-  -1px 1px 0 white,
-  1px 1px 0 white; 
-  font-size: 48px;
+.victory {
+	font-size: 56px;
+	text-shadow: 2px 7px darkslategray;
 }
-
-.startName{
-  font-size: 54px;
-  font-family: 'Almendra SC', serif;
+.crit-stats {
+	background-image: url("../../Images/Icons/crit_icon_transp_small.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: auto;
+	outline: 0;
+	height: 250px;
+	width: 200px;
+	padding-top: 60px;
 }
-
-.embark{
-  border: white solid 5px;
-  padding: 3px;
+.att-stats {
+	background-image: url("../../Images/Icons/sword_icon_transp_small.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-left: none;
+	margin: auto;
+	outline: 0;
+	height: 250px;
+	width: 200px;
+	padding-top: 60px;
 }
-
-.victory{
-  font-size: 56px;
-  text-shadow: 2px 7px darkslategray;
+.def-stats {
+	background-image: url("../../Images/Icons/shield_icon_transp_small.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-left: none;
+	margin: auto;
+	outline: 0;
+	height: 250px;
+	width: 200px;
+	padding-top: 60px;
 }
-
-.crit-stats{
-  background-image: url("../../Images/Icons/crit_icon_transp_small.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  margin: auto;
-  outline: 0;
-  height: 250px;
-  width: 200px;
-  padding-top: 60px;
-
+.typewriter {
+	overflow: hidden;
+	/* Ensures the content is not revealed until the animation*/
+	font-family: 'VT323', monospace;
+	border-right: .15em solid orange;
+	/* The typwriter cursor */
+	white-space: nowrap;
+	/*Keeps the content on a single line */
+	margin: 0 auto;
+	/* Gives that scrolling effect as the typing happens */
+	letter-spacing: .15em;
+	/* Adjust as needed */
+	display: flex;
+	animation: typing 6.5s steps(40, end), blink-caret .75s step-end infinite;
+	font-size: 24px;
 }
+/* The typing effect */
 
-.att-stats{
-  background-image: url("../../Images/Icons/sword_icon_transp_small.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  margin-left: none;
-  margin: auto;
-  outline: 0;
-  height: 250px;
-  width: 200px;
-  padding-top: 60px;
-
+@keyframes typing {
+	from {
+		width: 0
+	}
+	to {
+		width: 100%
+	}
 }
+/* The typewriter cursor effect */
 
-.def-stats{
-  background-image: url("../../Images/Icons/shield_icon_transp_small.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  margin-left: none;
-  margin: auto;
-  outline: 0;
-  height: 250px;
-  width: 200px;
-  padding-top: 60px;
-
+@keyframes blink-caret {
+	from, to {
+		border-color: transparent
+	}
+	50% {
+		border-color: orange;
+	}
 }
-
-.centered{
-  /* background:red; */
-  border: black 2 px solid;
-  align-content: center;
-  justify-content: center;
-}
-
-.altCentered{
-  align-content: center;
-  justify-content: center;
-  color: white;
-}
-.combatBtn{
-  height: 250px;
-  width: 250px;
-  background: none;
-  border: none;
-  outline: 0
-}
-
-.combatBtn:active {
-  outline: none;
-  border: none;
-  }
-  
-.combatBtn:focus {outline:0;}
-
-.attack{
-  background-image: url("../../Images/Buttons/sword_custom.png");
-  background-repeat: no-repeat;
-  /* background-attachment: fixed; */
-  background-position: center;
-  outline: 0;
-}
-
-.defend{
-  background-image: url("../../Images/Buttons/shield_custom.png");
-  background-repeat: no-repeat;
-  /* background-attachment: fixed; */
-  background-position: center;
-}
-
-.command{
-  vertical-align: middle;
-  margin-bottom: 65px;
-  /* margin: 0; */
-  /* position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
-  font-size: 48px;
-  text-shadow: 1px 5px darkslategray;
-  color: white;
-  font-family: 'VT323', monospace;
-}
-
-/* .selectRow{
-  justify-content: center;
-  margin: auto;
-  align-content: center;
-}
-
-.selectCol{
-  justify-content: center;
-  margin: auto;
-  align-content: center;
-} */
-
-.selectImg{
-  width: 450px;
-  height: 450px;
-}
-
-
-
-.typewriter  {
-    overflow: hidden; /* Ensures the content is not revealed until the animation*/
-    font-family: 'VT323', monospace;
-    border-right: .15em solid orange; /* The typwriter cursor */
-    white-space: nowrap; /*Keeps the content on a single line */
-    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-    letter-spacing: .15em; /* Adjust as needed */
-    display: flex;
-    animation:
-    typing 6.5s steps(40, end),
-    blink-caret .75s step-end infinite;
-    font-size: 24px;
- }
- 
-  /* The typing effect */
- @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
- }
- 
-  /* The typewriter cursor effect */
- @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: orange; }
- }
-
-
 .localCard {
-  height:500%;
-
+	height: 500%;
 }
-
 .localBox {
-  height:500px;
-
+	height: 500px;
 }
+.locationTitle {
+	font-size: 48px;
+	font-family: 'Almendra SC', serif;
+	justify-content: center;
+	align-content: center;
+}
+/* testing animations */
 
- .locationTitle{
-    font-size: 48px;
-    font-family: 'Almendra SC', serif;
-    justify-content: center;
-    align-content: center;
- }
+/* flicker */
 
-
-
- /* testing animations */
- /* flicker */
-
- .flicker-3 {
+.flicker-3 {
 	animation: flicker-3 2.5s linear infinite both;
 }
-
 @keyframes flicker-3 {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    32.98% {
-      opacity: 1;
-    }
-    33% {
-      opacity: 0;
-    }
-    34% {
-      opacity: 0;
-    }
-    34.02% {
-      opacity: 1;
-    }
-    34.98% {
-      opacity: 1;
-    }
-    35% {
-      opacity: 0;
-    }
-    35.9% {
-      opacity: 0;
-    }
-    35.92% {
-      opacity: 1;
-    }
-    38.98% {
-      opacity: 1;
-    }
-    39% {
-      opacity: 0;
-    }
-    39.8% {
-      opacity: 0;
-    }
-    39.82% {
-      opacity: 1;
-    }
-    83.98% {
-      opacity: 1;
-    }
-    84% {
-      opacity: 0;
-    }
-    84.9% {
-      opacity: 0;
-    }
-    84.92% {
-      opacity: 1;
-    }
-  }
-
- /* Adding some credits animation */
- * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	0%, 100% {
+		opacity: 1;
+	}
+	32.98% {
+		opacity: 1;
+	}
+	33% {
+		opacity: 0;
+	}
+	34% {
+		opacity: 0;
+	}
+	34.02% {
+		opacity: 1;
+	}
+	34.98% {
+		opacity: 1;
+	}
+	35% {
+		opacity: 0;
+	}
+	35.9% {
+		opacity: 0;
+	}
+	35.92% {
+		opacity: 1;
+	}
+	38.98% {
+		opacity: 1;
+	}
+	39% {
+		opacity: 0;
+	}
+	39.8% {
+		opacity: 0;
+	}
+	39.82% {
+		opacity: 1;
+	}
+	83.98% {
+		opacity: 1;
+	}
+	84% {
+		opacity: 0;
+	}
+	84.9% {
+		opacity: 0;
+	}
+	84.92% {
+		opacity: 1;
+	}
 }
-.credits{
-  overflow: hidden;
-  height: 50vh;
-  background: none;
+/* Adding some credits animation */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
-
- .wrapper {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  width: 500px;
-  margin-left: -250px;
-  font: 300 30px/1;
-  font-family: 'VT323', monospace;;
-  text-align: center;
-  text-transform: uppercase;
-  color: #fff;
-  animation: 60s credits linear infinite;
-  text-shadow: 1px 8px darkslategray;
-
+.credits {
+	overflow: hidden;
+	height: 50vh;
+	background: none;
 }
-
+.wrapper {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	width: 500px;
+	margin-left: -250px;
+	font: 300 30px/1;
+	font-family: 'VT323', monospace;
+	;
+	text-align: center;
+	text-transform: uppercase;
+	color: #fff;
+	animation: 60s credits linear infinite;
+	text-shadow: 1px 8px darkslategray;
+}
 .gameTitle {
-  margin-bottom: 75px;
-  font-size: 65px;
+	margin-bottom: 75px;
+	font-size: 65px;
 }
-
-
-.credit{
-  margin-bottom: 50px;
-  font-size: 48px;
+.credit {
+	margin-bottom: 50px;
+	font-size: 48px;
 }
-
-.dev{
-    margin-bottom: 65px;
+.dev {
+	margin-bottom: 65px;
 }
-
-.thanks{
-  font-size: 48px;
-  margin-top: 200px;
+.thanks {
+	font-size: 48px;
+	margin-top: 200px;
 }
-
-
 @keyframes credits {
-    0% { top:  100%; }
-  100% { top: -500%; }
+	0% {
+		top: 100%;
+	}
+	100% {
+		top: -500%;
+	}
 }
-
-.restartBtn{
-  color: white;
+.restartBtn {
+	color: white;
 }
+/* regular buttons */
 
+button {
+	background: #225C5BD9;
+	color: #F6F7EB;
+	border: none;
+	position: relative;
+	margin-bottom: 10vh;
+	height: 60px;
+	font-size: 1.6em;
+	padding: 0 2em;
+	cursor: pointer;
+	transition: 800ms ease all;
+	outline: none;
+}
+button:hover {
+	background: #ffffff00;
+	color: #F6F7EB;
+}
+button:before, button:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 2px;
+	width: 0;
+	background: #225C5B;
+	transition: 400ms ease all;
+}
+button:after {
+	right: inherit;
+	top: inherit;
+	left: 0;
+	bottom: 0;
+}
+button:hover:before, button:hover:after {
+	width: 100%;
+	transition: 800ms ease all;
+}
