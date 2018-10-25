@@ -174,33 +174,14 @@
   height: 450px;
 }
 
+.characterStory {
+  width:30vw;
+  height:25vh;
+}
 
-
-.typewriter  {
-    overflow: hidden; /* Ensures the content is not revealed until the animation*/
-    font-family: 'VT323', monospace;
-    border-right: .15em solid orange; /* The typwriter cursor */
-    white-space: nowrap; /*Keeps the content on a single line */
-    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-    letter-spacing: .15em; /* Adjust as needed */
-    display: flex;
-    animation:
-    typing 6.5s steps(40, end),
-    blink-caret .75s step-end infinite;
-    font-size: 24px;
- }
- 
-  /* The typing effect */
- @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
- }
- 
-  /* The typewriter cursor effect */
- @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: orange; }
- }
+.statCheck{
+  align-content: center;
+}
 
 
 .localCard {
@@ -342,3 +323,59 @@
   color: white;
 }
 
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 768px) {
+  .smallView {
+    width: 25vw;
+    height:25vh;
+    align-content: center;
+    float:left;
+  }
+  .selectImg {
+    height:25vh;
+    width:25vw;
+    align-content: center;
+    float: left;
+
+  }
+  .characterStory {
+    /* visibility: hidden */
+    width:25vw;
+  }
+  .statCheck {
+    margin-top: 30vh
+  }
+
+  .modalBody {
+    align-content: center;
+    height:50vh;
+    width:100vw
+  }
+
+  /* fighting scenes, fighter is the player's character, textCard is the viewable text and skull image, yourEnemy is the current enemy */
+  .fighter {
+    width: 25vw;
+    /* height:auto; */
+    /* height:25vh; */
+    align-content: center;
+    float:left;
+  }
+
+  .textCard {
+    width: 30vw;
+    float:right;
+  }
+
+  .yourEnemy {
+    width: 20vw;
+    /* height:auto; */
+    /* height:20vh; */
+    align-content: center;
+    float:left;
+  }
+
+  .combatActions {
+    margin-bottom:100px
+  }
+}

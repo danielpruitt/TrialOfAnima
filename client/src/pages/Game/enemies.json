@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "Goblin Scout",
+        "name": "Goblin",
         "hp": 150,
         "att": 35,
         "criticalAtt": 40,
@@ -9,7 +9,7 @@
     },
     {
         "id": 2,
-        "name": "Living Bones",
+        "name": "LivingBones",
         "hp": 150,
         "att": 35,
         "criticalAtt": 40,
