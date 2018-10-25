@@ -747,7 +747,10 @@ percentChanceofCriticalAttack = () => {
           </Row>
 
           {/* Embark button to start story and attacking */}
-          <button className={`${this.state.startBtnHide} start`} onClick={this.startAdventure}><h1 className="startName">{this.state.playerName}</h1><span className="embark">Embark!</span></button>
+          <span class = "startButtons">
+            <h1 className="startName">{this.state.playerName}</h1>
+            <button className={`${this.state.startBtnHide} start`} onClick={this.startAdventure}><span class="embark">Embark!</span></button>  
+          </span>
         </div>
 
         {/* container that switches the stories and attacking  */}
