@@ -45,42 +45,156 @@
 	width: 200px;
 	padding-top: 60px;
 }
-.typewriter {
-	overflow: hidden;
-	/* Ensures the content is not revealed until the animation*/
-	font-family: 'VT323', monospace;
-	border-right: .15em solid orange;
-	/* The typwriter cursor */
-	white-space: nowrap;
-	/*Keeps the content on a single line */
-	margin: 0 auto;
-	/* Gives that scrolling effect as the typing happens */
-	letter-spacing: .15em;
-	/* Adjust as needed */
-	display: flex;
-	animation: typing 6.5s steps(40, end), blink-caret .75s step-end infinite;
-	font-size: 24px;
-}
-/* The typing effect */
 
-@keyframes typing {
-	from {
-		width: 0
-	}
-	to {
-		width: 100%
-	}
+.centered{
+  /* background:red; */
+  border: black 2 px solid;
+  align-content: center;
+  justify-content: center;
 }
-/* The typewriter cursor effect */
 
-@keyframes blink-caret {
-	from, to {
-		border-color: transparent
-	}
-	50% {
-		border-color: orange;
-	}
+.altCentered{
+  align-content: center;
+  justify-content: center;
+  color: white;
 }
+.combatBtn{
+  height: 250px;
+  width: 250px;
+  background: none;
+  border: none;
+  outline: 0
+}
+
+.combatBtn:active {
+  outline: none;
+  border: none;
+  }
+  
+.combatBtn:focus {outline:0;}
+
+.attack{
+  background-image: url("../../Images/Buttons/sword_custom.png");
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  outline: 0;
+}
+
+.defend{
+  background-image: url("../../Images/Buttons/shield_custom.png");
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+}
+
+.command{
+  vertical-align: middle;
+  margin-bottom: 65px;
+  /* margin: 0; */
+  /* position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  font-size: 48px;
+  text-shadow: 1px 5px darkslategray;
+  color: white;
+  font-family: 'VT323', monospace;
+}
+
+/* .selectRow{
+  justify-content: center;
+  margin: auto;
+  align-content: center;
+}
+
+.selectCol{
+  justify-content: center;
+  margin: auto;
+  align-content: center;
+} */
+
+.selectImg{
+  width: 450px;
+  height: 450px;
+}
+
+/* Aniamtion for attacks */
+.animateAttack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 3;
+  width: 0px;
+  height: 0px;
+  border-left: 3px solid white;
+  border-right: 3px solid white;
+  border-bottom: 180px solid white;
+  transform: rotateZ(45deg);
+  animation: attack 0.5s cubic-bezier(0.17, 0.67, 0.68, 0.81);
+}
+
+@keyframes attack {
+  0% {
+    transform: translate3d(50px, -50px, 0) rotateZ(45deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(-20px, 20px, 0) rotateZ(45deg);
+    opacity: 0;
+  }
+}
+
+/* Aniamtion for defend */
+.animateDefend {
+  background-color: blue;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: -1;
+  margin: 0 auto;
+  height: 100px;
+  width: 100px;
+  animation: defend 1s cubic-bezier(0.88, 0.18, 0.99, 0.46);
+}
+
+@keyframes defend {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Aniamtion for fade */
+.animateFade {
+  animation: fade 3s cubic-bezier(0, 0.71, 0.47, 0.35);
+}
+
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
 .localCard {
 	height: 500%;
 }
