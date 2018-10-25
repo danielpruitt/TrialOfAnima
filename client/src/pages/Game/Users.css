@@ -43,6 +43,26 @@
   text-shadow: 2px 7px darkslategray;
 }
 
+.critical{
+  background-image: url("../../Images/Icons/crit_icon_transp_small.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: auto;
+  outline: 0;
+  height: 300px;
+  width: 300px;
+  /* padding-top: 100px; */
+  font-size: 500px;
+}
+
+.danger{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 100px;
+}
+
 .crit-stats{
   background-image: url("../../Images/Icons/crit_icon_transp_small.png");
   background-repeat: no-repeat;
