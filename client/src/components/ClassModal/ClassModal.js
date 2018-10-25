@@ -42,7 +42,7 @@ function getModalStyle() {
   };
 }
 
-const styles = theme => ({
+const styles = () => ({
   paper: {
     position: 'absolute',
     backgroundColor: (0,0,0,0.7),
