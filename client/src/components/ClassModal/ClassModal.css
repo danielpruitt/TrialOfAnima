@@ -1,158 +1,34 @@
-.statName {
-	font-size: 24px;
-}
-.percent {
-	font-size: 80px;
-	position: relative;
-}
-.modalBody {
-	justify-content: center;
-	text-align: center;
-}
-.statHeader {
-	justify-content: center;
-	text-align: center;
+.statName{
+    font-size: 24px;
 }
 
-.selectImg{
-    width: 30vw;
-    height: 30vw;
-  }
+.percent{
+    font-size: 80px;
+    position: relative;
+}
 
+.modalBody{
+    justify-content: center;
+    text-align: center;
+}
 
-/* stats button */
-.statCheck {
-	background: #6457A64D;
-	color: #F6F7EB;
-	border: none;
-	position: relative;
-	margin-bottom: 10vh;
-	height: 60px;
-	font-size: 1.6em;
-	padding: 0 2em;
-	cursor: pointer;
-	transition: 800ms ease all;
-	outline: none;
+.statHeader{
+    justify-content: center;
+    text-align: center;
 }
-.statCheck:hover {
-	background: #6457A600;
-	color: #F6F7EB;
-}
-.statCheck:before, .statCheck:after {
-	content: '';
-	position: absolute;
-	top: 0;
-	right: 0;
-	height: 2px;
-	width: 0;
-	background: #6457A6;
-	transition: 400ms ease all;
-}
-.statCheck:after {
-	right: inherit;
-	top: inherit;
-	left: 0;
-	bottom: 0;
-}
-.statCheck:hover:before, .statCheck:hover:after {
-	width: 100%;
-	transition: 800ms ease all;
-}
-.statCheck:active {
-	outline: none;
-	border: none;
-}
-.statCheck:focus {
-	outline: 0;
-} 
 
-  /* start button & starting class name area */
-  .startButtons{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: auto;
+.statCheck{
     background: none;
     border: none;
-  }
-   .startName{
-    font-size: 54px;
-    font-family: 'Almendra SC', serif;
-    color: #1C1C1C;
-    text-shadow:
-    -1px -1px 0 white,
-    1px -1px 0 white,
-    -1px 1px 0 white,
-    1px 1px 0 white; 
-
-  }
-  
-/* embark button */
-
-/* .embark{
-    display:inline-block;
-    margin:0 0.3em 0.3em 0;
-    border-radius:0.12em;
-    text-decoration:none;
-    font-weight:300;
-    background: #8D2F2E80;
-    color:#1c1c1c;
-    text-align:center;
-    text-shadow: -1px 0 #F6F7EB, 0 1px #F6F7EB, 1px 0 #F6F7EB, 0 -1px #F6F7EB;
-    transition: all 1s;
-
-} 
-.embark:hover{
-    color:#F6F7EB;
-    background-color:#23B5D3A6;
-    border:0.1em solid #F6F7EB;
-    text-shadow: 0px 3px 0px #656565,
-    0px 14px 10px rgba(0,0,0,0.15),
-    0px 24px 2px rgba(0,0,0,0.1),
-    0px 34px 30px rgba(0,0,0,0.1);
+    outline: 0;
+    font-size: 32px;
+    color: white;
+    text-shadow: 1px 5px darkslategray;
 }
 
-.embark:before,.embark:after{
-    background: transparent;
-    transition: none;
-  }
-   
-  .embark:hover:before,.embark:hover:after{
-    transition: none;
-  } */
-
-@media only screen and (max-width: 768px) {
-    /* for tablets */
-    .selectImg{
-        width: 30vw;
-        height: 30vw;
-      }
-
-    .statCheck {
-        width: 150px;
-        padding: 0;
-        text-align: center;
+.statCheck:active {
+    outline: none;
+    border: none;
     }
-}
-
-@media only screen and (max-width: 600px) {
-    /* for mobile */
-
-    .selectImg{
-        width: 90px;
-        height: 100px;
-    }
-
-    .statCheck {
-        width: 90px;
-        height: 50px;
-        padding: 0;
-        font-size: 30px;
-        text-align: center;
-    }
-
-    footer{
-        display: none;
-    }
-}
+    
+.statCheck:focus {outline:0;}
