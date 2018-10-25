@@ -88,6 +88,8 @@ percentChanceofCriticalAttack = () => {
   let percentChance = Math.floor(Math.random() * 10) + 1;
   console.log(percentChance);
   switch (percentChance) {
+    default:
+    break;
       case 1:
            this.setState({
         // message2: "10% Danger Enemy Critical Attack"
@@ -676,6 +678,7 @@ percentChanceofCriticalAttack = () => {
 
       // setting the final boss battle music to match location
       if (this.state.location_id === 4) {
+
 
           this.setState({ 
             music: "http://www.music-note.jp/bgm/mp3/0417/duel.wav"
