@@ -47,6 +47,25 @@
 	background-position: center;
 	background-size: 15vw 15vw;
 }
+
+.critical{
+	background-image: url("../../Images/Icons/crit_icon_transp_small.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	margin: auto;
+	outline: 0;
+	height: 300px;
+	width: 300px;
+	font-size: 500px;
+}
+
+.danger{
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 100px;
+}
 @media only screen and (max-width: 768px) {
 	/* for tablets */
 	.col-4 {

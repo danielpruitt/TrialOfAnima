@@ -732,7 +732,7 @@ percentChanceofCriticalAttack = () => {
 
                   <img src={characters.image} onMouseOver={e => (e.currentTarget.src = `${characters.hover}`)} onMouseOut={e => (e.currentTarget.src = `${characters.image}`)}alt={characters.name} className="selectImg" onClick={this.handleCharacterState} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
 
-                  <footer> <h3>This can be a class description or something or also nothing.</h3></footer>
+                  <footer> <h3>{characters.story}</h3></footer>
 
                   <ClassModal
                     name={characters.name}
@@ -747,9 +747,9 @@ percentChanceofCriticalAttack = () => {
           </Row>
 
           {/* Embark button to start story and attacking */}
-          <span class = "startButtons">
+          <span className = "startButtons">
             <h1 className="startName">{this.state.playerName}</h1>
-            <button className={`${this.state.startBtnHide} start`} onClick={this.startAdventure}><span class="embark">Embark!</span></button>  
+            <button className={`${this.state.startBtnHide} start`} onClick={this.startAdventure}><span className="embark">Embark!</span></button>  
           </span>
         </div>
 
