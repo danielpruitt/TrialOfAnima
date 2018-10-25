@@ -717,7 +717,7 @@ percentChanceofCriticalAttack = () => {
             {Characters.map(characters => {
               return (
 
-              <Col key={characters.id} size="4" xs={12} sm={12} m={6} lg={6} className="selectCol">
+              <Col key={characters.id} size="4" className="selectCol">
                 <SelectorCard>
                   <header><h1>{characters.name}</h1></header>
 
@@ -738,12 +738,7 @@ percentChanceofCriticalAttack = () => {
           </Row>
 
           {/* Embark button to start story and attacking */}
-
-          <span class = "startButtons">
-            <h1 className="startName">{this.state.playerName}</h1>
-            <button className={`${this.state.startBtnHide} start`} onClick={this.startAdventure}><span class="embark">Embark!</span></button>  
-          </span>
-   
+          <button className={`${this.state.startBtnHide} start`} onClick={this.startAdventure}><h1 className="startName">{this.state.playerName}</h1><span className="embark">Embark!</span></button>
         </div>
 
         {/* container that switches the stories and attacking  */}
