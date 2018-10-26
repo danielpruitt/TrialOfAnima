@@ -45,29 +45,20 @@ class Nav extends Component {
               </li>
             </ul>
 
-            <div class="navbar-text">
+            <div className="navbar-text">
               <div className="row">
-                <div class="col-4">
+                <div className="col-4">
                   <h2>Greetings  {this.state.userName}! </h2>
                 </div>
-                <div class="col-4">
+                <div className="col-4">
                   <h2>Total Clears {this.state.clears} </h2>
                 </div>
-                <div class="col-4">
+                <div className="col-4">
                   <h2><a className="nav-link" href="/logout">Logout</a></h2>
                 </div>
               </div>
             </div>
-            {/* <span className="navbar-text">
-              <center>Hi! Welcome {this.state.userName} </center>       
-          </span>
-
-            <span className="navbar-text">
-              <center>Clears: {this.state.clears}</center>
-            </span>
-
-
-            <a className="nav-link" href="/logout">Logout</a> */}
+          
           </div>
         ) : (
             <div className="collapse navbar-collapse" id="navbarText">

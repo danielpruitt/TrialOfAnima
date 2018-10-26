@@ -42,7 +42,7 @@ function getModalStyle() {
   };
 }
 
-const styles = theme => ({
+const styles = () => ({
   paper: {
     position: 'absolute',
     backgroundColor: (0,0,0,0.7),
@@ -80,7 +80,7 @@ class SimpleModal extends React.Component {
           <Container>
             <div style={getModalStyle()} className={`${classes.paper} modalBody`}>
               <Row>
-                <h1 className="col statHeader">STATS for {this.props.name}</h1>
+                <h1 className="col statHeader">{this.props.name} Stats</h1>
               </Row>
               <Row>
                 
