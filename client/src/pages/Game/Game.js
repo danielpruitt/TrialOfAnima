@@ -13,10 +13,6 @@ import Button from '@material-ui/core/Button';
 import EnemyModal from "../../components/EnemyModal";
 import ClassModal from "../../components/ClassModal";
 
-// for that carousel hopefully...
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
-
 import SoundEffects from "../../components/SoundEffects";
 import Music from "../../components/Music";
 import API from "../../utils/API";
@@ -787,12 +783,13 @@ class Game extends Component {
 
                 <Col key={characters.id} size="4" className="selectCol">
                   <SelectorCard>
+
                     <header><h1>{characters.name}</h1></header>
 
                     <img src={characters.image} onMouseOver={e => (e.currentTarget.src = `${characters.hover}`)} onMouseOut={e => (e.currentTarget.src = `${characters.image}`)} alt={characters.name} className="selectImg" onClick={this.handleCharacterState} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
 
                     <footer> <h3>{characters.story}</h3></footer>
-
+                    
                     <ClassModal
                       name={characters.name}
                       attack={characters.att}
@@ -866,13 +863,21 @@ class Game extends Component {
                 <div><h1 className="victory">{this.state.message3}</h1></div>
                 <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
               </div>
-              <div className={`${this.state.combatHide} row`}>
+              <div className={`${this.state.combatHide} buttonRow`}>
 
                   <Button onClick={this.handleAttack} disabled={this.state.isBtnDisabled} className="combatBtn attack"><h1 className="command">ATTACK</h1></Button>
 
                   <Button onClick={this.handleDefense} disabled={this.state.isBtnDisabled} className="combatBtn defend"><h1 className="command">DEFEND</h1></Button>
 
               </div>
+              {/* <div className="textCard">
+                <div className={`${this.state.critHide} critical`}><h1 className="danger">{this.state.message2}</h1></div>
+                <div>{this.state.message}</div>
+                <div><h1 className="victory">{this.state.message3}</h1></div>              
+              </div>
+
+              <div className="buttonRow">TEST</div> */}
+
             </Col>
 
             <Col size="4" className={`${this.state.combatHide}`} styleClass="centered">

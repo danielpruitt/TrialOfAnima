@@ -9,15 +9,22 @@
 	align-content: center;
 	justify-content: center;
     color: white;
-    column-width: 33vw;
-    overflow: auto;
+    width: 33vw;
+	overflow: auto;
+	/* height: 60vh; */
 }
 .col-4 {
 	column-width: 33vw;
 }
 .textCard {
-	background: none;
+	background: red;
 	width: inherit;
+	height: 45%;
+}
+.buttonRow{
+	background: blue;
+	width: inherit;
+	height: 45%;
 }
 .command {
 	vertical-align: middle;
@@ -47,6 +54,7 @@
 	background-position: center;
 	background-size: 15vw 15vw;
 	outline: 0;
+	margin: auto;
 }
 .defend {
 	background-image: url("../../Images/Buttons/shield_custom.png");
@@ -60,12 +68,15 @@
 	background-repeat: no-repeat;
     background-position: center;
     background-size: 16vw 16vw;
-	height: 300px;
+	height: 80%;
     width: inherit;
     outline: 0;
-    position: relative;
+	position: relative;
+	left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 	display: block;
-	margin-top: 10%;
+	/* margin-top: 10%; */
 }
 
 .danger{
@@ -76,6 +87,7 @@
     transform: translate(-50%, -50%);
     z-index: 2;
 }
+
 @media only screen and (max-width: 768px) {
 	/* for tablets */
 	.col-4 {
