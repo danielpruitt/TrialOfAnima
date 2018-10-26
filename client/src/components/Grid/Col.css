@@ -17,7 +17,7 @@
 }
 .textCard {
 	background: none;
-	width: 345px;
+	width: inherit;
 }
 .command {
 	vertical-align: middle;
