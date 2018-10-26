@@ -74,7 +74,9 @@
 
 /* Aniamtion for defend */
 .animateDefend {
-  background-color: blue;
+	/* background-color: blue; */
+	background-image: url("../../Images/Icons/shield_icon_transp_small.png");
+	background-size: 100%;
   position: absolute;
   top: 0;
   left: 0;

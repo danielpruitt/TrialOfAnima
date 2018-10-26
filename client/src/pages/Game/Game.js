@@ -791,7 +791,7 @@ class Game extends Component {
 
                     <img src={characters.image} onMouseOver={e => (e.currentTarget.src = `${characters.hover}`)} onMouseOut={e => (e.currentTarget.src = `${characters.image}`)} alt={characters.name} className="selectImg" onClick={this.handleCharacterState} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
 
-                  <footer> <h3>{characters.story}</h3></footer>
+                    <footer> <h3>{characters.story}</h3></footer>
 
                     <ClassModal
                       name={characters.name}
@@ -864,6 +864,13 @@ class Game extends Component {
                 <div><h1 className="victory">{this.state.message3}</h1></div>
                 <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
               </div>
+              <div className={`${this.state.combatHide} row`}>
+
+                  <Button onClick={this.handleAttack} disabled={this.state.isBtnDisabled} className="combatBtn attack"><h1 className="command">ATTACK</h1></Button>
+
+                  <Button onClick={this.handleDefense} disabled={this.state.isBtnDisabled} className="combatBtn defend"><h1 className="command">DEFEND</h1></Button>
+
+              </div>
             </Col>
 
             <Col size="4" className={`${this.state.combatHide}`} styleClass="centered">
@@ -909,21 +916,6 @@ class Game extends Component {
 
 
         </Container>
-
-        <div className={`${this.state.combatHide} row`}>
-
-          <Col size="3">
-            <Button onClick={this.handleAttack} disabled={this.state.isBtnDisabled} className="combatBtn attack"><h1 className="command">ATTACK</h1></Button>
-          </Col>
-
-          <Col size="6">
-          </Col>
-
-          <Col size="3">
-            <Button onClick={this.handleDefense} disabled={this.state.isBtnDisabled} className="combatBtn defend"><h1 className="command">DEFEND</h1></Button>
-          </Col>
-
-        </div>
 
         <SoundEffects>
           <audio ref="audio_tag" src={this.state.soundEffects} autoPlay />

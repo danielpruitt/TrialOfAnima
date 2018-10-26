@@ -45,7 +45,7 @@ function getModalStyle() {
 const styles = () => ({
   paper: {
     position: 'absolute',
-    backgroundColor: (0,0,0,0.7),
+    backgroundColor: (0,0,0),
     boxShadow: theme.shadows[5],
     color: theme.palette.primary.contrastText,
 
@@ -84,26 +84,29 @@ class SimpleModal extends React.Component {
               </Row>
               <Row>
                 
-                <Col size="4">
+                <Col size="3"/>
+                <Col size="2">
                   <div className="att-stats stats">
                     <h3 className="statName">Attack Damage</h3>
                     <h3 className="percent">{this.props.attack}</h3> 
                   </div>
                 </Col>
 
-                <Col size="4">
+                <Col size="2">
                   <div className="def-stats stats">
                     <h3 className="statName">Defense</h3>
                     <h3 className="percent">{this.props.defense}</h3> 
                   </div>
                 </Col>
 
-                <Col size="4">
+                <Col size="2">
                   <div className="crit-stats stats">
                     <span className="statName">Critical Damage</span><br></br>
                     <span className="percent">{this.props.crit}</span> 
                   </div>
                 </Col>
+                <Col size="3"/>
+
               </Row>
             </div>
           </Container>
