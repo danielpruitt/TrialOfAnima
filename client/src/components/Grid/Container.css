@@ -27,6 +27,9 @@
 .storyText {
     font-size: 35px;
 }
+.journeyButton{
+    font-size: 35px;
+}
 
 @media only screen and (max-width: 768px) {
     /* for tablets */
@@ -39,6 +42,9 @@
     }
     .storyText {
         font-size: 28px;
+    }
+    .journeyButton{
+        font-size: 30px;
     }
 }
 
@@ -53,5 +59,8 @@
     }
     .storyText {
         font-size: 28px;
+    }
+    .journeyButton{
+        font-size: 25px;
     }
 }
