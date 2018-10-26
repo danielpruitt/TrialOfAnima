@@ -1,10 +1,6 @@
 .hide {
 	display: none;
 }
-.textCard {
-	background: none;
-	width: 345px;
-}
 .app {
 	color: white;
 	font-family: 'VT323', monospace;

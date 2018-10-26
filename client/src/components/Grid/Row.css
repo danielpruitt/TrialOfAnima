@@ -1,5 +1,5 @@
 .row{
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 20px;
     width: 100vw;
 }
@@ -7,7 +7,7 @@
 @media only screen and (max-width: 768px) {
     /* for tablets */
     .row{
-        margin-top: 20px;
+        margin-top: 10px;
         width: 100vw;
     }
 }
@@ -15,7 +15,7 @@
 @media only screen and (max-width: 600px) {
     /* for mobile */
     .row{
-        margin-top: 20px;
+        margin-top: 10px;
         width: 100vw;
     }
 }
