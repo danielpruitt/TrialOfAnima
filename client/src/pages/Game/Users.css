@@ -1,10 +1,6 @@
 .hide {
 	display: none;
 }
-.textCard {
-	background: none;
-	width: 345px;
-}
 .app {
 	color: white;
 	font-family: 'VT323', monospace;
@@ -44,79 +40,6 @@
 	height: 250px;
 	width: 200px;
 	padding-top: 60px;
-}
-
-.centered{
-  /* background:red; */
-  border: black 2 px solid;
-  align-content: center;
-  justify-content: center;
-}
-
-.altCentered{
-  align-content: center;
-  justify-content: center;
-  color: white;
-}
-.combatBtn{
-  height: 250px;
-  width: 250px;
-  background: none;
-  border: none;
-  outline: 0
-}
-
-.combatBtn:active {
-  outline: none;
-  border: none;
-  }
-  
-.combatBtn:focus {outline:0;}
-
-.attack{
-  background-image: url("../../Images/Buttons/sword_custom.png");
-  background-repeat: no-repeat;
-  /* background-attachment: fixed; */
-  background-position: center;
-  outline: 0;
-}
-
-.defend{
-  background-image: url("../../Images/Buttons/shield_custom.png");
-  background-repeat: no-repeat;
-  /* background-attachment: fixed; */
-  background-position: center;
-}
-
-.command{
-  vertical-align: middle;
-  margin-bottom: 65px;
-  /* margin: 0; */
-  /* position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
-  font-size: 48px;
-  text-shadow: 1px 5px darkslategray;
-  color: white;
-  font-family: 'VT323', monospace;
-}
-
-/* .selectRow{
-  justify-content: center;
-  margin: auto;
-  align-content: center;
-}
-
-.selectCol{
-  justify-content: center;
-  margin: auto;
-  align-content: center;
-} */
-
-.selectImg{
-  width: 450px;
-  height: 450px;
 }
 
 /* Aniamtion for attacks */
