@@ -65,6 +65,7 @@
     outline: 0;
     position: relative;
 	display: block;
+	margin-top: 10%;
 }
 
 .danger{

@@ -11,6 +11,7 @@ import SignUp from "./pages/SignUp";
 import "./App.css"
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
+  
   <Route
     {...rest}
     render={props =>
