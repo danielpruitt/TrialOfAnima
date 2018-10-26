@@ -84,12 +84,16 @@ class Game extends Component {
     if (this.state.message3 === "VICTORIOUS!" && this.state.location_id === 4) {
 
       this.setState({
-        message3: "Reached Journey's End"
+        message3: "Reached Journey's End",
+        message2: "",
+        message: "hide"
       }, () => console.log("Reached Journey's End"));
 
     } else if (this.state.message3 === "VICTORIOUS!") {
       this.setState({
-        message3: "The Journey Continues"
+        message3: "The Journey Continues",
+        message2: "",
+        message: "hide"
       }, () => console.log("The Journey Continues"));
 
     } else {
@@ -102,7 +106,8 @@ class Game extends Component {
         case 1:
           this.setState({
             // message2: "10% Danger Enemy Critical Attack"
-            message2: "10%"
+            message2: "10%",
+            message: ""
           }, () => console.log("10% Danger of Enemy Critical Attack"));
           let ranNumCase1 = Math.random();
           console.log(ranNumCase1 + " is the subset random number");
@@ -120,7 +125,8 @@ class Game extends Component {
         case 2:
           this.setState({
             // message2: "20% Danger Enemy Critical Attack"
-            message2: "20%"
+            message2: "20%",
+            message: ""
           }, () => console.log("20% Danger of Enemy Critical Attack"));
           let ranNumCase2 = Math.random();
           console.log(ranNumCase2 + " is the subset random number");
@@ -138,7 +144,8 @@ class Game extends Component {
         case 3:
           this.setState({
             // message2: "30% Danger Enemy Critical Attack"
-            message2: "30%"
+            message2: "30%",
+            message: ""
           }, () => console.log("30% Danger of Enemy Critical Attack"));
           let ranNumCase3 = Math.random();
           console.log(ranNumCase3 + " is the subset random number");
@@ -156,7 +163,8 @@ class Game extends Component {
         case 4:
           this.setState({
             //   message2: "40% Danger Enemy Critical Attack"
-            message2: "40%"
+            message2: "40%",
+            message: ""
           }, () => console.log("40% Danger of Enemy Critical Attack"));
           let ranNumCase4 = Math.random();
           console.log(ranNumCase4 + " is the subset random number");
@@ -174,7 +182,8 @@ class Game extends Component {
         case 5:
           this.setState({
             //   message2: "50% Danger Enemy Critical Attack"
-            message2: "50%"
+            message2: "50%",
+            message: ""
           }, () => console.log("50% Danger of Enemy Critical Attack"));
           let ranNumCase5 = Math.random();
           console.log(ranNumCase5 + " is the subset random number");
@@ -192,7 +201,8 @@ class Game extends Component {
         case 6:
           this.setState({
             //   message2: "60% Danger Enemy Critical Attack"
-            message2: "60%"
+            message2: "60%",
+            message: ""
           }, () => console.log("60% Danger of Enemy Critical Attack"));
           let ranNumCase6 = Math.random();
           console.log(ranNumCase6 + " is the subset random number");
@@ -210,7 +220,8 @@ class Game extends Component {
         case 7:
           this.setState({
             //   message2: "70% Danger Enemy Critical Attack"
-            message2: "70%"
+            message2: "70%",
+            message: ""
           }, () => console.log("70% Danger of Enemy Critical Attack"));
           let ranNumCase7 = Math.random();
           console.log(ranNumCase7 + " is the subset random number");
@@ -228,7 +239,8 @@ class Game extends Component {
         case 8:
           this.setState({
             //   message2: "80% Danger Enemy Critical Attack"
-            message2: "80%"
+            message2: "80%",
+            message: ""
           }, () => console.log("80% Danger of Enemy Critical Attack"));
           let ranNumCase8 = Math.random();
           console.log(ranNumCase8 + " is the subset random number");
@@ -246,7 +258,8 @@ class Game extends Component {
         case 9:
           this.setState({
             //   message2: "90% Danger Enemy Critical Attack"
-            message2: "90%"
+            message2: "90%",
+            message: ""
           }, () => console.log("90% Danger of Enemy Critical Attack"));
           let ranNumCase9 = Math.random();
           console.log(ranNumCase9 + " is the subset random number");
@@ -263,7 +276,8 @@ class Game extends Component {
 
         case 10:
           this.setState({
-            //   message2: "99% Danger Enemy Critical Attack"
+              message2: "99%",
+              message: ""
           }, () => console.log("99% Danger of Enemy Critical Attack"));
           let ranNumCase10 = Math.random();
           console.log(ranNumCase10 + " is the subset random number");
@@ -311,7 +325,9 @@ class Game extends Component {
 
     // DISABLE THE ATTACK BUTTON WHEN CLICKED
     this.setState({
-      isBtnDisabled: true
+      isBtnDisabled: true,
+      message2: "",
+      message: ""
     });
 
     // PLAYER ATTACKS ENEMY FUNCTION
@@ -372,6 +388,7 @@ class Game extends Component {
       if (newEnemyHp <= 0) {
 
         this.setState({
+          message: "",
           message3: "VICTORIOUS!",
           music: "",
           soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/WW_New/WW_Fanfare_Pearl.wav"
@@ -520,7 +537,8 @@ class Game extends Component {
         console.log("AttackChoice is " + this.state.percentChance);
 
         this.setState({
-          enemyAttackAnimation: "animateAttack"
+          enemyAttackAnimation: "animateAttack",
+          message: ""
         });
 
         setTimeout(() => {
@@ -568,7 +586,7 @@ class Game extends Component {
       }
       console.log("Your HP after attack " + newHp);
       this.setState({
-        playerHp: newHp
+        playerHp: newHp  
       }, () => updateGameStateOnDefeat(newHp));
     }
 
@@ -603,7 +621,7 @@ class Game extends Component {
 
     playerAttackFunction();
     setTimeout(enemyDamagesPlayer, 1500);
-    setTimeout(this.percentChanceofCriticalAttack, 2000);
+    setTimeout(this.percentChanceofCriticalAttack, 4000);
 
 
   }
@@ -617,7 +635,8 @@ class Game extends Component {
 
       this.setState({
         playerDefend: "animateDefend",
-        enemyAttackAnimation: "animateAttack"
+        enemyAttackAnimation: "animateAttack",
+        message2: ""
       });
 
       setTimeout(() => {
