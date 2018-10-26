@@ -811,6 +811,7 @@ class Game extends Component {
         <Container>
 
           {/* holds the storyline and allows it to be in the hidden or shown */}
+          <div className="storyArea">
           <Card className={`${this.state.cardHide} localCard`}>
 
             {/* <Animated animationIn="flipInX" animationOut="flipOutX" isVisible={true}> */}
@@ -820,7 +821,7 @@ class Game extends Component {
 
                 <h3 className="locationTitle">{this.state.current_location}</h3>
 
-                <h3 className="">{Locations[this.state.location_id].story}</h3>
+                <h3 className="storyText">{Locations[this.state.location_id].story}</h3>
 
               </div>
 
@@ -828,7 +829,8 @@ class Game extends Component {
 
           </Card>
           {/* start button to move on to the next battle scene */}
-          <button className={this.state.cardBtnHide} onClick={this.startCombat} >Continue your journey</button>
+            <button className={`${this.state.cardBtnHide} journeyButton`} onClick={this.startCombat} >Continue your journey</button>
+          </div>
 
           {/* combat mode  */}
 
