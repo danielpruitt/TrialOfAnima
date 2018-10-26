@@ -49,7 +49,8 @@ const styles = () => ({
     boxShadow: theme.shadows[5],
     color: theme.palette.primary.contrastText,
 
-  },
+  }
+
 });
 
 class SimpleModal extends React.Component {
@@ -76,6 +77,7 @@ class SimpleModal extends React.Component {
           aria-describedby="simple-modal-description"
           open={this.state.open}
           onClose={this.handleClose}
+          className="Modal"
         >
           <Container>
             <div style={getModalStyle()} className={`${classes.paper} modalBody`}>
