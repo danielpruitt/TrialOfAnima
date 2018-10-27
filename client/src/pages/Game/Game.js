@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Users.css";
+import "./Game.css";
 import Enemies from "./enemies.json";
 import Locations from "./locations.json";
 import Characters from "./characters.json";
@@ -414,6 +414,13 @@ class Game extends Component {
           })
         }, 500);
 
+        //Enables buttons after 2.5 seconds
+        setTimeout(() => {
+          this.setState({
+            isBtnDisabled: false
+          })
+        }, 2500);
+
         // RE-ENABLE THE ATTACK AND DEFEND BUTTONS
 
         if (attackChoice === "standardAttack") {
@@ -421,7 +428,6 @@ class Game extends Component {
           //STANDARD ATTACK
           let enemyStandardAttackedFor = Math.round(this.roll(this.state.enemyAtt / 2, this.state.enemyAtt));
           this.setState({
-            isBtnDisabled: false,
             message: "ENEMY attacks for " + enemyStandardAttackedFor + " points!",
             soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Sword_Spin.wav"
           }, () => console.log("Enemy attacks for " + enemyStandardAttackedFor + " points!"));
@@ -433,7 +439,6 @@ class Game extends Component {
           //CRITICAL ATTACK
           let enemyCriticalAttackedFor = Math.round(this.roll(this.state.enemyCriticalAtt / 2, this.state.enemyCriticalAtt));
           this.setState({
-            isBtnDisabled: false,
             message: "ENEMY hit you with a CRITICAL ATTACK for " + enemyCriticalAttackedFor + " points!",
             soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Shovel.wav"
           }, () => console.log("Enemy hit you with a Critical Attack!"));
