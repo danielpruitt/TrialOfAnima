@@ -21,7 +21,7 @@ function MediaCard(props) {
       <header className="card-header"><h1 className="characterName">{props.name}</h1></header>
       </div>
 
-      <img src={props.image} alt={props.name} style={styles} className="cardImg "></img>
+      <img src={props.image} alt={props.name} style={styles} className="cardImg"></img>
       {/* <footer className="card-footer"> <h3>{props.name} has {props.hp}</h3></footer> */}
 
       <div className = "section healthSection">

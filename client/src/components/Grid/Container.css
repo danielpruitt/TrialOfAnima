@@ -1,14 +1,16 @@
 .container{
-    margin-top: 10px;
+    margin-top: 0;
     margin-left: 0;
-    width: 100vw;
-
+    width: 85vw;
 }
 
 .storyArea{
     height: inherit;
     width: inherit;
     margin: auto;
+    /* float:center;
+    padding-left:10vw */
+    
 }
 
 .localCard {
@@ -34,7 +36,7 @@
 @media only screen and (max-width: 900px) {
     /* for tablets */
     .container{
-        margin-top: 50px;
+        margin-top: 5px;
         width: 100vw;
     }
     .locationTitle {
@@ -51,7 +53,7 @@
 @media only screen and (max-width: 600px) {
     /* for mobile */
     .container{
-        margin-top: 50px;
+        margin-top: 5px;
         width: 100vw;
     }
     .locationTitle {

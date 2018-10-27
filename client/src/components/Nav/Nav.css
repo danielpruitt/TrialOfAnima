@@ -2,8 +2,7 @@
 .navbar, .navbar-expand-lg, .navbar-dark{
     background: #1C1C1C !important;
     box-shadow: 0px 4px 60px #656565 !important;
-    width: 100vw !important;
-
+    /* width: 100vw !important; */
 }
 
 /* mindrpg logo */
@@ -37,6 +36,10 @@
 
 @media only screen and (max-width: 900px) {
     /* for tablets */
+    .pad{
+        padding-right: 8vw;
+        padding-left: 8vw;
+    }
     /* mindrpg logo */
     .navbar-brand {
         transform: skew(-5deg) rotate(-5deg) !important;
@@ -44,7 +47,6 @@
         color: #3363A4 !important;
         text-shadow: 0.25vmin 0.25vmin 0 #F2BB05, -0.25vmin -0.25vmin 0 #8D2F2E !important;
     }
-
 }
 
 @media only screen and (max-width: 600px) {
@@ -57,5 +59,4 @@
         color: #3363A4 !important;
         text-shadow: -1px 0 #F6F7EB, 0 1px #F6F7EB, 1px 0 #F6F7EB, 0 -1px #F6F7EB !important;
     }
-    
 }
