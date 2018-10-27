@@ -752,7 +752,8 @@ class Game extends Component {
               <div className="textCard">
                 <div className="textLog"><span className={this.state.message}>{this.state.message}</span><span className="danger">{this.state.message2}</span><span className="victory">{this.state.message3}</span></div>
               </div>
-              <div className={`${this.state.combatHide} buttonRow`}>
+              
+              <div className={`${this.state.combatHide} buttonRow combatButtonsArea`}>
 
                 <Button onClick={this.handleAttack} disabled={this.state.isBtnDisabled} className="combatBtn attack"><h1 className="command">ATTACK</h1></Button>
 

@@ -37,6 +37,7 @@
 	height: 32vh;
 	margin-top: none;
 }
+
 .command {
 	vertical-align: middle;
 	align-content: center;
@@ -50,20 +51,63 @@
 	width: 15vw;
 	background: none;
 	border: none;
-	outline: 0
+	outline: 0;
+	position: relative;
+	z-index: 2;
+}
+/* button hover style if required */
+.combatBtn.attack:hover {
+	background-image: url("../../Images/Buttons/sword_custom.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 12vw 12vw;
+	outline: 0;
+
+}
+.combatBtn.defend:hover {
+	background-image: url("../../Images/Buttons/shield_custom.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 12vw 12vw;
+	outline: 0;
+}
+
+/* shine effect */
+.combatBtn:after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.4);
+	transition: none;
+	z-index: 1;    
+}
+.combatBtn:hover:before {
+	width: 0%;
+}
+.combatBtn:hover:after {
+    width: 120%;
+    background-color: rgba(255,255,255,0);
+	transition: all 0.3s ease-out;
+	z-index: 1;
+
 }
 .combatBtn:active {
 	outline: none;
 	border: none;
 }
+
 .combatBtn:focus {
 	outline: 0;
 }
+
 .attack {
 	background-image: url("../../Images/Buttons/sword_custom.png");
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 15vw 15vw;
+	background-size: 12vw 12vw;
 	outline: 0;
 	margin: auto;
 }
@@ -71,7 +115,7 @@
 	background-image: url("../../Images/Buttons/shield_custom.png");
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 15vw 15vw;
+	background-size: 12vw 12vw;
 }
 
 /* .critical{
@@ -85,24 +129,26 @@
     font-size: 80px;
     z-index: 2;
 }
+.cardImg {
+	width: 30vw;
+	height: 30vw;
+}
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) {
 	/* for tablets */
 	.col-4 {
 		/* background: green;
         border: 4px solid white; */
-    }
+	}
+	.buttonRow{
+		display: initial;
+	}
     .danger{
         font-size: 80px;    
     }
 	.cardImg {
 		width: 30vw;
 		height: 30vw;
-	}
-	.statCheck {
-		width: 150px;
-		padding: 0;
-		text-align: center;
 	}
 	.command {
 		font-size: 40px;
@@ -122,20 +168,16 @@
 	/* for mobile */
 	.col-4 {
 		column-width: 100vw !important;
-    }
+	}
+	.buttonRow{
+		display: initial;
+	}
     .danger{
         font-size: 40px;    
     }
 	.cardImg {
 		width: 90px;
 		height: 100px;
-	}
-	.statCheck {
-		width: 90px;
-		height: 50px;
-		padding: 0;
-		font-size: 30px;
-		text-align: center;
 	}
 	.command {
 		font-size: 30px;
