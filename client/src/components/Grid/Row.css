@@ -1,14 +1,24 @@
 .row{
-    margin-top: 20px;
-    padding: 20px;
+    margin-top: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
     width: 100vw;
 }
 
-@media only screen and (max-width: 768px) {
+.combatButtonsArea{
+    display: initial;
+}
+
+@media only screen and (max-width: 900px) {
     /* for tablets */
     .row{
         margin-top: 20px;
         width: 100vw;
+    }
+    .combatButtonsArea{
+        display: inline;
+        bottom: 500px;
+
     }
 }
 
@@ -17,5 +27,8 @@
     .row{
         margin-top: 20px;
         width: 100vw;
+    }
+    .combatButtonsArea{
+        display: inline;
     }
 }

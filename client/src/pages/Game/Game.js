@@ -885,7 +885,7 @@ class Game extends Component {
                 <div><h1 className="victory">{this.state.message3}</h1></div>
                 <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
               </div>
-              <div className={`${this.state.combatHide} row`}>
+              <div className={`${this.state.combatHide} row combatButtonsArea`}>
 
                   <Button onClick={this.handleAttack} disabled={this.state.isBtnDisabled} className="combatBtn attack"><h1 className="command">ATTACK</h1></Button>
 

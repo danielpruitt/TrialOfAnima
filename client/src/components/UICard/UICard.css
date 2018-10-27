@@ -12,12 +12,29 @@
     color:white;
     /* opacity: .5; */
 }
-
+.characterName{
+    vertical-align: center;
+    text-align: center;
+    font-size: 5vw;
+    width: inherit;
+    overflow-wrap: normal;
+}
+.enemyName{
+    text-align: center;
+    font-size: 5vw;
+    width: inherit;
+    overflow-wrap: normal;
+}
 .card {
     height: 500px;
     width: 345px;
 }
-
+.section{
+    height: 12vh;
+}
+.healthSection {
+    margin-top: 15px;
+}
 .healthBarBox {
     height: 50px;
     background-color:#656565;
@@ -43,8 +60,64 @@
 }
 
 .healthText{
+    font-size: 38px;
     position: relative;
-    bottom: 96px;
+    bottom: 100px;
     color: #F6F7EB;
     text-shadow: -1px 0 #1C1C1C, 0 1px #1C1C1C, 1px 0 #1C1C1C, 0 -1px #1C1C1C !important;
+}
+
+
+@media only screen and (max-width: 900px) {
+    /* for tablets */
+    .characterName{
+        font-size: 8vw;
+    }
+    .enemyName{
+        font-size: 8vw;
+    }
+    .section{
+        height: 22vh;
+    }
+    .healthSection {
+        margin-top: 10px;
+    }
+    .healthBarBox {
+        height: 40px;
+    }
+    .greenHealthBar {
+        height: 40px;
+        bottom: 40px;
+    }
+    .healthText{
+        font-size: 32px;
+        bottom: 85px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    /* for mobile */
+    .characterName{
+        font-size: 6vw;
+    }
+    .enemyName{
+        font-size: 6vw;
+    }
+    .section{
+        height: 14vh;
+    }
+    .healthSection {
+        margin-top: 10px;
+    }
+    .healthBarBox {
+        height: 30px;
+    }
+    .greenHealthBar {
+        height: 30px;
+        bottom: 30px;
+    }
+    .healthText{
+        font-size: 32px;
+        bottom: 70px;
+    }
 }

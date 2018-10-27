@@ -17,13 +17,19 @@ const styles = {
 function MediaCard(props) {
   return (
     <div className={props.styleClass}>
-      <header className="card-header"><h1>{props.name}</h1></header>
+      <div className = "section">
+      <header className="card-header"><h1 className="characterName">{props.name}</h1></header>
+      </div>
+
       <img src={props.image} alt={props.name} style={styles} className="cardImg "></img>
       {/* <footer className="card-footer"> <h3>{props.name} has {props.hp}</h3></footer> */}
-      <div className="healthBarBox">
-      <div className="redHealthBar" style={{width: ((props.hp/props.maxHp) * 100) + '%'}}></div>
-        <div className="greenHealthBar" style={{width: ((props.hp/props.maxHp) * 100) + '%'}}></div>
-        <div className="healthText">{props.hp}</div>
+
+      <div className = "section healthSection">
+        <div className="healthBarBox">
+        <div className="redHealthBar" style={{width: ((props.hp/props.maxHp) * 100) + '%'}}></div>
+          <div className="greenHealthBar" style={{width: ((props.hp/props.maxHp) * 100) + '%'}}></div>
+          <div className="healthText">{props.hp}</div>
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 .container{
-    margin-top: 50px;
+    margin-top: 10px;
     margin-left: 0;
     width: 100vw;
 
@@ -31,7 +31,7 @@
     font-size: 35px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) {
     /* for tablets */
     .container{
         margin-top: 50px;
