@@ -34,13 +34,12 @@
     color: #F6F7EB !important;
 }
 
-.pad{
-    padding-right:8vw;
-    padding-left:8vw
-}
-
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) {
     /* for tablets */
+    .pad{
+        padding-right: 8vw;
+        padding-left: 8vw;
+    }
     /* mindrpg logo */
     .navbar-brand {
         transform: skew(-5deg) rotate(-5deg) !important;
