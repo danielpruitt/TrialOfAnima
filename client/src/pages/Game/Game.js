@@ -760,9 +760,9 @@ class Game extends Component {
               
               <div className={`${this.state.combatHide} buttonRow combatButtonsArea`}>
 
-                <Button onClick={this.handleAttack} disabled={this.state.isBtnDisabled} className="combatBtn attack"><h1 className="command">ATTACK</h1></Button>
+                <Button onClick={this.handleAttack} disabled={this.state.isBtnDisabled} className="combatBtn attack">ATTACK</Button>
 
-                <Button onClick={this.handleDefense} disabled={this.state.isBtnDisabled} className="combatBtn defend"><h1 className="command">DEFEND</h1></Button>
+                <Button onClick={this.handleDefense} disabled={this.state.isBtnDisabled} className="combatBtn defend">DEFEND</Button>
 
               </div>
 
