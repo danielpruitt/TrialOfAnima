@@ -70,12 +70,28 @@
 	font-size: 48px !important;
 	text-shadow: 1px 5px #656565;
 }
+
+
+.attack {
+	background-image: url("../../Images/Buttons/sword_custom.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 12vw 12vw;
+	outline: 0;
+	margin: auto;
+}
+.defend {
+	background-image: url("../../Images/Buttons/shield_custom.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 12vw 12vw;
+}
 /* button hover style if required */
 .combatBtn.attack:hover {
 	background-image: url("../../Images/Buttons/sword_custom.png");
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 12vw 12vw;
+	background-size: 11vw 11vw;
 	outline: 0;
 
 }
@@ -83,9 +99,14 @@
 	background-image: url("../../Images/Buttons/shield_custom.png");
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 12vw 12vw;
+	background-size: 11vw 11vw;
 	outline: 0;
 }
+.combatBtn.disabled, .combatBtn:disabled, .combatBtn.disabled:hover, .combatBtn:disabled:hover{
+	color: #656565 !important;
+	text-shadow: 1px 5px #1c1c1c;
+    filter: grayscale(100%);
+} 
 
 /* shine effect */
 .combatBtn:after {
@@ -119,26 +140,6 @@
 }
 
 
-.attack {
-	background-image: url("../../Images/Buttons/sword_custom.png");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 12vw 12vw;
-	outline: 0;
-	margin: auto;
-}
-.defend {
-	background-image: url("../../Images/Buttons/shield_custom.png");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 12vw 12vw;
-}
-
-.combatBtn.disabled, .combatBtn:disabled, .combatBtn.disabled:hover, .combatBtn:disabled:hover{
-	color: #656565 !important;
-	text-shadow: 1px 5px #1c1c1c;
-    filter: grayscale(100%);
-} 
 
 
 @media only screen and (max-width: 900px) {
@@ -157,18 +158,16 @@
 		width: 30vw;
 		height: 30vw;
 	}
-	.command {
-		font-size: 40px;
-	}
 	.combatBtn {
 		height: 20vw;
 		width: 20vw;
+		font-size: 40px !important;
 	}
-	.attack {
+	.attack, .defend {
 		background-size: 20vw 20vw;
 	}
-	.defend {
-		background-size: 20vw 20vw;
+	.combatBtn.attack:hover, .combatBtn.defend:hover {
+		background-size: 18vw 18vw;
 	}
 }
 @media only screen and (max-width: 600px) {
@@ -186,17 +185,15 @@
 		width: 90px;
 		height: 100px;
 	}
-	.command {
-		font-size: 30px;
-	}
 	.combatBtn {
 		height: 20vw;
 		width: 20vw;
+		font-size: 30px !important;
 	}
-	.attack {
+	.attack, .defend {
 		background-size: 20vw 20vw;
 	}
-	.defend {
-		background-size: 20vw 20vw;
+	.combatBtn.attack:hover, .combatBtn.defend:hover {
+		background-size: 18vw 18vw;
 	}
 }
