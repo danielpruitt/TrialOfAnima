@@ -227,7 +227,7 @@ class Game extends Component {
           // STANDARD ATTACK
           let playerStandardAttackDmgDealt = Math.round(this.roll(this.state.playerAtt / 2, this.state.playerAtt));
           this.setState({
-            message: "You Dealt " + playerStandardAttackDmgDealt + " points of damage to the enemy!",
+            message: "YOU Dealt " + playerStandardAttackDmgDealt + " points of damage to the enemy!",
             soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Sword4.wav"
           }, () => console.log("You Dealt " + playerStandardAttackDmgDealt + " points of damage to the enemy!"));
           adjustEnemyHp(playerStandardAttackDmgDealt);
@@ -239,7 +239,7 @@ class Game extends Component {
           this.setState({
             message: "You Dealt a CRITICAL HIT with " + playerCriticalAttackDmgDealt + " points of damage to the enemy!",
             soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Link_Shock.wav"
-          }, () => console.log("You Dealt a CRITICAL HIT with " + playerCriticalAttackDmgDealt + " points of damage to the enemy!"));
+          }, () => console.log("YOU Dealt a CRITICAL HIT with " + playerCriticalAttackDmgDealt + " points of damage to the enemy!"));
 
           adjustEnemyHp(playerCriticalAttackDmgDealt);
         }
@@ -421,7 +421,7 @@ class Game extends Component {
           let enemyStandardAttackedFor = Math.round(this.roll(this.state.enemyAtt / 2, this.state.enemyAtt));
           this.setState({
             isBtnDisabled: false,
-            message: "Enemy attacks for " + enemyStandardAttackedFor + " points!",
+            message: "ENEMY attacks for " + enemyStandardAttackedFor + " points!",
             soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Sword_Spin.wav"
           }, () => console.log("Enemy attacks for " + enemyStandardAttackedFor + " points!"));
           adjustPlayerHp(enemyStandardAttackedFor);
@@ -433,7 +433,7 @@ class Game extends Component {
           let enemyCriticalAttackedFor = Math.round(this.roll(this.state.enemyCriticalAtt / 2, this.state.enemyCriticalAtt));
           this.setState({
             isBtnDisabled: false,
-            message: "Enemy hit you with a Critical Attack for " + enemyCriticalAttackedFor + " points!",
+            message: "ENEMY hit you with a CRITICAL ATTACK for " + enemyCriticalAttackedFor + " points!",
             soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Shovel.wav"
           }, () => console.log("Enemy hit you with a Critical Attack!"));
 
@@ -526,21 +526,21 @@ class Game extends Component {
 
       if (this.state.percentChance === "standardAttack") {
 
-        let damageDeflected = this.state.enemyAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
-        this.setState({
-          message: "Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!",
-          soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/WW_New/WW_Sword_Spin.wav"
-        }, () => console.log("Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"));
-        adjustPlayerHp(damageDeflected);
-      } else {
+      let damageDeflected = this.state.enemyAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
+      this.setState({
+        message: "ENEMY attacks for " + this.state.enemyAtt + " points. YOU DEFLECTED! ...and took " + damageDeflected + " points of damage!",
+        soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/WW_New/WW_Sword_Spin.wav"
+      }, () => console.log("Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"));
+      adjustPlayerHp(damageDeflected);
+    } else {
 
-        let damageDeflected = this.state.enemyCriticalAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
-        this.setState({
-          message: "Enemy critical attacks for " + this.state.enemyCriticalAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!",
-          soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/OOT/OOT_Sword_Overhead.wav"
-        }, () => console.log("Enemy attacks for " + this.state.enemyCriticalAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"));
-        adjustPlayerHp(damageDeflected);
-      }
+      let damageDeflected = this.state.enemyCriticalAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
+      this.setState({
+        message: "ENEMY CRITICAL ATTACKS for " + this.state.enemyCriticalAtt + " points. YOU DEFLECTED! ...and took " + damageDeflected + " points of damage!",
+        soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/OOT/OOT_Sword_Overhead.wav"
+      }, () => console.log("Enemy attacks for " + this.state.enemyCriticalAtt + " You deflected! ...and took " + damageDeflected + " points of damage!"));
+      adjustPlayerHp(damageDeflected);
+    }
 
     }
 
