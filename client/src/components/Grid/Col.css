@@ -32,6 +32,16 @@
 	transform: translate(-50%, -50%);
 	z-index: 2;
 }
+.danger{
+    font-size: 80px;
+    z-index: 2;
+}
+
+.cardImg {
+	width: 30vw;
+	height: 30vw;
+}
+
 .buttonRow{
 	width: 30vw;
 	height: 32vh;
@@ -54,6 +64,11 @@
 	outline: 0;
 	position: relative;
 	z-index: 2;
+	
+	color: #F6F7EB !important;
+	font-family: 'VT323', monospace !important;
+	font-size: 48px !important;
+	text-shadow: 1px 5px #656565;
 }
 /* button hover style if required */
 .combatBtn.attack:hover {
@@ -103,6 +118,7 @@
 	outline: 0;
 }
 
+
 .attack {
 	background-image: url("../../Images/Buttons/sword_custom.png");
 	background-repeat: no-repeat;
@@ -118,21 +134,12 @@
 	background-size: 12vw 12vw;
 }
 
-/* .critical{
-	height: 80%;
-    width: inherit;
-    outline: 0;
-	display: block;
-} */
+.combatBtn.disabled, .combatBtn:disabled, .combatBtn.disabled:hover, .combatBtn:disabled:hover{
+	color: #656565 !important;
+	text-shadow: 1px 5px #1c1c1c;
+    filter: grayscale(100%);
+} 
 
-.danger{
-    font-size: 80px;
-    z-index: 2;
-}
-.cardImg {
-	width: 30vw;
-	height: 30vw;
-}
 
 @media only screen and (max-width: 900px) {
 	/* for tablets */
@@ -141,7 +148,7 @@
         border: 4px solid white; */
 	}
 	.buttonRow{
-		display: initial;
+		display: inline;
 	}
     .danger{
         font-size: 80px;    
@@ -170,7 +177,7 @@
 		column-width: 100vw !important;
 	}
 	.buttonRow{
-		display: initial;
+		display: inline;
 	}
     .danger{
         font-size: 40px;    
