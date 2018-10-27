@@ -103,7 +103,7 @@ class Game extends Component {
           this.setState({
             // message2: "10% Danger Enemy Critical Attack"
             message2: "10%",
-            message: ""
+            message: "",
           }, () => console.log("10% Danger of Enemy Critical Attack"));
           let ranNumCase1 = Math.random();
           console.log(ranNumCase1 + " is the subset random number");
@@ -385,6 +385,7 @@ class Game extends Component {
 
         this.setState({
           message: "",
+          message2: "",
           message3: "VICTORIOUS!",
           music: "",
           soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/WW_New/WW_Fanfare_Pearl.wav"
@@ -420,6 +421,7 @@ class Game extends Component {
               storyHide: "hide",
               location_id: newLocation,
               message: "CONGRATULATIONS ON YOUR VICTORY",
+              message2: "",
               cardBackground: Locations[newLocation].backgroundImage,
               music: "http://www.music-note.jp/bgm/mp3/2014/0316/adventurers.WAV"
             }, () => console.log("Hiding story"));
@@ -444,7 +446,7 @@ class Game extends Component {
                 cardBtnHide: "hide",
                 storyHide: "hide",
                 message: "hide",
-                message2: "hide",
+                message2: "",
                 message3: "",
                 creditsRoll: "",
                 music: "http://www.music-note.jp/bgm/mp3/2014/0316/adventurers.WAV"
@@ -480,8 +482,8 @@ class Game extends Component {
               cardBtnHide: "",
               storyHide: "",
               message: "",
-              message2: "Traveling to Next Location",
-              message3: "",
+              message2: "",
+              message3: "Traveling to Next Location",
               location_id: newLocation,
               current_location: location_name,
               cardBackground: Locations[newLocation].backgroundImage,
@@ -632,7 +634,7 @@ class Game extends Component {
       this.setState({
         playerDefend: "animateDefend",
         enemyAttackAnimation: "animateAttack",
-        message2: ""
+        message2: "",
       });
 
       setTimeout(() => {
@@ -877,9 +879,9 @@ class Game extends Component {
 
             <Col size="4" className={`${this.state.combatHide} textCard`} styleClass="altCentered">
               <div className="textCard">
-                <div className={`${this.state.critHide} critical`}><h1 className="danger">{this.state.message2}</h1></div>
-                <div>{this.state.message}</div>
-                <div><h1 className="victory">{this.state.message3}</h1></div>
+                <div className="textLog">{this.state.message}</div>
+                <div className="textLog"><h1 className="victory">{this.state.message3}</h1></div>
+                <div className="textLog critical"><h1 className="danger">{this.state.message2}</h1></div>
                 <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
               </div>
               <div className={`${this.state.combatHide} buttonRow`}>

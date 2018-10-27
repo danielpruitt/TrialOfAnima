@@ -111,6 +111,9 @@ class SimpleModal extends React.Component {
 
               </Row>
             </div>
+
+            {/* <button onClick={Modal.style.display = "none"}>Close</button> */}
+
           </Container>
           
         </Modal>

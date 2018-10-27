@@ -9,6 +9,7 @@
 	font-size: 56px;
 	text-shadow: 2px 7px darkslategray;
 }
+
 .crit-stats {
 	background-image: url("../../Images/Icons/crit_icon_transp_small.png");
 	background-repeat: no-repeat;
@@ -82,7 +83,7 @@
   left: 0;
   right: 0;
   margin: 0 auto;
-  z-index: -1;
+  /* z-index: -1; */
   margin: 0 auto;
   height: 100px;
   width: 100px;
