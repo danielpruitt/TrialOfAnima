@@ -2,40 +2,40 @@
     {
         "id": 1,
         "name": "Goblin Scout",
-        "hp": 150,
-        "att": 35,
-        "criticalAtt": 40,
+        "hp": 135,
+        "att": 28,
+        "criticalAtt": 35,
         "image": "./Images/Enemies/Goblin_Squared.png"
     },
     {
         "id": 2,
         "name": "Living Bones",
-        "hp": 150,
-        "att": 35,
-        "criticalAtt": 40,
+        "hp": 135,
+        "att": 28,
+        "criticalAtt": 35,
         "image": "./Images/Enemies/Skeleton_Squared.png"
     },
     {
         "id": 3,
         "name": "Phantom Wraith",
-        "hp": 150,
-        "att": 35,
-        "criticalAtt": 40,
+        "hp": 135,
+        "att": 28,
+        "criticalAtt": 35,
         "image": "./Images/Enemies/Spectre_Squared.png"
     },
     {
         "id": 4,
         "name": "Ogre",
-        "hp": 150,
-        "att": 35,
+        "hp": 135,
+        "att": 30,
         "criticalAtt": 40,
         "image": "./Images/Enemies/Ogre_Squared.png"
     },
     {
         "id": 5,
         "name": "ShadowSelf",
-        "hp": 150,
-        "att": 35,
+        "hp": 145,
+        "att": 30,
         "criticalAtt": 40,
         "image": "./Images/Shadows/Shadow_Warrior_Squared.png"
 
@@ -43,7 +43,7 @@
     {
         "id": 6,
         "name": "ShadowSelf",
-        "hp": 150,
+        "hp": 145,
         "att": 30,
         "criticalAtt": 40,
         "image": "./Images/Shadows/Shadow_Mage_Squared.png"
@@ -52,7 +52,7 @@
     {
         "id": 7,
         "name": "ShadowSelf",
-        "hp": 150,
+        "hp": 145,
         "att": 30,
         "criticalAtt": 40,
         "image": "./Images/Shadows/Shadow_Rogue_Squared.png"
