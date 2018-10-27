@@ -733,7 +733,7 @@ class Game extends Component {
 
           {/* combat mode  */}
 
-          <div className={`${this.state.combatHide} row`}>
+          <div className={`${this.state.combatHide} row testRow `}>
 
             <Col size="4" className={this.state.combatHide} styleClass="centered">
               {/* adds animation to the player */}
