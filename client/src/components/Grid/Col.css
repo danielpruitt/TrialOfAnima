@@ -1,19 +1,18 @@
 .centered {
-	/* background:red; */
 	border: black 2 px solid;
 	align-content: center;
     justify-content: center;
-    column-width: 33vw;
+    column-width: 32vw;
 }
 .altCentered {
 	align-content: center;
 	justify-content: center;
     color: white;
-    column-width: 33vw;
+    column-width: 32vw;
     overflow: auto;
 }
 .col-4 {
-	column-width: 33vw;
+	column-width: 32vw;
 }
 .textCard {
 	background: none;
