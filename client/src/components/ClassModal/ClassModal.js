@@ -77,6 +77,7 @@ class SimpleModal extends React.Component {
           aria-describedby="simple-modal-description"
           open={this.state.open}
           onClose={this.handleClose}
+          onClick={this.handleClose}
           className="Modal"
         >
           <Container>
