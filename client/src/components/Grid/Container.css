@@ -43,6 +43,10 @@
     }
     .storyText {
         font-size: 28px;
+        padding: 10px;
+    }
+    .storyArea{
+        padding-left:0;   
     }
     .journeyButton{
         font-size: 30px;
@@ -60,6 +64,10 @@
     }
     .storyText {
         font-size: 28px;
+        padding: 5px;
+    }
+    .storyArea{
+        padding-left:0;   
     }
     .journeyButton{
         font-size: 25px;
