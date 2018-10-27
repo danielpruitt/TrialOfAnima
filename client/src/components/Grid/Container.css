@@ -1,20 +1,20 @@
 .container{
     margin-top: 50px;
     margin-left: 0;
-    width: 85vw;
+    width: 90vw;
 }
 
 .storyArea{
     height: inherit;
     width: inherit;
-    margin: auto;
-    /* float:center;
-    padding-left:10vw */
-    
+    margin: center;
+    padding-left:8vw
+
 }
 
 .localCard {
     height: 500%;
+
 }
 .localBox {
     height: 500px;
