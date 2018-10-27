@@ -33,49 +33,39 @@ class Nav extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a className="navbar-brand" href="/">MindRPG</a>
+
+       <a className="navbar-brand" href="/">MindRPG</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="true" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
-        </button>
+        </button>`
         {this.state.authenticated ? (
           <div className="collapse navbar-collapse" id="navbarText">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item active">
-                <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
-              </li>
-            </ul>
-
-            <div className="navbar-text">
-              <div className="row">
-                <div className="col-4">
-                  <h2>Greetings  {this.state.userName}! </h2>
-                </div>
-                <div className="col-4">
-                  <h2>Total Clears {this.state.clears} </h2>
-                </div>
-                <div className="col-4">
-                  <h2><a className="nav-link" href="/logout">Logout</a></h2>
-                </div>
-              </div>
+            <div className="navbar-text pad">
+              <h2> Greetings {this.state.userName}!</h2>
             </div>
-          
+            <div className="navbar-text pad">
+              <h2>Total Clears: {this.state.clears}</h2>
+            </div>
+            <div className="navbar-text pad">
+              <h2><a className="nav-link" href="/logout">Logout</a></h2>
+            </div>
+
+
           </div>
         ) : (
             <div className="collapse navbar-collapse" id="navbarText">
               <ul className="navbar-nav mr-auto">
-                <li className="nav-item active">
-                  <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
-                </li>
+              
               </ul>
               <span>
-                <li className="nav-item">
-                  <a className="nav-link" href="/login">Login</a>
+                <li className="">
+                  <a className="nav-text" href="/login">Login</a>
                 </li>
 
               </span>
               <span>
-                <li className="nav-item">
-                  <a className="nav-link" href="/signup">Sign up</a>
+                <li className="">
+                  <a className="nav-text" href="/signup">Sign up</a>
                 </li>
 
               </span>
