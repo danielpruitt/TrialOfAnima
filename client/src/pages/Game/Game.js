@@ -682,9 +682,9 @@ class Game extends Component {
                     <header><h1>{characters.name}</h1></header>
 
                     <img src={characters.image} onMouseOver={e => (e.currentTarget.src = `${characters.hover}`)} onMouseOut={e => (e.currentTarget.src = `${characters.image}`)} alt={characters.name} className="selectImg" onClick={this.handleCharacterState} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
-                    
+
                     <footer> <h3>{characters.story}</h3></footer>
-                    
+
                     <ClassModal
                       name={characters.name}
                       attack={characters.att}
