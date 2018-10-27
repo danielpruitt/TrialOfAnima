@@ -1,20 +1,19 @@
 .centered {
-	/* background:red; */
 	border: black 2 px solid;
 	align-content: center;
     justify-content: center;
-    column-width: 33vw;
+    column-width: 32vw;
 }
 .altCentered {
 	align-content: center;
 	justify-content: center;
     color: white;
-    width: 33vw;
-	overflow: auto;
 	height: 70vh;
+    column-width: 32vw;
+    overflow: auto;
 }
 .col-4 {
-	column-width: 33vw;
+	column-width: 32vw;
 }
 .textCard {
 	background-image: url("../../Images/Icons/crit_icon_transp_small.png");
@@ -22,8 +21,9 @@
 	background-position: center;
 	background-size: 18vw 18vw;
 	width: inherit;
-	height: 45%;
+	height: 32vh;
 	margin-bottom: none;
+	margin-top: none;
 }
 .textLog{
 	position: relative;
@@ -34,7 +34,7 @@
 }
 .buttonRow{
 	width: inherit;
-	height: 45%;
+	height: 32vh;
 	margin-top: none;
 }
 .command {
@@ -75,14 +75,9 @@
 }
 
 .critical{
-    background-size: 16vw 16vw;
 	height: 80%;
     width: inherit;
     outline: 0;
-	position: relative;
-	left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
 	display: block;
 }
 

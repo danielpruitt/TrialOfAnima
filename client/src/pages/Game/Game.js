@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Users.css";
 import Enemies from "./enemies.json";
-import Arrow from "../../components/Arrow/Arrow";
 import Locations from "./locations.json";
 import Characters from "./characters.json";
 import SelectorCard from "../../components/SelectorCard"; import Card from "../../components/Card/Card";
@@ -12,6 +11,7 @@ import { Animated } from "react-animated-css";
 import Button from '@material-ui/core/Button';
 import EnemyModal from "../../components/EnemyModal";
 import ClassModal from "../../components/ClassModal";
+import Credits from "../../components/Credits";
 
 import SoundEffects from "../../components/SoundEffects";
 import Music from "../../components/Music";
@@ -73,6 +73,25 @@ class Game extends Component {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
+  //Critical swtich function
+  critical = (percent) => {
+    this.setState({
+      message2: percent+"%",
+      message: ""
+    }, () => console.log(percent+"% Danger of Enemy Critical Attack"));
+    let ranNumCase = Math.random();
+    console.log(ranNumCase + " is the subset random number");
+    if (ranNumCase < percent/100) {
+      this.setState({
+        percentChance: "criticalAttack"
+      }, () => console.log("CRITICAL ATTACK"))
+    } else {
+      this.setState({
+        percentChance: "standardAttack"
+      }, () => console.log("STANDARD ATTACK"))
+    }
+  }
+
 
   // PERCENT CHANCE CRITICAL HITS FUNCTION
   percentChanceofCriticalAttack = () => {
@@ -100,192 +119,43 @@ class Game extends Component {
         default:
           break;
         case 1:
-          this.setState({
-            // message2: "10% Danger Enemy Critical Attack"
-            message2: "10%",
-            message: "",
-          }, () => console.log("10% Danger of Enemy Critical Attack"));
-          let ranNumCase1 = Math.random();
-          console.log(ranNumCase1 + " is the subset random number");
-          if (ranNumCase1 < .10) {
-            this.setState({
-              percentChance: "criticalAttack"
-            }, () => console.log("CRITICAL ATTACK"))
-          } else {
-            this.setState({
-              percentChance: "standardAttack"
-            }, () => console.log("STANDARD ATTACK"))
-          }
+          this.critical(10);
           break;
 
         case 2:
-          this.setState({
-            // message2: "20% Danger Enemy Critical Attack"
-            message2: "20%",
-            message: ""
-          }, () => console.log("20% Danger of Enemy Critical Attack"));
-          let ranNumCase2 = Math.random();
-          console.log(ranNumCase2 + " is the subset random number");
-          if (ranNumCase2 < .20) {
-            this.setState({
-              percentChance: "criticalAttack"
-            }, () => console.log("CRITICAL ATTACK"))
-          } else {
-            this.setState({
-              percentChance: "standardAttack"
-            }, () => console.log("STANDARD ATTACK"))
-          }
+          this.critical(20);
           break;
 
         case 3:
-          this.setState({
-            // message2: "30% Danger Enemy Critical Attack"
-            message2: "30%",
-            message: ""
-          }, () => console.log("30% Danger of Enemy Critical Attack"));
-          let ranNumCase3 = Math.random();
-          console.log(ranNumCase3 + " is the subset random number");
-          if (ranNumCase3 < .30) {
-            this.setState({
-              percentChance: "criticalAttack"
-            }, () => console.log("CRITICAL ATTACK"))
-          } else {
-            this.setState({
-              percentChance: "standardAttack"
-            }, () => console.log("STANDARD ATTACK"))
-          }
+          this.critical(30);
           break;
 
         case 4:
-          this.setState({
-            //   message2: "40% Danger Enemy Critical Attack"
-            message2: "40%",
-            message: ""
-          }, () => console.log("40% Danger of Enemy Critical Attack"));
-          let ranNumCase4 = Math.random();
-          console.log(ranNumCase4 + " is the subset random number");
-          if (ranNumCase4 < .40) {
-            this.setState({
-              percentChance: "criticalAttack"
-            }, () => console.log("CRITICAL ATTACK"))
-          } else {
-            this.setState({
-              percentChance: "standardAttack"
-            }, () => console.log("STANDARD ATTACK"))
-          }
+          this.critical(40);
           break;
 
         case 5:
-          this.setState({
-            //   message2: "50% Danger Enemy Critical Attack"
-            message2: "50%",
-            message: ""
-          }, () => console.log("50% Danger of Enemy Critical Attack"));
-          let ranNumCase5 = Math.random();
-          console.log(ranNumCase5 + " is the subset random number");
-          if (ranNumCase5 < .50) {
-            this.setState({
-              percentChance: "criticalAttack"
-            }, () => console.log("CRITICAL ATTACK"))
-          } else {
-            this.setState({
-              percentChance: "standardAttack"
-            }, () => console.log("STANDARD ATTACK"))
-          }
+          this.critical(50);
           break;
 
         case 6:
-          this.setState({
-            //   message2: "60% Danger Enemy Critical Attack"
-            message2: "60%",
-            message: ""
-          }, () => console.log("60% Danger of Enemy Critical Attack"));
-          let ranNumCase6 = Math.random();
-          console.log(ranNumCase6 + " is the subset random number");
-          if (ranNumCase6 < .60) {
-            this.setState({
-              percentChance: "criticalAttack"
-            }, () => console.log("CRITICAL ATTACK"))
-          } else {
-            this.setState({
-              percentChance: "standardAttack"
-            }, () => console.log("STANDARD ATTACK"))
-          }
+          this.critical(60);
           break;
 
         case 7:
-          this.setState({
-            //   message2: "70% Danger Enemy Critical Attack"
-            message2: "70%",
-            message: ""
-          }, () => console.log("70% Danger of Enemy Critical Attack"));
-          let ranNumCase7 = Math.random();
-          console.log(ranNumCase7 + " is the subset random number");
-          if (ranNumCase7 < .70) {
-            this.setState({
-              percentChance: "criticalAttack"
-            }, () => console.log("CRITICAL ATTACK"))
-          } else {
-            this.setState({
-              percentChance: "standardAttack"
-            }, () => console.log("STANDARD ATTACK"))
-          }
+          this.critical(70);
           break;
 
         case 8:
-          this.setState({
-            //   message2: "80% Danger Enemy Critical Attack"
-            message2: "80%",
-            message: ""
-          }, () => console.log("80% Danger of Enemy Critical Attack"));
-          let ranNumCase8 = Math.random();
-          console.log(ranNumCase8 + " is the subset random number");
-          if (ranNumCase8 < .80) {
-            this.setState({
-              percentChance: "criticalAttack"
-            }, () => console.log("CRITICAL ATTACK"))
-          } else {
-            this.setState({
-              percentChance: "standardAttack"
-            }, () => console.log("STANDARD ATTACK"))
-          }
+          this.critical(80);
           break;
 
         case 9:
-          this.setState({
-            //   message2: "90% Danger Enemy Critical Attack"
-            message2: "90%",
-            message: ""
-          }, () => console.log("90% Danger of Enemy Critical Attack"));
-          let ranNumCase9 = Math.random();
-          console.log(ranNumCase9 + " is the subset random number");
-          if (ranNumCase9 < .90) {
-            this.setState({
-              percentChance: "criticalAttack"
-            }, () => console.log("CRITICAL ATTACK"))
-          } else {
-            this.setState({
-              percentChance: "standardAttack"
-            }, () => console.log("STANDARD ATTACK"))
-          }
+          this.critical(90);
           break;
 
         case 10:
-          this.setState({
-              message2: "99%",
-              message: ""
-          }, () => console.log("99% Danger of Enemy Critical Attack"));
-          let ranNumCase10 = Math.random();
-          console.log(ranNumCase10 + " is the subset random number");
-          if (ranNumCase10 < 1) {
-            this.setState({
-              percentChance: "criticalAttack"
-            }, () => console.log("CRITICAL ATTACK"))
-          } else {
-            this.setState({
-              percentChance: "standardAttack"
-            }, () => console.log("STANDARD ATTACK"))
-          }
+          this.critical(99);
           break;
       }
       console.log(this.state.percentChance);
@@ -357,7 +227,7 @@ class Game extends Component {
           // STANDARD ATTACK
           let playerStandardAttackDmgDealt = Math.round(this.roll(this.state.playerAtt / 2, this.state.playerAtt));
           this.setState({
-            message: "You Dealt " + playerStandardAttackDmgDealt + " points of damage to the enemy!",
+            message: "YOU Dealt " + playerStandardAttackDmgDealt + " points of damage to the enemy!",
             soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Sword4.wav"
           }, () => console.log("You Dealt " + playerStandardAttackDmgDealt + " points of damage to the enemy!"));
           adjustEnemyHp(playerStandardAttackDmgDealt);
@@ -369,7 +239,7 @@ class Game extends Component {
           this.setState({
             message: "You Dealt a CRITICAL HIT with " + playerCriticalAttackDmgDealt + " points of damage to the enemy!",
             soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Link_Shock.wav"
-          }, () => console.log("You Dealt a CRITICAL HIT with " + playerCriticalAttackDmgDealt + " points of damage to the enemy!"));
+          }, () => console.log("YOU Dealt a CRITICAL HIT with " + playerCriticalAttackDmgDealt + " points of damage to the enemy!"));
 
           adjustEnemyHp(playerCriticalAttackDmgDealt);
         }
@@ -553,7 +423,7 @@ class Game extends Component {
           let enemyStandardAttackedFor = Math.round(this.roll(this.state.enemyAtt / 2, this.state.enemyAtt));
           this.setState({
             isBtnDisabled: false,
-            message: "Enemy attacks for " + enemyStandardAttackedFor + " points!",
+            message: "ENEMY attacks for " + enemyStandardAttackedFor + " points!",
             soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Sword_Spin.wav"
           }, () => console.log("Enemy attacks for " + enemyStandardAttackedFor + " points!"));
           adjustPlayerHp(enemyStandardAttackedFor);
@@ -565,7 +435,7 @@ class Game extends Component {
           let enemyCriticalAttackedFor = Math.round(this.roll(this.state.enemyCriticalAtt / 2, this.state.enemyCriticalAtt));
           this.setState({
             isBtnDisabled: false,
-            message: "Enemy hit you with a Critical Attack for " + enemyCriticalAttackedFor + " points!",
+            message: "ENEMY hit you with a CRITICAL ATTACK for " + enemyCriticalAttackedFor + " points!",
             soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Shovel.wav"
           }, () => console.log("Enemy hit you with a Critical Attack!"));
 
@@ -634,7 +504,7 @@ class Game extends Component {
       this.setState({
         playerDefend: "animateDefend",
         enemyAttackAnimation: "animateAttack",
-        message2: "",
+        message2: ""
       });
 
       setTimeout(() => {
@@ -658,21 +528,21 @@ class Game extends Component {
 
       if (this.state.percentChance === "standardAttack") {
 
-        let damageDeflected = this.state.enemyAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
-        this.setState({
-          message: "Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!",
-          soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/WW_New/WW_Sword_Spin.wav"
-        }, () => console.log("Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"));
-        adjustPlayerHp(damageDeflected);
-      } else {
+      let damageDeflected = this.state.enemyAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
+      this.setState({
+        message: "ENEMY attacks for " + this.state.enemyAtt + " points. YOU DEFLECTED! ...and took " + damageDeflected + " points of damage!",
+        soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/WW_New/WW_Sword_Spin.wav"
+      }, () => console.log("Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"));
+      adjustPlayerHp(damageDeflected);
+    } else {
 
-        let damageDeflected = this.state.enemyCriticalAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
-        this.setState({
-          message: "Enemy critical attacks for " + this.state.enemyCriticalAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!",
-          soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/OOT/OOT_Sword_Overhead.wav"
-        }, () => console.log("Enemy attacks for " + this.state.enemyCriticalAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"));
-        adjustPlayerHp(damageDeflected);
-      }
+      let damageDeflected = this.state.enemyCriticalAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
+      this.setState({
+        message: "ENEMY CRITICAL ATTACKS for " + this.state.enemyCriticalAtt + " points. YOU DEFLECTED! ...and took " + damageDeflected + " points of damage!",
+        soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/OOT/OOT_Sword_Overhead.wav"
+      }, () => console.log("Enemy attacks for " + this.state.enemyCriticalAtt + " You deflected! ...and took " + damageDeflected + " points of damage!"));
+      adjustPlayerHp(damageDeflected);
+    }
 
     }
 
@@ -808,7 +678,7 @@ class Game extends Component {
                     <header><h1>{characters.name}</h1></header>
 
                     <img src={characters.image} onMouseOver={e => (e.currentTarget.src = `${characters.hover}`)} onMouseOut={e => (e.currentTarget.src = `${characters.image}`)} alt={characters.name} className="selectImg" onClick={this.handleCharacterState} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
-
+                    
                     <footer> <h3>{characters.story}</h3></footer>
                     
                     <ClassModal
@@ -855,6 +725,8 @@ class Game extends Component {
             <button className={`${this.state.cardBtnHide} journeyButton`} onClick={this.startCombat} >Continue your journey</button>
           </div>
 
+
+
           {/* combat mode  */}
 
           <div className={`${this.state.combatHide} row`}>
@@ -881,8 +753,7 @@ class Game extends Component {
               <div className="textCard">
                 <div className="textLog">{this.state.message}</div>
                 <div className="textLog"><h1 className="victory">{this.state.message3}</h1></div>
-                <div className="textLog critical"><h1 className="danger">{this.state.message2}</h1></div>
-                <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
+                <div className="textLog"><h1 className="danger">{this.state.message2}</h1></div>
               </div>
               <div className={`${this.state.combatHide} buttonRow`}>
 
@@ -891,13 +762,6 @@ class Game extends Component {
                   <Button onClick={this.handleDefense} disabled={this.state.isBtnDisabled} className="combatBtn defend"><h1 className="command">DEFEND</h1></Button>
 
               </div>
-              {/* <div className="textCard">
-                <div className={`${this.state.critHide} critical`}><h1 className="danger">{this.state.message2}</h1></div>
-                <div>{this.state.message}</div>
-                <div><h1 className="victory">{this.state.message3}</h1></div>              
-              </div>
-
-              <div className="buttonRow">TEST</div> */}
 
             </Col>
 
@@ -927,20 +791,7 @@ class Game extends Component {
 
           </div>
 
-          <div className={`${this.state.creditsRoll} credits`}>
-
-            <div className='wrapper'>
-              <div className='gameTitle'>[GAME TITLE]</div>
-              <div className='credit dev'>A Game by <br></br> [dev studio here]</div>
-              <div className='credit'>James Kendall Bruce</div>
-              <div className='credit'>Maybellin Burgos</div>
-              <div className='credit'>Cody Covington</div>
-              <div className='credit'>Andrew Park</div>
-              <div className='credit'>Daniel Pruitt</div>
-              <div className='thanks'>Thanks for playing!</div>
-            </div>
-
-          </div>
+          <Credits creditsRoll={`${this.state.creditsRoll}` }/>
 
 
         </Container>

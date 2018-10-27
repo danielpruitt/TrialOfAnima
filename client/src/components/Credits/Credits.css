@@ -1,0 +1,15 @@
+#arrow{
+    background-color: blue;
+    margin: 50px;
+}
+
+.credits {
+	overflow: hidden;
+	height: 50vh;
+	background: none;
+}
+
+.credit {
+	margin-bottom: 50px;
+	font-size: 48px;
+}
