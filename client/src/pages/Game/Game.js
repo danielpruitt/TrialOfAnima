@@ -750,7 +750,7 @@ class Game extends Component {
 
             <Col size="4" className={`${this.state.combatHide} textCard`} styleClass="altCentered">
               <div className="textCard">
-                <div className="textLog">{this.state.message}<span className="danger">{this.state.message2}</span><span className="victory">{this.state.message3}</span></div>
+                <div className="textLog"><span className={this.state.message}>{this.state.message}</span><span className="danger">{this.state.message2}</span><span className="victory">{this.state.message3}</span></div>
               </div>
               <div className={`${this.state.combatHide} buttonRow`}>
 
