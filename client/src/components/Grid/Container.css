@@ -1,15 +1,14 @@
 .container{
     margin-top: 0;
     margin-left: 0;
-    width: 85vw;
+    width: 90vw;
 }
 
 .storyArea{
     height: inherit;
     width: inherit;
     margin: auto;
-    /* float:center;
-    padding-left:10vw */
+    padding-left:8vw
     
 }
 
@@ -64,5 +63,8 @@
     }
     .journeyButton{
         font-size: 25px;
+    }
+    .storyArea{
+        padding-left:none;       
     }
 }

@@ -33,7 +33,7 @@
 	z-index: 2;
 }
 .buttonRow{
-	width: inherit;
+	width: 30vw;
 	height: 32vh;
 	margin-top: none;
 }
@@ -127,10 +127,6 @@
 
 .danger{
     font-size: 80px;
-    position: relative;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
     z-index: 2;
 }
 .cardImg {
