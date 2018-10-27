@@ -186,11 +186,7 @@
 	padding: 0;
 	box-sizing: border-box;
 }
-.credits {
-	overflow: hidden;
-	height: 50vh;
-	background: none;
-}
+
 .wrapper {
 	position: absolute;
 	top: 100%;
@@ -210,10 +206,7 @@
 	margin-bottom: 75px;
 	font-size: 65px;
 }
-.credit {
-	margin-bottom: 50px;
-	font-size: 48px;
-}
+
 .dev {
 	margin-bottom: 65px;
 }

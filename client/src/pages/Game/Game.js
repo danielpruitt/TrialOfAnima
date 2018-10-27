@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Users.css";
 import Enemies from "./enemies.json";
-import Arrow from "../../components/Arrow/Arrow";
 import Locations from "./locations.json";
 import Characters from "./characters.json";
 import SelectorCard from "../../components/SelectorCard"; import Card from "../../components/Card/Card";
@@ -12,6 +11,7 @@ import { Animated } from "react-animated-css";
 import Button from '@material-ui/core/Button';
 import EnemyModal from "../../components/EnemyModal";
 import ClassModal from "../../components/ClassModal";
+import Credits from "../../components/Credits";
 
 import SoundEffects from "../../components/SoundEffects";
 import Music from "../../components/Music";
@@ -73,6 +73,25 @@ class Game extends Component {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
+  //Critical swtich function
+  critical = (percent) => {
+    this.setState({
+      message2: percent+"%",
+      message: ""
+    }, () => console.log(percent+"% Danger of Enemy Critical Attack"));
+    let ranNumCase = Math.random();
+    console.log(ranNumCase + " is the subset random number");
+    if (ranNumCase < percent/100) {
+      this.setState({
+        percentChance: "criticalAttack"
+      }, () => console.log("CRITICAL ATTACK"))
+    } else {
+      this.setState({
+        percentChance: "standardAttack"
+      }, () => console.log("STANDARD ATTACK"))
+    }
+  }
+
 
   // PERCENT CHANCE CRITICAL HITS FUNCTION
   percentChanceofCriticalAttack = () => {
@@ -100,192 +119,43 @@ class Game extends Component {
         default:
           break;
         case 1:
-          this.setState({
-            // message2: "10% Danger Enemy Critical Attack"
-            message2: "10%",
-            message: ""
-          }, () => console.log("10% Danger of Enemy Critical Attack"));
-          let ranNumCase1 = Math.random();
-          console.log(ranNumCase1 + " is the subset random number");
-          if (ranNumCase1 < .10) {
-            this.setState({
-              percentChance: "criticalAttack"
-            }, () => console.log("CRITICAL ATTACK"))
-          } else {
-            this.setState({
-              percentChance: "standardAttack"
-            }, () => console.log("STANDARD ATTACK"))
-          }
+          this.critical(10);
           break;
 
         case 2:
-          this.setState({
-            // message2: "20% Danger Enemy Critical Attack"
-            message2: "20%",
-            message: ""
-          }, () => console.log("20% Danger of Enemy Critical Attack"));
-          let ranNumCase2 = Math.random();
-          console.log(ranNumCase2 + " is the subset random number");
-          if (ranNumCase2 < .20) {
-            this.setState({
-              percentChance: "criticalAttack"
-            }, () => console.log("CRITICAL ATTACK"))
-          } else {
-            this.setState({
-              percentChance: "standardAttack"
-            }, () => console.log("STANDARD ATTACK"))
-          }
+          this.critical(20);
           break;
 
         case 3:
-          this.setState({
-            // message2: "30% Danger Enemy Critical Attack"
-            message2: "30%",
-            message: ""
-          }, () => console.log("30% Danger of Enemy Critical Attack"));
-          let ranNumCase3 = Math.random();
-          console.log(ranNumCase3 + " is the subset random number");
-          if (ranNumCase3 < .30) {
-            this.setState({
-              percentChance: "criticalAttack"
-            }, () => console.log("CRITICAL ATTACK"))
-          } else {
-            this.setState({
-              percentChance: "standardAttack"
-            }, () => console.log("STANDARD ATTACK"))
-          }
+          this.critical(30);
           break;
 
         case 4:
-          this.setState({
-            //   message2: "40% Danger Enemy Critical Attack"
-            message2: "40%",
-            message: ""
-          }, () => console.log("40% Danger of Enemy Critical Attack"));
-          let ranNumCase4 = Math.random();
-          console.log(ranNumCase4 + " is the subset random number");
-          if (ranNumCase4 < .40) {
-            this.setState({
-              percentChance: "criticalAttack"
-            }, () => console.log("CRITICAL ATTACK"))
-          } else {
-            this.setState({
-              percentChance: "standardAttack"
-            }, () => console.log("STANDARD ATTACK"))
-          }
+          this.critical(40);
           break;
 
         case 5:
-          this.setState({
-            //   message2: "50% Danger Enemy Critical Attack"
-            message2: "50%",
-            message: ""
-          }, () => console.log("50% Danger of Enemy Critical Attack"));
-          let ranNumCase5 = Math.random();
-          console.log(ranNumCase5 + " is the subset random number");
-          if (ranNumCase5 < .50) {
-            this.setState({
-              percentChance: "criticalAttack"
-            }, () => console.log("CRITICAL ATTACK"))
-          } else {
-            this.setState({
-              percentChance: "standardAttack"
-            }, () => console.log("STANDARD ATTACK"))
-          }
+          this.critical(50);
           break;
 
         case 6:
-          this.setState({
-            //   message2: "60% Danger Enemy Critical Attack"
-            message2: "60%",
-            message: ""
-          }, () => console.log("60% Danger of Enemy Critical Attack"));
-          let ranNumCase6 = Math.random();
-          console.log(ranNumCase6 + " is the subset random number");
-          if (ranNumCase6 < .60) {
-            this.setState({
-              percentChance: "criticalAttack"
-            }, () => console.log("CRITICAL ATTACK"))
-          } else {
-            this.setState({
-              percentChance: "standardAttack"
-            }, () => console.log("STANDARD ATTACK"))
-          }
+          this.critical(60);
           break;
 
         case 7:
-          this.setState({
-            //   message2: "70% Danger Enemy Critical Attack"
-            message2: "70%",
-            message: ""
-          }, () => console.log("70% Danger of Enemy Critical Attack"));
-          let ranNumCase7 = Math.random();
-          console.log(ranNumCase7 + " is the subset random number");
-          if (ranNumCase7 < .70) {
-            this.setState({
-              percentChance: "criticalAttack"
-            }, () => console.log("CRITICAL ATTACK"))
-          } else {
-            this.setState({
-              percentChance: "standardAttack"
-            }, () => console.log("STANDARD ATTACK"))
-          }
+          this.critical(70);
           break;
 
         case 8:
-          this.setState({
-            //   message2: "80% Danger Enemy Critical Attack"
-            message2: "80%",
-            message: ""
-          }, () => console.log("80% Danger of Enemy Critical Attack"));
-          let ranNumCase8 = Math.random();
-          console.log(ranNumCase8 + " is the subset random number");
-          if (ranNumCase8 < .80) {
-            this.setState({
-              percentChance: "criticalAttack"
-            }, () => console.log("CRITICAL ATTACK"))
-          } else {
-            this.setState({
-              percentChance: "standardAttack"
-            }, () => console.log("STANDARD ATTACK"))
-          }
+          this.critical(80);
           break;
 
         case 9:
-          this.setState({
-            //   message2: "90% Danger Enemy Critical Attack"
-            message2: "90%",
-            message: ""
-          }, () => console.log("90% Danger of Enemy Critical Attack"));
-          let ranNumCase9 = Math.random();
-          console.log(ranNumCase9 + " is the subset random number");
-          if (ranNumCase9 < .90) {
-            this.setState({
-              percentChance: "criticalAttack"
-            }, () => console.log("CRITICAL ATTACK"))
-          } else {
-            this.setState({
-              percentChance: "standardAttack"
-            }, () => console.log("STANDARD ATTACK"))
-          }
+          this.critical(90);
           break;
 
         case 10:
-          this.setState({
-              message2: "99%",
-              message: ""
-          }, () => console.log("99% Danger of Enemy Critical Attack"));
-          let ranNumCase10 = Math.random();
-          console.log(ranNumCase10 + " is the subset random number");
-          if (ranNumCase10 < 1) {
-            this.setState({
-              percentChance: "criticalAttack"
-            }, () => console.log("CRITICAL ATTACK"))
-          } else {
-            this.setState({
-              percentChance: "standardAttack"
-            }, () => console.log("STANDARD ATTACK"))
-          }
+          this.critical(99);
           break;
       }
       console.log(this.state.percentChance);
@@ -882,7 +752,6 @@ class Game extends Component {
                 <div className={`${this.state.critHide} critical`}><h1 className="danger">{this.state.message2}</h1></div>
                 <div>{this.state.message}</div>
                 <div><h1 className="victory">{this.state.message3}</h1></div>
-                <Arrow className={this.state.arrow} onClick={this.handleArrow}><a href={'/locations/' + this.state.next_location}>To {this.state.next_location}</a></Arrow>
               </div>
               <div className={`${this.state.combatHide} row`}>
 
@@ -919,20 +788,7 @@ class Game extends Component {
 
           </div>
 
-          <div className={`${this.state.creditsRoll} credits`}>
-
-            <div className='wrapper'>
-              <div className='gameTitle'>[GAME TITLE]</div>
-              <div className='credit dev'>A Game by <br></br> [dev studio here]</div>
-              <div className='credit'>James Kendall Bruce</div>
-              <div className='credit'>Maybellin Burgos</div>
-              <div className='credit'>Cody Covington</div>
-              <div className='credit'>Andrew Park</div>
-              <div className='credit'>Daniel Pruitt</div>
-              <div className='thanks'>Thanks for playing!</div>
-            </div>
-
-          </div>
+          <Credits creditsRoll={`${this.state.creditsRoll}` }/>
 
 
         </Container>
