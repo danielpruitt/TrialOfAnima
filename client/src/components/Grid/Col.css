@@ -139,7 +139,10 @@
 	.col-4 {
 		/* background: green;
         border: 4px solid white; */
-    }
+	}
+	.buttonRow{
+		display: initial;
+	}
     .danger{
         font-size: 80px;    
     }
@@ -165,7 +168,10 @@
 	/* for mobile */
 	.col-4 {
 		column-width: 100vw !important;
-    }
+	}
+	.buttonRow{
+		display: initial;
+	}
     .danger{
         font-size: 40px;    
     }
