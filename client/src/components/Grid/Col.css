@@ -105,7 +105,8 @@
 .combatBtn.disabled, .combatBtn:disabled, .combatBtn.disabled:hover, .combatBtn:disabled:hover{
 	color: #656565 !important;
 	text-shadow: 1px 5px #1c1c1c;
-    filter: grayscale(100%);
+	filter: grayscale(100%);
+	background-size: 11vw 11vw;
 } 
 
 /* shine effect */
@@ -169,6 +170,9 @@
 	.combatBtn.attack:hover, .combatBtn.defend:hover {
 		background-size: 18vw 18vw;
 	}
+	.combatBtn.disabled, .combatBtn:disabled, .combatBtn.disabled:hover, .combatBtn:disabled:hover{
+		background-size: 18vw 18vw;
+	} 
 }
 @media only screen and (max-width: 600px) {
 	/* for mobile */
@@ -196,4 +200,7 @@
 	.combatBtn.attack:hover, .combatBtn.defend:hover {
 		background-size: 18vw 18vw;
 	}
+	.combatBtn.disabled, .combatBtn:disabled, .combatBtn.disabled:hover, .combatBtn:disabled:hover{
+		background-size: 18vw 18vw;
+	} 
 }

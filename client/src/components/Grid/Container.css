@@ -1,5 +1,5 @@
 .container{
-    margin-top: 0;
+    margin-top: 20px;
     margin-left: 0;
     width: 90vw;
 }
@@ -35,7 +35,7 @@
 @media only screen and (max-width: 900px) {
     /* for tablets */
     .container{
-        margin-top: 5px;
+        margin-top: -10px !important;
         width: 100vw;
     }
     .locationTitle {
@@ -56,7 +56,7 @@
 @media only screen and (max-width: 600px) {
     /* for mobile */
     .container{
-        margin-top: 5px;
+        margin-top: -10px !important;
         width: 100vw;
     }
     .locationTitle {
