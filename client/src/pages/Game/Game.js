@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Users.css";
+import "./Game.css";
 import Enemies from "./enemies.json";
 import Locations from "./locations.json";
 import Characters from "./characters.json";
@@ -414,6 +414,13 @@ class Game extends Component {
           })
         }, 500);
 
+        //Enables buttons after 2.5 seconds
+        setTimeout(() => {
+          this.setState({
+            isBtnDisabled: false
+          })
+        }, 2500);
+
         // RE-ENABLE THE ATTACK AND DEFEND BUTTONS
 
         if (attackChoice === "standardAttack") {
@@ -421,7 +428,6 @@ class Game extends Component {
           //STANDARD ATTACK
           let enemyStandardAttackedFor = Math.round(this.roll(this.state.enemyAtt / 2, this.state.enemyAtt));
           this.setState({
-            isBtnDisabled: false,
             message: "ENEMY attacks for " + enemyStandardAttackedFor + " points!",
             soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Sword_Spin.wav"
           }, () => console.log("Enemy attacks for " + enemyStandardAttackedFor + " points!"));
@@ -433,7 +439,6 @@ class Game extends Component {
           //CRITICAL ATTACK
           let enemyCriticalAttackedFor = Math.round(this.roll(this.state.enemyCriticalAtt / 2, this.state.enemyCriticalAtt));
           this.setState({
-            isBtnDisabled: false,
             message: "ENEMY hit you with a CRITICAL ATTACK for " + enemyCriticalAttackedFor + " points!",
             soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Shovel.wav"
           }, () => console.log("Enemy hit you with a Critical Attack!"));
@@ -677,9 +682,9 @@ class Game extends Component {
                     <header><h1>{characters.name}</h1></header>
 
                     <img src={characters.image} onMouseOver={e => (e.currentTarget.src = `${characters.hover}`)} onMouseOut={e => (e.currentTarget.src = `${characters.image}`)} alt={characters.name} className="selectImg" onClick={this.handleCharacterState} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
-                    
+
                     <footer> <h3>{characters.story}</h3></footer>
-                    
+
                     <ClassModal
                       name={characters.name}
                       attack={characters.att}
