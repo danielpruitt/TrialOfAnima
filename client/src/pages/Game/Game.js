@@ -254,6 +254,7 @@ class Game extends Component {
 
         this.setState({
           message: "",
+          message2: "",
           message3: "VICTORIOUS!",
           music: "",
           soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/WW_New/WW_Fanfare_Pearl.wav"
@@ -289,6 +290,7 @@ class Game extends Component {
               storyHide: "hide",
               location_id: newLocation,
               message: "CONGRATULATIONS ON YOUR VICTORY",
+              message2: "",
               cardBackground: Locations[newLocation].backgroundImage,
               music: "http://www.music-note.jp/bgm/mp3/2014/0316/adventurers.WAV"
             }, () => console.log("Hiding story"));
@@ -313,7 +315,7 @@ class Game extends Component {
                 cardBtnHide: "hide",
                 storyHide: "hide",
                 message: "hide",
-                message2: "hide",
+                message2: "",
                 message3: "",
                 creditsRoll: "",
                 music: "http://www.music-note.jp/bgm/mp3/2014/0316/adventurers.WAV"
@@ -349,8 +351,8 @@ class Game extends Component {
               cardBtnHide: "",
               storyHide: "",
               message: "",
-              message2: "Traveling to Next Location",
-              message3: "",
+              message2: "",
+              message3: "Traveling to Next Location",
               location_id: newLocation,
               current_location: location_name,
               cardBackground: Locations[newLocation].backgroundImage,
@@ -671,13 +673,13 @@ class Game extends Component {
 
                 <Col key={characters.id} size="4" className="selectCol">
                   <SelectorCard>
+
                     <header><h1>{characters.name}</h1></header>
 
                     <img src={characters.image} onMouseOver={e => (e.currentTarget.src = `${characters.hover}`)} onMouseOut={e => (e.currentTarget.src = `${characters.image}`)} alt={characters.name} className="selectImg" onClick={this.handleCharacterState} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
-
-
+                    
                     <footer> <h3>{characters.story}</h3></footer>
-
+                    
                     <ClassModal
                       name={characters.name}
                       attack={characters.att}
@@ -748,17 +750,18 @@ class Game extends Component {
 
             <Col size="4" className={`${this.state.combatHide} textCard`} styleClass="altCentered">
               <div className="textCard">
-                <div className={`${this.state.critHide} critical`}><h1 className="danger">{this.state.message2}</h1></div>
-                <div>{this.state.message}</div>
-                <div><h1 className="victory">{this.state.message3}</h1></div>
+                <div className="textLog">{this.state.message}</div>
+                <div className="textLog"><h1 className="victory">{this.state.message3}</h1></div>
+                <div className="textLog"><h1 className="danger">{this.state.message2}</h1></div>
               </div>
-              <div className={`${this.state.combatHide} row`}>
+              <div className={`${this.state.combatHide} buttonRow`}>
 
                 <Button onClick={this.handleAttack} disabled={this.state.isBtnDisabled} className="combatBtn attack"><h1 className="command">ATTACK</h1></Button>
 
                 <Button onClick={this.handleDefense} disabled={this.state.isBtnDisabled} className="combatBtn defend"><h1 className="command">DEFEND</h1></Button>
 
               </div>
+
             </Col>
 
             <Col size="4" className={`${this.state.combatHide}`} styleClass="centered">

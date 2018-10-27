@@ -8,6 +8,7 @@
 	align-content: center;
 	justify-content: center;
     color: white;
+	height: 70vh;
     column-width: 32vw;
     overflow: auto;
 }
@@ -15,8 +16,26 @@
 	column-width: 32vw;
 }
 .textCard {
-	background: none;
+	background-image: url("../../Images/Icons/crit_icon_transp_small.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 18vw 18vw;
 	width: inherit;
+	height: 32vh;
+	margin-bottom: none;
+	margin-top: none;
+}
+.textLog{
+	position: relative;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 2;
+}
+.buttonRow{
+	width: inherit;
+	height: 32vh;
+	margin-top: none;
 }
 .command {
 	vertical-align: middle;
@@ -46,6 +65,7 @@
 	background-position: center;
 	background-size: 15vw 15vw;
 	outline: 0;
+	margin: auto;
 }
 .defend {
 	background-image: url("../../Images/Buttons/shield_custom.png");
@@ -54,27 +74,22 @@
 	background-size: 15vw 15vw;
 }
 
-.critical{
-	background-image: url("../../Images/Icons/crit_icon_transp_small.png");
-	background-repeat: no-repeat;
-    background-position: center;
-    background-size: 16vw 16vw;
-	height: 300px;
+/* .critical{
+	height: 80%;
     width: inherit;
     outline: 0;
-    position: relative;
 	display: block;
-	margin-top: 10%;
-}
+} */
 
 .danger{
-    font-size: 100px;
-    position: absolute;
+    font-size: 80px;
+    position: relative;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
 }
+
 @media only screen and (max-width: 768px) {
 	/* for tablets */
 	.col-4 {
