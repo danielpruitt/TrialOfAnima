@@ -501,27 +501,17 @@ class Game extends Component {
       this.setState({
         playerDefend: "animateDefend",
         enemyAttackAnimation: "animateAttack",
-        message2: ""
+        message2: "",
+        isBtnDisabled: true
       });
 
       setTimeout(() => {
         this.setState({
           playerDefend: "",
-          enemyAttackAnimation: ""
+          enemyAttackAnimation: "",
+          isBtnDisabled: false
         })
       }, 1000);
-
-
-      // $("#player").addClass("animateDefend");
-      // setTimeout(function () {
-      //   $("#attackDefended").addClass("animateAttack");
-      // }, 500)
-      // setTimeout(function () {
-      //   $("#attackDefended").removeClass("animateAttack");
-      // }, 1000);
-      // setTimeout(function () {
-      //   $("#player").removeClass("animateDefend");
-      // }, 1000);
 
       if (this.state.percentChance === "standardAttack") {
 
