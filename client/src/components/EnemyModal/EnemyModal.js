@@ -83,20 +83,23 @@ class SimpleModal extends React.Component {
                 <h1 className="col statHeader">STATS for {this.props.name}</h1>
               </Row>
               <Row>
-                
-                <Col size="6">
+
+                <Col size="4"/>  
+                <Col size="2">
                   <div className="att-stats stats">
                     <h3 className="statName">Attack Damage</h3>
                     <h3 className="percent">{this.props.attack}</h3> 
                   </div>
                 </Col>
 
-                <Col size="6">
+                <Col size="2">
                   <div className="crit-stats stats">
                     <span className="statName">Danger of Critical</span><br></br>
                     <span className="percent">{this.props.crit}</span> 
                   </div>
                 </Col>
+                <Col size="4"/>  
+
               </Row>
             </div>
           </Container>

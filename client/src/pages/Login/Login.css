@@ -58,9 +58,10 @@ a:hover{
 
 
 body {
-    
-    background-image: url("https://wallpapertag.com/wallpaper/full/4/0/4/148428-most-popular-dungeon-background-1920x1080-for-desktop.jpg");
-    background-position: top
+    background-image: url("../../Images/dungeonbackground.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 @media only screen and (max-width: 1024px) {

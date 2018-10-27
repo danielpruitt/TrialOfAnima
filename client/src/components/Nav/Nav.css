@@ -2,7 +2,7 @@
 .navbar, .navbar-expand-lg, .navbar-dark{
     background: #1C1C1C !important;
     box-shadow: 0px 4px 60px #656565 !important;
-    width: 100vw !important;
+    /* width: 100vw !important; */
 }
 
 /* mindrpg logo */
@@ -32,6 +32,11 @@
 /* text */
 .navbar-text {
     color: #F6F7EB !important;
+}
+
+.pad{
+    padding-right:8vw;
+    padding-left:8vw
 }
 
 @media only screen and (max-width: 768px) {

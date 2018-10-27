@@ -35,7 +35,6 @@
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-animated-css": "^1.0.4",
-    "react-typewriter": "^0.4.1",
     "validator": "^9.4.1"
   }
 }

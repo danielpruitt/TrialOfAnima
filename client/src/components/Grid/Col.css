@@ -1,0 +1,142 @@
+.centered {
+	border: black 2 px solid;
+	align-content: center;
+    justify-content: center;
+    column-width: 32vw;
+}
+.altCentered {
+	align-content: center;
+	justify-content: center;
+    color: white;
+    column-width: 32vw;
+    overflow: auto;
+}
+.col-4 {
+	column-width: 32vw;
+}
+.textCard {
+	background: none;
+	width: inherit;
+}
+.command {
+	vertical-align: middle;
+	align-content: center;
+	font-size: 48px;
+	text-shadow: 1px 5px #656565;
+	color: white;
+	font-family: 'VT323', monospace;
+}
+.combatBtn {
+	height: 15vw;
+	width: 15vw;
+	background: none;
+	border: none;
+	outline: 0
+}
+.combatBtn:active {
+	outline: none;
+	border: none;
+}
+.combatBtn:focus {
+	outline: 0;
+}
+.attack {
+	background-image: url("../../Images/Buttons/sword_custom.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 15vw 15vw;
+	outline: 0;
+}
+.defend {
+	background-image: url("../../Images/Buttons/shield_custom.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 15vw 15vw;
+}
+
+.critical{
+	background-image: url("../../Images/Icons/crit_icon_transp_small.png");
+	background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16vw 16vw;
+	height: 300px;
+    width: inherit;
+    outline: 0;
+    position: relative;
+	display: block;
+	margin-top: 10%;
+}
+
+.danger{
+    font-size: 100px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+@media only screen and (max-width: 768px) {
+	/* for tablets */
+	.col-4 {
+		/* background: green;
+        border: 4px solid white; */
+    }
+    .danger{
+        font-size: 80px;    
+    }
+	.cardImg {
+		width: 30vw;
+		height: 30vw;
+	}
+	.statCheck {
+		width: 150px;
+		padding: 0;
+		text-align: center;
+	}
+	.command {
+		font-size: 40px;
+	}
+	.combatBtn {
+		height: 20vw;
+		width: 20vw;
+	}
+	.attack {
+		background-size: 20vw 20vw;
+	}
+	.defend {
+		background-size: 20vw 20vw;
+	}
+}
+@media only screen and (max-width: 600px) {
+	/* for mobile */
+	.col-4 {
+		column-width: 100vw !important;
+    }
+    .danger{
+        font-size: 40px;    
+    }
+	.cardImg {
+		width: 90px;
+		height: 100px;
+	}
+	.statCheck {
+		width: 90px;
+		height: 50px;
+		padding: 0;
+		font-size: 30px;
+		text-align: center;
+	}
+	.command {
+		font-size: 30px;
+	}
+	.combatBtn {
+		height: 20vw;
+		width: 20vw;
+	}
+	.attack {
+		background-size: 20vw 20vw;
+	}
+	.defend {
+		background-size: 20vw 20vw;
+	}
+}

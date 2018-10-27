@@ -1,0 +1,68 @@
+.container{
+    margin-top: 50px;
+    margin-left: 0;
+    width: 85vw;
+}
+
+.storyArea{
+    height: inherit;
+    width: inherit;
+    margin: auto;
+    /* float:center;
+    padding-left:10vw */
+    
+}
+
+.localCard {
+    height: 500%;
+}
+.localBox {
+    height: 500px;
+    justify-content: center;
+    align-content: center;
+    overflow: auto;
+}
+.locationTitle {
+    font-size: 48px;
+    font-family: 'Almendra SC', serif;
+}
+.storyText {
+    font-size: 35px;
+}
+.journeyButton{
+    font-size: 35px;
+}
+
+@media only screen and (max-width: 768px) {
+    /* for tablets */
+    .container{
+        margin-top: 50px;
+        width: 100vw;
+    }
+    .locationTitle {
+        font-size: 40px;
+    }
+    .storyText {
+        font-size: 28px;
+    }
+    .journeyButton{
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    /* for mobile */
+    .container{
+        margin-top: 50px;
+        width: 100vw;
+    }
+    .locationTitle {
+        font-size: 40px;
+    }
+    .storyText {
+        font-size: 28px;
+    }
+    .journeyButton{
+        font-size: 25px;
+    }
+}
