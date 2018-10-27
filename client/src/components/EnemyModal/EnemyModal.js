@@ -30,8 +30,8 @@ const theme = createMuiTheme({
 // }
 
 function getModalStyle() {
-//   const top = 50 + rand();
-//   const left = 50 + rand();
+  //   const top = 50 + rand();
+  //   const left = 50 + rand();
   const top = 50;
   const left = 50;
 
@@ -45,7 +45,7 @@ function getModalStyle() {
 const styles = () => ({
   paper: {
     position: 'absolute',
-    backgroundColor: (0,0,0,0.7),
+    backgroundColor: (0, 0, 0, 0.7),
     boxShadow: theme.shadows[5],
     color: theme.palette.primary.contrastText,
 
@@ -85,26 +85,22 @@ class SimpleModal extends React.Component {
               </Row>
               <Row>
 
-                <Col size="4"/>  
-                <Col size="2">
-                  <div className="att-stats stats">
-                    <h3 className="statName">Attack Damage</h3>
-                    <h3 className="percent">{this.props.attack}</h3> 
-                  </div>
+                <Col size="4" />
+                <Col size="2" styleClass="att-stats stats">
+                  <h3 className="statName">Attack Damage</h3>
+                  <h3 className="percent">{this.props.attack}</h3>
                 </Col>
 
-                <Col size="2">
-                  <div className="crit-stats stats">
-                    <span className="statName">Danger of Critical</span><br></br>
-                    <span className="percent">{this.props.crit}</span> 
-                  </div>
+                <Col size="2" styleClass="crit-stats stats">
+                  <span className="statName">Danger of Critical</span><br></br>
+                  <span className="percent">{this.props.crit}</span>
                 </Col>
-                <Col size="4"/>  
+                <Col size="4" />
 
               </Row>
             </div>
           </Container>
-          
+
         </Modal>
       </div>
     );
