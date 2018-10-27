@@ -728,7 +728,7 @@ class Game extends Component {
 
           <div className={`${this.state.combatHide} row`}>
 
-            <Col size="4" className={this.state.combatHide} styleClass="centered">
+            <Col size="4" className={this.state.combatHide} styleClass="">
               {/* adds animation to the player */}
               <Animated animationIn="bounceInLeft" animationOut="flash" isVisible={true}>
 
@@ -752,7 +752,7 @@ class Game extends Component {
                 <div>{this.state.message}</div>
                 <div><h1 className="victory">{this.state.message3}</h1></div>
               </div>
-              <div className={`${this.state.combatHide} row`}>
+              <div className={`${this.state.combatHide} row `}>
 
                 <Button onClick={this.handleAttack} disabled={this.state.isBtnDisabled} className="combatBtn attack"><h1 className="command">ATTACK</h1></Button>
 
@@ -762,7 +762,7 @@ class Game extends Component {
             </Col>
 
             <Col size="4" className={`${this.state.combatHide}`} styleClass="centered">
-              <div className="">
+            
                 {/* adds animation to the enemy, the flashing is from css, the entrance is a node package*/}
                 <Animated animationIn="flash" animationOut="flash" isVisible={true}>
                   <UICardEnemy
@@ -780,10 +780,10 @@ class Game extends Component {
                     attack={this.state.enemyAtt}
                     crit={this.state.message2} />
                 </Animated>
-              </div>
+            
 
             </Col>
-
+            
 
           </div>
 

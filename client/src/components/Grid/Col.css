@@ -3,7 +3,8 @@
 	border: black 2 px solid;
 	align-content: center;
     justify-content: center;
-    /* column-width: 33vw; */
+	column-width: 33vw;
+	padding-right:10vw
 }
 .altCentered {
 	align-content: center;
@@ -14,6 +15,7 @@
 }
 .col-4 {
 	column-width: 33vw;
+	
 }
 .textCard {
 	background: none;
