@@ -74,12 +74,12 @@
 	background-size: 15vw 15vw;
 }
 
-.critical{
+/* .critical{
 	height: 80%;
     width: inherit;
     outline: 0;
 	display: block;
-}
+} */
 
 .danger{
     font-size: 80px;

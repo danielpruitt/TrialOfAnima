@@ -38,7 +38,6 @@ class Game extends Component {
     message: "",
     message2: "",
     message3: "",
-    arrow: "hide",
     enemySelector: 0,
     playerAttackAnimation: "",
     enemyAttackAnimation: "",
@@ -76,12 +75,12 @@ class Game extends Component {
   //Critical swtich function
   critical = (percent) => {
     this.setState({
-      message2: percent+"%",
+      message2: percent + "%",
       message: ""
-    }, () => console.log(percent+"% Danger of Enemy Critical Attack"));
+    }, () => console.log(percent + "% Danger of Enemy Critical Attack"));
     let ranNumCase = Math.random();
     console.log(ranNumCase + " is the subset random number");
-    if (ranNumCase < percent/100) {
+    if (ranNumCase < percent / 100) {
       this.setState({
         percentChance: "criticalAttack"
       }, () => console.log("CRITICAL ATTACK"))
@@ -454,7 +453,7 @@ class Game extends Component {
       }
       console.log("Your HP after attack " + newHp);
       this.setState({
-        playerHp: newHp  
+        playerHp: newHp
       }, () => updateGameStateOnDefeat(newHp));
     }
 
@@ -498,13 +497,18 @@ class Game extends Component {
   handleDefense = event => {
     event.preventDefault();
 
+    //Disables buttons on click
+    this.setState({
+      isBtnDisabled: true
+    });
+
     // PLAYER CHOOSES TO DEFEND -- ENEMY TAKES NO DAMAGE
     let playerDefenseFunction = () => {
 
       this.setState({
         playerDefend: "animateDefend",
         enemyAttackAnimation: "animateAttack",
-        message2: ""
+        message2: "",
       });
 
       setTimeout(() => {
@@ -514,35 +518,30 @@ class Game extends Component {
         })
       }, 1000);
 
-
-      // $("#player").addClass("animateDefend");
-      // setTimeout(function () {
-      //   $("#attackDefended").addClass("animateAttack");
-      // }, 500)
-      // setTimeout(function () {
-      //   $("#attackDefended").removeClass("animateAttack");
-      // }, 1000);
-      // setTimeout(function () {
-      //   $("#player").removeClass("animateDefend");
-      // }, 1000);
+      //Enables buttons after 2 seconds
+      setTimeout(() => {
+        this.setState({
+          isBtnDisabled: false
+        })
+      }, 2000);
 
       if (this.state.percentChance === "standardAttack") {
 
-      let damageDeflected = this.state.enemyAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
-      this.setState({
-        message: "ENEMY attacks for " + this.state.enemyAtt + " points. YOU DEFLECTED! ...and took " + damageDeflected + " points of damage!",
-        soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/WW_New/WW_Sword_Spin.wav"
-      }, () => console.log("Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"));
-      adjustPlayerHp(damageDeflected);
-    } else {
+        let damageDeflected = this.state.enemyAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
+        this.setState({
+          message: "ENEMY attacks for " + this.state.enemyAtt + " points. YOU DEFLECTED! ...and took " + damageDeflected + " points of damage!",
+          soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/WW_New/WW_Sword_Spin.wav"
+        }, () => console.log("Enemy attacks for " + this.state.enemyAtt + " You deflected! ...and took only " + damageDeflected + " points of damage!"));
+        adjustPlayerHp(damageDeflected);
+      } else {
 
-      let damageDeflected = this.state.enemyCriticalAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
-      this.setState({
-        message: "ENEMY CRITICAL ATTACKS for " + this.state.enemyCriticalAtt + " points. YOU DEFLECTED! ...and took " + damageDeflected + " points of damage!",
-        soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/OOT/OOT_Sword_Overhead.wav"
-      }, () => console.log("Enemy attacks for " + this.state.enemyCriticalAtt + " You deflected! ...and took " + damageDeflected + " points of damage!"));
-      adjustPlayerHp(damageDeflected);
-    }
+        let damageDeflected = this.state.enemyCriticalAtt - Math.round(this.roll(this.state.playerDef / 2, this.state.playerDef));
+        this.setState({
+          message: "ENEMY CRITICAL ATTACKS for " + this.state.enemyCriticalAtt + " points. YOU DEFLECTED! ...and took " + damageDeflected + " points of damage!",
+          soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/OOT/OOT_Sword_Overhead.wav"
+        }, () => console.log("Enemy attacks for " + this.state.enemyCriticalAtt + " You deflected! ...and took " + damageDeflected + " points of damage!"));
+        adjustPlayerHp(damageDeflected);
+      }
 
     }
 
@@ -694,9 +693,9 @@ class Game extends Component {
           </Row>
 
           {/* Embark button to start story and attacking */}
-          <span className = "startButtons">
+          <span className="startButtons">
             <h1 className="startName">{this.state.playerName}</h1>
-            <button className={`${this.state.startBtnHide} start`} onClick={this.startAdventure}><span className="embark">Embark!</span></button>  
+            <button className={`${this.state.startBtnHide} start`} onClick={this.startAdventure}><span className="embark">Embark!</span></button>
           </span>
         </div>
 
@@ -705,23 +704,23 @@ class Game extends Component {
 
           {/* holds the storyline and allows it to be in the hidden or shown */}
           <div className="storyArea">
-          <Card className={`${this.state.cardHide} localCard`}>
+            <Card className={`${this.state.cardHide} localCard`}>
 
-            {/* <Animated animationIn="flipInX" animationOut="flipOutX" isVisible={true}> */}
-            <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
+              {/* <Animated animationIn="flipInX" animationOut="flipOutX" isVisible={true}> */}
+              <Animated animationIn="fadeIn" animationOut="fadeOut" isVisible={true}>
 
-              <div className={`${this.state.storyHide} localBox rounded`} style={{ backgroundImage: `url(${this.state.cardBackground})`, backgroundRepeat: `no-repeat`, backgroundSize: `cover` }}>
+                <div className={`${this.state.storyHide} localBox rounded`} style={{ backgroundImage: `url(${this.state.cardBackground})`, backgroundRepeat: `no-repeat`, backgroundSize: `cover` }}>
 
-                <h3 className="locationTitle">{this.state.current_location}</h3>
+                  <h3 className="locationTitle">{this.state.current_location}</h3>
 
-                <h3 className="storyText">{Locations[this.state.location_id].story}</h3>
+                  <h3 className="storyText">{Locations[this.state.location_id].story}</h3>
 
-              </div>
+                </div>
 
-            </Animated>
+              </Animated>
 
-          </Card>
-          {/* start button to move on to the next battle scene */}
+            </Card>
+            {/* start button to move on to the next battle scene */}
             <button className={`${this.state.cardBtnHide} journeyButton`} onClick={this.startCombat} >Continue your journey</button>
           </div>
 
@@ -735,8 +734,8 @@ class Game extends Component {
               {/* adds animation to the player */}
               <Animated animationIn="bounceInLeft" animationOut="flash" isVisible={true}>
 
-              {/* Animation for defend */}
-              <div className={this.state.playerDefend} />
+                {/* Animation for defend */}
+                <div className={this.state.playerDefend} />
 
                 <UICard
                   name={this.state.playerName}
@@ -757,9 +756,9 @@ class Game extends Component {
               </div>
               <div className={`${this.state.combatHide} buttonRow`}>
 
-                  <Button onClick={this.handleAttack} disabled={this.state.isBtnDisabled} className="combatBtn attack"><h1 className="command">ATTACK</h1></Button>
+                <Button onClick={this.handleAttack} disabled={this.state.isBtnDisabled} className="combatBtn attack"><h1 className="command">ATTACK</h1></Button>
 
-                  <Button onClick={this.handleDefense} disabled={this.state.isBtnDisabled} className="combatBtn defend"><h1 className="command">DEFEND</h1></Button>
+                <Button onClick={this.handleDefense} disabled={this.state.isBtnDisabled} className="combatBtn defend"><h1 className="command">DEFEND</h1></Button>
 
               </div>
 
@@ -791,7 +790,7 @@ class Game extends Component {
 
           </div>
 
-          <Credits creditsRoll={`${this.state.creditsRoll}` }/>
+          <Credits creditsRoll={`${this.state.creditsRoll}`} />
 
 
         </Container>
