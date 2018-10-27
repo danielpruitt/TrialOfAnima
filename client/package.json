@@ -12,7 +12,6 @@
     "react-animated-css": "^1.0.4",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.7",
-    "react-responsive-carousel": "^3.1.43",
     "react-router-dom": "^4.1.2",
     "react-scripts": "1.0.14",
     "redux": "^3.7.2"

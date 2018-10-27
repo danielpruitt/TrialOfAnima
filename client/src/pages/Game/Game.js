@@ -13,10 +13,6 @@ import Button from '@material-ui/core/Button';
 import EnemyModal from "../../components/EnemyModal";
 import ClassModal from "../../components/ClassModal";
 
-// for that carousel hopefully...
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
-
 import SoundEffects from "../../components/SoundEffects";
 import Music from "../../components/Music";
 import API from "../../utils/API";
@@ -810,8 +806,9 @@ class Game extends Component {
 
                     <img src={characters.image} onMouseOver={e => (e.currentTarget.src = `${characters.hover}`)} onMouseOut={e => (e.currentTarget.src = `${characters.image}`)} alt={characters.name} className="selectImg" onClick={this.handleCharacterState} att={characters.att} def={characters.def} hp={characters.hp} superatt={characters.superAtt} image={characters.image} name={characters.name}></img>
 
+                    
                     <footer> <h3>{characters.story}</h3></footer>
-
+                  
                     <ClassModal
                       name={characters.name}
                       attack={characters.att}
@@ -855,6 +852,8 @@ class Game extends Component {
           {/* start button to move on to the next battle scene */}
             <button className={`${this.state.cardBtnHide} journeyButton`} onClick={this.startCombat} >Continue your journey</button>
           </div>
+
+
 
           {/* combat mode  */}
 
