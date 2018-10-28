@@ -9,19 +9,19 @@
     {
         "id": 2,
         "name": "Valley of Despair",
-        "story": "You can’t breathe, you can’t control your emotions, you can’t control anything. Everything is out of order, chaos rules in the moment. Cold sweat, the fear is paralyzing. Your heart pounds and you can feel escalating. You dig down trying to gain control. Inhale. Exhale. Your calm yourself, and it’s then that you hear the Living Bones behind you. ",
+        "story": "You can’t breathe, you can’t control your emotions, you can’t control anything. Everything is out of order, chaos rules in the moment. Cold sweat, the fear is paralyzing. Your heart pounds and you can feel your pulse escalating. You dig down trying to gain control. Inhale. Exhale. You calm yourself, and it’s then that you hear the Living Bones behind you. ",
         "backgroundImage": "./Images/Locations/valleyofdespair.jpg"
     },
     {
         "id": 3,
         "name": "Canyon of Screams",
-        "story": "Everyone is out to get you, they’ve never met you. They’re in your head, everywhere with no escape. Paranoia, the voices, the never ending dread. It’s there, always there haunting you from all around. The screams grow louder, the noise is deafening when the Spectral Demon surges toward you",
+        "story": "Everyone is out to get you, they’ve never met you. They’re in your head, everywhere with no escape. Paranoia, the voices, the never ending dread. It’s there, always there haunting you from all around. The screams grow louder, the noise is deafening when the Phantom Wraith surges toward you",
         "backgroundImage": "./Images/Locations/canyonofscreams.png"
 
     }, {
         "id": 4,
         "name": "Mount Doom",
-        "story": "You’re calm, and then you’re not. All the anger and frustration inside of you seems to have just surfaced. Or was it always there? You can’t tell anymore, this rage comes and goes, followed by the emptiness. At this point, you don’t care what happens, there’s nothing you can do except slaughter Ogre. ",
+        "story": "You’re calm, and then you’re not. All the anger and frustration inside of you seems to have just surfaced. Or was it always there? You can’t tell anymore, this rage comes and goes, followed by the emptiness. At this point, you don’t care what happens, there’s nothing you can do except slaughter the Ogre. ",
         "backgroundImage": "./Images/Locations/mountdoom.jpg"
 
     }
