@@ -1,0 +1,41 @@
+.enemyMobile{
+    position: relative;
+	left: 50%;
+	top: 50%;
+    transform: translate(-50%, -50%);
+    float: left;
+}
+.statName{
+    font-size: 24px;
+}
+
+.percent{
+    font-size: 80px;
+    position: relative;
+}
+
+.modalBody{
+    justify-content: center;
+    text-align: center;
+}
+
+.statHeader{
+    justify-content: center;
+    text-align: center;
+}
+
+.statCheck{
+    background: none;
+    border: none;
+    outline: 0;
+    font-size: 32px;
+    color: white;
+    text-shadow: 1px 5px darkslategray;
+}
+
+.statCheck:active {
+    outline: none;
+    border: none;
+    }
+    
+.statCheck:focus {outline:0;}

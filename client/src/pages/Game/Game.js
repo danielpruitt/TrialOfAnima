@@ -10,6 +10,7 @@ import { Col, Row, Container } from "../../components/Grid";
 import { Animated } from "react-animated-css";
 import Button from '@material-ui/core/Button';
 import EnemyModal from "../../components/EnemyModal";
+import EnemyModalMobile from "../../components/EnemyModal";
 import ClassModal from "../../components/ClassModal";
 import Credits from "../../components/Credits";
 
@@ -782,7 +783,11 @@ class Game extends Component {
 
                   {/* {Attack animation} */}
                   <div className={this.state.playerAttackAnimation} />
-                  <EnemyModal
+                  {/* <EnemyModal
+                    name={this.state.enemyName}
+                    attack={this.state.enemyAtt}
+                    crit={this.state.message2} /> */}
+                    <EnemyModalMobile
                     name={this.state.enemyName}
                     attack={this.state.enemyAtt}
                     crit={this.state.message2} />
