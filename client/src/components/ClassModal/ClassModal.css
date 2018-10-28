@@ -140,8 +140,8 @@
     /* for mobile */
 
     .selectImg{
-        width: 90px;
-        height: 100px;
+        width: 30vw;
+        height: 30vw;
     }
 
     .statCheck {
@@ -151,7 +151,7 @@
         font-size: 30px;
         text-align: center;
     }
-
+    
     footer{
         display: none;
     }

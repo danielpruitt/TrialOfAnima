@@ -265,3 +265,38 @@ button:hover:before, button:hover:after {
 	width: 100%;
 	transition: 800ms ease all;
 }
+
+@media only screen and (max-width: 600px) {
+	.crit-stats {
+		background-image: url("../../Images/Icons/crit_icon_transp_small.png");
+		background-repeat: no-repeat;
+		background-position: center;
+		margin: auto;
+		outline: 0;
+		height: 5vh;
+		width: 10vw;
+		/* padding-top: 60px; */
+	}
+	.att-stats {
+		background-image: url("../../Images/Icons/sword_icon_transp_small.png");
+		background-repeat: no-repeat;
+		background-position: center;
+		margin-left: none;
+		margin: auto;
+		outline: 0;
+		height: 5vh;
+		width: 5vw;
+		/* padding-top: 60px; */
+	}
+	.def-stats {
+		background-image: url("../../Images/Icons/shield_icon_transp_small.png");
+		background-repeat: no-repeat;
+		background-position: center;
+		margin-left: none;
+		margin: auto;
+		outline: 0;
+		height: 5vh;
+		width: 5vw;
+		/* padding-top: 60px; */
+	}
+}
