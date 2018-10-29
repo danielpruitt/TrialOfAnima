@@ -43,6 +43,8 @@ class Game extends Component {
     playerAttackAnimation: "",
     enemyAttackAnimation: "",
     playerDefend: "",
+    playerAttacked: "",
+    enemyAttacked: "",
 
     //DISPLAY STATE COMPONENTS
     charHide: "",
@@ -209,7 +211,8 @@ class Game extends Component {
         //Add sound effect and animation upon clicking attack
         this.setState({
           soundEffects: "http://noproblo.dayjo.org/ZeldaSounds/LTTP/LTTP_Sword4.wav",
-          playerAttackAnimation: "animateAttack"
+          playerAttackAnimation: "animateAttack",
+          enemyAttacked: "animateAttacked"
         });
 
         //removes attack animation
@@ -218,6 +221,13 @@ class Game extends Component {
             playerAttackAnimation: ""
           })
         }, 500);
+
+        //removed enemy attacked animation
+        setTimeout(() => {
+          this.setState({
+            enemyAttacked: ""
+          })
+        }, 2000);
 
         let attackChoice = Math.random();
         console.log("% guiding Critical chances " + attackChoice);
@@ -406,6 +416,7 @@ class Game extends Component {
 
         this.setState({
           enemyAttackAnimation: "animateAttack",
+          playerAttacked: "animateAttacked",
           message: ""
         });
 
@@ -415,10 +426,11 @@ class Game extends Component {
           })
         }, 500);
 
-        //Enables buttons after 2.5 seconds
+        //Enables buttons after 2.5 seconds and removed attacked animation
         setTimeout(() => {
           this.setState({
-            isBtnDisabled: false
+            isBtnDisabled: false,
+            playerAttacked: ""
           })
         }, 2500);
 
@@ -748,7 +760,7 @@ class Game extends Component {
                   image={this.state.playerImage}
                   hp={this.state.playerHp}
                   maxHp={this.state.playerMaxHp}
-                  styleClass="player"
+                  styleClass={`${this.state.playerAttacked} player`}
                 />
                 <div className={this.state.enemyAttackAnimation} />
               </Animated>
@@ -778,7 +790,7 @@ class Game extends Component {
                     image={this.state.enemyImage}
                     hp={this.state.enemyHp}
                     maxHp={this.state.enemyMaxHp}
-                    styleClass="enemy"
+                    styleClass={`${this.state.enemyAttacked} enemy`}
                   />
 
                   {/* {Attack animation} */}

@@ -1,10 +1,12 @@
 .hide {
 	display: none;
 }
+
 .app {
 	color: white;
 	font-family: 'VT323', monospace;
 }
+
 .victory {
 	font-size: 56px;
 	text-shadow: 2px 7px darkslategray;
@@ -21,6 +23,7 @@
 	width: 200px;
 	padding-top: 60px;
 }
+
 .att-stats {
 	background-image: url("../../Images/Icons/sword_icon_transp_small.png");
 	background-repeat: no-repeat;
@@ -33,6 +36,7 @@
 	width: 200px;
 	padding-top: 60px;
 }
+
 .def-stats {
 	background-image: url("../../Images/Icons/shield_icon_transp_small.png");
 	background-repeat: no-repeat;
@@ -47,89 +51,91 @@
 }
 
 /* Aniamtion for attacks */
+
 .animateAttack {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  z-index: 3;
-  width: 0px;
-  height: 0px;
-  border-left: 3px solid white;
-  border-right: 3px solid white;
-  border-bottom: 180px solid white;
-  transform: rotateZ(45deg);
-  animation: attack 0.5s cubic-bezier(0.17, 0.67, 0.68, 0.81);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	z-index: 3;
+	width: 0px;
+	height: 0px;
+	border-left: 3px solid red;
+	border-right: 3px solid red;
+	border-bottom: 220px solid red;
+	border-radius: 20px;
+	transform: rotateZ(45deg);
+	animation: attack 0.5s cubic-bezier(0.17, 0.67, 0.68, 0.81);
 }
 
 @keyframes attack {
-  0% {
-    transform: translate3d(50px, -50px, 0) rotateZ(45deg);
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translate3d(-20px, 20px, 0) rotateZ(45deg);
-    opacity: 0;
-  }
+	0% {
+		transform: translate3d(50px, -50px, 0) rotateZ(45deg);
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		transform: translate3d(-20px, 20px, 0) rotateZ(45deg);
+		opacity: 0;
+	}
 }
 
 /* Aniamtion for defend */
+
 .animateDefend {
 	/* background-color: blue; */
 	background-image: url("../../Images/Icons/shield_icon_transp_small.png");
 	background-size: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  /* z-index: -1; */
-  margin: 0 auto;
-  height: 100px;
-  width: 100px;
-  animation: defend 1s cubic-bezier(0.88, 0.18, 0.99, 0.46);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	/* z-index: -1; */
+	margin: 0 auto;
+	height: 100px;
+	width: 100px;
+	animation: defend 1s cubic-bezier(0.88, 0.18, 0.99, 0.46);
 }
 
 @keyframes defend {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
 }
 
 /* Aniamtion for fade */
-.animateFade {
-  animation: fade 3s cubic-bezier(0, 0.71, 0.47, 0.35);
-}
 
+.animateFade {
+	animation: fade 3s cubic-bezier(0, 0.71, 0.47, 0.35);
+}
 
 @keyframes fade {
-  0% {
-    opacity: 1;
-  }
-  25% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+	0% {
+		opacity: 1;
+	}
+	25% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
-
-/* testing animations */
 
 /* flicker */
 
 .flicker-3 {
 	animation: flicker-3 2.5s linear infinite both;
 }
+
 @keyframes flicker-3 {
 	0%, 100% {
 		opacity: 1;
@@ -183,6 +189,7 @@
 		opacity: 1;
 	}
 }
+
 /* Adding some credits animation */
 
 * {
@@ -206,6 +213,7 @@
 	animation: 60s credits linear infinite;
 	text-shadow: 1px 8px darkslategray;
 }
+
 .gameTitle {
 	margin-bottom: 75px;
 	font-size: 65px;
@@ -214,10 +222,12 @@
 .dev {
 	margin-bottom: 65px;
 }
+
 .thanks {
 	font-size: 48px;
 	margin-top: 200px;
 }
+
 @keyframes credits {
 	0% {
 		top: 100%;
@@ -226,9 +236,11 @@
 		top: -500%;
 	}
 }
+
 .restartBtn {
 	color: white;
 }
+
 /* regular buttons */
 
 button {
@@ -244,10 +256,12 @@ button {
 	transition: 800ms ease all;
 	outline: none;
 }
+
 button:hover {
 	background: #ffffff00;
 	color: #F6F7EB;
 }
+
 button:before, button:after {
 	content: '';
 	position: absolute;
@@ -258,12 +272,14 @@ button:before, button:after {
 	background: #225C5B;
 	transition: 400ms ease all;
 }
+
 button:after {
 	right: inherit;
 	top: inherit;
 	left: 0;
 	bottom: 0;
 }
+
 button:hover:before, button:hover:after {
 	width: 100%;
 	transition: 800ms ease all;
