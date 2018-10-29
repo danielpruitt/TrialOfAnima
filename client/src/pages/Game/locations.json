@@ -15,13 +15,13 @@
     {
         "id": 3,
         "name": "Canyon of Screams",
-        "story": "Everyone is out to get you, they’ve never met you. They’re in your head, everywhere with no escape. Paranoia, the voices, the never ending dread. It’s there, always there haunting you from all around. The screams grow louder, the noise is deafening when the Spectral Demon surges toward you",
+        "story": "Everyone is out to get you, they’ve never met you. They’re in your head, everywhere with no escape. Paranoia, the voices, the never ending dread. It’s there, always there haunting you from all around. The screams grow louder, the noise is deafening when the Phantom Wraith surges toward you",
         "backgroundImage": "./Images/Locations/canyonofscreams.png"
 
     }, {
         "id": 4,
         "name": "Mount Doom",
-        "story": "You’re calm, and then you’re not. All the anger and frustration inside of you seems to have just surfaced. Or was it always there? You can’t tell anymore, this rage comes and goes, followed by the emptiness. At this point, you don’t care what happens, there’s nothing you can do except slaughter Ogre. ",
+        "story": "You’re calm, and then you’re not. All the anger and frustration inside of you seems to have just surfaced. Or was it always there? You can’t tell anymore, this rage comes and goes, followed by the emptiness. At this point, you don’t care what happens, there’s nothing you can do except slaughter the Ogre. ",
         "backgroundImage": "./Images/Locations/mountdoom.jpg"
 
     }
