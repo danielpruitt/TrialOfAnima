@@ -108,7 +108,7 @@ function StartGame(props) {
                     style={{
                         width: image.width,
                     }}
-                    href="/users"
+                    href="/game"
                 >
                     <span
                         className={classes.imageSrc}

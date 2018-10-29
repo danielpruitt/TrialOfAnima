@@ -67,6 +67,24 @@
     text-shadow: -1px 0 #1C1C1C, 0 1px #1C1C1C, 1px 0 #1C1C1C, 0 -1px #1C1C1C !important;
 }
 
+/* Aniamtion for being attacked */
+.animateAttacked {
+	transition: linear 2s;
+	animation: attacked 1s cubic-bezier(0.17, 0.67, 0.68, 0.81);
+  }
+
+  @keyframes attacked {
+	0% {
+	  transform: translateX(15px);
+	}
+	50% {
+	  transform: translateX(-15px);
+	}
+	100% {
+	  transform: translateX(0px);
+	}
+  }
+
 
 @media only screen and (max-width: 900px) {
     /* for tablets */

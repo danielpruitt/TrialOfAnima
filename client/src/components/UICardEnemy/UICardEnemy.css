@@ -1,0 +1,17 @@
+/* Aniamtion for being attacked */
+.animateAttacked {
+	transition: linear 2s;
+	animation: attacked 1s cubic-bezier(0.17, 0.67, 0.68, 0.81);
+  }
+
+  @keyframes attacked {
+	0% {
+	  transform: translateX(15px);
+	}
+	50% {
+	  transform: translateX(-15px);
+	}
+	100% {
+	  transform: translateX(0px);
+	}
+  }
