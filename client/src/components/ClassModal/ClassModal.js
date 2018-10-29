@@ -30,8 +30,8 @@ const theme = createMuiTheme({
 // }
 
 function getModalStyle() {
-//   const top = 50 + rand();
-//   const left = 50 + rand();
+  //   const top = 50 + rand();
+  //   const left = 50 + rand();
   const top = 50;
   const left = 50;
 
@@ -45,7 +45,7 @@ function getModalStyle() {
 const styles = () => ({
   paper: {
     position: 'absolute',
-    backgroundColor: (0,0,0),
+    backgroundColor: (0, 0, 0),
     boxShadow: theme.shadows[5],
     color: theme.palette.primary.contrastText,
 
@@ -86,29 +86,25 @@ class SimpleModal extends React.Component {
                 <h1 className="col statHeader">{this.props.name} Stats</h1>
               </Row>
               <Row>
-                
-                <Col size="3"/>
-                <Col size="2">
-                  <div className="att-stats stats">
-                    <h3 className="statName">Attack Damage</h3>
-                    <h3 className="percent">{this.props.attack}</h3> 
-                  </div>
+
+                <Col size="3" styleClass="statPadding"/>
+                <Col size="2" styleClass="att-stats stats">
+                  <h3 className="statName">Attack Damage</h3>
+                  <h3 className="percent">{this.props.attack}</h3>
                 </Col>
 
-                <Col size="2">
-                  <div className="def-stats stats">
-                    <h3 className="statName">Defense</h3>
-                    <h3 className="percent">{this.props.defense}</h3> 
-                  </div>
+                <Col size="2" styleClass="def-stats stats">
+
+                  <h3 className="statName">Defense</h3>
+                  <h3 className="percent">{this.props.defense}</h3>
+
                 </Col>
 
-                <Col size="2">
-                  <div className="crit-stats stats">
-                    <span className="statName">Critical Damage</span><br></br>
-                    <span className="percent">{this.props.crit}</span> 
-                  </div>
+                <Col size="2" styleClass="crit-stats stats">
+                  <span className="statName">Critical Damage</span><br></br>
+                  <span className="percent">{this.props.crit}</span>
                 </Col>
-                <Col size="3"/>
+                <Col size="3" styleClass="statPadding"/>
 
               </Row>
             </div>
@@ -116,7 +112,7 @@ class SimpleModal extends React.Component {
             {/* <button onClick={Modal.style.display = "none"}>Close</button> */}
 
           </Container>
-          
+
         </Modal>
       </div>
     );
