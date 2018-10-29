@@ -1,6 +1,6 @@
 # Trial of Anima
 
-MindRPG is a MERN stack Role-Playing Game that gives the user a short game experience that intends to help their mindfulness state. 
+Trial of Anima is a MERN stack Role-Playing Game that gives the user a short game experience that intends to help their mindfulness state. 
 
 
 ## Instructions
