@@ -352,7 +352,7 @@ class Game extends Component {
               storyHide: "",
               message: "",
               message2: "",
-              message3: "Traveling to Next Location",
+              message3: "",
               location_id: newLocation,
               current_location: location_name,
               cardBackground: Locations[newLocation].backgroundImage,
