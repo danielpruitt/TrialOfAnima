@@ -100,6 +100,10 @@
 	animation: defend 1s cubic-bezier(0.88, 0.18, 0.99, 0.46);
 }
 
+.mobile{
+	display: none
+}
+
 @keyframes defend {
 	0% {
 		opacity: 1;
@@ -317,5 +321,19 @@ button:hover:before, button:hover:after {
 		height: 100px;
 		width: 150px;
 		padding-top: 30px;
+	}
+	.notMobile{
+		display: none;
+	}
+	.mobile{
+		display: block;
+	}
+	.victory{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 3;
+		width: 100vw;
 	}
 }
