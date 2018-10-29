@@ -108,7 +108,7 @@ function StartGame(props) {
                     style={{
                         width: image.width,
                     }}
-                    href="/users"
+                    href="/game"
                 >
                     <span
                         className={classes.imageSrc}
@@ -124,7 +124,7 @@ function StartGame(props) {
                                 variant="subtitle1"
                                 color="inherit"
                                 className={classes.imageTitle}
-                                a="/users"
+                                a="/game"
                             >
                                 {image.title}
                                 <span className={classes.imageMarked} />
