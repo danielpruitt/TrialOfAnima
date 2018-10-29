@@ -7,7 +7,7 @@
         "shadow_image": "./Images/Shadows/Shadow_Mage_Squared.png",
         "selected": false,
         "hp": 90,
-        "att": 40,
+        "att": 100,
         "superAtt": 60,
         "def": 20,
         "story": "Discovering truth has always driven you into the unknown, mainly the truth that you came from the moon."
