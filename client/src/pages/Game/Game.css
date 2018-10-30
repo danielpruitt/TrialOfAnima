@@ -318,4 +318,20 @@ button:hover:before, button:hover:after {
 		width: 150px;
 		padding-top: 30px;
 	}
+
+	.notMobile{
+		display: none;
+	}
+	.mobile{
+		display: block;
+	}
+	.victory{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 3;
+		width: 100vw;
+	}
 }
+
