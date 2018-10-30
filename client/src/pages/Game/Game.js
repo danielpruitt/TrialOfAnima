@@ -382,7 +382,7 @@ class Game extends Component {
               current_location: location_name,
               enemySelector: newEnemySelected,
               cardBackground: Locations[newLocation].backgroundImage,
-              music: "http://www.music-note.jp/bgm/mp3/0513/devil.WAV"
+              music: "http://www.music-note.jp/bgm/mp3/2014/0119/fantasy1.MP3"
             }, () => console.log("Traveling to the next location.."));
           }
         }
