@@ -1,6 +1,7 @@
 # Trial of Anima
 
-Trial of Anima is a MERN stack Role-Playing Game that gives the user a short game experience that intends to help their mindfulness state. 
+Trial of Anima is a MERN stack Role-Playing Game that gives the user a short game experience.
+https://trialofanima.herokuapp.com/
 
 
 ## Instructions
@@ -39,7 +40,7 @@ On the character select screen, you must click on one of the characters in order
 
 ### Battle
 
-Once you have entered a battle, the user will have an option to either attack or defend. Users will notice a red skull in the middle of the screen. The percentage on the skull indicates the chance of the emeny inflicting a critical hit. 
+Once you have entered a battle, the user will have an option to either attack or defend. Users will notice a red skull in the middle of the screen. The percentage on the skull indicates the chance of the enemy inflicting a critical hit. 
 
 You can also look at the enemy's stats by clicking on the stat button below it.
 
