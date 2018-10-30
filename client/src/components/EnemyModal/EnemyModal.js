@@ -81,7 +81,7 @@ class SimpleModal extends React.Component {
           <Container>
             <div style={getModalStyle()} className={`${classes.paper} modalBody`}>
               <Row>
-                <h1 className="col statHeader">STATS for {this.props.name}</h1>
+                <h1 className="col statHeader">{this.props.name} Stats</h1>
               </Row>
               <Row>
 
@@ -92,8 +92,8 @@ class SimpleModal extends React.Component {
                 </Col>
 
                 <Col size="2" styleClass="crit-stats stats">
-                  <span className="statName">Danger of Critical</span><br></br>
-                  <span className="percent">{this.props.crit}</span>
+                  <h3 className="statName">Critical Danger</h3>
+                  <h3 className="percent">{this.props.crit}</h3>
                 </Col>
                 <Col size="4" />
 

@@ -3,9 +3,12 @@
 }
 
 .app {
-	color: white;
 	font-family: 'VT323', monospace;
 }
+
+.danger{
+	z-index: 1;
+
 
 .victory {
 	font-size: 56px;
@@ -27,32 +30,17 @@
 	height: 250px;
 	width: 200px;
 	padding-top: 60px;
+
+}
+.textLog{
+	font-size: 3vw;
+	word-wrap: break-word;
+	z-index: 2;
 }
 
-.att-stats {
-	background-image: url("../../Images/Icons/sword_icon_transp_small.png");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 20vw 20vw;
-	margin-left: none;
-	margin: auto;
-	outline: 0;
-	height: 250px;
-	width: 200px;
-	padding-top: 60px;
-}
-
-.def-stats {
-	background-image: url("../../Images/Icons/shield_icon_transp_small.png");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 20vw 20vw;
-	margin-left: none;
-	margin: auto;
-	outline: 0;
-	height: 250px;
-	width: 200px;
-	padding-top: 60px;
+.victory {
+	font-size: 56px;
+	text-shadow: 2px 7px #656565;
 }
 
 /* Aniamtion for attacks */
@@ -211,12 +199,11 @@
 	margin-left: -250px;
 	font: 300 30px/1;
 	font-family: 'VT323', monospace;
-	;
 	text-align: center;
 	text-transform: uppercase;
 	color: #fff;
 	animation: 60s credits linear infinite;
-	text-shadow: 1px 8px darkslategray;
+	text-shadow: 1px 8px #656565;
 }
 
 .gameTitle {
@@ -290,38 +277,25 @@ button:hover:before, button:hover:after {
 	transition: 800ms ease all;
 }
 
-@media only screen and (max-width: 700px) {
-	.crit-stats {
-		background-image: url("../../Images/Icons/crit_icon_transp_small.png");
-		background-repeat: no-repeat;
-		background-position: center;
-		margin: auto;
-		outline: 0;
-		height: 100px;
-		width: 150px;
-		padding-top: 30px;
+@media only screen and (max-width: 900px) {
+	/* for tablets */
+	.textLog{
+		word-spacing: 2px;
 	}
-	.att-stats {
-		background-image: url("../../Images/Icons/sword_icon_transp_small.png");
-		background-repeat: no-repeat;
-		background-position: center;
-		margin-left: none;
-		margin: auto;
-		outline: 0;
-		height: 100px;
-		width: 150px;
-		padding-top: 30px;
+	.victory {
+		font-size: 36px;
+		text-shadow: 2px 6px #656565;
 	}
-	.def-stats {
-		background-image: url("../../Images/Icons/shield_icon_transp_small.png");
-		background-repeat: no-repeat;
-		background-position: center;
-		margin-left: none;
-		margin: auto;
-		outline: 0;
-		height: 100px;
-		width: 150px;
-		padding-top: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+	/* for mobile */
+	.textLog{
+		word-spacing: 1.5px;
+	}
+	.victory {
+		font-size: 24px;
+		text-shadow: 1px 5px #656565;
 	}
 
 	.notMobile{

@@ -40,13 +40,13 @@ class Nav extends Component {
         </button>`
         {this.state.authenticated ? (
           <div className="collapse navbar-collapse" id="navbarText">
-            <div className="navbar-text pad">
+            <div className="navbar-text">
               <h2> Greetings {this.state.userName}!</h2>
             </div>
-            <div className="navbar-text pad">
+            <div className="navbar-text">
               <h2>Total Clears: {this.state.clears}</h2>
             </div>
-            <div className="navbar-text pad">
+            <div className="navbar-text">
               <h2><a className="nav-link" href="/logout">Logout</a></h2>
             </div>
 

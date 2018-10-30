@@ -116,10 +116,10 @@
 @media only screen and (max-width: 600px) {
     /* for mobile */
     .characterName{
-        font-size: 6vw;
+        font-size: 7vw;
     }
     .enemyName{
-        font-size: 6vw;
+        font-size: 7vw;
     }
     .section{
         height: 14vh;

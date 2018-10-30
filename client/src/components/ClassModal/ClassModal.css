@@ -1,25 +1,49 @@
-.statName {
-    font-size: 24px;
-}
-
-.percent {
-    font-size: 80px;
-    position: relative;
-}
-
 .modalBody {
     justify-content: center;
     text-align: center;
 }
-
 .statHeader {
     justify-content: center;
     text-align: center;
+    font-size: 60px;
+    margin-top: 50px;
+    margin-bottom: -50px;
 }
-
+.stats {
+    width: 30vw;
+    height: 30vw;
+    background-repeat: no-repeat;
+	background-position: center;
+	background-size: 20vw 20vw;
+	margin: auto;
+	outline: 0;
+    padding-top: 10vw;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.statName {
+    font-size: 3vw;
+    height: 4vw;
+}
+.percent {
+    font-size: 8vw;
+    position: relative;
+}
 .selectImg {
     width: 30vw;
     height: 30vw;
+}
+
+.crit-stats {
+	background-image: url("../../Images/Icons/crit_icon_transp_small.png");
+}
+
+.att-stats {
+	background-image: url("../../Images/Icons/sword_icon_transp_small.png");
+}
+
+.def-stats {
+	background-image: url("../../Images/Icons/shield_icon_transp_small.png");
+	
 }
 
 /* stats button */
@@ -96,6 +120,23 @@
 
 @media only screen and (max-width: 768px) {
     /* for tablets */
+    .statHeader{
+        margin-top: 10vw;
+        margin-bottom: -10vw;
+    }
+    .statName {
+        padding-top: 0px;
+        font-size: 5vw;
+        height: 10vw;
+    }
+    .percent {
+        font-size: 75px;
+    }
+    .stats {
+        width: 40vw !important;
+        height: 40vw !important;
+        background-size: 22vw;
+    }
     .selectImg {
         width: 30vw;
         height: 30vw;
@@ -109,6 +150,21 @@
 
 @media only screen and (max-width: 600px) {
     /* for mobile */
+    .statHeader{
+        margin-top: 8vw;
+        font-size: 60px;
+    }
+    .statName {
+        padding-top: 10px;
+        font-size: 4vw;
+        height: 10vw;
+    }
+    .percent {
+        font-size: 28px;
+    }
+    .stats {
+        background-size: 20vw;
+    }
     .selectImg {
         width: 90px;
         height: 100px;

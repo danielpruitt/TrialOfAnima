@@ -101,8 +101,8 @@ class SimpleModal extends React.Component {
                 </Col>
 
                 <Col size="2" styleClass="crit-stats stats">
-                  <span className="statName">Critical Damage</span><br></br>
-                  <span className="percent">{this.props.crit}</span>
+                  <h3 className="statName">Critical Damage</h3>
+                  <h3 className="percent">{this.props.crit}</h3>
                 </Col>
                 <Col size="3" styleClass="statPadding"/>
 
