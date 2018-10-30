@@ -90,8 +90,4 @@ Additional thanks to [Kendall](https://github.com/jameskendallbruce) for creatin
 
 # Note
 
-<<<<<<< HEAD
 The background image used for the game is from the video game "Darkest Dungeon" by Red Hook Studios. This project is not meant to endorse or sponsor the game and is intended only for project demonstration. 
-=======
-The background image used for the game is from the video game "Darkest Dungeon" by Red Hook Studios. This project is not meant to endorse or sponsor the game and is intended only for project demonstration. 
->>>>>>> 72a0a3ef18252abe0b0907def4e6579deb5d362c
