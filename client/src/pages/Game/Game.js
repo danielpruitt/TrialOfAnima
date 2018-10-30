@@ -381,7 +381,7 @@ class Game extends Component {
               current_location: location_name,
               enemySelector: newEnemySelected,
               cardBackground: Locations[newLocation].backgroundImage,
-              music: "http://www.music-note.jp/bgm/mp3/0513/devil.WAV"
+              music: "http://www.music-note.jp/bgm/mp3/2014/0119/fantasy1.MP3"
             }, () => console.log("Traveling to the next location.."));
           }
         }
@@ -764,9 +764,16 @@ class Game extends Component {
               </Animated>
             </Col>
 
+            <span className="victory mobile">{this.state.message3}</span>
+
             <Col size="4" className={`${this.state.combatHide} textCard`} styleClass="altCentered">
-              <div className="textCard">
-                <div className="textLog">{this.state.message}<span className="danger">{this.state.message2}</span><span className="victory">{this.state.message3}</span></div>
+              
+              <div className="textCard notMobile">
+                <div className="textLog"><span className={this.state.message}>{this.state.message}</span><span className="danger">{this.state.message2}</span><span className="victory">{this.state.message3}</span></div>
+              </div>
+
+              <div className="textCard mobile">
+                <div className="textLog"><span className="danger">{this.state.message2}</span></div>
               </div>
               
               <div className={`${this.state.combatHide} buttonRow combatButtonsArea`}>

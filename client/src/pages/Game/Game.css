@@ -5,8 +5,32 @@
 .app {
 	font-family: 'VT323', monospace;
 }
+
 .danger{
 	z-index: 1;
+
+
+.victory {
+	font-size: 56px;
+	text-shadow: 2px 7px darkslategray;
+}
+
+.mobile{
+	display: none
+}
+
+
+.crit-stats {
+	background-image: url("../../Images/Icons/crit_icon_transp_small.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 20vw 20vw;
+	margin: auto;
+	outline: 0;
+	height: 250px;
+	width: 200px;
+	padding-top: 60px;
+
 }
 .textLog{
 	font-size: 3vw;
@@ -273,4 +297,20 @@ button:hover:before, button:hover:after {
 		font-size: 24px;
 		text-shadow: 1px 5px #656565;
 	}
+
+	.notMobile{
+		display: none;
+	}
+	.mobile{
+		display: block;
+	}
+	.victory{
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 3;
+		width: 100vw;
+	}
 }
+
