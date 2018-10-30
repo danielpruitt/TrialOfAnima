@@ -12,6 +12,11 @@
 	text-shadow: 2px 7px darkslategray;
 }
 
+.mobile{
+	display: none
+}
+
+
 .crit-stats {
 	background-image: url("../../Images/Icons/crit_icon_transp_small.png");
 	background-repeat: no-repeat;
