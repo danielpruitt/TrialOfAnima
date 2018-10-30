@@ -247,10 +247,16 @@ button:hover:before, button:hover:after {
 
 @media only screen and (max-width: 900px) {
 	/* for tablets */
-	
+	.victory {
+		font-size: 36px;
+		text-shadow: 2px 6px #656565;
+	}
 }
 
 @media only screen and (max-width: 600px) {
 	/* for mobile */
-	
+	.victory {
+		font-size: 24px;
+		text-shadow: 1px 5px #656565;
+	}
 }
