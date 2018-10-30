@@ -5,6 +5,14 @@
 .app {
 	font-family: 'VT323', monospace;
 }
+.danger{
+	z-index: 1;
+}
+.textLog{
+	font-size: 3vw;
+	word-wrap: break-word;
+	z-index: 2;
+}
 
 .victory {
 	font-size: 56px;
@@ -247,6 +255,9 @@ button:hover:before, button:hover:after {
 
 @media only screen and (max-width: 900px) {
 	/* for tablets */
+	.textLog{
+		word-spacing: 2px;
+	}
 	.victory {
 		font-size: 36px;
 		text-shadow: 2px 6px #656565;
@@ -255,6 +266,9 @@ button:hover:before, button:hover:after {
 
 @media only screen and (max-width: 600px) {
 	/* for mobile */
+	.textLog{
+		word-spacing: 1.5px;
+	}
 	.victory {
 		font-size: 24px;
 		text-shadow: 1px 5px #656565;
