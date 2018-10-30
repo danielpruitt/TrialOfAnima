@@ -1,16 +1,16 @@
 .centered {
 	border: black 2 px solid;
+	column-width: 32vw;
 	align-content: center;
     justify-content: center;
-    column-width: 32vw;
+
 }
 .altCentered {
-	align-content: center;
-	justify-content: center;
     color: white;
-	height: 70vh;
-    column-width: 32vw;
-    overflow: auto;
+	height: 70vw;
+	flex-direction: column;
+	align-content: flex-start;
+	flex-wrap: wrap;
 }
 .col-4 {
 	column-width: 32vw;
@@ -19,11 +19,11 @@
 	background-image: url("../../Images/Icons/crit_icon_transp_small.png");
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 18vw 18vw;
+	background-size: 16vw 16vw;
 	width: inherit;
-	height: 32vh;
+	height: 16vw;
 	margin-bottom: none;
-	margin-top: none;
+	margin-top: 4vw;
 }
 .textLog{
 	position: relative;
@@ -38,14 +38,15 @@
 }
 
 .cardImg {
+	margin-top: 2vw;
 	width: 30vw;
 	height: 30vw;
 }
 
 .buttonRow{
-	width: 30vw;
-	height: 32vh;
+	width: inherit;
 	margin-top: none;
+	display: flex;
 }
 
 .command {
@@ -64,7 +65,7 @@
 	outline: 0;
 	position: relative;
 	z-index: 2;
-	
+	/* text inside of the attack/defend buttons */
 	color: #F6F7EB !important;
 	font-family: 'VT323', monospace !important;
 	font-size: 48px !important;
@@ -149,8 +150,16 @@
 		/* background: green;
         border: 4px solid white; */
 	}
+	.textCard {
+		background-size: 18vw 18vw;
+		height: 18vw;
+	}
 	.buttonRow{
-		display: inline;
+		margin-top: 2vw;
+		display: flex;
+		flex-wrap: wrap;
+		align-content: center;
+		justify-content: center;	
 	}
     .danger{
         font-size: 80px;    
@@ -160,27 +169,38 @@
 		height: 30vw;
 	}
 	.combatBtn {
-		height: 20vw;
-		width: 20vw;
+		height: 16vw;
+		width: 16vw;
 		font-size: 40px !important;
 	}
 	.attack, .defend {
-		background-size: 20vw 20vw;
+		background-size: 16vw 16vw;
 	}
 	.combatBtn.attack:hover, .combatBtn.defend:hover {
-		background-size: 18vw 18vw;
+		background-size: 15vw 15vw;
 	}
 	.combatBtn.disabled, .combatBtn:disabled, .combatBtn.disabled:hover, .combatBtn:disabled:hover{
-		background-size: 18vw 18vw;
+		background-size: 15vw 15vw;
 	} 
 }
+
 @media only screen and (max-width: 600px) {
 	/* for mobile */
 	.col-4 {
 		column-width: 100vw !important;
 	}
+	.textCard {
+		background-size: 20vw 20vw;
+		height: 20vw;
+		align-content: center;
+		justify-content: center;
+	}
 	.buttonRow{
-		display: inline;
+		margin-top: 2vw;
+		display: flex;
+		flex-wrap: wrap;
+		align-content: center;
+		justify-content: center;	
 	}
     .danger{
         font-size: 40px;    
@@ -190,17 +210,17 @@
 		height: 100px;
 	}
 	.combatBtn {
-		height: 20vw;
-		width: 20vw;
+		height: 18vw;
+		width: 18vw;
 		font-size: 30px !important;
 	}
 	.attack, .defend {
-		background-size: 20vw 20vw;
+		background-size: 18vw;
 	}
 	.combatBtn.attack:hover, .combatBtn.defend:hover {
-		background-size: 18vw 18vw;
+		background-size: 16vw;
 	}
 	.combatBtn.disabled, .combatBtn:disabled, .combatBtn.disabled:hover, .combatBtn:disabled:hover{
-		background-size: 18vw 18vw;
+		background-size: 16vw;
 	} 
 }

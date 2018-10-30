@@ -1,23 +1,17 @@
 .row{
     margin-top: 0x;
     padding: 20px;
-    width: 99.9vw;
+    width: 100vw;
 
 }
-
-.testRow {
-    width:98vw
-}
-
-
 
 @media only screen and (max-width: 900px) {
     /* for tablets */
     .row{
         margin-top: 20px;
         width: 100vw;
-    }
-  
+
+    }  
 }
 
 @media only screen and (max-width: 600px) {
@@ -25,6 +19,6 @@
     .row{
         margin-top: 20px;
         width: 100vw;
-    }
-  
+
+    } 
 }

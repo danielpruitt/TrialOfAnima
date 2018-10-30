@@ -1,0 +1,10 @@
+@media only screen and (max-width: 600px) {
+    /* for mobile */
+    .StartGame-imageTitle-7 {
+        margin-top: 30px !important;
+        padding: 10px !important;
+        height: 80px !important;
+        width: 200px !important;
+        font-size: 32px !important;
+    }
+}
