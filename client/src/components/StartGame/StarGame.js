@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import { Animated } from "react-animated-css";
+import "./StartGame.css";
 
 
 //styles from Material UI we'll have to manipulate it to what we want, right now it's a stock url found online. we easily change this.

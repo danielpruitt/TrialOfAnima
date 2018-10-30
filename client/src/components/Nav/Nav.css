@@ -2,20 +2,43 @@
 .navbar, .navbar-expand-lg, .navbar-dark{
     background: #1C1C1C !important;
     box-shadow: 0px 4px 60px #656565 !important;
-    /* width: 100vw !important; */
+    width: 100vw !important;
+    padding: 10px;
+    display:flex;
+    align-items:center; 
+    justify-content:flex-end;
 }
-
-/* mindrpg logo */
+/* toggler button */
+.navbar-toggler{
+    margin: 0;
+}
+/* logo */
 .navbar-brand {
-    transform: skew(-10deg) rotate(-10deg) !important;
-    font-size: 50px !important;
-    color: #3363A4 !important;
-    text-shadow: 0.25vmin 0.25vmin 0 #F2BB05, -0.25vmin -0.25vmin 0 #8D2F2E !important;
-}
+    position: absolute;
+    top: 20px !important;
+    left: 20px !important;
+    font-size: 40px !important;
+    font-family: 'Almendra SC', serif;
+    color: #F6F7EB !important;
+    text-shadow:
+    -3px -3px 0 #000,
+    3px -3px 0 #000,
+    -3px 3px 0 #000,
+    3px 3px 0 #000,
+    3.5px 3.5px 0 #F6F7EB,
+    5px 5px 0 #F6F7EB,
+    5.5px 5.5px 0 #F6F7EB,
+    6px 6px 0 #F6F7EB;
+    line-height: 0.8em;
+    letter-spacing: 0.1em;
+    transform: scaleY(0.7);
+    margin:0;
+    text-align: center;
+  }
 
 /* links */
 .nav-link {
-    color: #23B5D3;
+    color: #23B5D3 !important;
 }
 
 .nav-link:hover{
@@ -27,38 +50,35 @@
     color: #F6F7EB !important;
     text-decoration: underline !important;
 }
-
-
 /* text */
+#navbarText{
+    align-items:center; 
+    justify-content:flex-end;
+}
 .navbar-text {
     color: #F6F7EB !important;
-}
-
-.pad{
-    padding-right: 8vw;
-    padding-left: 8vw;
+    padding: 10px;
+    margin-left: 4vw;
 }
 
 @media only screen and (max-width: 900px) {
     /* for tablets */
-
-    /* mindrpg logo */
+    /* logo */
     .navbar-brand {
-        transform: skew(-5deg) rotate(-5deg) !important;
-        font-size: 8vmin !important;
-        color: #3363A4 !important;
-        text-shadow: 0.25vmin 0.25vmin 0 #F2BB05, -0.25vmin -0.25vmin 0 #8D2F2E !important;
+        font-size: 35px !important;
+    }
+    /* text */
+    #navbarText{
+        align-items:center; 
+        justify-content:center;
     }
 }
 
 @media only screen and (max-width: 600px) {
     /* for mobile */
-
-    /* mindrpg logo */
+    /* logo */
     .navbar-brand {
-        transform: skew(-2deg) rotate(-2deg) !important;
-        font-size: 8vmin !important;
-        color: #3363A4 !important;
-        text-shadow: -1px 0 #F6F7EB, 0 1px #F6F7EB, 1px 0 #F6F7EB, 0 -1px #F6F7EB !important;
+        font-size: 30px !important;
+        text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000 !important;
     }
 }

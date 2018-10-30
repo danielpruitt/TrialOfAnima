@@ -12,7 +12,6 @@ import Button from '@material-ui/core/Button';
 import EnemyModal from "../../components/EnemyModal";
 import ClassModal from "../../components/ClassModal";
 import Credits from "../../components/Credits";
-
 import SoundEffects from "../../components/SoundEffects";
 import Music from "../../components/Music";
 import API from "../../utils/API";
@@ -745,7 +744,7 @@ class Game extends Component {
 
           {/* combat mode  */}
 
-          <div className={`${this.state.combatHide} row testRow `}>
+          <div className={`${this.state.combatHide} row`}>
 
             <Col size="4" className={this.state.combatHide} styleClass="centered">
               {/* adds animation to the player */}
