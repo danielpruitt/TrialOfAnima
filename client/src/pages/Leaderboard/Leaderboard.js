@@ -43,7 +43,7 @@ class Leaderboard extends Component {
         let list = [];
 
         for(let i = 0; i < this.state.listOfUsers.length; i++){
-            list.push(<Row><Col size="md-12"><h2>{i+1}.) Name: {this.state.listOfUsers[i].name}</h2></Col><Col size="md-12"><h2>Clears: {this.state.listOfUsers[i].numberOfClears}</h2></Col></Row>);
+            list.push(<Row key={i+1}><Col size="md-12"><h2>{i+1}.) Name: {this.state.listOfUsers[i].name}</h2></Col><Col size="md-12"><h2>Clears: {this.state.listOfUsers[i].numberOfClears}</h2></Col></Row>);
         }
 
         return list;
@@ -55,7 +55,7 @@ class Leaderboard extends Component {
                 <Container>
                     <Row>
                         <Col size="md-12">
-                            <h1>Insert leaderboard here</h1>
+                            <h1>Trial of Anima Leaderboard</h1>
                         </Col>
                     </Row>
 
