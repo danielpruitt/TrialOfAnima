@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Logout from "./components/Logout";
 import SignUp from "./pages/SignUp";
 import "./App.css"
+import Leaderboard from "./pages/Leaderboard";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   
@@ -37,6 +38,7 @@ const App = () =>
         <PrivateRoute exact path="/" component={Main} />
         <PrivateRoute exact path="/home" component={Main} />
         <PrivateRoute exact path="/game" component={Game} />
+        <PrivateRoute exact path="/leaderboard" component={Leaderboard} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/logout" component={Logout} />
