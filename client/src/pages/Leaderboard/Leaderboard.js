@@ -42,9 +42,8 @@ class Leaderboard extends Component {
     createList = () => {
         let list = [];
 
-        for(let i = 0; i < this.state.listOfUsers; i++){
-            list.push(`<Row><Col size="mid-12"><p>${this.state.listOfUsers.name}</p></Col></Row>`);
-            console.log(list);
+        for(let i = 0; i < this.state.listOfUsers.length; i++){
+            list.push(<Row><Col size="md-12"><h2>{i+1}.) Name: {this.state.listOfUsers[i].name}</h2></Col><Col size="md-12"><h2>Clears: {this.state.listOfUsers[i].numberOfClears}</h2></Col></Row>);
         }
 
         return list;
