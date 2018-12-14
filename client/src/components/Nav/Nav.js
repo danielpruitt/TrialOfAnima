@@ -34,14 +34,14 @@ class Nav extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
 
-       <a className="navbar-brand" href="/">TRIALofANIMA</a>
+      <a className="navbar-brand" href="/">TRIALofANIMA</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="true" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>`
         {this.state.authenticated ? (
           <div className="collapse navbar-collapse" id="navbarText">
           <div className="navbar-text">
-              <a href="/leaderboard">Leaderboard</a>
+              <h2> <a href="/leaderboard">Leaderboard</a></h2>
             </div>
             <div className="navbar-text">
               <h2> Greetings {this.state.userName}!</h2>
