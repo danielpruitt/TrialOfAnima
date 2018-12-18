@@ -36,5 +36,8 @@
     "react": "^16.5.2",
     "react-animated-css": "^1.0.4",
     "validator": "^9.4.1"
+  },
+  "resolutions": {
+    "**/event-stream": "^4.0.1"
   }
 }
